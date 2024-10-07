@@ -112,11 +112,11 @@ width: 60px;
                            <!-- button section -->
                            <ul class="login">
                               <li class="login-modal">
-                                 <a href="#" class="login"><i class="fa fa-lock"></i>Login</a>
+                                 <a href="../member/login.do" class="login"><i class="fa fa-lock"></i>로그인</a>
                               </li>
                               <li>
                                  <div class="cart-option">
-                                    <a href="#"><i class="fa fa-user-plus"></i>Register</a>
+                                    <a href="../member/join.do"><i class="fa fa-user-plus"></i>회원가입</a>
                                  </div>
                               </li>
                            </ul>
