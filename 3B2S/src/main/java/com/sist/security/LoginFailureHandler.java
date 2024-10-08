@@ -14,10 +14,32 @@ import org.springframework.security.web.authentication.AuthenticationFailureHand
 
 import lombok.Setter;
 
-public class LoginFailureHandler /* implements AuthenticationFailureHandler */{
-	@Setter
-	private String defaultFailureUrl;
+public class LoginFailureHandler implements AuthenticationFailureHandler {
+    @Setter
+    private String defaultFailureUrl;
 
-
-	
+	@Override
+	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
+			AuthenticationException exception) throws IOException, ServletException {
+		// TODO Auto-generated method stub
+		String errorMsg="";
+		try
+		{
+			if(exception instanceof BadCredentialsException)
+			{
+				errorMsg="아이디나 비밀번호가 틀립니다!!";
+			}
+			else if(exception instanceof InternalAuthenticationServiceException)
+			{
+				errorMsg="아이디나 비밀번호가 틀립니다!!";
+			}
+			else if(exception instanceof DisabledException)
+			{
+				errorMsg="휴먼 계정입니다!!";
+				// enabled=1 , 0
+			}
+		}catch(Exception ex) {}
+		request.setAttribute("message", errorMsg);
+		request.getRequestDispatcher(defaultFailureUrl).forward(request, response);
+	}
 }

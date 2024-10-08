@@ -16,12 +16,26 @@ import com.sist.vo.MemberVO;
 
 import lombok.Setter;
 
-public class LoginSuccessHandler /* implements AuthenticationSuccessHandler */{
-	@Setter
-	private String defaultUrl;
-
-	@Autowired
-	private MemberService mService;
-	
-	
+public class LoginSuccessHandler implements AuthenticationSuccessHandler{
+    @Setter
+    private String defaultUrl;
+    
+    @Autowired 
+    private MemberService mService;
+    
+	@Override
+	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
+			Authentication authentication) throws IOException, ServletException {
+		// TODO Auto-generated method stub
+		MemberVO vo=mService.memberSessionData(authentication.getName());
+		HttpSession session=request.getSession();
+		session.setAttribute("userId", vo.getUserId());
+		session.setAttribute("userName", vo.getUserName());
+		session.setAttribute("sex", vo.getSex());
+		session.setAttribute("address", vo.getAddr1()+" "+vo.getAddr2());
+		session.setAttribute("phone", vo.getPhone());
+		session.setAttribute("email", vo.getEmail());
+		
+		response.sendRedirect("../main/main.do");
+	}
 }

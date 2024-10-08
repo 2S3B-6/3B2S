@@ -8,7 +8,8 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 </head>
 <body>
-<div class="breadcumb-area" style="background-image: url(../img/bg-img/breadcumb.jpg);">
+<div class="top_space"  style="height: 240px;"></div>
+<div class="breadcumb-area">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -55,11 +56,8 @@
                </tr>
                <tr>
                  <td colspan="2" class="text-center">
-                   <input type=button value="로그인" class="btn-sm btn-danger"
-                    @click="login()"
-                   >
-                   <input type=button value="취소" class="btn-sm btn-primary"
-                    onclick="javascript:history.back()">
+                   <input type=button value="로그인" class="btn-sm btn-danger" @click="login()">
+                   <input type=button value="취소" class="btn-sm btn-primary" onclick="javascript:history.back()">
                  </td>
                </tr>
               </table>

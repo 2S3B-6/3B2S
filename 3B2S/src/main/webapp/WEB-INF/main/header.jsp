@@ -70,7 +70,7 @@ $(document).ready(function(){        
 	
 /* 번역기이미지 */
 #transimgs{
-height: 30px;
+height: 45px;
 width: 60px;
 }
 /* 번역기 툴바 제거 */
@@ -89,13 +89,13 @@ width: 60px;
       <!-- END LOADER -->
       <section id="top">
          <header>
-            <div class="container" style="width:1500px;">
+            <div class="container" ">
                <div class="header-top">
                   <div class="row">
                      <div class="col-md-6">
                         <div class="full">
                            <div class="logo">
-                              <a href="index.html"><img src="../images/logo.png" alt="#" /></a>
+                              <a href="../main/main.do"><img src="../images/logo.png" alt="#" /></a>
                            </div>
                         </div>
                      </div>
@@ -161,10 +161,11 @@ width: 60px;
                                     </div>
                                     <div class="collapse navbar-collapse js-navbar-collapse">
                                        <ul class="nav navbar-nav">
-                                          <li class="active"><a href="index.html">Home</a></li>
+                                          <li class="active"><a href="../main/main.do">Home</a></li>
                                           <li><a href="about.html">About</a></li>
                                           <li><a href="team.html">Team</a></li>
                                           <li><a href="news.html">News</a></li>
+                                          <li><a href="../kbogoods/list.do">굿즈페이지</a></li>
                                           <li class="dropdown mega-dropdown">
                                              <a href="match" class="dropdown-toggle" data-toggle="dropdown">Match<span class="caret"></span></a>				
                                              <ul class="dropdown-menu mega-dropdown-menu">
