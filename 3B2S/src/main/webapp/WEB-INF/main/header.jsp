@@ -162,7 +162,7 @@ width: 60px;
                                     <div class="collapse navbar-collapse js-navbar-collapse">
                                        <ul class="nav navbar-nav">
                                           <li class="active"><a href="../main/main.do">Home</a></li>
-                                          <li><a href="about.html">About</a></li>
+                                          <li><a href="../hotel/list.do">Hotel</a></li>
                                           <li><a href="team.html">Team</a></li>
                                           <li><a href="news.html">News</a></li>
                                           <li><a href="../kbogoods/list.do">굿즈페이지</a></li>
