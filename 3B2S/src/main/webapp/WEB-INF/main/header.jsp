@@ -89,7 +89,7 @@ width: 60px;
       <!-- END LOADER -->
       <section id="top">
          <header>
-            <div class="container" ">
+            <div class="container" width="2500px;">
                <div class="header-top">
                   <div class="row">
                      <div class="col-md-6">
