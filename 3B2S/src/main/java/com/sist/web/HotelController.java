@@ -8,6 +8,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sist.service.*;
 import com.sist.vo.*;
+
+import java.text.DecimalFormat;
 import java.util.*;
 
 import javax.servlet.http.Cookie;
@@ -40,6 +42,10 @@ public class HotelController {
 	{
 		String id=(String)session.getAttribute("userId");
 		HotelVO vo = hService.hotelDetailData(hno);
+		int rprice=vo.getPrice();
+		DecimalFormat formatter = new DecimalFormat("#,###");
+		String price = formatter.format(rprice);
+		model.addAttribute("price", price);
 		model.addAttribute("vo", vo);
 		model.addAttribute("session", session);
 		model.addAttribute("hno", hno);
