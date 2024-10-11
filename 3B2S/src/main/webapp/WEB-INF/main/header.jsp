@@ -117,7 +117,10 @@ li.col-sm-4 {
     margin: 0 !important;
     text-align: left !important;
 }
-
+#flags{
+	width:20px;
+	height:10px;
+}
 
 
 </style>
@@ -134,7 +137,7 @@ li.col-sm-4 {
          <header>
             <div class="container" width="2500px;">
                <div class="header-top">
-                  <div class="row">
+                  <div class="row" >
                      <div class="col-md-6">
                         <div class="full">
                            <div class="logo">
@@ -143,15 +146,8 @@ li.col-sm-4 {
                         </div>
                      </div>
                      <div class="col-md-6">
-                        <div class="right_top_section">
-                           <!-- social icon -->
-                           <ul class="social-icons pull-left">
-                              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                              <li><a class="youtube" href="#"><i class="fa fa-youtube-play"></i></a></li>
-                              <li><a class="pinterest" href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                           </ul>
-                           <!-- end social icon -->
+                        <div class="right_top_section" style="width:600px;">
+                           
                            <!-- button section -->
                            <ul class="login">
                               <li class="login-modal">
@@ -162,6 +158,11 @@ li.col-sm-4 {
                                     <a href="../member/join.do"><i class="fa fa-user-plus"></i>회원가입</a>
                                  </div>
                               </li>
+                              <li>
+                                 <div class="cart-option">
+                                    <a href="../member/join.do"><i class="fa fa-user-plus"></i>고객센터</a>
+                                 </div>
+                              </li>
                            </ul>
                            <!-- start translation -->
                            <ul class="">
@@ -169,10 +170,26 @@ li.col-sm-4 {
                               		<!-- 번역기능 추가 -->
                               			<a href="#"><img src="#" alt="번역기"></a>
                               			<div class="languageselect translation-links">
-                              				<a href="javascript:void(0)" class="Korean" data-lang="ko"><img src="../images/flag_korea.png" class="한국어" id ="transimgs" alt="한국어" data-lang="ko"></a>
-                              				<a href="javascript:void(0)" class="English" data-lang="en"><img src="../images/flag_america.png" class="영어" id ="transimgs" alt="English" data-lang="en"></a>
-                              				<a href="javascript:void(0)" class="Chinese" data-lang="zh-CN"><img src="../images/flag_china.png" class="중국어" id ="transimgs" alt="中国語" data-lang="zh-CN"></a>
-                              				<a href="javascript:void(0)" class="Japanese" data-lang="ja"><img src="../images/flag_japan.png" class="일본어" id ="transimgs" alt="日本語" data-lang="ja"></a>
+                              				<a href="javascript:void(0)" class="Korean" data-lang="ko">
+                              					<img src="../images/flag_korea.png" class="한국어" id ="transimgs" alt="한국어" data-lang="ko" 
+                              						style="width:40px;height:30px;"
+                              					>
+                              				</a>
+                              				<a href="javascript:void(0)" class="English" data-lang="en">
+                              					<img src="../images/flag_america.png" class="영어" id ="transimgs" alt="English" data-lang="en"
+                              						style="width:40px;height:30px;"
+                              					>
+                              				</a>
+                              				<a href="javascript:void(0)" class="Chinese" data-lang="zh-CN">
+                              					<img src="../images/flag_china.png" class="중국어" id ="transimgs" alt="中国語" data-lang="zh-CN"
+                              						style="width:40px;height:30px;"
+                              					>
+                              				</a>
+                              				<a href="javascript:void(0)" class="Japanese" data-lang="ja" >
+                              					<img src="../images/flag_japan.png" class="일본어" id ="transimgs" alt="日本語" data-lang="ja"
+                              						style="width:40px;height:30px;"
+                              					>
+                              				</a>
                               			</div>
                               													
                               </li>
