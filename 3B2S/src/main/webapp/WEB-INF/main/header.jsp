@@ -82,7 +82,6 @@ width: 60px;
     position: absolute !important;
     top: 100% !important; /* Match 버튼 바로 아래 */
     left: 0 !important; /* 버튼의 왼쪽에 정렬 */
-    width: 300px !important; /* 드롭다운 메뉴의 폭 설정 */
     padding: 10px !important;
     background-color: #fff !important;
     border: 1px solid #ccc !important;
@@ -208,7 +207,7 @@ li.col-sm-4 {
                                           <li class="active"><a href="../main/main.do">Home</a></li>
                                           <li class="dropdown mega-dropdown">
                                              <a href="match" class="dropdown-toggle" data-toggle="dropdown">일정/기록<span class="caret"></span></a>				
-                                             <ul class="dropdown-menu mega-dropdown-menu"  style="height:120px;">
+                                             <ul class="dropdown-menu mega-dropdown-menu"  style="width:170px;height:120px;">
                                                
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
@@ -220,7 +219,7 @@ li.col-sm-4 {
                                           </li>
                                           <li class="dropdown mega-dropdown">
                                              <a href="match" class="dropdown-toggle" data-toggle="dropdown">구장/선수/팀<span class="caret"></span></a>				
-                                             <ul class="dropdown-menu mega-dropdown-menu"  style="height:180px;">
+                                             <ul class="dropdown-menu mega-dropdown-menu"  style="width:110px;height:180px; width:60px;">
                                                
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
@@ -233,7 +232,7 @@ li.col-sm-4 {
                                           </li>
                                           <li class="dropdown mega-dropdown">
                                              <a href="match" class="dropdown-toggle" data-toggle="dropdown">하이라이트/뉴스<span class="caret"></span></a>				
-                                             <ul class="dropdown-menu mega-dropdown-menu"  style="height:120px;">
+                                             <ul class="dropdown-menu mega-dropdown-menu"  style="width:200px;height:120px;">
                                                
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
@@ -259,7 +258,7 @@ li.col-sm-4 {
                                           </li>
                                           <li class="dropdown mega-dropdown">
                                              <a href="match" class="dropdown-toggle" data-toggle="dropdown">커뮤니티<span class="caret"></span></a>				
-                                             <ul class="dropdown-menu mega-dropdown-menu"  style="height:180px;">
+                                             <ul class="dropdown-menu mega-dropdown-menu"  style="width:170px;height:180px;">
                                                
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
