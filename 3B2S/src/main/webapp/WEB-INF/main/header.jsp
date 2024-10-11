@@ -77,6 +77,50 @@ width: 60px;
 	.VIpgJd-ZVi9od-ORHb-OEVmcd {
 		display: none; // add !important if required 
   	}
+/* 드롭다운 메뉴를 Match 버튼 바로 아래에 붙이기 */
+.dropdown-menu.mega-dropdown-menu {
+    position: absolute !important;
+    top: 100% !important; /* Match 버튼 바로 아래 */
+    left: 0 !important; /* 버튼의 왼쪽에 정렬 */
+    width: 300px !important; /* 드롭다운 메뉴의 폭 설정 */
+    padding: 10px !important;
+    background-color: #fff !important;
+    border: 1px solid #ccc !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important; /* 그림자 추가 */
+}
+
+/* 드롭다운 메뉴를 중앙 정렬 대신 Match 버튼에 맞춤 */
+.dropdown.mega-dropdown {
+    position: relative !important;
+}
+
+.menu-inner {
+    list-style-type: none !important;
+    padding-left: 0 !important;
+    margin: 0 !important;
+}
+
+/* 텍스트가 줄바꿈되지 않도록 설정 */
+.menu-inner li a {
+    display: block !important;
+    padding: 8px 15px !important;
+    text-decoration: none !important;
+    color: #333 !important;
+    white-space: nowrap !important; /* 줄바꿈 방지 */
+}
+
+.menu-inner li a:hover {
+    background-color: #f0f0f0 !important;
+}
+
+li.col-sm-4 {
+    float: none !important;
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+
+
 </style>
 
 <title>2S3B</title>
@@ -162,62 +206,77 @@ width: 60px;
                                     <div class="collapse navbar-collapse js-navbar-collapse">
                                        <ul class="nav navbar-nav">
                                           <li class="active"><a href="../main/main.do">Home</a></li>
-                                          <li><a href="../hotel/list.do">Hotel</a></li>
-                                          <li><a href="team.html">Team</a></li>
-                                          <li><a href="news.html">News</a></li>
-                                          <li><a href="../kbogoods/list.do">굿즈페이지</a></li>
                                           <li class="dropdown mega-dropdown">
-                                             <a href="match" class="dropdown-toggle" data-toggle="dropdown">Match<span class="caret"></span></a>				
+                                             <a href="match" class="dropdown-toggle" data-toggle="dropdown">일정/기록<span class="caret"></span></a>				
                                              <ul class="dropdown-menu mega-dropdown-menu">
-                                                <li class="col-sm-8">
-                                                   <ul>
-                                                      <li class="dropdown-header">Men Collection</li>
-                                                      <div id="menCollection" class="carousel slide" data-ride="carousel">
-                                                         <div class="carousel-inner">
-                                                            <div class="item active">
-                                                               <div class="banner-for-match"><a href="#"><img class="img-responsive" src="../images/match-banner1.jpg" alt="#" /></a></div>
-                                                            </div>
-                                                            <!-- End Item -->
-                                                            <div class="item">
-                                                               <div class="banner-for-match"><a href="#"><img class="img-responsive" src="../images/match-banner1.jpg" alt="#" /></a></div>
-                                                            </div>
-                                                            <!-- End Item -->
-                                                            <div class="item">
-                                                               <div class="banner-for-match"><a href="#"><img class="img-responsive" src="../images/match-banner1.jpg" alt="#" /></a></div>
-                                                            </div>
-                                                            <!-- End Item -->                                
-                                                         </div>
-                                                         <!-- End Carousel Inner -->
-                                                         <!-- Controls -->
-                                                         <a class="left carousel-control" href="#menCollection" role="button" data-slide="prev">
-                                                         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                                         <span class="sr-only">Previous</span>
-                                                         </a>
-                                                         <a class="right carousel-control" href="#menCollection" role="button" data-slide="next">
-                                                         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                                         <span class="sr-only">Next</span>
-                                                         </a>
-                                                      </div>
-                                                      <!-- /.carousel -->
-                                                   </ul>
-                                                </li>
+                                               
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
-                                                      <li class="dropdown-header">Next Matchs</li>
-                                                      <li><a href="#">Contrary vs classical</a></li>
-                                                      <li><a href="#">Discovered vs undoubtable</a></li>
-                                                      <li><a href="#">Contrary vs classical</a></li>
-                                                      <li><a href="#">Discovered vs undoubtable</a></li>
-                                                      <li><a href="#">Contrary vs classical</a></li>
-                                                      <li><a href="#">Discovered vs undoubtable</a></li>
-                                                      <li><a href="#">Contrary vs classical</a></li>
-                                                      <li><a href="#">Discovered vs undoubtable</a></li>
+                                                      <li class="dropdown-header">일정/기록</li>
+                                                      <li><a href="#">경기일정&결과</a></li>
+                                                      <li><a href="#">일자별 기록</a></li>
                                                    </ul>
                                                 </li>
                                              </ul>
                                           </li>
-                                          <li><a href="blog.html">Blog</a></li>
-                                          <li><a href="contact.html">contact</a></li>
+                                          <li class="dropdown mega-dropdown">
+                                             <a href="match" class="dropdown-toggle" data-toggle="dropdown">구장/선수/팀<span class="caret"></span></a>				
+                                             <ul class="dropdown-menu mega-dropdown-menu">
+                                               
+                                                <li class="col-sm-4">
+                                                   <ul class="menu-inner">
+                                                      <li class="dropdown-header">구장/선수/팀</li>
+                                                      <li><a href="#">구장 정보</a></li>
+                                                      <li><a href="#">팀 정보</a></li>
+                                                      <li><a href="#">선수 정보</a></li>
+                                                   </ul>
+                                                </li>
+                                             </ul>
+                                          </li>
+                                          <li class="dropdown mega-dropdown">
+                                             <a href="match" class="dropdown-toggle" data-toggle="dropdown">하이라이트/뉴스<span class="caret"></span></a>				
+                                             <ul class="dropdown-menu mega-dropdown-menu">
+                                               
+                                                <li class="col-sm-4">
+                                                   <ul class="menu-inner">
+                                                      <li class="dropdown-header">하이라이트/뉴스</li>
+                                                      <li><a href="#">경기별 하이라이트</a></li>
+                                                      <li><a href="#">뉴스</a></li>
+                                                   </ul>
+                                                </li>
+                                             </ul>
+                                          </li>
+                                          <li class="dropdown mega-dropdown">
+                                             <a href="match" class="dropdown-toggle" data-toggle="dropdown">구매/예약<span class="caret"></span></a>				
+                                             <ul class="dropdown-menu mega-dropdown-menu">
+                                               
+                                                <li class="col-sm-4">
+                                                   <ul class="menu-inner">
+                                                      <li class="dropdown-header">구매/예약</li>
+                                                      <li><a href="../kbogoods/list.do">굿즈</a></li>
+                                                      <li><a href="#">티켓</a></li>
+                                                      <li><a href="#">기차</a></li>
+                                                      <li><a href="../hotel/list.do">숙소</a></li>
+                                                   </ul>
+                                                </li>
+                                             </ul>
+                                          </li>
+                                          <li class="dropdown mega-dropdown">
+                                             <a href="match" class="dropdown-toggle" data-toggle="dropdown">커뮤니티<span class="caret"></span></a>				
+                                             <ul class="dropdown-menu mega-dropdown-menu">
+                                               
+                                                <li class="col-sm-4">
+                                                   <ul class="menu-inner">
+                                                      <li class="dropdown-header">커뮤니티</li>
+                                                      <li><a href="#">공지사항</a></li>
+                                                      <li><a href="#">게시판</a></li>
+                                                      <li><a href="#">갤러리/자료실</a></li>
+                                                   </ul>
+                                                </li>
+                                             </ul>
+                                          </li>
+                                          
+                                               
                                        </ul>
                                     </div>
                                     <!-- /.nav-collapse -->
