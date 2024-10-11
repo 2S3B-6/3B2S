@@ -208,11 +208,10 @@ li.col-sm-4 {
                                           <li class="active"><a href="../main/main.do">Home</a></li>
                                           <li class="dropdown mega-dropdown">
                                              <a href="match" class="dropdown-toggle" data-toggle="dropdown">일정/기록<span class="caret"></span></a>				
-                                             <ul class="dropdown-menu mega-dropdown-menu">
+                                             <ul class="dropdown-menu mega-dropdown-menu"  style="height:120px;">
                                                
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
-                                                      <li class="dropdown-header">일정/기록</li>
                                                       <li><a href="#">경기일정&결과</a></li>
                                                       <li><a href="#">일자별 기록</a></li>
                                                    </ul>
@@ -221,11 +220,10 @@ li.col-sm-4 {
                                           </li>
                                           <li class="dropdown mega-dropdown">
                                              <a href="match" class="dropdown-toggle" data-toggle="dropdown">구장/선수/팀<span class="caret"></span></a>				
-                                             <ul class="dropdown-menu mega-dropdown-menu">
+                                             <ul class="dropdown-menu mega-dropdown-menu"  style="height:180px;">
                                                
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
-                                                      <li class="dropdown-header">구장/선수/팀</li>
                                                       <li><a href="#">구장 정보</a></li>
                                                       <li><a href="#">팀 정보</a></li>
                                                       <li><a href="#">선수 정보</a></li>
@@ -235,11 +233,10 @@ li.col-sm-4 {
                                           </li>
                                           <li class="dropdown mega-dropdown">
                                              <a href="match" class="dropdown-toggle" data-toggle="dropdown">하이라이트/뉴스<span class="caret"></span></a>				
-                                             <ul class="dropdown-menu mega-dropdown-menu">
+                                             <ul class="dropdown-menu mega-dropdown-menu"  style="height:120px;">
                                                
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
-                                                      <li class="dropdown-header">하이라이트/뉴스</li>
                                                       <li><a href="#">경기별 하이라이트</a></li>
                                                       <li><a href="#">뉴스</a></li>
                                                    </ul>
@@ -248,11 +245,10 @@ li.col-sm-4 {
                                           </li>
                                           <li class="dropdown mega-dropdown">
                                              <a href="match" class="dropdown-toggle" data-toggle="dropdown">구매/예약<span class="caret"></span></a>				
-                                             <ul class="dropdown-menu mega-dropdown-menu">
+                                             <ul class="dropdown-menu mega-dropdown-menu"  style="height:220px;">
                                                
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
-                                                      <li class="dropdown-header">구매/예약</li>
                                                       <li><a href="../kbogoods/list.do">굿즈</a></li>
                                                       <li><a href="#">티켓</a></li>
                                                       <li><a href="#">기차</a></li>
@@ -263,11 +259,10 @@ li.col-sm-4 {
                                           </li>
                                           <li class="dropdown mega-dropdown">
                                              <a href="match" class="dropdown-toggle" data-toggle="dropdown">커뮤니티<span class="caret"></span></a>				
-                                             <ul class="dropdown-menu mega-dropdown-menu">
+                                             <ul class="dropdown-menu mega-dropdown-menu"  style="height:180px;">
                                                
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
-                                                      <li class="dropdown-header">커뮤니티</li>
                                                       <li><a href="#">공지사항</a></li>
                                                       <li><a href="#">게시판</a></li>
                                                       <li><a href="#">갤러리/자료실</a></li>
