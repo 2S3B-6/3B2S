@@ -28,6 +28,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler{
 			Authentication authentication) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		MemberVO vo=mService.memberSessionData(authentication.getName());
+		System.out.println(authentication.getName());
 		HttpSession session=request.getSession();
 		session.setAttribute("userId", vo.getUserId());
 		session.setAttribute("userName", vo.getUserName());

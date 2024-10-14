@@ -21,9 +21,9 @@
    <!-- Site CSS -->
    <link rel="stylesheet" href="../css/style.css">
    <!-- Colors CSS -->
-   <link rel="stylesheet" href="../css/colors.css">
+  <!--  <link rel="stylesheet" href="../css/colors.css"> -->
    <!-- ALL VERSION CSS -->	
-   <link rel="stylesheet" href="../css/versions.css">
+<!--    <link rel="stylesheet" href="../css/versions.css"> -->
    <!-- Responsive CSS -->
    <link rel="stylesheet" href="../css/responsive.css">
    <!-- Custom CSS -->

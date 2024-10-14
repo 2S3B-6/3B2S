@@ -24,7 +24,7 @@ public interface MemberMapper {
 	//비밀번호 검사
 	@Select("SELECT userId,userName,userPwd,enabled, authority "
 			+ "FROM member_2s3b sm, authority au "
-			+ "WHERE pm.userId=au.userId "
+			+ "WHERE sm.userId=au.userId "
 			+ "AND pm.userId=#{userId}")
 	public MemberVO memberInfoData(String userId);
 	
