@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 </head>
@@ -14,7 +14,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="bradcumb-title text-center">
-                        <h2>·Î±×ÀÎ</h2>
+                        <h2>ë¡œê·¸ì¸</h2>
                     </div>
                 </div>
             </div>
@@ -35,20 +35,20 @@
              <form action="../member/login.do" method="post" id="frm">
               <table class="table text-center">
                <tr>
-                 <th class="text-center" width=20%>¾ÆÀÌµğ</th>
+                 <th class="text-center" width=20%>ì•„ì´ë””</th>
                  <td width="80%">
                    <input type=text name="userId" ref="userId" v-model="userId">
                  </td>
                </tr>
                <tr>
-                 <th class="text-center" width=20%>ºñ¹Ğ¹øÈ£</th>
+                 <th class="text-center" width=20%>ë¹„ë°€ë²ˆí˜¸</th>
                  <td width="80%">
                    <input type=password name="userPwd" ref="userPwd" v-model="userPwd">
                  </td>
                </tr>
                <tr>
                  <td colspan="2">
-                   <input type=checkbox name="remember-me">ÀÚµ¿·Î±×ÀÎ
+                   <input type=checkbox name="remember-me">ìë™ë¡œê·¸ì¸
                  </td>
                </tr>
                <tr>
@@ -56,8 +56,8 @@
                </tr>
                <tr>
                  <td colspan="2" class="text-center">
-                   <input type=button value="·Î±×ÀÎ" class="btn-sm btn-danger" @click="login()">
-                   <input type=button value="Ãë¼Ò" class="btn-sm btn-primary" onclick="javascript:history.back()">
+                   <input type=button value="ë¡œê·¸ì¸" class="btn-sm btn-danger" @click="login()">
+                   <input type=button value="ì·¨ì†Œ" class="btn-sm btn-primary" onclick="javascript:history.back()">
                  </td>
                </tr>
               </table>
@@ -86,6 +86,7 @@ let logApp=Vue.createApp({
 			 this.$refs.userPwd.focus()
 			 return 
 		 }
+		 alert(this.userPwd)
 		 $('#frm').submit()
 	 }
  }

@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <style type="text/css">
@@ -19,7 +19,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="bradcumb-title text-center">
-                        <h2>ȸ������</h2>
+                        <h2>회원가입</h2>
                     </div>
                 </div>
             </div>
@@ -44,12 +44,12 @@
 			      <td width="70%" >
 			       <input type="text" size=15 class="input-sm" v-bind:readonly="isReadOnly" name="userId" ref="userId" v-model="userId">
 			       &nbsp;
-			       <input type="button" value="�ߺ�üũ" class="btn-sm btn-danger" @click="idCheck()">
+			       <input type="button" value="중복체크" class="btn-sm btn-danger" @click="idCheck()">
 			       <p>{{idOk}}</p>
 			      </td>
 			     </tr>
 			     <tr>
-			      <th class="text-right" width="30%" style="border: none;">��й�ȣ</th>
+			      <th class="text-right" width="30%" style="border: none;">비밀번호</th>
 			      <td width="70%" style="border: none;">
 			       <input type="password" size=15 class="input-sm" name="userPwd" ref="userPwd" v-model="userPwd" @keyup="pwdValidate()">
 			       <div class="text-center">
@@ -58,60 +58,60 @@
 			      </td>
 			     </tr>
 			     <tr>
-			      <th class="text-right" width="40%" style="border: none;">��й�ȣ Ȯ��</th>
+			      <th class="text-right" width="40%" style="border: none;">비밀번호 확인</th>
 			      <td width="60%" style="border: none;">
-			       <input type="password" size=15 class="input-sm" name="userPwd" ref="userPwd2" v-model="userPwd2" @keyup="pwdValidate2()">
+			       <input type="password" size=15 class="input-sm" name="userPwd2" ref="userPwd2" v-model="userPwd2" @keyup="pwdValidate2()">
 
 			      </td>
 			     </tr>
 			     <tr>
-			      <th class="text-right" width="30%" style="border: none;">�̸�</th>
+			      <th class="text-right" width="30%" style="border: none;">이름</th>
 			      <td width="70%" style="border: none;">
 			       <input type="text" size=15 class="input-sm" name="userName" ref="userName" v-model="userName">
 			      </td>
 			     </tr>
 			     <tr>
-			      <th class="text-right" width="30%" style="border: none;">����</th>
+			      <th class="text-right" width="30%" style="border: none;">성별</th>
 			      <td width="70%" style="border: none;">
-			       <input type="radio" name="sex" value="����" checked v-model="sex">����
-			       <input type="radio" name="sex" value="����" v-model="sex">����
+			       <input type="radio" name="sex" value="남자" checked v-model="sex">남자
+			       <input type="radio" name="sex" value="여자" v-model="sex">여자
 			      </td>
 			     </tr>
 			     <tr>
-			      <th class="text-right" width="30%" style="border: none;">�������</th>
+			      <th class="text-right" width="30%" style="border: none;">생년월일</th>
 			      <td width="70%" style="border: none;">
 			       <input type="date" size=20 class="input-sm" name="birthday" v-model="birthday" ref="birthday">
 			      </td>
 			     </tr>
 			     <tr>
-			      <th class="text-right" width="30%" style="border: none;">�̸���</th>
+			      <th class="text-right" width="30%" style="border: none;">이메일</th>
 			      <td width="70%" style="border: none;">
 			       <input type="text" size=50 class="input-sm" name="email" ref="email" v-model="email"
 			       >
 			      </td>
 			     </tr>
 			     <tr>
-			      <th class="text-right" width="30%" style="border: none;">������ȣ</th>
+			      <th class="text-right" width="30%" style="border: none;">우편번호</th>
 			      <td width="70%" style="border: none;">
 			       <input type="text" size=10 class="input-sm" name="post" readonly ref="post" v-model="post">
 			       &nbsp;
-			       <input type=button class="btn-sm" value="������ȣ�˻�" @click="postFind()" >
+			       <input type=button class="btn-sm" value="우편번호검색" @click="postFind()" >
 			      </td>
 			     </tr>
 			     <tr>
-			      <th class="text-right" width="30%" style="border: none;">�ּ�</th>
+			      <th class="text-right" width="30%" style="border: none;">주소</th>
 			      <td width="70%" style="border: none;">
 			       <input type="text" size=50 class="input-sm" name="addr1" readonly ref="addr1" v-model="addr1">
 			      </td>
 			     </tr>
 			     <tr>
-			      <th class="text-right" width="30%" style="border: none;">���ּ�</th>
+			      <th class="text-right" width="30%" style="border: none;">상세주소</th>
 			      <td width="70%" style="border: none;">
 			       <input type="text" size=50 class="input-sm" name="addr2" ref="addr2" v-model="addr2">
 			      </td>
 			     </tr>
 			     <tr>
-			      <th class="text-right " width="30%">��ȭ��ȣ</th>
+			      <th class="text-right " width="30%">전화번호</th>
 			      <td width="70%">
 			       <select class="input-sm" name="phone1" v-model="phone1">
 			        <option>010</option>
@@ -123,9 +123,9 @@
 			     </tr>
 			     <tr>
 			       <td colspan="2" class="text-center">
-			        <input type="submit" value="ȸ������" class="btn-sm ">
+			        <input type="submit" value="회원가입" class="btn-sm ">
 			        &nbsp;&nbsp;
-			        <input type=button value="���" class="btn-sm " onclick="javascript:history.back()">
+			        <input type=button value="취소" class="btn-sm " onclick="javascript:history.back()">
 			       </td>
 			     </tr>
 			    </table>
@@ -168,18 +168,18 @@ let joinApp=Vue.createApp({
 		 
 		 if(pwd.length<8 || pwd.length>20)
 		 {
-			this.pwdOk='��й�ȣ�� 8�ڸ�~20�ڸ� �̳��� �Է��ϼ���' 
+			this.pwdOk='비밀번호는 8자리~20자리 이내로 입력하세요' 
 			return
 		 }
 		 
 		 else if(pwd.search(/\s/)!=-1)
 	     {
-			 this.pwdOk="��й�ȣ�� ������� �Է��ϼ���"
+			 this.pwdOk="비밀번호는 공백없이 입력하세요"
 			 return
 	     }
 		 else if(num<0 || eng<0)
 		 {
-			 this.pwdOk="��й�ȣ�� ����,���ڸ� ȥ���ؼ� �Է��ؾ� �մϴ�"
+			 this.pwdOk="비밀번호는 영문,숫자를 혼합해서 입력해야 합니다"
 			 return
 		 }
 		 else
@@ -191,7 +191,7 @@ let joinApp=Vue.createApp({
 	 pwdValidate2(){
 		 if(this.userPwd!=this.userPwd2)
 		 {
-			 this.pwdOk='��й�ȣ�� ��ġ���� �ʽ��ϴ�'
+			 this.pwdOk='비밀번호가 일치하지 않습니다'
 		 }
 		 else
 		 {
@@ -199,13 +199,13 @@ let joinApp=Vue.createApp({
 		 }
 	 },
 	 submitForm(e){
-		 alert("ȸ�������� �Ϸ�Ǿ����ϴ�")
+		 alert("회원가입이 완료되었습니다")
 		 if(this.userId && this.userName && this.userPwd && this.sex 
 			 && this.userPwd2 && this.birthday && this.post 
 			 && this.addr1 && this.addr2 && this.email && this.idOk!='' && this.pwdOk!=''
 		   )
 		 {
-			 alert("���� ����")
+			 alert("정상 수행")
 			 return true
 		 }
 		 
@@ -254,7 +254,7 @@ let joinApp=Vue.createApp({
 		 if(this.userId==='')
 		 {
 			 this.$refs.userId.focus()
-			 this.idOk='���̵� �Է����ֽʽÿ�'
+			 this.idOk='아이디를 입력해주십시오'
 			 return
 		 }
 		 axios.get('../member/idcheck_vue.do',{
@@ -265,13 +265,13 @@ let joinApp=Vue.createApp({
 			 console.log(response.data)
 			 if(response.data===0)
 			 {
-				 this.idOk='��밡���� ���̵��Դϴ�'
+				 this.idOk='사용가능한 아이디입니다'
 				 this.isReadOnly=true
 				 
 			 }
 			 else
 			 {
-				 this.idOk='�̹� ������� ���̵��Դϴ�'
+				 this.idOk='이미 사용중인 아이디입니다'
 				 this.userId=''
 				 this.$refs.userId.focus()
 			 }
