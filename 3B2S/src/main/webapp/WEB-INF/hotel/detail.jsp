@@ -92,7 +92,7 @@ li{
                         <div class="btnloc">
                               <button class="btn btn-sm btn-primary">좋아요</button>
                               <button class="btn btn-sm btn-primary">찜하기</button>
-                              <button class="btn btn-sm btn-primary" @click="reserve(${vo.hno })">예약하기</button>
+                              <a class="btn" href="../hotel/reserve.do?hno=${hno }">예약하기</a>
                         </div>
                      <table class="table">
                         <tr>
@@ -138,7 +138,6 @@ li{
                                   map.setCenter(coords);
                               } 
                           });  
-                         
                             </script>
                   </div>
                  
@@ -147,6 +146,5 @@ li{
          </div>
          </div>
       </section>
-   
 </body>
 </html>

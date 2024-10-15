@@ -13,6 +13,7 @@ import java.text.DecimalFormat;
 import java.util.*;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -54,5 +55,11 @@ public class HotelController {
 	@GetMapping("hotel/find.do")
 	public String hotel_find() {
 		return "hotel/find";
+	}
+	@GetMapping("hotel/reserve.do")
+	public String reserve_hotel(int hno,HttpServletRequest request) {
+		
+		request.setAttribute("hno", hno);
+		return "hotel/reserve";
 	}
 }

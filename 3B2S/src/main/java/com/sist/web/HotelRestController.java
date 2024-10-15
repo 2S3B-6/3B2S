@@ -53,4 +53,15 @@ public class HotelRestController {
 		
 		return json;
 	}
+	@GetMapping(value="hotel/reserve_vue.do",produces="text/plain;charset=UTF-8")
+	public String hotel_reserve(int hno) throws Exception{
+		HotelVO vo = hService.hotelReserveData(hno);
+		Map map = new HashMap();
+		map.put("hotel_vo", vo);
+		
+		ObjectMapper mapper = new ObjectMapper();
+		String json = mapper.writeValueAsString(map);
+		
+		return json;
+	}
 }

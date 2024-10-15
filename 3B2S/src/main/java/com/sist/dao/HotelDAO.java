@@ -23,5 +23,9 @@ public class HotelDAO {
 		mapper.hotelHitIncrement(hno);
 		return mapper.hotelDetailData(hno);
 	}
+	public HotelVO hotelReserveData(int hno) {
+		return mapper.hotelReserveData(hno);
+	}
+
 	
 }
