@@ -176,14 +176,15 @@ li.col-sm-4 {
 	                            	)
 	                            	님께서 로그인되었습니다&nbsp;&nbsp;
 	                                <a href="../member/logout.do">로그아웃</a>
+	                                <sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_USER')">
+	                                	<a href="../adminpage/admin_main.do">관리자 페이지</a>
+	                                </sec:authorize>
 	                            </div>
                             </c:if>
                            <!-- start translation -->
-                           <ul class="">
-                              <li class="trans text-right">
+                           <!-- header수정시 번역은 이부분 조정 -->
+                              <div class="trans text-right">
                               		<!-- 번역기능 추가 -->
-                              			<a href="#"><img src="#" alt="번역기"></a>
-                              			<div class="languageselect translation-links">
                               				<a href="javascript:void(0)" class="Korean" data-lang="ko">
                               					<img src="../images/flag_korea.png" class="한국어" id ="transimgs" alt="한국어" data-lang="ko" 
                               						style="width:40px;height:30px;"
@@ -204,14 +205,8 @@ li.col-sm-4 {
                               						style="width:40px;height:30px;"
                               					>
                               				</a>
-                              			</div>
-                              													
-                              </li>
-                              </ul>
-								<div class="text-center" style="text-align: center">
-									<div id="google_translate_element"></div>
-								</div>
-                           <!-- end translation -->                           
+                              </div>
+                              <!-- end translation -->                         
                            <!-- end button section -->
                         </div>
                      </div>

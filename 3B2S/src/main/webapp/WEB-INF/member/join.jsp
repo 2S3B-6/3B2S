@@ -9,11 +9,16 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <style type="text/css">
-
+p {
+  /* 수평 중앙 정렬하기 */
+  margin-right: 450px;
+  color: red;
+}
 </style>
 </head>
 <body>
 <div class="top_space"  style="height: 220px;"></div>
+
 <div class="breadcumb-area">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
@@ -86,8 +91,7 @@
 			     <tr>
 			      <th class="text-right" width="30%" style="border: none;">이메일</th>
 			      <td width="70%" style="border: none;">
-			       <input type="text" size=50 class="input-sm" name="email" ref="email" v-model="email"
-			       >
+			       <input type="text" size=50 class="input-sm" name="email" ref="email" v-model="email">
 			      </td>
 			     </tr>
 			     <tr>
@@ -111,14 +115,15 @@
 			      </td>
 			     </tr>
 			     <tr>
-			      <th class="text-right " width="30%">전화번호</th>
-			      <td width="70%">
+			      <th class="text-right" width="30%" style="border: none;">전화번호</th>
+			      <td width="70%" style="border: none;">
 			       <select class="input-sm" name="phone1" v-model="phone1">
 			        <option>010</option>
 			        <option>017</option>
 			        <option>011</option>
-			       </select>
-			       <input type="text" size=20 class="input-sm" name="phone2" ref="phone2" v-model="phone2">
+			       </select> &nbsp;
+			       <input type="text" size=10 class="input-sm" name="phone2" ref="phone2" v-model="phone2" oninput="this.value = this.value.replace(/[^0-9.]/g, '')" maxlength="4"> &nbsp;
+			       <input type="text" size=10 class="input-sm" name="phone3" ref="phone2" v-model="phone3" oninput="this.value = this.value.replace(/[^0-9.]/g, '')" maxlength="4">
 			      </td>
 			     </tr>
 			     <tr>
@@ -147,6 +152,7 @@ let joinApp=Vue.createApp({
 		 userName:'',
 		 phone1:'',
 		 phone2:'',
+		 phone3:'',
 		 birthday:'',
 		 userPwd:'',
 		 userPwd2:'',
@@ -233,6 +239,10 @@ let joinApp=Vue.createApp({
 		 else if(this.phone2==='')
 		 {
 			 this.$refs.phone2.focus()
+		 }
+		 else if(this.phone3==='')
+		 {
+			 this.$refs.phone3.focus()
 		 }
 		 else if(this.email==='')
 		 {
