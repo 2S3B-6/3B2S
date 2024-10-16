@@ -41,7 +41,7 @@
                     					</tr>
                     					<tr>
                     						<td colspan="2" class="text-center">
-                    							<img src="#" style="width:200px;height:150px">
+                    							<img :src="poster" style="width:200px;height:150px">
                     						</td>
                     					</tr>
                     					<tr>
@@ -54,7 +54,7 @@
                     					</tr>
                     					<tr>
                     						<th width="30%" class="text-center">방등급</th>
-                    						<td width="70%">0</td>
+                    						<td width="70%">{{room}}</td>
                     					</tr>
                     					<tr>
                     						<th width="30%" class="text-center">가격</th>
@@ -88,12 +88,12 @@
                     							<h4>방 등급</h4>
                     						</td>
                     					</tr>
-                    					<tr v-show="isInwon">
+                    					<tr v-show="isRoom">
                     						<td class="text-center">
-                    							<!-- <span class="btn btn-xs btn-warning" v-for="i in inwon_list" style="margin-left:1px"
-                    							  @click="inwonSelect(i)">
+                    							 <span class="btn btn-lg btn-primary" v-for="i in room_list" style="margin-left:1px;"
+                    							  @click="roomSelect(i)">
                     								{{i}}
-                    							</span> -->
+                    							</span> 
                     						</td>
                     					</tr>
                     				</table>
@@ -113,12 +113,16 @@
      				hotel_vo:{},
      				day:'',
      				isReserveBtn:false,
-     				isInwon:false,
+     				isRoom:false,
      				name:'',
+     				poster:'',
      				price:0,
+     				baseprice: 0,
      				day:'',
     				time:'',
-    				rdays: []
+    				rdays: [],
+    				room:'',
+    				room_list:[],
      			}
      		},
      		mounted(){
@@ -126,6 +130,7 @@
         	    let year = date.getFullYear();
         	    let month = ("0" + (1 + date.getMonth())).slice(-2);
         	    let day = ("0" + date.getDate()).slice(-2);
+        	    
         		let _this=this
         		document.addEventListener('DOMContentLoaded', function() {
         		    var calendarEl = document.getElementById('calendar');
@@ -152,11 +157,27 @@
                                // 예약 가능한 날짜인지 확인
                                if (_this.rdays.includes(selectedDay)) {
                                    _this.day = info.dateStr;
-                                   _this.isReserveBtn = true;  // 예약 버튼 표시
+                                   _this.isRoom = true;  // 예약 버튼 표시
                                } else {
                                    alert("예약이 불가능한 날짜입니다.");
                                }
-        		          })
+        		          }),
+        		          dayCellDidMount: function (info) {
+        		              let day = new Date(info.date);
+        		              let today = new Date();
+
+        		              // 오늘 이후의 날짜만 색상 변경
+        		              if (day >= today) {
+        		                  let dayNumber = day.getDate();
+        		                  if (_this.rdays.includes(dayNumber)) {
+        		                      // 예약 가능한 날짜는 녹색 배경
+        		                      info.el.style.backgroundColor = 'rgb(255,250,223)';
+        		                  } else {
+        		                      // 예약 불가능한 날짜는 회색 배경
+        		                      info.el.style.backgroundColor = '#F1F1F1';
+        		                  }
+        		              }
+        		          }
         		        });
         		    calendar.render();
         		    });
@@ -164,6 +185,44 @@
         		this.dataRecv()
      		},
      		methods:{
+     			reserve(){
+    				axios.post('../hotel/reserve_ok_vue.do',null,{
+    					params:{
+    						hno:${hno},
+    						rday:this.day,
+    						rroom:this.room,
+    						rprice:this.price
+    					}
+    				}).then(response=>{
+    					// 이동 => mypage
+    					if(response.data==='yes')
+    					{
+    						alert("yes!!")
+    						/* location.href="../mypage/mypage_reserve.do" */
+    					}
+    					else
+    					{
+    						alert(response.data)
+    					}
+    					console.log(response.data)
+    				}).catch(error=>{
+    					console.log(error.response)
+    				})
+    			},
+     			roomSelect(i){
+    				this.room=i
+    				if(i=='C'){
+    					this.price=Math.round(this.baseprice*1.2)
+    				} else if(i=='B'){
+    					this.price=Math.round(this.baseprice*1.4)
+    				} else if(i=='A') {
+    					this.price=Math.round(this.baseprice*1.8)
+    				} else if(i=='S') {
+    					this.price=Math.round(this.baseprice*2.2)
+    				}
+    					
+    				this.isReserveBtn=true
+    			},
      			dataRecv(){
      				axios.get('../hotel/reserve_vue.do',{
      					params:{
@@ -172,10 +231,13 @@
      				}).then(response=>{
      					console.log(response.data)
      					this.name=response.data.hotel_vo.name
-     					this.price=response.data.hotel_vo.price
-     					let availableDatesStr = response.data.hotel_vo.rdays; // "1,4,5,10,17,18,22,24,27,30"
+     					this.baseprice = response.data.hotel_vo.price;  
+     	                this.price = this.baseprice; 
+     					let availableDatesStr = response.data.hotel_vo.rdays; 
      	                this.rdays = availableDatesStr.split(',').map(day => parseInt(day));
-
+     	                this.room_list=response.data.rList
+     	                this.poster=response.data.hotel_vo.poster
+     	                console.log(response.data.rList)
      				}).catch(error=>{
      					console.log(error.response)
      				})

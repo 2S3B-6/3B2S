@@ -29,7 +29,7 @@ public interface HotelMapper {
 			+ "	WHERE hno=#{hno}")
 	public void hotelHitIncrement(int hno);
 	
-	@Select("SELECT name,price,address,location,poster,rdays "
+	@Select("SELECT hno,name,price,address,location,poster,rdays "
 			+ "  FROM hotel "
 			+ "  WHERE hno=#{hno}")
 	public HotelVO hotelReserveData(int hno);
