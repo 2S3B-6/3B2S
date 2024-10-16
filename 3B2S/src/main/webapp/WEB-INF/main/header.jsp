@@ -294,7 +294,7 @@ li.col-sm-4 {
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
                                                       <li><a href="#">공지사항</a></li>
-                                                      <li><a href="#">게시판</a></li>
+                                                      <li><a href="../board/list.do">게시판</a></li>
                                                       <li><a href="#">갤러리/자료실</a></li>
                                                    </ul>
                                                 </li>

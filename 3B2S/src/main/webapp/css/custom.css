@@ -139,7 +139,7 @@
      position: absolute;
      z-index: 1;
      top: 0;
-     min-height: 150px;
+     min-height: auto;
 }
  .social-icons li a {
      height: 40px;
@@ -415,7 +415,7 @@
      font-weight: 300;
      font-size: 18px;
      background: ;
-     border: solid #d8302f 2px;
+     border: solid #003399 2px;
 }
  .search-bar {
      float: right;
@@ -426,7 +426,7 @@
      float: left;
      width: 100%;
      min-height: 50px;
-     background: #0e55b6;
+     background: #003366;
      position: absolute;
      bottom: 0;
      padding: 6px 0;
@@ -519,7 +519,7 @@
  .matchs-vs {
      float: left;
      width: 100%;
-     background: #d8302f;
+     background: #006633;
      color: #fff;
      min-height: 220px;
      padding: 90px 0;
@@ -610,7 +610,7 @@
 }
 /** end search bar **/
  div.menu div.search-bar .input-group-addon {
-     background: #d8302f;
+     background: #003366;
      border: none;
      border-radius: 0;
      color: #fff;
@@ -620,7 +620,7 @@
 }
  footer#footer {
      min-height: auto;
-     background: #111;
+     background: #003366;
      float: left;
      width: 100%;
      padding: 0;
@@ -944,7 +944,7 @@
      min-height: 45px;
      line-height: 45px;
      border-top: solid #222 1px;
-     background: #111;
+     background: #003366;
      color: #fff;
 }
  .footer-bottom p {
@@ -1013,7 +1013,7 @@
  .inner-information-text {
      float: left;
      width: 100%;
-     background: #111;
+     background: #003366;
      color: #fff;
 }
  .inner-information-text h3 {
@@ -1470,7 +1470,7 @@ body section#contant .post-info span h4 {
 }
  .btn {
      float: left;
-     background: #d8302f;
+     background: #003366;
      color: #fff;
      padding: 10px 20px;
      font-size: 15px;
