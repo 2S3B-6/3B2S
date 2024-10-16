@@ -114,7 +114,7 @@
     <div class="card" v-for="vo in ruleList" :key="vo.no">
       <div class="card-title">{{ vo.subject }}</div>
       <div class="card-description">{{ vo.content.substring(0, 100) }}...</div> <!-- 첫 100자만 출력 -->
-      <a :href="'../guide/rule_detail.do?no=' + vo.no" class="more-button btn-primary">자세히 보기</a>
+      <a :href="'../guide/rule_detail.do?no=' + vo.no" class="more-button btn btn-xs btn-primary">자세히 보기</a>
     <!--   <div v-if="today === vo.dbday">
         <img src="../img/icon/new.gif" alt="새로운 항목">
       </div> -->

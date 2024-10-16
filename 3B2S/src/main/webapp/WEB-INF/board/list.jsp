@@ -87,9 +87,6 @@
         <div class="col-md-12">
             <!-- 게시판 리스트를 감싸는 큰 네모 상자 -->
             <div class="board-container" id="listApp">
-                <c:if test="${sessionScope.userId!=null }">
-                    <a href="../board/insert.do" class="btn btn-sm btn-primary">새글</a>
-                </c:if>
 
                 <!-- 게시판 테이블 -->
                 <table class="table">
@@ -115,6 +112,11 @@
                         </tr>
                     </tbody>
                 </table>
+                <div style="margin-bottom:30px;">
+                <c:if test="${sessionScope.userId!=null }">
+                    <a href="../board/insert.do" class="btn btn-sm btn-primary">새글</a>
+                </c:if>
+                </div>
 
                 <!-- 페이지 네비게이션 -->
                 <div class="text-center">

@@ -18,7 +18,7 @@
    max-width: 1000px;
    margin: 0 auto;
    padding: 20px;
-   border: 2px solid #ddd; /* 칠판 같은 테두리 */
+   border: 2px solid #003366; /* 칠판 같은 테두리 */
    border-radius: 10px;
    background-color: #fff;
    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
@@ -121,9 +121,9 @@ pre {
                </tr>
                <tr>
                   <td colspan="4" class="text-right">
-                     <a :href="'../board/update.do?no=' + vo.no" class="btn btn-xs btn-warning" v-show="sessionId === vo.id">수정</a>
-                     <button class="btn btn-xs btn-success" @click="boardDelete()" v-show="sessionId === vo.id">삭제</button>
-                     <a href="../board/list.do" class="btn btn-xs btn-success">목록</a>
+                     <a :href="'../board/update.do?no=' + vo.no" class="btn btn-xs" v-show="sessionId === vo.id">수정</a>
+                     <button class="btn btn-xs" @click="boardDelete()" v-show="sessionId === vo.id">삭제</button>
+                     <a href="../board/list.do" class="btn btn-xs">목록</a>
                   </td>
                </tr>
             </table>
