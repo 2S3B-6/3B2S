@@ -67,6 +67,10 @@ $(document).ready(function(){        
 </script>
 
 <style>
+header{
+margin-left: 80px;
+  display:inline-block
+}
 	.trans a{cursor:pointer;}
 	.trans .languageselect{display:none;}
 	
@@ -135,97 +139,15 @@ li.col-sm-4 {
          <img class="preloader" src="../images/loading-img.gif" alt="">
       </div>
       <!-- END LOADER -->
-      <section id="top">
          <header>
-            <div class="container" width="2500px;">
-               <div class="header-top">
-                  <div class="row" >
-                     <div class="col-md-6">
-                        <div class="full">
-                           <div class="logo">
-                              <a href="../main/main.do"><img src="../images/logo.png" alt="#" /></a>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-md-6">
-                        <div class="right_top_section" style="width:600px;">
-                           
-                           <!-- button section -->
-                           <c:if test="${sessionScope.userId==null }">
-                           <ul class="login">
-                              <li class="login-modal">
-                                 <a href="../member/login.do" class="login"><i class="fa fa-lock"></i>로그인</a>
-                              </li>
-                              <li>
-                                 <div class="cart-option">
-                                    <a href="../member/join.do"><i class="fa fa-user-plus"></i>회원가입</a>
-                                 </div>
-                              </li>
-                              <li>
-                                 <div class="cart-option">
-                                    <a href="../member/join.do"><i class="fa fa-user-plus"></i>고객센터</a>
-                                 </div>
-                              </li>
-                           </ul>
-                           </c:if>
-                           <c:if test="${sessionScope.userId!=null }">
-	                            <div class="login">
-	                            	${sessionScope.userName }(
-		                            	<sec:authorize access="hasRole('ROLE_ADMIN')">관리자</sec:authorize>
-		                            	<sec:authorize access="hasRole('ROLE_USER')">일반 사용자</sec:authorize>
-	                            	)
-	                            	님께서 로그인되었습니다&nbsp;&nbsp;
-	                                <a href="../member/logout.do">로그아웃</a>
-	                                <sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_USER')">
-	                                	<a href="../adminpage/admin_main.do">관리자 페이지</a>
-	                                </sec:authorize>
-	                            </div>
-                            </c:if>
-                           <!-- start translation -->
-                           <!-- header수정시 번역은 이부분 조정 -->
-                           <!-- start translation -->
-                           <ul class="">
-                              <li class="trans text-right">
-                              		<!-- 번역기능 추가 -->
-                              			<div class="translation-links google_translate_element">
-                              				<a href="javascript:void(0)" class="Korean" data-lang="ko">
-                              					<img src="../images/flag_korea.png" class="한국어" id ="transimgs" alt="한국어" data-lang="ko" 
-                              						style="width:40px;height:30px;"
-                              					>
-                              				</a>
-                              				<a href="javascript:void(0)" class="English" data-lang="en">
-                              					<img src="../images/flag_america.png" class="영어" id ="transimgs" alt="English" data-lang="en"
-                              						style="width:40px;height:30px;"
-                              					>
-                              				</a>
-                              				<a href="javascript:void(0)" class="Chinese" data-lang="zh-CN">
-                              					<img src="../images/flag_china.png" class="중국어" id ="transimgs" alt="中国語" data-lang="zh-CN"
-                              						style="width:40px;height:30px;"
-                              					>
-                              				</a>
-                              				<a href="javascript:void(0)" class="Japanese" data-lang="ja" >
-                              					<img src="../images/flag_japan.png" class="일본어" id ="transimgs" alt="日本語" data-lang="ja"
-                              						style="width:40px;height:30px;"
-                              					>
-                              				</a>
-                              			</div>
-                              			<div id="google_translate_element" style="display: none"></div>
-                              													
-                              </li>
-                           </ul>
-                           <!-- end translation -->                         
-                           <!-- end button section -->
-                        </div>
-                     </div>
-                  </div>
-               </div>
+            <div class="container"  >
+               
                <div class="header-bottom">
                   <div class="row">
                      <div class="col-md-12">
                         <div class="full">
                            <div class="main-menu-section">
                               <div class="menu">
-                                 <nav class="navbar navbar-inverse">
                                     <div class="navbar-header">
                                        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
                                        <span class="sr-only">Toggle navigation</span>
@@ -235,6 +157,17 @@ li.col-sm-4 {
                                        </button>
                                        <a class="navbar-brand" href="#">Menu</a>
                                     </div>
+                                    
+                                    
+                                    
+                                    
+                                     <div class="logo" style="margin-right:50px;">
+                              <a href="../main/main.do"><img src="../images/logo.png" alt="#" /></a>
+                           </div>
+                           
+                           
+                           
+                           
                                     <div class="collapse navbar-collapse js-navbar-collapse">
                                        <ul class="nav navbar-nav">
                                           <li class="active"><a href="../main/main.do">Home</a></li>
@@ -305,19 +238,126 @@ li.col-sm-4 {
                                           
                                                
                                        </ul>
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       <!-- Searchbar자리 -->
+
+
+
+
+
+
+
+
+            
+                           
+                           <!-- button section -->
+                           <c:if test="${sessionScope.userId==null }">
+                           <ul class="login">
+                              <li class="login-modal">
+                                 <a href="../member/login.do" class="login"><i class="fa fa-lock"></i>로그인</a>
+                              </li>
+                              <li>
+                                 <div class="cart-option">
+                                    <a href="../member/join.do"><i class="fa fa-user-plus"></i>회원가입</a>
+                                 </div>
+                              </li>
+                              <li>
+                                 <div class="cart-option">
+                                    <a href="../member/join.do"><i class="fa fa-user-plus"></i>고객센터</a>
+                                 </div>
+                              </li>
+                           </ul>
+                           </c:if>
+                           <c:if test="${sessionScope.userId!=null }">
+	                            <div class="login">
+	                            	${sessionScope.userName }(
+		                            	<sec:authorize access="hasRole('ROLE_ADMIN')">관리자</sec:authorize>
+		                            	<sec:authorize access="hasRole('ROLE_USER')">일반 사용자</sec:authorize>
+	                            	)
+	                            	님께서 로그인되었습니다&nbsp;&nbsp;
+	                                <a href="../member/logout.do">로그아웃</a>
+	                            </div>
+                            </c:if>
+                            <!-- start translation -->
+                           <ul class="">
+                              <li class="trans text-right">
+                              		<!-- 번역기능 추가 -->
+                              			<div class="translation-links google_translate_element">
+                              				<a href="javascript:void(0)" class="Korean" data-lang="ko">
+                              					<img src="../images/flag_korea.png" class="한국어" id ="transimgs" alt="한국어" data-lang="ko" 
+                              						style="width:40px;height:30px;"
+                              					>
+                              				</a>
+                              				<a href="javascript:void(0)" class="English" data-lang="en">
+                              					<img src="../images/flag_america.png" class="영어" id ="transimgs" alt="English" data-lang="en"
+                              						style="width:40px;height:30px;"
+                              					>
+                              				</a>
+                              				<a href="javascript:void(0)" class="Chinese" data-lang="zh-CN">
+                              					<img src="../images/flag_china.png" class="중국어" id ="transimgs" alt="中国語" data-lang="zh-CN"
+                              						style="width:40px;height:30px;"
+                              					>
+                              				</a>
+                              				<a href="javascript:void(0)" class="Japanese" data-lang="ja" >
+                              					<img src="../images/flag_japan.png" class="일본어" id ="transimgs" alt="日本語" data-lang="ja"
+                              						style="width:40px;height:30px;"
+                              					>
+                              				</a>
+                              			</div>
+                              			<div id="google_translate_element" style="display: none"></div>
+                              													
+                              </li>
+                           </ul>
+                           <!-- end translation -->      
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+								<!--  -->
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
                                     </div>
                                     <!-- /.nav-collapse -->
-                                 </nav>
-                                 <div class="search-bar">
-                                    <div id="imaginary_container">
-                                       <div class="input-group stylish-input-group">
-                                          <input type="text" class="form-control"  placeholder="Search" >
-                                          <span class="input-group-addon">
-                                          <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>  
-                                          </span>
-                                       </div>
-                                    </div>
-                                 </div>
+                                
+
+
+
+
+
+
+
+
                               </div>
                            </div>
                         </div>
@@ -326,7 +366,6 @@ li.col-sm-4 {
                </div>
             </div>
          </header>
-
 <!-- 번역기능 -->	
 <script type="text/javascript">
 	/* 새 UI 선택 클릭 이벤트가 발생하면
