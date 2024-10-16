@@ -183,8 +183,11 @@ li.col-sm-4 {
                             </c:if>
                            <!-- start translation -->
                            <!-- header수정시 번역은 이부분 조정 -->
-                              <div class="trans text-right">
+                           <!-- start translation -->
+                           <ul class="">
+                              <li class="trans text-right">
                               		<!-- 번역기능 추가 -->
+                              			<div class="translation-links google_translate_element">
                               				<a href="javascript:void(0)" class="Korean" data-lang="ko">
                               					<img src="../images/flag_korea.png" class="한국어" id ="transimgs" alt="한국어" data-lang="ko" 
                               						style="width:40px;height:30px;"
@@ -205,8 +208,12 @@ li.col-sm-4 {
                               						style="width:40px;height:30px;"
                               					>
                               				</a>
-                              </div>
-                              <!-- end translation -->                         
+                              			</div>
+                              			<div id="google_translate_element" style="display: none"></div>
+                              													
+                              </li>
+                           </ul>
+                           <!-- end translation -->                         
                            <!-- end button section -->
                         </div>
                      </div>
