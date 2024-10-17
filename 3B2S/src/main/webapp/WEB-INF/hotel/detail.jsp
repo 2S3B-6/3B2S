@@ -92,7 +92,9 @@ li{
                         <div class="btnloc">
                               <button class="btn btn-sm btn-primary">좋아요</button>
                               <button class="btn btn-sm btn-primary">찜하기</button>
+                              <c:if test="${sessionScope.userId!=null }">
                               <a class="btn" href="../hotel/reserve.do?hno=${hno }">예약하기</a>
+                            </c:if>
                         </div>
                      <table class="table">
                         <tr>

@@ -177,9 +177,8 @@ li.col-sm-4 {
                                                
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
-                                                      <li><a href="../schedule/schedule.do">경기일정&결과</a></li>
+                                                      <li><a href="#">경기일정&결과</a></li>
                                                       <li><a href="#">일자별 기록</a></li>
-                                                      <li><a href="../team/ranking.do">순위</a></li>
                                                    </ul>
                                                 </li>
                                              </ul>
@@ -190,11 +189,9 @@ li.col-sm-4 {
                                                
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
-                                                      <li><a href="../stadium/list.do">구장 정보</a></li>
-                                                      <li><a href="../team/list.do">팀 정보</a></li>
-                                                      <li><a href="../player/batter_list.do">타자 정보</a></li>
-                                                      <li><a href="../player/pitcher_list.do">투수 정보</a></li>
-                                                      <li><a href="../player/vs.do">선수 기록 비교</a></li>
+                                                      <li><a href="#">구장 정보</a></li>
+                                                      <li><a href="#">팀 정보</a></li>
+                                                      <li><a href="#">선수 정보</a></li>
                                                    </ul>
                                                 </li>
                                              </ul>
@@ -206,7 +203,7 @@ li.col-sm-4 {
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
                                                       <li><a href="#">경기별 하이라이트</a></li>
-                                                      <li><a href="../list.do">뉴스</a></li>
+                                                      <li><a href="#">뉴스</a></li>
                                                    </ul>
                                                 </li>
                                              </ul>
@@ -239,7 +236,18 @@ li.col-sm-4 {
                                              </ul>
                                           </li>
                                           
-                                               
+                                               <c:if test="${sessionScope.userId!=null }">
+					                            <li class="myadpage">
+					                            	
+					                            	
+						                            	<sec:authorize access="hasRole('ROLE_ADMIN')">
+						                            		<li class="active"><a href="../main/main.do">관리자페이지</a></li>
+						                            	</sec:authorize>
+						                            	<sec:authorize access="hasRole('ROLE_USER')">
+						                            		<li class="active"><a href="../main/main.do">마이페이지</a></li>
+						                            	</sec:authorize>
+					                            </li>
+                            				</c:if>
                                        </ul>
                                        
                                        
@@ -258,8 +266,8 @@ li.col-sm-4 {
             
                            
                            <!-- button section -->
-                           <c:if test="${sessionScope.userId==null }">
                            <ul class="login">
+                           <c:if test="${sessionScope.userId==null }">
                               <li class="login-modal">
                                  <a href="../member/login.do" class="login"><i class="fa fa-lock"></i>로그인</a>
                               </li>
@@ -268,13 +276,13 @@ li.col-sm-4 {
                                     <a href="../member/join.do"><i class="fa fa-user-plus"></i>회원가입</a>
                                  </div>
                               </li>
+                           </c:if>
                               <li>
                                  <div class="cart-option">
                                     <a href="../member/join.do"><i class="fa fa-user-plus"></i>고객센터</a>
                                  </div>
                               </li>
                            </ul>
-                           </c:if>
                            <c:if test="${sessionScope.userId!=null }">
 	                            <div class="login">
 	                            	${sessionScope.userName }(
