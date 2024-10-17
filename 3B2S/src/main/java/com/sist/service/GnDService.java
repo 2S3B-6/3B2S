@@ -11,4 +11,6 @@ public interface GnDService {
    
    public List<GnDVO> gndListData(Map map);
    public int gndTotalPage();
+   public List<GnDVO> gndTeamListData(Map map);
+   public int gndTeamTotalPage(String team);
 }

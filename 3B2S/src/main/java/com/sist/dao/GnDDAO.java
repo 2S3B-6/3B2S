@@ -34,5 +34,8 @@ public class GnDDAO {
 	   mapper.gndTeamListData(map);
 	   return (List<GnDVO>)map.get("pResult");
    }
+   public int gndTeamTotalPage(String team) {
+	   return mapper.gndTeamTotalPage(team);
+   }
    
 }

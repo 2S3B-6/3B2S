@@ -32,7 +32,7 @@
                   <div class="feature-post small-blog" v-for="vo in gnd_list" :key="vo.hno">
                      <div class="col-md-4">
                         <div class="feature-img">
-                           <img :src="vo.image" class="img-responsive" alt="#" />
+                           <img :src="vo.image" class="img-responsive" style="width:150px;height:90px;" />
                         </div>
                      </div>
                      <div class="col-md-8">
@@ -52,7 +52,7 @@
                      </div>
                   </div>
                   
-                 <div class="col-12">
+                 <div class="col-md-9">
                     <div class="pagination-area d-sm-flex mt-15">
                         <nav aria-label="#">
                             <ul class="pagination">
@@ -73,6 +73,28 @@
                     </div>
                 </div>
                 </div>
+                <div class="col-md-3">
+                  
+                  <div class="blog-sidebar">
+                     <h4 class="heading">야구장목록</h4>
+                     <div class="category-menu">
+                        <ul>
+                           <li><a href="#" @click="findteam('KIA타이거즈')" >KIA타이거즈</a></li>
+                           <li><a href="#" @click="findteam('삼성라이온즈')">삼성라이온즈</a></li>
+                           <li><a href="#" @click="findteam('LG트윈스')">LG트윈스</a></li>
+                           <li><a href="#" @click="findteam('두산베어스')">두산베어스</a></li>
+                           <li><a href="#" @click="findteam('KT위즈')">KT위즈</a></li>
+                           <li><a href="#" @click="findteam('SSG랜더스')">SSG랜더스</a></li>
+                           <li><a href="#" @click="findteam('롯데자이언츠')">롯데자이언츠</a></li>
+                           <li><a href="#" @click="findteam('한화이글스')">한화이글스</a></li>
+                           <li><a href="#" @click="findteam('NC다이노스')">NC다이노스</a></li>
+                           <li><a href="#" @click="findteam('키움히어로즈')">키움히어로즈</a></li>
+                           <li><a href="#" @click="findteam('국대')">국대</a></li>
+                        </ul>
+                     </div>
+                  </div>
+                 
+               
                 </div>
                 </div>
                 </section>
@@ -85,7 +107,8 @@
                           curpage:1,
                           totalpage:0,
                           startPage:0,
-                          endPage:0
+                          endPage:0,
+                          teamName:''
                           
                        }
                     },
@@ -93,6 +116,25 @@
                        this.dataRecv()
                     },
                     methods:{
+                    	findteam(teamName) {
+                    		this.teamName = teamName
+                    		console.log(teamName)
+                    		 axios.get('../gnd/team_vue.do',{
+                                 params:{
+                                	 page:this.curpage,
+                                	 team:teamName
+                                 }
+                              }).then(response=>{
+                                 console.log(response.data)
+                                 this.gnd_list=response.data.list
+                                 this.curpage=response.data.curpage
+                                 this.totalpage=response.data.totalpage
+                                 this.startPage=response.data.startPage
+                                 this.endPage=response.data.endPage
+                              }).catch(error=>{
+                                 console.log(error.response)
+                              })
+                    	  },
                        prev(){
                         this.curpage=this.startPage-1
                         this.dataRecv()

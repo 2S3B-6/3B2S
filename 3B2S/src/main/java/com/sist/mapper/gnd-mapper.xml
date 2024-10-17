@@ -12,4 +12,7 @@
   <select id="gndTotalPage" resultType="int">
     SELECT CEIL(COUNT(*)/6.0) FROM gnd 
   </select>
+  <select id="gndTeamTotalPage" resultType="int" parameterType="String">
+    SELECT CEIL(COUNT(*)/6.0) FROM gnd  WHERE team LIKE '%' || #{pTeam} || '%'
+  </select>
 </mapper>

@@ -25,5 +25,17 @@ public class GnDServiceImpl implements GnDService{
       // TODO Auto-generated method stub
       return gDao.gndTotalPage();
    }
+
+@Override
+public List<GnDVO> gndTeamListData(Map map) {
+	// TODO Auto-generated method stub
+	return gDao.gndTeamListData(map);
+}
+
+@Override
+public int gndTeamTotalPage(String team) {
+	// TODO Auto-generated method stub
+	return gDao.gndTeamTotalPage(team);
+}
    
 }

@@ -43,12 +43,17 @@ public interface GnDMapper {
 	   @Result(property="content",column="content"),
 	   @Result(property="team",column="team")
    })
-   @Select(value="{CALL gndTeamListData( #{pTeam,mode=IN,javaType=java.lang.String},"
-   		+ "#{pResult,mode=OUT,jdbcType=CURSOR,resultMap=gndMap})}")
-   @Options(statementType = StatementType.CALLABLE)
-   public List<GnDVO> gndTeamListData(Map map);
+   @Select(value = "{CALL gndTeamListData("
+	        + "#{pTeam, mode=IN, javaType=java.lang.String},"
+	        + "#{pStart, mode=IN, javaType=java.lang.Integer},"
+	        + "#{pEnd, mode=IN, javaType=java.lang.Integer},"
+	        + "#{pResult, mode=OUT, jdbcType=CURSOR, resultMap=gndMap})}")
+	@Options(statementType = StatementType.CALLABLE)
+	public List<GnDVO> gndTeamListData(Map<String, Object> map);
    
    public int gndTotalPage();
+   public int gndTeamTotalPage(String team);
+   
    
    
    
