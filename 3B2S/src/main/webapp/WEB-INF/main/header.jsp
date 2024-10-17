@@ -179,6 +179,7 @@ li.col-sm-4 {
                                                    <ul class="menu-inner">
                                                       <li><a href="#">경기일정&결과</a></li>
                                                       <li><a href="#">일자별 기록</a></li>
+                                                      <li><a href="../seoul/weather.do">오늘의 날씨</a></li>
                                                    </ul>
                                                 </li>
                                              </ul>

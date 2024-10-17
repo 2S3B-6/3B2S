@@ -1,5 +1,8 @@
 package com.sist.web;
 
+import java.text.SimpleDateFormat;
+import java.util.*;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -34,4 +37,17 @@ public class BoardController {
 	   model.addAttribute("no", no);
 	   return "board/update";
    }
+   
+   @GetMapping("seoul/weather.do")
+   public String seoul_weather(Model model) 
+   {
+	   SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+	   Date date=new Date();
+	   StringTokenizer st=new StringTokenizer(sdf.format(date),"-");
+	   String today=st.nextToken()+"년도 "+st.nextToken()+"월 "+st.nextToken()+"일";
+	   model.addAttribute("today", today);
+	   return "seoul/weather";   
+   }
+   
+   
 }
