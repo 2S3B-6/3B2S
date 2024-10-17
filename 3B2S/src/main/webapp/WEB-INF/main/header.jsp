@@ -177,8 +177,9 @@ li.col-sm-4 {
                                                
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
-                                                      <li><a href="#">경기일정&결과</a></li>
+                                                      <li><a href="../schedule/schedule.do">경기일정&결과</a></li>
                                                       <li><a href="#">일자별 기록</a></li>
+                                                      <li><a href="../team/ranking.do">순위</a></li>
                                                    </ul>
                                                 </li>
                                              </ul>
@@ -190,8 +191,10 @@ li.col-sm-4 {
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
                                                       <li><a href="#">구장 정보</a></li>
-                                                      <li><a href="#">팀 정보</a></li>
-                                                      <li><a href="#">선수 정보</a></li>
+                                                      <li><a href="../team/list.do">팀 정보</a></li>
+                                                      <li><a href="../player/batter_list.do">타자 정보</a></li>
+                                                      <li><a href="../player/pitcher_list.do">투수 정보</a></li>
+                                                      <li><a href="../player/vs.do">선수 기록 비교</a></li>
                                                    </ul>
                                                 </li>
                                              </ul>
