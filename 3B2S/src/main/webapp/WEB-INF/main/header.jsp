@@ -190,7 +190,7 @@ li.col-sm-4 {
                                                
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
-                                                      <li><a href="#">구장 정보</a></li>
+                                                      <li><a href="../stadium/list.do">구장 정보</a></li>
                                                       <li><a href="../team/list.do">팀 정보</a></li>
                                                       <li><a href="../player/batter_list.do">타자 정보</a></li>
                                                       <li><a href="../player/pitcher_list.do">투수 정보</a></li>
@@ -206,7 +206,7 @@ li.col-sm-4 {
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
                                                       <li><a href="#">경기별 하이라이트</a></li>
-                                                      <li><a href="#">뉴스</a></li>
+                                                      <li><a href="../news/list.do">뉴스</a></li>
                                                    </ul>
                                                 </li>
                                              </ul>
@@ -219,7 +219,7 @@ li.col-sm-4 {
                                                    <ul class="menu-inner">
                                                       <li><a href="../kbogoods/list.do">굿즈</a></li>
                                                       <li><a href="#">티켓</a></li>
-                                                      <li><a href="#">기차</a></li>
+                                                      <li><a href="../train/list.do">기차</a></li>
                                                       <li><a href="../hotel/list.do">숙소</a></li>
                                                    </ul>
                                                 </li>
