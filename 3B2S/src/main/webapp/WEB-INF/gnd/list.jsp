@@ -60,10 +60,10 @@
                                     <a class="page-link" @click="prev()"><i class="fa fa-angle-double-left" aria-hidden="true"></i> 이전</a>
                                 </li>
                                 <li :class="i===curpage?'page-item active':'page-item'" v-for="i in range(startPage,endPage)">
-                                    <a class="page-link" @click="pageChange(i)">{{i}}</a>
+                                    <a class="page-link" @click="pageChange(i)" >{{i}}</a>
                                 </li>
                                 <li class="page-item" v-if="endPage<totalpage">
-                                    <a class="page-link" @click="next()">다음 <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                    <a class="page-link" @click="next()"   >다음 <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                 </li>
                             </ul>
                         </nav>
@@ -79,7 +79,7 @@
                      <h4 class="heading">야구장목록</h4>
                      <div class="category-menu">
                         <ul>
-                           <li><a href="#" @click="findteam('KIA타이거즈')" >KIA타이거즈</a></li>
+                           <li><a href="#" @click="findteam('KIA타이거즈')">KIA타이거즈</a></li>
                            <li><a href="#" @click="findteam('삼성라이온즈')">삼성라이온즈</a></li>
                            <li><a href="#" @click="findteam('LG트윈스')">LG트윈스</a></li>
                            <li><a href="#" @click="findteam('두산베어스')">두산베어스</a></li>
@@ -118,6 +118,7 @@
                     methods:{
                     	findteam(teamName) {
                     		this.teamName = teamName
+                    		this.curpage=1
                     		console.log(teamName)
                     		 axios.get('../gnd/team_vue.do',{
                                  params:{
@@ -131,6 +132,7 @@
                                  this.totalpage=response.data.totalpage
                                  this.startPage=response.data.startPage
                                  this.endPage=response.data.endPage
+                                 
                               }).catch(error=>{
                                  console.log(error.response)
                               })
@@ -143,10 +145,12 @@
                         this.curpage=this.endPage+1
                         this.dataRecv()
                      },
+                  
                      pageChange(page){
                         this.curpage=page
                         this.dataRecv()
                      },
+                    
                      range(start,end){
                         let arr=[]
                         let len=end-start
@@ -158,9 +162,10 @@
                         return arr
                      },
                      dataRecv(){
-                        axios.get('../gnd/list_vue.do',{
+                        axios.get('../gnd/team_vue.do',{
                            params:{
-                              page:this.curpage
+                              page:this.curpage,
+                              team:this.teamName
                            }
                         }).then(response=>{
                            console.log(response.data)
@@ -169,6 +174,7 @@
                            this.totalpage=response.data.totalpage
                            this.startPage=response.data.startPage
                            this.endPage=response.data.endPage
+                           
                         }).catch(error=>{
                            console.log(error.response)
                         })
