@@ -11,7 +11,7 @@
    <!-- Mobile Metas -->
    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
    <!-- Site Metas -->
-   <title>2S3B</title> 
+   <title>2S3B</title>
    <meta name="keywords" content="">
    <meta name="description" content="">
    <meta name="author" content="">
@@ -245,7 +245,7 @@ li.col-sm-4 {
 						                            		<li class="active"><a href="../main/main.do">관리자페이지</a></li>
 						                            	</sec:authorize>
 						                            	<sec:authorize access="hasRole('ROLE_USER')">
-						                            		<li class="active"><a href="../main/main.do">마이페이지</a></li>
+						                            		<li class="active"><a href="../mypage/mypage_main.do">마이페이지</a></li>
 						                            	</sec:authorize>
 					                            </li>
                             				</c:if>

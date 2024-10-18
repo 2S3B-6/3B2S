@@ -47,7 +47,7 @@ public interface ReserveMapper {
 		  @Result(property = "hvo.score",column = "score"),
 		  @Result(property = "hvo.price",column = "price"),
 	  })
-	  @Select("SELECT rno,rday,rtime,rinwon,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,"
+	  @Select("SELECT rno,rday,rroom,rprice,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,"
 			 +"name,poster,location,address,checkin,checkout,score,price "
 			 +"FROM reserve_hotel rh,hotel ht "
 			 +"WHERE rh.hno=ht.hno "
