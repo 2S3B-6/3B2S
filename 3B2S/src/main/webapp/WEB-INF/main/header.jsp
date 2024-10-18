@@ -11,7 +11,7 @@
    <!-- Mobile Metas -->
    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
    <!-- Site Metas -->
-   <title>2S3B</title>
+   <title>2S3B</title> 
    <meta name="keywords" content="">
    <meta name="description" content="">
    <meta name="author" content="">
