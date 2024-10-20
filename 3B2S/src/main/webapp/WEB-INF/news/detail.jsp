@@ -55,7 +55,7 @@
 .post-info img {
     width: 70px;
     height: auto;
-    margin-top: -60px;
+    margin-top: -10px;
     margin-right: 15px;
 }
 .children{
@@ -122,8 +122,8 @@
 							      <p>{{vo.msg}}</p>
 							      
 							      <div>
-									    <button v-if="sessionId === vo.id" class="btn-xs btn-danger update styled-btn" style="margin-left: 2px" @click="replyUpdateForm(vo.cno)" :id="'u' + vo.cno">Update</button>
-									    <button v-if="sessionId === vo.id" class="btn-xs btn-info styled-btn" style="margin-left: 2px" @click="replyDelete(vo.cno)">Delete</button>
+									    <button v-if="sessionId === vo.id" class="btn-xs update styled-btn" style="margin-left: 2px" @click="replyUpdateForm(vo.cno)" :id="'u' + vo.cno">Update</button>
+									    <button v-if="sessionId === vo.id" class="btn-xs styled-btn" style="margin-left: 2px" @click="replyDelete(vo.cno)">Delete</button>
 									    <button v-if="sessionId !== ''" class="btn-xs active insert styled-btn" style="margin-left: 2px" @click="replyForm(vo.cno)" :id="'i' + vo.cno">Reply</button>
 									    <button v-if="sessionId !== vo.id && sessionId !== ''" class="btn-xs styled-btn" style="margin-left: 2px">Like</button>
 									</div>
