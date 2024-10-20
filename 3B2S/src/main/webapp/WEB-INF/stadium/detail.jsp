@@ -124,7 +124,7 @@
 				  </div>
 				</div>
                <div class="col-md-12">
-                  <div id="map" style="width:100%;height:400px;"></div>
+                  <div id="map" style="width:100%;height:400px;margin-bottom: 20px"></div>
                   <script>
                          var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
                 		    mapOption = {
@@ -162,9 +162,34 @@
                 		        map.setCenter(coords);
                 		    } 
                 		    });    
-                        </script>
+                      </script>
                   </div> 
                   
+                  <div class="col-md-6">
+                     <div class="contact-info">
+                        <div class="kode-section-title">
+                           <h2>인근 맛집</h2>
+                        </div>
+                        <div class="kode-forminfo">
+                        
+                           
+                           
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="contact-info">
+                        <div class="kode-section-title">
+                           <h2>인근 숙소</h2>
+                        </div>
+                        <div class="kode-forminfo">
+                        
+                          
+                        </div>
+                     </div>
+                  </div>
+
+
                   <div class="col-md-12">
 				    <div class="listBtn">
 				        <a class="btn" href="../stadium/list.do">목록</a>
@@ -173,7 +198,6 @@
                </div>
            </div>
         </div>
-      
     </section>
 </body>
 </html>

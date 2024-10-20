@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -98,107 +99,30 @@ span.loc {
     <section class="contant" id="listApp" style="margin-top: 50px;margin-bottom: 30px;">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" v-for="vo in stadium_list">
+          <c:forEach var="vo" items="${list }">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                 <div class="stadium-post-widget">
-                    <a :href="'../stadium/detail.do?no='+vo.no">
+                    <a href="../stadium/detail.do?no=+${vo.no }">
                       <div class="image-container">
-                        <img :src="vo.poster" alt="" class="img-responsive">
+                        <img src="${vo.poster}" alt="" class="img-responsive">
                         <div class="overlay"></div>
                        </div>
                     </a>
                     <div class="stadium-post-detail">
                         <div class="info">
                             <h2 class="clamp-text-one-line">
-                                <a :href="'../stadium/detail.do?no='+vo.no">{{vo.name}}</a>
+                                <a href="../stadium/detail.do?no=+${vo.no }">${vo.name}</a>
                             </h2>
-                            <span class="loc">{{vo.location}} / {{vo.hometeam}}</span>
+                            <span class="loc">${vo.location} / ${vo.hometeam}</span>
                         </div>
-                        <a class="btn" :href="'../stadium/detail.do?no='+vo.no"><i class="fas fa-arrow-right"></i></a>
+                        <a class="btn" href="../stadium/detail.do?no=+${vo.no }"><i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
+           </c:forEach>
         </div>
     </div>
-
-
-        <!-- Pagination
-        <div class="col-12">
-            <div class="pagination-area d-sm-flex mt-15" style="margin-left: -250px;"> 
-                <nav aria-label="#" style="width: 100%;">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" @click="prev()">
-                                <i class="fa fa-angle-double-left" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li :class="i === curpage ? 'page-item active' : 'page-item'" v-for="i in range(startPage, endPage)">
-                            <a class="page-link" @click="pageChange(i)">{{ i }}</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" @click="next()">
-                                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>-->
     </section> 
 
-    <script>
-        let listApp = Vue.createApp({
-            data() {
-                return {
-                    stadium_list: [],
-                    curpage: 1,
-                    totalpage: 0,
-                    startPage: 0,
-                    endPage: 0
-                }
-            },
-            mounted() {
-                this.dataRecv()
-            },
-            methods: {
-                prev() {
-                    if (this.startPage > 1) {
-                        this.curpage = this.startPage - 1
-                        this.dataRecv()
-                    }
-                },
-                next() {
-                    if (this.endPage < this.totalpage) {
-                        this.curpage = this.endPage + 1
-                        this.dataRecv()
-                    }
-                },
-                pageChange(page) {
-                    this.curpage = page
-                    this.dataRecv()
-                },
-                range(start, end) {
-                    let arr = []
-                    for (let i = start; i <= end; i++) {
-                        arr.push(i)
-                    }
-                    return arr
-                },
-                dataRecv() {
-                    axios.get('../stadium/list_vue.do', {
-                        params: { page: this.curpage }
-                    }).then(response => {
-                        console.log(response.data)
-                        this.stadium_list = response.data.list
-                        this.curpage = response.data.curpage
-                        this.totalpage = response.data.totalpage
-                        this.startPage = response.data.startPage
-                        this.endPage = response.data.endPage
-                    }).catch(error => {
-                        console.log(error.response)
-                    })
-                }
-            }
-        }).mount('#listApp')
-    </script>
 </body>
 </html>
