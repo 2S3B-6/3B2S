@@ -218,7 +218,7 @@ li.col-sm-4 {
                                                    <ul class="menu-inner">
                                                       <li><a href="../kbogoods/list.do">굿즈</a></li>
                                                       <li><a href="#">티켓</a></li>
-                                                      <li><a href="#">기차</a></li>
+                                                      <li><a href="../train/list.do">기차</a></li>
                                                       <li><a href="../hotel/list.do">숙소</a></li>
                                                    </ul>
                                                 </li>
@@ -281,7 +281,7 @@ li.col-sm-4 {
                            </c:if>
                               <li>
                                  <div class="cart-option">
-                                    <a href="../member/join.do"><i class="fa fa-user-plus"></i>고객센터</a>
+                                    <a href="../cs/main.do"><i class="fa fa-user-plus"></i>고객센터</a>
                                  </div>
                               </li>
                            </ul>
