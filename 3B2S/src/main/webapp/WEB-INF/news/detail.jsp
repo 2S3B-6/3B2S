@@ -1,17 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <style type="text/css">
 .listBtn {
     display: flex;
     justify-content: center; 
-    margin-top: 20px; 
-    margin-bottom: 20px; 
+    margin-top: 30px; 
+    margin-bottom: -30px; 
 }
 .listBtn .btn {
     padding: 10px 20px;
@@ -25,7 +29,38 @@
 }
 .news-poster {
         margin-bottom: 20px; 
-    }
+}
+.styled-btn {
+    background-color: #003366;
+    color: white;               
+    border-radius: 5px;       
+    border: none;              
+    transition: background-color 0.3s ease;
+}
+.styled-btn:hover {
+    background-color: #000; 
+}
+.post-people {
+    margin-bottom: 20px; 
+}
+.comment-content {
+    padding: 10px 15px;
+    border-radius: 5px; 
+}
+.post-info {
+    display: flex;  
+    align-items: center;
+}
+
+.post-info img {
+    width: 70px;
+    height: auto;
+    margin-top: -60px;
+    margin-right: 15px;
+}
+.children{
+	margin-left: 100px;
+}
 </style>
 </head>
 <body>
@@ -75,27 +110,30 @@
                      </div>
                       <div class="feature-cont">
                        <h2>댓글</h2>
+                       <hr>
                        <div>
                         <div class="post-people" v-for="vo in reply_list">
                            <div class="left-profile" v-if="vo.group_tab===0">
 							  <div class="post-info">
-							    <img src="../images/news-profile.png" alt="">
+							    <img src="../images/news-profile.png" alt="" style="width: 70px; height: auto;">
 							    <div class="comment-content">
 							      <h4>{{vo.name}}</h4>
 							      <h5>{{vo.dbday}}</h5>
 							      <p>{{vo.msg}}</p>
 							      
-							      <button v-if="sessionId===vo.id" class="btn-xs btn-danger update" style="margin-left: 2px" @click="replyUpdateForm(vo.cno)" :id="'u'+vo.cno">Update</button>
-							      <button v-if="sessionId===vo.id" class="btn-xs btn-info" style="margin-left: 2px" @click="replyDelete(vo.cno)">Delete</button>
-							      <button class="active insert" v-if="sessionId!=''" style="margin-left: 2px" @click="replyForm(vo.cno)" :id="'i'+vo.cno">Reply</button>
-							      <button v-if="sessionId!==vo.id && sessionId!==''" style="margin-left: 2px">Like</button>
+							      <div>
+									    <button v-if="sessionId === vo.id" class="btn-xs btn-danger update styled-btn" style="margin-left: 2px" @click="replyUpdateForm(vo.cno)" :id="'u' + vo.cno">Update</button>
+									    <button v-if="sessionId === vo.id" class="btn-xs btn-info styled-btn" style="margin-left: 2px" @click="replyDelete(vo.cno)">Delete</button>
+									    <button v-if="sessionId !== ''" class="btn-xs active insert styled-btn" style="margin-left: 2px" @click="replyForm(vo.cno)" :id="'i' + vo.cno">Reply</button>
+									    <button v-if="sessionId !== vo.id && sessionId !== ''" class="btn-xs styled-btn" style="margin-left: 2px">Like</button>
+									</div>
 							      
 							      <!-- 댓글 입력 -->
 							      <table class="table ins" style="display:none" :id="'in'+vo.cno">
 							        <tr>
 							          <td>
 							            <textarea rows="3" cols="60" style="float: left" :id="'msg'+vo.cno"></textarea>
-							            <input type="button" value="댓글" style="float: left; background-color: #003366; color: white; width: 80px; height:85px" @click="replyReplyInsert(vo.cno)">
+							            <input type="button" value="댓글" style="float: left; background-color: #003366; color: white; width: 80px; height:65px" @click="replyReplyInsert(vo.cno)">
 							          </td>
 							        </tr>
 							      </table>
@@ -105,7 +143,7 @@
 							        <tr>
 							          <td>
 							            <textarea rows="3" cols="60" style="float: left" :id="'umsg'+vo.cno">{{vo.msg}}</textarea>
-							            <input type="button" value="수정" style="float: left; background-color: #003366; color: white; width: 80px; height:85px" @click="replyUpdate(vo.cno)">
+							            <input type="button" value="수정" style="float: left; background-color: #003366; color: white; width: 80px; height:65px" @click="replyUpdate(vo.cno)">
 							          </td>
 							        </tr>
 							      </table>
@@ -117,14 +155,16 @@
                            <div class="post-people">
                             <div class="left-profile">
                               <div class="post-info">
-                                 <img src="../images/news-profile.png" alt="" >
+                                 <img src="../images/news-profile.png" alt="" style="width: 70px; height: auto;">
                                 <div class="comment-content">
                                     <h4>{{vo.name}}</h4>
                                     <h5>{{vo.dbday}}</h5>
                                     <p>{{vo.msg}}</p>
-                                    <button v-if="sessionId===vo.id" class="btn-xs btn-danger update" style="margin-left: 2px" @click="replyUpdateForm(vo.cno)" :id="'u'+vo.cno">Update</button>
-                                    <button v-if="sessionId===vo.id" class="btn-xs btn-info" style="margin-left: 2px" @click="replyDelete(vo.cno)">Delete</button>
-                                    <button v-if="sessionId!==vo.id && sessionId!==''" style="margin-left: 2px">Like</button>
+                                    <div>
+									    <button v-if="sessionId === vo.id" class="btn-xs update styled-btn" @click="replyUpdateForm(vo.cno)" :id="'u' + vo.cno">Update</button>
+									    <button v-if="sessionId === vo.id" class="btn-xs styled-btn" @click="replyDelete(vo.cno)">Delete</button>
+									    <button v-if="sessionId !== vo.id && sessionId !== ''" class="btn-xs styled-btn">Like</button>
+									</div>
                                    <table class="table ups" style="display: none" :id="'up'+vo.cno">
                                      <tr>
                                       <td>
@@ -162,15 +202,41 @@
                  </div>
               </div>
               <div class="col-md-3">
-                 <!-- <div class="blog-sidebar">
-                    <div class="search-bar-blog">
-                       <form>
-                          <input type="text" placeholder="search" />
-                          <button><i class="fa fa-search" aria-hidden="true"></i></button>
-                       </form>
-                    </div>
+                 <!-- <div class="news-sidebar">
+                  <div class="search-bar-news">
+                      <form @submit.prevent="newsFind"> 
+						  <input type="text" ref="nd" v-model="nd" placeholder="search">
+						  <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+					  </form>
+                   </div>
                  </div> -->
-                 <div class="blog-sidebar">
+                  <div class="content-widget top-story">
+	                 <div class="top-stroy-header">
+	                    <h2>실시간 인기 뉴스 <a href="#" class="fa fa-fa fa-angle-right"></a></h2>
+	                    <span class="date">
+					        <%
+					            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+					            String today = sdf.format(new Date());
+					            out.print(today);
+					        %>
+					    </span>
+	                    <!-- <h2>Other Headlines</h2> -->
+	                 </div>
+	                 <ul class="other-stroies">
+	                   <c:forEach var="vo" items="${nList }">
+	                     <li>
+	                       <a href="../news/detail.do?nno=+${vo.nno }">
+	                         <c:choose>
+	                           <c:when test="${fn:length(vo.title)>16 }">
+	                            ${fn:substring(vo.title,0,16)}...
+	                           </c:when>
+	                         </c:choose>
+	                       </a>
+	                     </li>
+	                   </c:forEach>
+	                 </ul>
+	             </div>
+                 <!-- <div class="blog-sidebar">
                      <h4 class="heading">Top Categories</h4>
                      <div class="category-menu">
                         <ul>
@@ -184,7 +250,7 @@
                            <li><a href="#">Motorsports</a></li>
                         </ul>
                      </div>
-                  </div>
+                  </div> 
                  <div class="blog-sidebar">
                      <h4 class="heading">Popular News</h4>
                      <div class="category-menu">
@@ -198,17 +264,75 @@
                            </li>
                         </ul>
                      </div>
-                  </div>
+                  </div>-->
+                  <aside id="sidebar" class="left-bar">
+                     <div class="banner-sidebar">
+                        <img class="img-responsive" src="../images/match-banner2.png" alt="#">
+                        <h3> | 삼성 라이온즈 vs 기아 타이거즈 | </h3>
+                     </div>
+                  </aside>
+                  <aside id="sidebar" class="left-bar">
+                     <div class="feature-matchs">
+                        <table class="table table-bordered table-hover">
+                           <thead>
+                              <tr>
+                                 <th class="text-center">순위</th>
+                                 <th class="text-center">구단</th>
+                                 <th class="text-center">승</th>
+                                 <th class="text-center">무</th>
+                                 <th class="text-center">패</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td class="text-center">1</td>
+                                 <td><img src="../images/logo/kia.png" alt="" style="width: 25px; height: auto;">기아</td>
+                                 <td class="text-center">87</td>
+                                 <td class="text-center">2</td>
+                                 <td class="text-center">55</td>
+                              </tr>
+                              <tr>
+                                 <td class="text-center">2</td>
+                                 <td><img src="../images/logo/samsung.png" alt="" style="width: 25px; height: auto;">삼성</td>
+                                 <td class="text-center">78</td>
+                                 <td class="text-center">2</td>
+                                 <td class="text-center">64</td>
+                              </tr>
+                              <tr>
+                                 <td class="text-center">3</td>
+                                 <td><img src="../images/logo/LG.png" alt="" style="width: 25px; height: auto;">LG</td>
+                                 <td class="text-center">76</td>
+                                 <td class="text-center">2</td>
+                                 <td class="text-center">66</td>
+                              </tr>
+                              <tr>
+                                 <td class="text-center">4</td>
+                                 <td><img src="../images/logo/doosan.png" alt="" style="width: 25px; height: auto;">두산</td>
+                                 <td class="text-center">74</td>
+                                 <td class="text-center">2</td>
+                                 <td class="text-center">68</td>
+                              </tr>
+                              <tr>
+                                 <td class="text-center">5</td>
+                                 <td><img src="../images/logo/kt.png" alt="" style="width: 25px; height: auto;">KT</td>
+                                 <td class="text-center">72</td>
+                                 <td class="text-center">2</td>
+                                 <td class="text-center">70</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </aside>
                  <aside id="sidebar" class="right-bar">
 	                 <div class="banner">
-	                    <img class="img-responsive" src="../images/img-02.jpg" alt="#">
+	                    <img class="img-responsive" src="../images/news-img1.png" alt="#">
 	                 </div>
 	              </aside>
-	              <aside id="sidebar" class="right-bar">
+	              <!-- <aside id="sidebar" class="right-bar">
 	                 <div class="banner">
 	                    <img class="img-responsive" src="../images/img-03.jpg" alt="#">
 	                 </div>
-	              </aside>
+	              </aside> -->
               </div>
            </div>
         </div>
@@ -219,6 +343,7 @@
     		return {
     			vo:{},
     			nno:${nno},
+    			news_list:[],
     			
     			rno:${nno},
                 reply_list:[],

@@ -177,16 +177,71 @@
                    </c:forEach>
                  </ul>
               </div>
-              <aside id="sidebar" class="right-bar">
-                 <div class="banner">
-                    <img class="img-responsive" src="../images/banner1.png" alt="#">
-                 </div>
-              </aside>
-              <aside id="sidebar" class="right-bar">
-                 <div class="banner">
-                    <img class="img-responsive" src="../images/about.jpeg" alt="#">
-                 </div>
-              </aside>
+              <aside id="sidebar" class="left-bar">
+                     <div class="banner-sidebar">
+                        <img class="img-responsive" src="../images/match-banner2.png" alt="#">
+                        <h3> | 삼성 라이온즈 vs 기아 타이거즈 | </h3>
+                     </div>
+                  </aside>
+                  <aside id="sidebar" class="left-bar">
+                     <div class="feature-matchs">
+                        <table class="table table-bordered table-hover">
+                           <thead>
+                              <tr>
+                                 <th class="text-center">순위</th>
+                                 <th class="text-center">구단</th>
+                                 <th class="text-center">승</th>
+                                 <th class="text-center">무</th>
+                                 <th class="text-center">패</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td class="text-center">1</td>
+                                 <td><img src="../images/logo/kia.png" alt="" style="width: 25px; height: auto;">기아</td>
+                                 <td class="text-center">87</td>
+                                 <td class="text-center">2</td>
+                                 <td class="text-center">55</td>
+                              </tr>
+                              <tr>
+                                 <td class="text-center">2</td>
+                                 <td><img src="../images/logo/samsung.png" alt="" style="width: 25px; height: auto;">삼성</td>
+                                 <td class="text-center">78</td>
+                                 <td class="text-center">2</td>
+                                 <td class="text-center">64</td>
+                              </tr>
+                              <tr>
+                                 <td class="text-center">3</td>
+                                 <td><img src="../images/logo/LG.png" alt="" style="width: 25px; height: auto;">LG</td>
+                                 <td class="text-center">76</td>
+                                 <td class="text-center">2</td>
+                                 <td class="text-center">66</td>
+                              </tr>
+                              <tr>
+                                 <td class="text-center">4</td>
+                                 <td><img src="../images/logo/doosan.png" alt="" style="width: 25px; height: auto;">두산</td>
+                                 <td class="text-center">74</td>
+                                 <td class="text-center">2</td>
+                                 <td class="text-center">68</td>
+                              </tr>
+                              <tr>
+                                 <td class="text-center">5</td>
+                                 <td><img src="../images/logo/kt.png" alt="" style="width: 25px; height: auto;">KT</td>
+                                 <td class="text-center">72</td>
+                                 <td class="text-center">2</td>
+                                 <td class="text-center">70</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </aside>
+                 
+	              <aside id="sidebar" class="right-bar">
+	                 <div class="banner">
+	                    <img class="img-responsive" src="../images/news-ad.gif" alt="#">
+	                 </div>
+	              </aside>
+	              
            </div>
         </div>
      </div>
