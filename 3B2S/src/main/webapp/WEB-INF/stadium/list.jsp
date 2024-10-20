@@ -58,7 +58,7 @@
 }
 .stadium-post-detail .btn {
     padding: 12px 25px;
-    background-color: #666;
+    background-color: #003366;
     color: white;
     transform: translate(-10px, -8px);
     transition: background-color 0.3s ease;

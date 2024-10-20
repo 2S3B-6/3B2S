@@ -62,8 +62,8 @@
    cursor:pointer;
 }
 .pagination .page-item.active .page-link {
-    background-color: #888; 
-    border-color: #888; 
+    background-color: #003366; 
+    border-color: #003366; 
     color: white; 
     border: none !important;
 }
@@ -99,7 +99,7 @@
      background: #f0f0f0;
 }
  .search-bar-news form button {
-     background: #222;
+     background: #003366;
      border: none;
      padding: 4px 11px;
      float: right;
