@@ -16,13 +16,9 @@ public class StadiumDAO {
     @Autowired
     private StadiumMapper mapper;
 
-    public List<StadiumVO> stadiumListData(int start,int end)
+    public List<StadiumVO> stadiumListData()
 	{
-		return mapper.stadiumListData(start, end);
-	}
-	public int stadiumTotalPage()
-	{
-		return mapper.stadiumTotalPage();
+		return mapper.stadiumListData();
 	}
 	public StadiumVO stadiumDetailData(int no)
 	{

@@ -15,9 +15,11 @@ public class StadiumController {
 	private StadiumService sService;
 	
     @GetMapping("stadium/list.do")
-    public String stadium_list()
+    public String stadium_list(Model model)
     {
-    	
+        List<StadiumVO> list=sService.stadiumListData();
+		
+		model.addAttribute("list", list);
  	    return "stadium/list";
     }
     @GetMapping("stadium/detail.do")

@@ -11,15 +11,9 @@ public class StadiumServiceImpl implements StadiumService{
 	private StadiumDAO sDao;
 
 	@Override
-	public List<StadiumVO> stadiumListData(int start, int end) {
+	public List<StadiumVO> stadiumListData() {
 		// TODO Auto-generated method stub
-		return sDao.stadiumListData(start, end);
-	}
-
-	@Override
-	public int stadiumTotalPage() {
-		// TODO Auto-generated method stub
-		return sDao.stadiumTotalPage();
+		return sDao.stadiumListData();
 	}
 
 	@Override
