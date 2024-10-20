@@ -115,7 +115,7 @@
                         <div class="post-people" v-for="vo in reply_list">
                            <div class="left-profile" v-if="vo.group_tab===0">
 							  <div class="post-info">
-							    <img src="../images/news-profile.png" alt="" style="width: 70px; height: auto;">
+							    <img src="../images/news-profile.png" alt="" style="width: 70px; height: auto;margin-top: -60px;">
 							    <div class="comment-content">
 							      <h4>{{vo.name}}</h4>
 							      <h5>{{vo.dbday}}</h5>
@@ -155,7 +155,7 @@
                            <div class="post-people">
                             <div class="left-profile">
                               <div class="post-info">
-                                 <img src="../images/news-profile.png" alt="" style="width: 70px; height: auto;">
+                                 <img src="../images/news-profile.png" alt="" style="width: 70px; height: auto;margin-top: -60px;">
                                 <div class="comment-content">
                                     <h4>{{vo.name}}</h4>
                                     <h5>{{vo.dbday}}</h5>
