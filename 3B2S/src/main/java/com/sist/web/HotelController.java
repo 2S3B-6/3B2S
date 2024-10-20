@@ -41,6 +41,7 @@ public class HotelController {
 	@GetMapping("hotel/detail.do")
 	public String hotel_detail(int hno,Model model,HttpSession session)
 	{
+		
 		String id=(String)session.getAttribute("userId");
 		HotelVO vo = hService.hotelDetailData(hno);
 		int rprice=vo.getPrice();
@@ -50,6 +51,7 @@ public class HotelController {
 		model.addAttribute("vo", vo);
 		model.addAttribute("session", session);
 		model.addAttribute("hno", hno);
+		model.addAttribute("sessionId", id);
 		return "hotel/detail";
 	}
 	@GetMapping("hotel/find.do")
