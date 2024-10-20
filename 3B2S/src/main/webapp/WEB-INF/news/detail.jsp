@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,6 +72,92 @@
                              <a class="btn" href="../news/list.do">목록</a>
                           </div>
                        </div>
+                     </div>
+                      <div class="feature-cont">
+                       <h2>댓글</h2>
+                       <div>
+                        <div class="post-people" v-for="vo in reply_list">
+                           <div class="left-profile" v-if="vo.group_tab===0">
+							  <div class="post-info">
+							    <img src="../images/news-profile.png" alt="">
+							    <div class="comment-content">
+							      <h4>{{vo.name}}</h4>
+							      <h5>{{vo.dbday}}</h5>
+							      <p>{{vo.msg}}</p>
+							      
+							      <button v-if="sessionId===vo.id" class="btn-xs btn-danger update" style="margin-left: 2px" @click="replyUpdateForm(vo.cno)" :id="'u'+vo.cno">Update</button>
+							      <button v-if="sessionId===vo.id" class="btn-xs btn-info" style="margin-left: 2px" @click="replyDelete(vo.cno)">Delete</button>
+							      <button class="active insert" v-if="sessionId!=''" style="margin-left: 2px" @click="replyForm(vo.cno)" :id="'i'+vo.cno">Reply</button>
+							      <button v-if="sessionId!==vo.id && sessionId!==''" style="margin-left: 2px">Like</button>
+							      
+							      <!-- 댓글 입력 -->
+							      <table class="table ins" style="display:none" :id="'in'+vo.cno">
+							        <tr>
+							          <td>
+							            <textarea rows="3" cols="60" style="float: left" :id="'msg'+vo.cno"></textarea>
+							            <input type="button" value="댓글" style="float: left; background-color: #003366; color: white; width: 80px; height:85px" @click="replyReplyInsert(vo.cno)">
+							          </td>
+							        </tr>
+							      </table>
+							
+							      <!-- 댓글 수정 -->
+							      <table class="table ups" style="display: none" :id="'up'+vo.cno">
+							        <tr>
+							          <td>
+							            <textarea rows="3" cols="60" style="float: left" :id="'umsg'+vo.cno">{{vo.msg}}</textarea>
+							            <input type="button" value="수정" style="float: left; background-color: #003366; color: white; width: 80px; height:85px" @click="replyUpdate(vo.cno)">
+							          </td>
+							        </tr>
+							      </table>
+							    </div>
+							  </div>
+							  <span class="share"></span>
+							</div>
+                          <div class="children" v-if="vo.group_tab===1">
+                           <div class="post-people">
+                            <div class="left-profile">
+                              <div class="post-info">
+                                 <img src="../images/news-profile.png" alt="" >
+                                <div class="comment-content">
+                                    <h4>{{vo.name}}</h4>
+                                    <h5>{{vo.dbday}}</h5>
+                                    <p>{{vo.msg}}</p>
+                                    <button v-if="sessionId===vo.id" class="btn-xs btn-danger update" style="margin-left: 2px" @click="replyUpdateForm(vo.cno)" :id="'u'+vo.cno">Update</button>
+                                    <button v-if="sessionId===vo.id" class="btn-xs btn-info" style="margin-left: 2px" @click="replyDelete(vo.cno)">Delete</button>
+                                    <button v-if="sessionId!==vo.id && sessionId!==''" style="margin-left: 2px">Like</button>
+                                   <table class="table ups" style="display: none" :id="'up'+vo.cno">
+                                     <tr>
+                                      <td>
+                                       <textarea rows="3" cols="60" style="float: left" :id="'umsg'+vo.cno" >{{vo.msg}}</textarea>
+                                       <input type=button value="수정" style="float: left;background-color: #003366;color: white;width: 80px;height:85px"
+                                         @click="replyUpdate(vo.cno)">
+                                       </td>
+                                    </tr>
+                                   </table>
+                                </div>
+                              </div>
+                              <span class="share"></span>
+                           </div>
+                           </div>
+                          </div> 
+                        </div>
+                       </div>
+                       
+                       <c:if test="${sessionScope.userId!=null }">
+                         <div class="feature-cont">
+                             <div class="comment-form">
+                                <table class="table">
+                                 <tr>
+                                   <td>
+                                    <textarea rows="4" cols="70" style="float: left" ref="msg" v-model="msg"></textarea>
+                                    <input type=button value="댓글" style="float: left;background-color: #003366;color: white;width: 85px;height:87px"
+                                      @click="replyInsert()">
+                                   </td>
+                                 </tr>
+                                </table>
+                             </div>
+                           </div>
+                        </c:if>
                     </div>
                  </div>
               </div>
@@ -133,6 +220,17 @@
     			vo:{},
     			nno:${nno},
     			
+    			rno:${nno},
+                reply_list:[],
+                curpage:1,
+                totalpage:0,
+                endPage:0,
+                startPage:0,
+                type:1,
+                sessionId:'${sessionId}',
+                msg:'',
+                isReply:false,
+                upReply:false
     		}
     	},
     	mounted(){
@@ -146,6 +244,161 @@
     		}).catch(error=>{
     			console.log(error.response)
     		})
+    		
+    		this.dataRecv()
+    	  },
+    	  methods:{
+    		  replyUpdate(cno){
+                  let msg=$('#umsg'+cno).val()
+                  if(msg.trim()===""){
+                      $('#umsg'+cno).focus()
+                      return
+                  }
+                  axios.post('../comment/update_vue.do',null,{
+                      params:{
+                          cno:cno,
+                          nno:this.nno,
+                          type:this.type,
+                          msg:msg
+                      }
+                  }).then(response=>{
+                      console.log(response.data)
+                      this.reply_list=response.data.list
+                      this.curpage=response.data.curpage
+                      this.totalpage=response.data.totalpage
+                      this.startPage=response.data.startPage
+                      this.endPage=response.data.endPage
+                      $('#umsg'+cno).val("")
+                      $('#up'+cno).hide()
+                      $('#u'+cno).text("Update")
+                  }).catch(error=>{
+                      console.log(error.response)
+                  })
+              },
+              // 댓글 삭제
+              replyDelete(cno){
+                  axios.get('../comment/delete_vue.do',{
+                      params:{
+                          cno:cno,
+                          nno:this.nno,
+                          type:this.type
+                      }
+                  }).then(response=>{
+                      console.log(response.data)
+                      this.reply_list=response.data.list
+                      this.curpage=response.data.curpage
+                      this.totalpage=response.data.totalpage
+                      this.startPage=response.data.startPage
+                      this.endPage=response.data.endPage
+                  }).catch(error=>{
+                      console.log(error.response)
+                  })
+              },
+              // 대댓글 삽입
+              replyReplyInsert(cno){
+                  let msg=$('#msg'+cno).val()
+                  if(msg.trim()===""){
+                      $('#msg'+cno).focus()
+                      return
+                  }
+                  axios.post('../comment/reply_insert_vue.do',null,{
+                      params:{
+                          nno:this.nno,
+                          type:this.type,
+                          msg:msg,
+                          cno:cno
+                      }
+                  }).then(response=>{
+                      console.log(response.data)
+                      this.reply_list=response.data.list
+                      this.curpage=response.data.curpage
+                      this.totalpage=response.data.totalpage
+                      this.startPage=response.data.startPage
+                      this.endPage=response.data.endPage
+                      $('#msg'+cno).val('')
+                      $('#in'+cno).hide()
+                      $('#i'+cno).text("Reply")
+                  }).catch(error=>{
+                      console.log(error.response)
+                  })
+              },
+              // 댓글 업데이트 폼
+              replyUpdateForm(cno){
+                  $('.ins').hide()
+                  $('.ups').hide()
+                  $('.update').text('Update')
+                  $('.insert').text('Reply')
+                  if(this.upReply===false){
+                      this.upReply=true
+                      $('#up'+cno).show()
+                      $('#u'+cno).text("Cancel")    
+                  }
+                  else{
+                      this.upReply=false
+                      $('#up'+cno).hide()
+                      $('#u'+cno).text("Update")    
+                  }
+              },
+              // 댓글 입력 폼
+              replyForm(cno){
+                  $('.ins').hide()
+                  $('.ups').hide()
+                  $('.update').text('Update')
+                  $('.insert').text('Reply')
+                  if(this.isReply===false){
+                      this.isReply=true
+                      $('#in'+cno).show()
+                      $('#i'+cno).text("Cancel")
+                  } 
+                  else{
+                      this.isReply=false
+                      $('#in'+cno).hide()
+                      $('#i'+cno).text("Reply")
+                  }
+              },
+              // 댓글 삽입
+              replyInsert(){
+                  if(this.msg===""){
+                      this.$refs.msg.focus()
+                      return
+                  }
+                  axios.post('../comment/insert_vue.do',null,{
+                      params:{
+                          nno:this.nno,
+                          type:this.type,
+                          msg:this.msg
+                      }
+                  }).then(response=>{
+                      console.log(response.data)
+                      this.reply_list=response.data.list
+                      this.curpage=response.data.curpage
+                      this.totalpage=response.data.totalpage
+                      this.startPage=response.data.startPage
+                      this.endPage=response.data.endPage
+                      this.msg=''
+                  }).catch(error=>{
+                      console.log(error.response)
+                  })
+              },
+              // 댓글 데이터 받기
+              dataRecv(){
+                  axios.get('../comment/list_vue.do',{
+                      params:{
+                          nno:this.nno, 
+                          type:this.type,
+                          page:this.curpage
+                      }
+                  }).then(response=>{
+                      console.log(response.data)
+                      this.reply_list=response.data.list
+                      this.curpage=response.data.curpage
+                      this.totalpage=response.data.totalpage
+                      this.startPage=response.data.startPage
+                      this.endPage=response.data.endPage
+                  }).catch(error=>{
+                      console.log(error.response)
+                  })
+              }
     	  }
     	}).mount('#detailApp')
     </script>
