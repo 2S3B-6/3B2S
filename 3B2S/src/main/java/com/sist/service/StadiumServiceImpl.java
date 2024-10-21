@@ -21,4 +21,22 @@ public class StadiumServiceImpl implements StadiumService{
 		// TODO Auto-generated method stub
 		return sDao.stadiumDetailData(no);
 	}
+
+	@Override
+	public List<HotelVO> stadiumHotelListData(String hd) {
+		// TODO Auto-generated method stub
+		return sDao.stadiumHotelListData(hd);
+	}
+
+//	@Override
+//	public StadiumVO stadiumHotelDetailData(int hno) {
+//		// TODO Auto-generated method stub
+//		return sDao.stadiumHotelDetailData(hno);
+//	}
+	
+	@Override
+	public List<FoodVO> stadiumFoodListData(String fd) {
+		// TODO Auto-generated method stub
+		return sDao.stadiumFoodListData(fd);
+	}
 }

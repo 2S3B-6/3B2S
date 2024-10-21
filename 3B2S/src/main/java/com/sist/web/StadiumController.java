@@ -27,6 +27,8 @@ public class StadiumController {
     {
     	StadiumVO vo=sService.stadiumDetailData(no);
     	
+    	
+    	
     	model.addAttribute("vo", vo);
  	    model.addAttribute("no", no);
  	    return "stadium/detail";

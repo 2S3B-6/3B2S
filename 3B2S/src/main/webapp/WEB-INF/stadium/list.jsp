@@ -102,7 +102,7 @@ span.loc {
           <c:forEach var="vo" items="${list }">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                 <div class="stadium-post-widget">
-                    <a href="../stadium/detail.do?no=+${vo.no }">
+                    <a href="../stadium/detail.do?no=${vo.no }">
                       <div class="image-container">
                         <img src="${vo.poster}" alt="" class="img-responsive">
                         <div class="overlay"></div>

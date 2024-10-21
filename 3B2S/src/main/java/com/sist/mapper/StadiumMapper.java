@@ -14,4 +14,20 @@ public interface StadiumMapper {
 	  @Select("SELECT * FROM stadium "
 			  +"WHERE no=#{no}")
 	  public StadiumVO stadiumDetailData(int no);
+	  
+	  @Select("SELECT hno,name,poster "
+	  		 +"FROM hotel "
+	  		 +"WHERE address LIKE '%'||#{hd}||'%' "
+	  		 +"ORDER BY hno ASC")
+	  public List<HotelVO> stadiumHotelListData(String hd);
+	  
+//	  @Select("SELECT * FROM hotel "
+//			  +"WHERE hno=#{hno}")
+//	  public StadiumVO stadiumHotelDetailData(int hno);
+	  
+	  @Select("SELECT fno,name,poster "
+		  		 +"FROM food_blue "
+		  		 +"WHERE address LIKE '%'||#{fd}||'%' "
+		  		 +"ORDER BY fno ASC")
+	  public List<FoodVO> stadiumFoodListData(String fd);
 }

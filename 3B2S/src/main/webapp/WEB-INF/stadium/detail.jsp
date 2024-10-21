@@ -35,8 +35,8 @@
   display: flex;
   align-items: flex-start;
   background-color: #fff;
-  padding: 20px;
-  margin-top: 30px;
+  padding: 5px;
+  margin-top: 40px;
   margin-bottom: 40px;
   border: 1px solid #fff;
   border-radius: 8px;
@@ -65,6 +65,24 @@
   background-color: #f2f2f2;
   font-weight: bold;
   text-align: center;
+}
+.kode-info {
+    width: 500px;        
+    height: 550px;       
+    overflow-y: auto;  
+}
+.restaurant-list, .accommodation-list {
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.restaurant-item, .accommodation-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20px;
 }
 </style>
 </head> 
@@ -123,71 +141,41 @@
 				    </div>
 				  </div>
 				</div>
+
                <div class="col-md-12">
-                  <div id="map" style="width:100%;height:400px;margin-bottom: 20px"></div>
-                  <script>
-                         var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-                		    mapOption = {
-                		        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-                		        level: 3 // 지도의 확대 레벨
-                		    };  
-
-                		// 지도를 생성합니다    
-                		var map = new kakao.maps.Map(mapContainer, mapOption); 
-
-                		// 주소-좌표 변환 객체를 생성합니다
-                		var geocoder = new kakao.maps.services.Geocoder();
-
-                		// 주소로 좌표를 검색합니다
-                		geocoder.addressSearch('${vo.address}', function(result, status) {
-
-                		    // 정상적으로 검색이 완료됐으면 
-                		     if (status === kakao.maps.services.Status.OK) {
-
-                		        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
-                		        // 결과값으로 받은 위치를 마커로 표시합니다
-                		        var marker = new kakao.maps.Marker({
-                		            map: map,
-                		            position: coords
-                		        });
-
-                		        // 인포윈도우로 장소에 대한 설명을 표시합니다
-                		        var infowindow = new kakao.maps.InfoWindow({
-                		            content: '<div style="width:150px;text-align:center;padding:6px 0;">${vo.name}</div>'
-                		        });
-                		        infowindow.open(map, marker);
-
-                		        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-                		        map.setCenter(coords);
-                		    } 
-                		    });    
-                      </script>
-                  </div> 
+                  <div id="map" style="width:100%;height:400px;margin-bottom: 70px"></div>
                   
+                  </div> 
+                  <div class="kode-section-title" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+				     <h2>인근 맛집</h2>
+				     <h2>인근 숙소</h2>
+				  </div>
                   <div class="col-md-6">
-                     <div class="contact-info">
-                        <div class="kode-section-title">
-                           <h2>인근 맛집</h2>
-                        </div>
-                        <div class="kode-forminfo">
-                        
-                           
-                           
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-md-6">
-                     <div class="contact-info">
-                        <div class="kode-section-title">
-                           <h2>인근 숙소</h2>
-                        </div>
-                        <div class="kode-forminfo">
-                        
-                          
-                        </div>
-                     </div>
-                  </div>
+					  <div class="contact-info">
+					    <div class="kode-info">
+					      
+					      <ul class="restaurant-list">
+					        <li class="restaurant-item" v-for="vo in food_list" :key="vo.id">
+					          <img :src="'http://www.bluer.co.kr'+vo.poster" alt="" style="width: 50px; height: 50px; object-fit: cover; border-radius: 10px; margin-right: 20px;">
+					          <h4 style="font-size: 20px;">{{vo.name}}</h4>
+					        </li>
+					      </ul>
+					    </div>
+					  </div>
+					</div>
+					
+					<div class="col-md-6">
+					  <div class="contact-info">
+					    <div class="kode-info">
+					      <ul class="accommodation-list">
+					        <li class="accommodation-item" v-for="vo in hotel_list" :key="vo.id">
+					          <img :src="vo.poster" alt="" style="width: 50px; height: 50px; object-fit: cover; border-radius: 10px; margin-right: 20px;">
+					          <h4 style="font-size: 20px;">{{vo.name}}</h4>
+					        </li>
+					      </ul>
+					    </div>
+					  </div>
+					</div>
 
 
                   <div class="col-md-12">
@@ -199,5 +187,79 @@
            </div>
         </div>
     </section>
+   <script>
+let detailApp = Vue.createApp({
+    data() {
+        return {
+            food_list: [],
+            hotel_list: [],
+            fd: '',
+            no: 0
+        }
+    },
+    mounted() {
+        // 데이터 로드 및 지도 생성
+        this.dataRecv()
+        this.initKakaoMap() // 지도 생성 함수 호출
+    },
+    methods: {
+        dataRecv() {
+            axios.get('../stadium/detail_vue.do', {
+                params: {
+                    no: ${vo.no},
+                    fd: '${vo.location}',
+                    hd: '${vo.location}'
+                }
+            }).then(response => {
+                console.log(response.data)
+                this.food_list = response.data.fList
+                this.hotel_list = response.data.hList
+            }).catch(error => {
+                alert(error.response)
+                console.log(error.response)
+            })
+        },
+        initKakaoMap() {
+            // 카카오 지도 생성 코드
+            var mapContainer = document.getElementById('map') // 지도를 표시할 div 
+            var mapOption = {
+                center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+            }
+
+            // 지도를 생성합니다    
+            var map = new kakao.maps.Map(mapContainer, mapOption)
+
+            // 주소-좌표 변환 객체를 생성합니다
+            var geocoder = new kakao.maps.services.Geocoder()
+
+            // 주소로 좌표를 검색합니다
+            geocoder.addressSearch('${vo.address}', function(result, status) {
+
+                // 정상적으로 검색이 완료됐으면 
+                if (status === kakao.maps.services.Status.OK) {
+
+                    var coords = new kakao.maps.LatLng(result[0].y, result[0].x)
+
+                    // 결과값으로 받은 위치를 마커로 표시합니다
+                    var marker = new kakao.maps.Marker({
+                        map: map,
+                        position: coords
+                    })
+
+                    // 인포윈도우로 장소에 대한 설명을 표시합니다
+                    var infowindow = new kakao.maps.InfoWindow({
+                        content: '<div style="width:150px;text-align:center;padding:6px 0;">${vo.name}</div>'
+                    })
+                    infowindow.open(map, marker)
+
+                    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                    map.setCenter(coords)
+                }
+            })
+        }
+    }
+}).mount('#detailApp')
+</script>
 </body>
 </html>

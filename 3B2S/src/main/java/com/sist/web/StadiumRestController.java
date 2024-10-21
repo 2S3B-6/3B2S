@@ -18,11 +18,22 @@ public class StadiumRestController {
     private StadiumService sService;
 	
 	@GetMapping(value="stadium/detail_vue.do",produces = "text/plain;charset=UTF-8")
-	public String stadium_detail(int no) throws Exception
+	public String stadium_detail(int no, String fd,String hd) throws Exception
 	   {
+		
 		   StadiumVO vo=sService.stadiumDetailData(no);
+		  
+		   Map map=new HashMap();
+		   List<FoodVO> fList=sService.stadiumFoodListData(fd);
+		   List<HotelVO> hList=sService.stadiumHotelListData(hd);
+		   
+		   map.put("fList", fList);
+		   map.put("hList", hList);
+		   map.put("fd", fd);
+		   map.put("hd", hd);
+		   
 		   ObjectMapper mapper=new ObjectMapper();
-		   String json=mapper.writeValueAsString(vo);
+		   String json=mapper.writeValueAsString(map);
 		   return json;
 	   }
 }
