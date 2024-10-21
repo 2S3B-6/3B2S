@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
 <script src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=72fa81817487692b6dc093004af97650&libraries=services"></script>
 <style type="text/css">
 .listBtn {
@@ -84,6 +85,10 @@
     justify-content: flex-start;
     margin-bottom: 20px;
 }
+.restaurant-item h4:hover, .accommodation-item h4:hover {
+    color: #003366; 
+    transform: scale(1.05); 
+}
 </style>
 </head> 
 <body>
@@ -143,39 +148,38 @@
 				</div>
 
                <div class="col-md-12">
-                  <div id="map" style="width:100%;height:400px;margin-bottom: 70px"></div>
-                  
-                  </div> 
-                  <div class="kode-section-title" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-				     <h2>인근 맛집</h2>
-				     <h2>인근 숙소</h2>
+                 <div id="map" style="width:100%;height:400px;margin-bottom: 50px"></div>
+               </div> 
+              
+               <div class="kode-section-title" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+			      <h2>인근 맛집</h2>
+			      <h2>인근 숙소</h2>
+			    </div>
+                <div class="col-md-6">
+				  <div class="contact-info">
+				    <div class="kode-info">
+				      <ul class="restaurant-list">
+				        <li class="restaurant-item" v-for="vo in food_list" :key="vo.id" style="border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 10px;">
+				          <img :src="'http://www.bluer.co.kr'+vo.poster" alt="" style="width: 50px; height: 50px; object-fit: cover; border-radius: 10px; margin-right: 20px;">
+				          <h4 style="font-size: 20px;cursor: pointer;" @click="openFoodWindow(vo.fno)">{{vo.name}}</h4>
+				        </li>
+				      </ul>
+				    </div>
 				  </div>
-                  <div class="col-md-6">
-					  <div class="contact-info">
-					    <div class="kode-info">
-					      
-					      <ul class="restaurant-list">
-					        <li class="restaurant-item" v-for="vo in food_list" :key="vo.id">
-					          <img :src="'http://www.bluer.co.kr'+vo.poster" alt="" style="width: 50px; height: 50px; object-fit: cover; border-radius: 10px; margin-right: 20px;">
-					          <h4 style="font-size: 20px;">{{vo.name}}</h4>
-					        </li>
-					      </ul>
-					    </div>
-					  </div>
-					</div>
+				</div>
 					
-					<div class="col-md-6">
-					  <div class="contact-info">
-					    <div class="kode-info">
-					      <ul class="accommodation-list">
-					        <li class="accommodation-item" v-for="vo in hotel_list" :key="vo.id">
-					          <img :src="vo.poster" alt="" style="width: 50px; height: 50px; object-fit: cover; border-radius: 10px; margin-right: 20px;">
-					          <h4 style="font-size: 20px;">{{vo.name}}</h4>
-					        </li>
-					      </ul>
-					    </div>
-					  </div>
-					</div>
+				<div class="col-md-6">
+				  <div class="contact-info">
+				    <div class="kode-info">
+				      <ul class="accommodation-list">
+				        <li class="accommodation-item" v-for="vo in hotel_list" :key="vo.id" style="border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 10px;">
+				          <img :src="vo.poster" alt="" style="width: 50px; height: 50px; object-fit: cover; border-radius: 10px; margin-right: 20px;">
+				          <h4 style="font-size: 20px;cursor: pointer;" @click="openHotelWindow(vo.hno)">{{vo.name}}</h4>
+				        </li>
+				      </ul>
+				    </div>
+				  </div>
+				</div>
 
 
                   <div class="col-md-12">
@@ -203,6 +207,12 @@ let detailApp = Vue.createApp({
         this.initKakaoMap() // 지도 생성 함수 호출
     },
     methods: {
+    	openHotelWindow(hno) {
+            window.open('../stadium/hotel_detail.do?hno=' + encodeURIComponent(hno), 'winname', 'width=700,height=800,scrollbars=yes,resizable=no');
+        },
+        openFoodWindow(fno) {
+            window.open('../stadium/food_detail.do?fno=' + encodeURIComponent(fno), 'winname', 'width=700,height=800,scrollbars=yes,resizable=no');
+        },
         dataRecv() {
             axios.get('../stadium/detail_vue.do', {
                 params: {

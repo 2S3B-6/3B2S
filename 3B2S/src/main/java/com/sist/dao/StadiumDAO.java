@@ -28,12 +28,16 @@ public class StadiumDAO {
 	{
 		return mapper.stadiumHotelListData(hd);
 	}
-//	public StadiumVO stadiumHotelDetailData(int hno)
-//	{
-//		return mapper.stadiumHotelDetailData(hno);
-//	}
 	public List<FoodVO> stadiumFoodListData(String fd)
 	{
 		return mapper.stadiumFoodListData(fd);
+	}
+	public HotelVO stadiumHotelDetailData(int hno)
+	{
+		return mapper.stadiumHotelDetailData(hno);
+	}
+	public FoodVO stadiumFoodDetailData(int fno)
+	{
+		return mapper.stadiumFoodDetailData(fno);
 	}
 }

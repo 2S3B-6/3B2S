@@ -33,4 +33,22 @@ public class StadiumController {
  	    model.addAttribute("no", no);
  	    return "stadium/detail";
     }
+    @GetMapping("stadium/hotel_detail.do")
+	public String hotel_detail(Model model,int hno)
+	{
+		HotelVO vo=sService.stadiumHotelDetailData(hno);
+		
+		model.addAttribute("vo", vo);
+		
+		return "stadium/hotel_detail";
+	}
+    @GetMapping("stadium/food_detail.do")
+	public String food_detail(Model model,int fno)
+	{
+		FoodVO vo=sService.stadiumFoodDetailData(fno);
+		
+		model.addAttribute("vo", vo);
+		
+		return "stadium/food_detail";
+	}
 }
