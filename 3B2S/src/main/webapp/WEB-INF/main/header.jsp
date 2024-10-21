@@ -67,10 +67,22 @@ $(document).ready(function(){        
 </script>
 
 <style>
-header{
-margin-left: 80px;
-  display:inline-block
+
+
+
+
+header {
+  background-color: #003366; /* 헤더 배경색 */
+  width: 100%;
 }
+
+.navbar, .container1 {
+  margin: 0;
+  padding: 0;
+}
+/* 위에 헤더 전체 색 적용*/
+/*
+*/
 	.trans a{cursor:pointer;}
 	.trans .languageselect{display:none;}
 	
@@ -89,9 +101,9 @@ width: 60px;
     top: 100% !important; /* Match 버튼 바로 아래 */
     left: 0 !important; /* 버튼의 왼쪽에 정렬 */
     padding: 10px !important;
-    background-color: #fff !important;
-    border: 1px solid #ccc !important;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important; /* 그림자 추가 */
+    background-color: #003366 !important;
+    border: 1px solid #003366 !important;
+    box-shadow: 0 4px 8px rgba(0, 51, 102, 0.1) !important; /* 그림자 추가 */
 }
 
 /* 드롭다운 메뉴를 중앙 정렬 대신 Match 버튼에 맞춤 */
@@ -110,12 +122,12 @@ width: 60px;
     display: block !important;
     padding: 8px 15px !important;
     text-decoration: none !important;
-    color: #333 !important;
+    color: #fff !important;
     white-space: nowrap !important; /* 줄바꿈 방지 */
 }
 
 .menu-inner li a:hover {
-    background-color: #f0f0f0 !important;
+    background-color: #003366 !important;
 }
 
 li.col-sm-4 {
@@ -129,7 +141,11 @@ li.col-sm-4 {
 }
 
 
+.dropdown-toggle{
+	color:white !important;
+}
 </style>
+
 
 <title>2S3B</title>
 </head>
@@ -140,7 +156,7 @@ li.col-sm-4 {
       </div>
       <!-- END LOADER -->
          <header>
-            <div class="container"  >
+            <div class="container container1"  >
                
                <div class="header-bottom">
                   <div class="row">
