@@ -29,18 +29,5 @@ public class RuleController {
 	   return "guide/rule";
    }
    
-   /*
-   @GetMapping("guide/rule_insert.do")
-   public String guide_rule_insert()
-   {
-	   return "guide/rule_insert";
-   }
-   
-   @GetMapping("board/update.do")
-   public String board_update(int no,Model model)
-   {
-	   model.addAttribute("no", no);
-	   return "board/update";
-   }
-   */
+ 
 }

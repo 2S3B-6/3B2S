@@ -58,25 +58,7 @@ public class RuleRestController {
 	  return json;
   }
   
-  /*
-  @PostMapping(value = "guide/rule_insert_vue.do", produces = "text/plain;charset=UTF-8")
-  public String rule_insert(BoardVO vo, HttpSession session) {
-	  String result="";
-	  String id=(String)session.getAttribute("userId");
-	  String name=(String)session.getAttribute("userName");
-	  try {
-		  vo.setId(id);
-		  vo.setName(name);
-		  
-		  rService.ruleInsert(vo);
-		  
-		  result="yes";
-	  }catch(Exception ex) {
-		  result = ex.getMessage();
-	  }
-	  return result;
-  }
-  */
+ 
   
   @GetMapping(value = "guide/rule_detail_vue.do", produces = "text/plain;charset=UTF-8")
   public String guide_rule_detail(int no) throws Exception {
@@ -90,41 +72,7 @@ public class RuleRestController {
 	  return json;
   }
   
-  /*
-  @GetMapping(value = "guide/rule_delete_vue.do", produces = "text/plain;charset=UTF-8")
-  public String rule_delete(int no) throws Exception {
-	  String result="";
-	  try {
-		  rService.ruleDelete(no);
-		  result="yes";
-	  }catch(Exception ex) {
-		  result=ex.getMessage();
-	  }
-	  return result;
-  }
-  
-  @GetMapping(value = "guide/rule_update_vue.do", produces = "text/plain;charset=UTF-8")
-  public String rule_update(int no) throws Exception {
-	  RuleVO vo = rService.ruleUpdateData(no);
-	  ObjectMapper mapper = new ObjectMapper();
-	  String json = mapper.writeValueAsString(vo);
-	  return json;
-  }
-  
-  
-  @PostMapping(value = "guide/rule_update_ok_vue.do", produces = "text/plain;charset=UTF-8")
-  public String rule_update_ok(BoardVO vo) {
-	  String result="";
-	  try {
-		  rService.ruleUpdate(vo);
-		  result="yes";
-	  }catch(Exception ex) {
-		  result = ex.getMessage();
-	  }
-	  
-	  return result;
-  }
-   */
+ 
 }
 
 

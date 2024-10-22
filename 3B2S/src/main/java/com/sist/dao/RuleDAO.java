@@ -32,26 +32,7 @@ public class RuleDAO {
 	   mapper.hitIncrement(no);
 	   return mapper.ruleDetailData(no);
    }
-   /*
-   public void ruleDelete(int no)
-   {
-	   mapper.ruleDelete(no);
-   }
-   
-   public void ruleInsert(RuleVO vo)
-   {
-	   mapper.ruleInsert(vo);
-   }
-   
-   public ruleVO ruleUpdateData(int no)
-   {
-	   return mapper.ruleUpdateData(no);
-   }
-   public void ruleUpdate(BoardVO vo)
-   {
-	   mapper.ruleUpdate(vo);
-   }
-   */
+  
    
    
 }

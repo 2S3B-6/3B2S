@@ -12,4 +12,11 @@ public int idCheck(String userId);
 	public MemberVO memberInfoData(String userId);
 	
 	public MemberVO memberSessionData(String userId);	
+	
+
+	public MemberVO mypageUpdateData(String userId);
+	
+	public void mypageUpdate(MemberVO vo);
+	
+	public void mypageDelete(String userId);
 }

@@ -42,26 +42,4 @@ public interface RuleMapper {
 	  public RuleVO ruleDetailData(int no);
 	  
 
-	  /*
-	  @Insert("INSERT INTO kboard VALUES("
-			  +"kb_no_seq.nextval,#{id},#{subject},#{name}, #{content},"
-			  +"SYSDATE,0)")
-	  public void boardInsert(BoardVO vo);
-
-	  @Delete("DELETE FROM kboard "
-			 +"WHERE no=#{no}")
-	  public void boardDelete(int no);
-	  
-
-	  
-	  @Select("SELECT no,subject,content FROM kboard "
-				 +"WHERE no=#{no}")
-	  public BoardVO boardUpdateData(int no);
-	  
-	  @Update("UPDATE kboard SET "
-			 +"subject=#{subject}, "
-			 +"content=#{content} "
-			 +"WHERE no=#{no}")
-	  public void boardUpdate(BoardVO vo);
-	  */
 }

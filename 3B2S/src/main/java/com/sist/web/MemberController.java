@@ -3,6 +3,7 @@ package com.sist.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,4 +44,17 @@ public class MemberController {
 	public String member_login(){
 		return "member/login";
 	}
+	
+	@GetMapping("mypage/mypage_update.do")
+	public String mypage_update(String userId,Model model)  {
+		model.addAttribute("userId", userId);
+		return "mypage/mypage_update";
+	}
+	
+	@RequestMapping("mypage/mypage_delete.do")
+	public String mypage_delete(){
+		return "mypage/mypage_delete";
+	}
+
+	
 }

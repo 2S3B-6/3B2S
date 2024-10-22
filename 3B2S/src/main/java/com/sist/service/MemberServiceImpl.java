@@ -42,4 +42,23 @@ public class MemberServiceImpl implements MemberService {
 		return mDao.memberSessionData(userId);
 	}
 
+
+	@Override
+	public void mypageDelete(String userId) {
+		// TODO Auto-generated method stub
+		mDao.mypageDelete(userId);   
+	}
+
+	@Override
+	public MemberVO mypageUpdateData(String userId) {
+		// TODO Auto-generated method stub
+		return mDao.mypageUpdateData(userId);
+	}
+
+	@Override
+	public void mypageUpdate(MemberVO vo) {
+		// TODO Auto-generated method stub
+		mDao.mypageUpdate(vo);
+	} 
+
 }

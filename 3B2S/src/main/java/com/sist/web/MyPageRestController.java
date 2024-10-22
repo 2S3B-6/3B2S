@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sist.service.HotelService;
+import com.sist.service.KboGoodsService;
 import com.sist.service.ReserveService;
+import com.sist.vo.CartVO;
 import com.sist.vo.ReserveVO;
 
 @RestController
@@ -19,6 +21,8 @@ public class MyPageRestController {
 	private ReserveService rService;
 	@Autowired
 	private HotelService hService;
+	@Autowired
+	private KboGoodsService kgService;
 	
 	@GetMapping(value="mypage/reserve_info_vue.do",produces="text/plain;charset=UTF-8")
 	public String reserve_info(int hno , int rno) throws Exception{
@@ -37,5 +41,16 @@ public class MyPageRestController {
 		  String json=mapper.writeValueAsString(list);
 		  return json;
 	  }
+	
+	@GetMapping(value="mypage/mypage_cart_vue.do",produces = "text/plain;charset=UTF-8")
+	public String mypage_cart(HttpSession session) throws Exception {
+		String id=(String) session.getAttribute("userId");
+		List<CartVO> list=kgService.kboGoodsCartListData(id);
+		  
+		ObjectMapper mapper=new ObjectMapper();
+		String json=mapper.writeValueAsString(list);
+		  
+		return json;
+	}
 	
 }

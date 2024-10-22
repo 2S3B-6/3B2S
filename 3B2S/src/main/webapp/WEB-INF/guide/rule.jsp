@@ -15,22 +15,74 @@
       padding: 20px;
       margin-bottom: 50px;
     }
+    
+    /* 카드 스타일 */
     .card {
-      border: 1px solid #ddd;
-      padding: 20px;
       width: 300px;
+      height: 250px;
+      perspective: 1000px; /* 3D 효과를 위한 원근감 */
+      position: relative;
+    }
+    
+    /* 카드 안의 내용 */
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
+    }
+    
+    /* 카드 앞면 */
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border: 1px solid #ddd;
       border-radius: 10px;
+      padding: 20px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s;
     }
-    .card:hover {
-      transform: scale(1.05);
+    
+    .card-front {
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 1; /* 카드 앞면이 항상 위에 보이도록 설정 */
     }
+    
+    /* 카드 뒷면 */
+    
+    .card-back .card-title {
+  display: none; /* 제목을 숨깁니다 */
+}
+
+.card-back .card-description {
+  white-space: normal; /* 긴 설명도 모두 보이도록 설정 */
+}
+    .card-back {
+      background-color: #f5f5f5;
+      transform: rotateY(180deg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    
+    /* 카드가 뒤집힐 때 */
+    .flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+    
     .card-title {
       font-weight: bold;
       font-size: 1.5em;
       margin-bottom: 10px;
     }
+    
     .card-description {
       font-size: 0.9em;
       color: #555;
@@ -38,86 +90,68 @@
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-    .card img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      margin-bottom: 10px;
+
+    .more-button {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      background-color: #006633;
+      width : 100px;
+    }
+    
+    .simple-button {
+      position: absolute;
+      left: 63%; /* 가운데 정렬 */
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 186px;
+      background-color: gold;
+      width : 100px;
     }
 
-    /* 검색창과 버튼을 한 줄로 배치 */
-    .search-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 20px;
+    .back-button {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
     }
-    .search-container input {
-      flex: 1;
-      max-width: 400px;
-      margin-right: 10px;
-      padding: 10px;
-    }
-    .search-container button {
-      padding: 10px 20px;
-    }
-    .card {
-  position: relative;
-  width: 300px; /* 카드의 가로 크기 */
-  height: 250px; /* 카드의 세로 크기 */
-  border: 1px solid #ddd;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.card-container {
-  perspective: 1000px; /* 3D 효과를 위한 원근감 설정 */
-}
-    .more-button {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
+    
+
 </style>
 <script src="https://unpkg.com/vue@3"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-<section id="top">
-    <div class="inner-page-banner">
-        <div class="container">
-        </div>
-    </div>
-    <div class="inner-information-text">
-        <div class="container">
-            <h3>Guide</h3>
-            <ul class="breadcrumb">
-                <li><a href="../main/main.do">Home</a></li>
-                <li class="active">Rule</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
 <div class="container" id="ruleApp" v-cloak>
-  <h1 class="text-center">야구 용어 가이드</h1>
-  <div class="card-container">
-<!-- 검색 -->  
-<div class="container">
-  <div class="search-container">
-    <input type="text" style="width:200px;" ref="rs" v-model="rs" @keydown.enter="Search()" placeholder="홈런">
-    <button class="btn btn-primary" @click="search">검색</button>
+  <div class="header">
+    <h1 class="text-center" style="display: inline-block;">야구 용어 가이드</h1>
+    <div class="search-container" style="display: inline-block; float: right;">
+      <input type="text" v-model="searchQuery" placeholder="검색어를 입력하세요" class="search-input">
+      <button class="btn btn-primary search-button" @click="searchTerms">검색</button>
+    </div>
   </div>
-</div>
-    <div class="card" v-for="vo in ruleList" :key="vo.no">
-      <div class="card-title">{{ vo.subject }}</div>
-      <div class="card-description">{{ vo.content.substring(0, 100) }}...</div> <!-- 첫 100자만 출력 -->
-      <a :href="'../guide/rule_detail.do?no=' + vo.no" class="more-button btn btn-xs btn-primary">자세히 보기</a>
-    <!--   <div v-if="today === vo.dbday">
-        <img src="../img/icon/new.gif" alt="새로운 항목">
-      </div> -->
+  <div class="card-container">
+    <div class="card" v-for="vo in ruleList" :key="vo.no" :class="{ flipped: vo.isFlipped }">
+      <div class="card-inner" @click="flipCard(vo.no)">
+        <!-- 카드 앞면 -->
+        <div class="card-front">
+          <div class="card-title">{{ vo.subject }}</div>
+      <button class="simple-button btn btn-xs btn-primary" @click.stop="flipCard(vo.no)">뜻 보기</button> <!-- @click.stop 추가 -->
+        </div>
+        
+        <!-- 카드 뒷면 -->
+        <div class="card-back">
+          <div class="card-title">더 자세한 내용</div>
+          <div class="card-description">{{ vo.content }}</div>
+          <button class="back-button btn btn-xs btn-secondary" @click.stop="flipCard(vo.no)">뒤로</button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -134,27 +168,54 @@
 let ruleApp = Vue.createApp({
     data() {
         return {
-            ruleList: [],
-            curpage: 1,
-            totalpage: 0,
-            today: '',
-            searchQuery: ''
+            ruleList: [],    // 전체 야구 용어 리스트
+            curpage: 1,      // 현재 페이지
+            totalpage: 0,    // 전체 페이지 수
+            searchQuery: ''  // 검색어 입력값
         };
     },
-    mounted() {
-        this.dataRecv();
+    computed: {
+        // 검색어에 맞춰 필터링된 용어 리스트를 반환합니다.
+        filteredList() {
+            if (this.searchQuery) {
+                return this.ruleList.filter(vo =>
+                    vo.subject.toLowerCase().includes(this.searchQuery.toLowerCase())
+                );
+            }
+            return this.ruleList;
+        }
     },
     methods: {
-    	Search() {
-            // 검색 요청
-    		if(this.rs==="")
-			{
-				this.$refs.rs.focus()
-				return 
-			}
-			this.curpage=1
-			this.dataRecv()
-		 },
+        searchTerms() {
+            // 검색어를 입력하고 버튼을 눌렀을 때 호출
+            this.curpage = 1;   // 검색 후 페이지를 1로 초기화
+        },
+        dataRecv() {
+            // 서버에서 데이터를 받아옵니다
+            axios.get('../guide/rule_vue.do', {
+                params: {
+                    page: this.curpage
+                }
+            }).then(response => {
+                // 데이터를 받아와서 ruleList에 저장
+                this.ruleList = response.data.ruleList.map(vo => {
+                    return { ...vo, isFlipped: false };
+                });
+                this.curpage = response.data.curpage;
+                this.totalpage = response.data.totalpage;
+            }).catch(error => {
+                console.log(error.response);
+            });
+        },
+        flipCard(no) {
+            // 카드를 뒤집는 함수
+            this.ruleList = this.ruleList.map(vo => {
+                if (vo.no === no) {
+                    vo.isFlipped = !vo.isFlipped;
+                }
+                return vo;
+            });
+        },
         prev() {
             if (this.curpage > 1) {
                 this.curpage--;
@@ -166,24 +227,14 @@ let ruleApp = Vue.createApp({
                 this.curpage++;
                 this.dataRecv();
             }
-        },
-        dataRecv() {
-            axios.get('../guide/rule_vue.do', {
-                params: {
-                    page: this.curpage
-                }
-            }).then(response => {
-                console.log(response.data); // 데이터 확인
-                this.ruleList = response.data.ruleList;
-                this.curpage = response.data.curpage;
-                this.totalpage = response.data.totalpage;
-                this.today = response.data.today;
-            }).catch(error => {
-                console.log(error.response);
-            });
         }
+    },
+    mounted() {
+        // 컴포넌트가 마운트되면 데이터를 받아옵니다.
+        this.dataRecv();
     }
 }).mount('#ruleApp');
+
 </script>
 </body>
 </html>
