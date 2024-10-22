@@ -2,6 +2,11 @@ package com.sist.dao;
 
 import java.util.*;
 
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Results;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -33,5 +38,37 @@ public class KboGoodsDAO {
 	}
 	public int kboGoodsFindTotalPage(Map map) {
 		return mapper.kboGoodsFindTotalPage(map);
+	}
+	
+	//장바구니
+	public void GoodsCartInsert(KboGoodsCartVO vo) {
+		mapper.GoodsCartInsert(vo);
+	}
+	   
+	public void goodsCartAccountUpdate(KboGoodsCartVO vo) {
+		mapper.goodsCartAccountUpdate(vo);
+	}
+
+	public int goodsCartGnoCount(int gno) {
+		return mapper.goodsCartGnoCount(gno);
+	}
+	   
+	// 장바구니 보기 
+	public List<KboGoodsCartVO> goodsCartListData(String id){
+		return mapper.goodsCartListData(id);
+	}
+	   
+	// 장바구니 삭제 
+	public void goodsCartCancel(int cno) {
+		mapper.goodsCartCancel(cno);
+	}
+	   
+	// 장바구니 구매 
+	public void goodsBuy(int cno) {
+		mapper.goodsBuy(cno);
+	}
+	   
+	public List<KboGoodsCartVO> goodsBuyListData(String id){
+		return mapper.goodsBuyListData(id);
 	}
 }

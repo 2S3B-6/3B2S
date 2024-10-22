@@ -38,9 +38,40 @@ public class KboGoodsServiceImpl implements KboGoodsService{
 		// TODO Auto-generated method stub
 		return kgDao.kboGoodsFindTotalPage(map);
 	}
-	
-
-	
-	
-	
+	@Override
+	public void GoodsCartInsert(KboGoodsCartVO vo) {
+		// TODO Auto-generated method stub
+		kgDao.GoodsCartInsert(vo);
+	}
+	@Override
+	public void goodsCartAccountUpdate(KboGoodsCartVO vo) {
+		// TODO Auto-generated method stub
+		kgDao.goodsCartAccountUpdate(vo);
+	}
+	@Override
+	public int goodsCartGnoCount(int gno) {
+		// TODO Auto-generated method stub
+		return kgDao.goodsCartGnoCount(gno);
+	}
+	@Override
+	public List<KboGoodsCartVO> goodsCartListData(String id) {
+		// TODO Auto-generated method stub
+		return kgDao.goodsCartListData(id);
+	}
+	@Override
+	public void goodsCartCancel(int cno) {
+		// TODO Auto-generated method stub
+		kgDao.goodsCartCancel(cno);
+	}
+	@Override
+	public void goodsBuy(int cno) {
+		// TODO Auto-generated method stub
+		kgDao.goodsBuy(cno);
+	}
+	@Override
+	public List<KboGoodsCartVO> goodsBuyListData(String id) {
+		// TODO Auto-generated method stub
+		return kgDao.goodsBuyListData(id);
+	}
+		
 }

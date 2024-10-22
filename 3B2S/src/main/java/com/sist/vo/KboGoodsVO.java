@@ -26,6 +26,7 @@ import lombok.Data;
 
 @Data
 public class KboGoodsVO {
-	private int gno;
-	private String name, price, delivery, content, poster; 
+	private int gno, origin_price, origin_delivery;
+	private String name, price, delivery, content, poster, simple_delivery;
+	private String origin_content,origin_content1;
 }

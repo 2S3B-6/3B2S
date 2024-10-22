@@ -259,7 +259,7 @@ li.col-sm-4 {
 					                            	
 					                            	
 						                            	<sec:authorize access="hasRole('ROLE_ADMIN')">
-						                            		<li class="active"><a href="../main/main.do">관리자페이지</a></li>
+						                            		<li class="active"><a href="../adminpage/admin_main.do">관리자페이지</a></li>
 						                            	</sec:authorize>
 						                            	<sec:authorize access="hasRole('ROLE_USER')">
 						                            		<li class="active"><a href="../mypage/mypage_main.do">마이페이지</a></li>

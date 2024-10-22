@@ -34,18 +34,23 @@ public class KboGoodsController {
 		   cookie.setMaxAge(60*60*24);
 		   cookie.setPath("/");
 		   response.addCookie(cookie);
-		   ra.addAttribute("gno", gno);// ?gno=1
+		   ra.addAttribute("gno", gno);
 		   return "redirect:../kboGoods/detail.do";
 	   }
-	   // response는 한가지 일만 수행 
-	   // => HTML/Cookie 
+
+	
 	   @GetMapping("kboGoods/detail.do")
-	   public String food_detail(int gno,Model model)
+	   public String food_detail(int gno,Model model,HttpSession session)
 	   {
+		   String id=(String)session.getAttribute("userId");
+		   
 		   KboGoodsVO vo=kgService.kboGoodsDetailData(gno);
 		   model.addAttribute("vo", vo);
-		   return "food/detail";
+		   model.addAttribute("gno", gno);
+		   model.addAttribute("sessionId", id);
+		   
+		   return "kbogoods/detail";
 	   }
 	   
-	   
+
 }

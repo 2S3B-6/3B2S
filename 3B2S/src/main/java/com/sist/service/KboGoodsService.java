@@ -17,4 +17,21 @@ public interface KboGoodsService {
 	public int kboGoodsTotalPage();
 	public int kboGoodsFindTotalPage(Map map);
 	
+	//장바구니
+	public void GoodsCartInsert(KboGoodsCartVO vo);
+	   
+	public void goodsCartAccountUpdate(KboGoodsCartVO vo);
+
+	public int goodsCartGnoCount(int gno);
+	   
+	// 장바구니 보기 
+	public List<KboGoodsCartVO> goodsCartListData(String id);
+	   
+	// 장바구니 삭제 
+	public void goodsCartCancel(int cno);
+	   
+	// 장바구니 구매 
+	public void goodsBuy(int cno);
+	   
+	public List<KboGoodsCartVO> goodsBuyListData(String id);
 }

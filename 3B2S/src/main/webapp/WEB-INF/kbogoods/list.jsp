@@ -10,6 +10,13 @@
 	.page-link:hover{
 		cursor: pointer;
 }
+	.logoimgs{
+		width: 45px;
+		height: 45px;
+		margin-right:45px;
+		margin-left: 45px;
+		margin: 15px;
+	}
 </style>
 </head>
 <body>
@@ -29,38 +36,49 @@
     </div>
 </div>
  <div class="breadcumb-nav" style="margin-bottom: 50px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">
-                            
-                             <input type=text style="color: black;" size=25 ref="fd" v-model="fd" @keydown.enter="kboGoodsFind()">
-                            </li>
-                        </ol>
-                    </nav>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+				<div class="text-center" style="margin-left: 15px; margin-right: 15px; ">
+				    <input type="image" src="../images/logo/doosan.png" class="logoimgs" value="클릭" @click="kboGoodsFind1()">
+                    <input type="image" src="../images/logo/LG.png" class="logoimgs" value="클릭" @click="kboGoodsFind2()">
+                    <input type="image" src="../images/logo/kt.png" class="logoimgs" value="클릭" @click="kboGoodsFind3()">
+                    <input type="image" src="../images/logo/kia.png" class="logoimgs" value="클릭" @click="kboGoodsFind4()">
+                    <input type="image" src="../images/logo/ssg.png" class="logoimgs" value="클릭" @click="kboGoodsFind5()">
+                    <input type="image" src="../images/logo/samsung.png" class="logoimgs" value="클릭" @click="kboGoodsFind6()">
+                    <input type="image" src="../images/logo/hanhwa.png" class="logoimgs" value="클릭" @click="kboGoodsFind7()">
+                    <input type="image" src="../images/logo/lotte.png" class="logoimgs" value="클릭" @click="kboGoodsFind8()">
+                    <input type="image" src="../images/logo/nc.png" class="logoimgs" value="클릭" @click="kboGoodsFind9()">
+                    <input type="image" src="../images/logo/kiwoom.png" class="logoimgs" value="클릭" @click="kboGoodsFind10()">
+					</br>
+					<p class="" style="color: #b2b7a8; margin-left: 45px; ">로고를 클릭하면 해당 팀이 검색됩니다.</p>
+               	</div>
+               	<div class="text-right">
+               		<input type="image" src="../images/reset.png" style="width: 25px; margin-right: 10px;" @click="kboGoodsFindReset()">
+               		<input type=text style="color: black; text-transform: uppercase;" size=35 ref="fd" v-model="fd" @keydown.enter="kboGoodsFind()">&nbsp;
+                   	<input type="button" src="" class=""  value="검색" @click="kboGoodsFind()">
+				</div>	
             </div>
         </div>
     </div>
+</div>
 
 <section class="archive-area section_padding_80">
 <div class="container">
     <div class="row">
         <!-- Single Post -->
         <div class="col-16 col-md-6 col-lg-4" v-for="vo in kboGoods_list"  style="margin-bottom: 50px;">
-            <div class="single-post wow fadeInUp" data-wow-delay="0.1s">
+            <div class="single-post wow fadeInUp" data-wow-delay="0.1s" >
                 <!-- Post Thumb -->
                 <div class="text-center">
                    <a :href="'../kboGoods/detail_before.do?gno='+vo.gno">
-                    <img :src="vo.poster" style="width: 250px; ">
+                    <img :src="vo.poster" style="width: 250px; height: 250px;">
                    </a>
                 </div>
                 <!-- Post Content -->
                 <div class="post-content">
                    <a :href="'../kboGoods/detail_before.do?gno='+vo.gno">
-                       <h4 style=" font-size: 20px;">{{vo.name}}</h4>
+                       <h4 style=" font-size: 100%;">{{vo.name}}</h4>
                    </a>	
                </div>
                <div class="kbogoods_price" >
@@ -118,13 +136,62 @@
 	 },
 	 // 사용자 정의 함수 => 이벤트 처리 , 공통으로 적용 
 	 methods:{
+		 kboGoodsFindReset(){
+			this.fd=''
+			this.curpage=1
+			this.dataRecv()
+		 },
 		 kboGoodsFind(){
-			 //공란시 focus
-			/* if(this.fd==="")
-			{
-				this.$refs.fd.focus()
-				return 
-			} */
+			this.curpage=1
+			this.dataRecv()
+		 },
+		 kboGoodsFind1(){
+			this.fd='두산베어스'
+			this.curpage=1
+			this.dataRecv()
+		 },
+		 kboGoodsFind2(){
+			this.fd='LG'
+			this.curpage=1
+			this.dataRecv()
+		 },
+		 kboGoodsFind3(){
+			this.fd='KT위즈'
+			this.curpage=1
+			this.dataRecv()
+		},
+		kboGoodsFind4(){
+			this.fd='KIA타이거즈'
+			this.curpage=1
+			this.dataRecv()
+		 },
+		 kboGoodsFind5(){
+			this.fd='SSG랜더스'
+			this.curpage=1
+			this.dataRecv()
+		 },
+		 kboGoodsFind6(){
+			this.fd='삼성라이온즈'
+			this.curpage=1
+			this.dataRecv()
+		 },
+		 kboGoodsFind7(){
+			this.fd='한화이글스'
+			this.curpage=1
+			this.dataRecv()
+		 },
+		 kboGoodsFind8(){
+			this.fd='롯데자이언츠'
+			this.curpage=1
+			this.dataRecv()
+		 },
+		 kboGoodsFind9(){
+			this.fd='NC다이노스'
+			this.curpage=1
+			this.dataRecv()
+		 },
+		 kboGoodsFind10(){
+			this.fd='키움히어로즈'
 			this.curpage=1
 			this.dataRecv()
 		 },
