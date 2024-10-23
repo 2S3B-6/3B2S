@@ -1,11 +1,14 @@
 package com.sist.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sist.dao.ReserveDAO;
+import com.sist.vo.GameReserveVO;
+import com.sist.vo.GameVO;
 import com.sist.vo.ReserveVO;
 
 @Service
@@ -41,6 +44,12 @@ public class ReserveServiceImpl implements ReserveService{
 	public ReserveVO reserveInfoData(int rno) {
 		// TODO Auto-generated method stub
 		return rDao.reserveInfoData(rno);
+	}
+
+	@Override
+	public List<GameReserveVO> gameNoSeatList(Map map) {
+		// TODO Auto-generated method stub
+		return rDao.gameNoSeatList(map);
 	}
 	
 }

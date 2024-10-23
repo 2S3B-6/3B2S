@@ -1,7 +1,10 @@
 package com.sist.service;
 
 import java.util.List;
+import java.util.Map;
 
+import com.sist.vo.GameReserveVO;
+import com.sist.vo.GameVO;
 import com.sist.vo.ReserveVO;
 
 public interface ReserveService {
@@ -10,4 +13,5 @@ public interface ReserveService {
 	public List<ReserveVO> reserveAdminListData(String id);
 	public void reserveOk(int rno);
 	public ReserveVO reserveInfoData(int rno);
+	public List<GameReserveVO> gameNoSeatList(Map map);
 }

@@ -233,7 +233,7 @@ li.col-sm-4 {
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
                                                       <li><a href="../kbogoods/list.do">굿즈</a></li>
-                                                      <li><a href="../ticket/ticket_main.do">티켓</a></li>
+                                                      <li><a href="../ticket/ticketchoice.do">티켓</a></li>
                                                       <li><a href="../train/list.do">기차</a></li>
                                                       <li><a href="../hotel/list.do">숙소</a></li>
                                                    </ul>

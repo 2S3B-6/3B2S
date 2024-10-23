@@ -1,6 +1,7 @@
 package com.sist.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
@@ -10,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.sist.mapper.ReserveMapper;
+import com.sist.vo.GameReserveVO;
+import com.sist.vo.GameVO;
 import com.sist.vo.ReserveVO;
 
 @Repository
@@ -35,5 +38,9 @@ public class ReserveDAO {
 
 	public ReserveVO reserveInfoData(int rno) {
 		return mapper.reserveInfoData(rno);
+	}
+	
+	public List<GameReserveVO> gameNoSeatList(Map map) {
+		return mapper.gameNoSeatList(map);
 	}
 }
