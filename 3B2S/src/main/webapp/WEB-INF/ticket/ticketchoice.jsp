@@ -139,7 +139,7 @@
      		methods:{
      			reserve() {
      			    
-     			        location.href = "../ticket/ticket_main.do?price="+this.price+"&type="+this.type+"&day="+this.day; // 여기에서 이동
+     			        location.href = "../ticket/ticket_main.do?price="+this.price+"&type="+this.type+"&day="+this.day+"&num="+this.num; // 여기에서 이동
      			  
      			},
      			ticketSelect(tno,num,game_date){

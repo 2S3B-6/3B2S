@@ -24,11 +24,14 @@ public class TicketController {
 	@GetMapping("ticket/ticket_main.do")
    public String ticket_main(Model model , HttpSession session,HttpServletRequest request)
    {
-	   
+	   String num = request.getParameter("num");
+	   System.out.println(num);
 	   String price = request.getParameter("price");
 	   String type = request.getParameter("type");
 	   String day = request.getParameter("day");
 	   Map map = new HashMap();
+	   String rseat="";
+	   map.put("rseat", rseat);
 	   map.put("day", day);
 	   map.put("type", type);
 	   int rprice = Integer.parseInt(price);
@@ -40,6 +43,7 @@ public class TicketController {
 	   model.addAttribute("price", rprice);
 		model.addAttribute("type", type);
 		model.addAttribute("day", day);
+		model.addAttribute("num", num);
 	   String id=(String)session.getAttribute("userId");
 	   model.addAttribute("sessionId",id);
 	   return "ticket/ticket_main";

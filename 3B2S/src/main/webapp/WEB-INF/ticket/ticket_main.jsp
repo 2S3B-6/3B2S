@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="../js/ticket.js"></script>
+<script src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
 <style>
 	body
 {
@@ -114,6 +114,10 @@ input[type=checkbox]:checked:before {
     background-color:Green;
     font-size: 15px;
 }
+input[type=checkbox]:disabled:before {
+    background-color:red;
+    font-size: 15px;
+}
 
 
 	
@@ -137,7 +141,7 @@ input[type=checkbox]:checked:before {
   ID : <input type="text" id="Username" required value=${sessionId}>
   좌석수 : <input type="number" id="Numseats" required value="1">
   <br/><br/>
-  <button id="reserveBtn" onclick="takeData()">예매시작</button>
+  <button id="reserveBtn" onclick="takeData()" style="display:none;">예매시작</button>
 </center>
 </div>
   
@@ -157,7 +161,6 @@ input[type=checkbox]:checked:before {
     
     <br/>
   </tr>
-  <c:forEach var="vo" items="${list }" varStatus="s">
   
   <tr>
     <td></td>
@@ -177,174 +180,173 @@ input[type=checkbox]:checked:before {
   
 <tr>
     <td>A</td>
-    <td><input type="checkbox" id="chkbx1" class="seats" value="A1" ></td>
-    <td><input type="checkbox" id="chkbx2" class="seats" value="A2"></td>
-    <td><input type="checkbox" id="chkbx3" class="seats" value="A3"></td>
-    <td><input type="checkbox" id="chkbx4" class="seats" value="A4"></td>
-    <td><input type="checkbox" id="chkbx5" class="seats" value="A5"></td>
-    <td><input type="checkbox" id="chkbx6" class="seats" value="A6"></td>
-    <td><input type="checkbox" id="chkbx7" class="seats" value="A7"></td>
-    <td><input type="checkbox" id="chkbx8" class="seats" value="A8"></td>
-    <td><input type="checkbox" id="chkbx9" class="seats" value="A9"></td>
-    <td><input type="checkbox" id="chkbx10" class="seats" value="A10"></td>
-    <td><input type="checkbox" id="chkbx11" class="seats" value="A11"></td>
-    <td><input type="checkbox" id="chkbx12" class="seats" value="A12"></td>
+    <c:forEach var="row" begin="1" end="12">
+	    <td>	
+	    	<c:set var="seat" value="A${row }"></c:set>
+	    	<input type="checkbox" id="chkbx1" class="seats" value="${seat }" 
+	    		<c:forEach var="vo" items="${list}">
+                     <c:if test="${vo.gvo.seat eq seat }">
+                         disabled
+                     </c:if>
+                 </c:forEach>
+	    	/>
+	    </td>
+    </c:forEach>
   </tr>
   
   <tr>
     <td>B</td>
-    <td><input type="checkbox" id="chkbx13" class="seats" value="B1"></td>
-    <td><input type="checkbox" id="chkbx14" class="seats" value="B2"></td>
-    <td><input type="checkbox" id="chkbx15" class="seats" value="B3"></td>
-    <td><input type="checkbox" id="chkbx16" class="seats" value="B4"></td>
-    <td><input type="checkbox" id="chkbx17" class="seats" value="B5"></td>
-    <td><input type="checkbox" id="chkbx18" class="seats" value="B6"></td>
-    <td><input type="checkbox" id="chkbx19" class="seats" value="B7"></td>
-    <td><input type="checkbox" id="chkbx20" class="seats" value="B8"></td>
-    <td><input type="checkbox" id="chkbx21" class="seats" value="B9"></td>
-    <td><input type="checkbox" id="chkbx22" class="seats" value="B10"></td>
-    <td><input type="checkbox" id="chkbx23" class="seats" value="B11"></td>
-    <td><input type="checkbox" id="chkbx24" class="seats" value="B12"></td>
+    <c:forEach var="row" begin="1" end="12">
+	    <td>	
+	    	<c:set var="seat" value="B${row }"></c:set>
+	    	<input type="checkbox" id="chkbx1" class="seats" value="${seat }" 
+	    		<c:forEach var="vo" items="${list}">
+                     <c:if test="${vo.gvo.seat eq seat }">
+                         disabled
+                     </c:if>
+                 </c:forEach>
+	    	
+	    	/>
+	    </td>
+    </c:forEach>
   </tr>
   
   <tr>
     <td>C</td>
-    <td><input type="checkbox" id="chkbx25" class="seats" value="C1"></td>
-    <td><input type="checkbox" id="chkbx26" class="seats" value="C2"></td>
-    <td><input type="checkbox" id="chkbx27" class="seats" value="C3"></td>
-    <td><input type="checkbox" id="chkbx28" class="seats" value="C4"></td>
-    <td><input type="checkbox" id="chkbx29" class="seats" value="C5"></td>
-    <td><input type="checkbox" id="chkbx30" class="seats" value="C6"></td>
-    <td><input type="checkbox" id="chkbx31" class="seats" value="C7"></td>
-    <td><input type="checkbox" id="chkbx32" class="seats" value="C8"></td>
-    <td><input type="checkbox" id="chkbx33" class="seats" value="C9"></td>
-    <td><input type="checkbox" id="chkbx34" class="seats" value="C10"></td>
-    <td><input type="checkbox" id="chkbx35" class="seats" value="C11"></td>
-    <td><input type="checkbox" id="chkbx36" class="seats" value="C12"></td>
-</tr>
+    <c:forEach var="row" begin="1" end="12">
+	    <td>	
+	    	<c:set var="seat" value="C${row }"></c:set>
+	    	<input type="checkbox" id="chkbx1" class="seats" value="${seat }" 
+	    		<c:forEach var="vo" items="${list}">
+                     <c:if test="${vo.gvo.seat eq seat }">
+                         disabled
+                     </c:if>
+                 </c:forEach>
+	    	
+	    	/>
+	    </td>
+    </c:forEach>
+  </tr>
   
 <tr>
     <td>D</td>
-    <td><input type="checkbox" id="chkbx37" class="seats" value="D1"></td>
-    <td><input type="checkbox" id="chkbx38" class="seats" value="D2"></td>
-    <td><input type="checkbox" id="chkbx39" class="seats" value="D3"></td>
-    <td><input type="checkbox" id="chkbx40" class="seats" value="D4"></td>
-    <td><input type="checkbox" id="chkbx41" class="seats" value="D5"></td>
-    <td><input type="checkbox" id="chkbx42" class="seats" value="D6"></td>
-    <td><input type="checkbox" id="chkbx43" class="seats" value="D7"></td>
-    <td><input type="checkbox" id="chkbx44" class="seats" value="D8"></td>
-    <td><input type="checkbox" id="chkbx45" class="seats" value="D9"></td>
-    <td><input type="checkbox" id="chkbx46" class="seats" value="D10"></td>
-    <td><input type="checkbox" id="chkbx47" class="seats" value="D11"></td>
-    <td><input type="checkbox" id="chkbx48" class="seats" value="D12"></td>
-</tr>
+    <c:forEach var="row" begin="1" end="12">
+	    <td>	
+	    	<c:set var="seat" value="D${row }"></c:set>
+	    	<input type="checkbox" id="chkbx1" class="seats" value="${seat }" 
+	    		<c:forEach var="vo" items="${list}">
+                     <c:if test="${vo.gvo.seat eq seat }">
+                         disabled
+                     </c:if>
+                 </c:forEach>
+	    	
+	    	/>
+	    </td>
+    </c:forEach>
+  </tr>
   
 <tr>
     <td>E</td>
-    <td><input type="checkbox" id="chkbx49" class="seats" value="E1"></td>
-    <td><input type="checkbox" id="chkbx50" class="seats" value="E2"></td>
-    <td><input type="checkbox" id="chkbx51" class="seats" value="E3"></td>
-    <td><input type="checkbox" id="chkbx52" class="seats" value="E4"></td>
-    <td><input type="checkbox" id="chkbx53" class="seats" value="E5"></td>
-    <td><input type="checkbox" id="chkbx54" class="seats" value="E6"></td>
-    <td><input type="checkbox" id="chkbx55" class="seats" value="E7"></td>
-    <td><input type="checkbox" id="chkbx56" class="seats" value="E8"></td>
-    <td><input type="checkbox" id="chkbx57" class="seats" value="E9"></td>
-    <td><input type="checkbox" id="chkbx58" class="seats" value="E10"></td>
-    <td><input type="checkbox" id="chkbx59" class="seats" value="E11"></td>
-    <td><input type="checkbox" id="chkbx60" class="seats" value="E12"></td>
-</tr>
+    <c:forEach var="row" begin="1" end="12">
+	    <td>	
+	    	<c:set var="seat" value="E${row }"></c:set>
+	    	<input type="checkbox" id="chkbx1" class="seats" value="${seat }" 
+	    		<c:forEach var="vo" items="${list}">
+                     <c:if test="${vo.gvo.seat eq seat }">
+                         disabled
+                     </c:if>
+                 </c:forEach>
+	    	
+	    	/>
+	    </td>
+    </c:forEach>
+  </tr>
   
 <tr class="seatVGap"></tr>
   
 <tr>
     <td>F</td>
-    <td><input type="checkbox" id="chkbx61" class="seats" value="F1"></td>
-    <td><input type="checkbox" id="chkbx62" class="seats" value="F2"></td>
-    <td><input type="checkbox" id="chkbx63" class="seats" value="F3"></td>
-    <td><input type="checkbox" id="chkbx64" class="seats" value="F4"></td>
-    <td><input type="checkbox" id="chkbx65" class="seats" value="F5"></td>
-    <td><input type="checkbox" id="chkbx66" class="seats" value="F6"></td>
-    <td><input type="checkbox" id="chkbx67" class="seats" value="F7"></td>
-    <td><input type="checkbox" id="chkbx68" class="seats" value="F8"></td>
-    <td><input type="checkbox" id="chkbx69" class="seats" value="F9"></td>
-    <td><input type="checkbox" id="chkbx70" class="seats" value="F10"></td>
-    <td><input type="checkbox" id="chkbx71" class="seats" value="F11"></td>
-    <td><input type="checkbox" id="chkbx72" class="seats" value="F12"></td>
-</tr>
-  
-<tr>
+    <c:forEach var="row" begin="1" end="12">
+	    <td>	
+	    	<c:set var="seat" value="F${row }"></c:set>
+	    	<input type="checkbox" id="chkbx1" class="seats" value="${seat }" 
+	    		<c:forEach var="vo" items="${list}">
+                     <c:if test="${vo.gvo.seat eq seat }">
+                         disabled
+                     </c:if>
+                 </c:forEach>
+	    	
+	    	/>
+	    </td>
+    </c:forEach>
+  </tr>
+  <tr>
     <td>G</td>
-    <td><input type="checkbox" id="chkbx73" class="seats" value="G1"></td>
-    <td><input type="checkbox" id="chkbx74" class="seats" value="G2"></td>
-    <td><input type="checkbox" id="chkbx75" class="seats" value="G3"></td>
-    <td><input type="checkbox" id="chkbx76" class="seats" value="G4"></td>
-    <td><input type="checkbox" id="chkbx77" class="seats" value="G5"></td>
-    <td><input type="checkbox" id="chkbx78" class="seats" value="G6"></td>
-    <td><input type="checkbox" id="chkbx79" class="seats" value="G7"></td>
-    <td><input type="checkbox" id="chkbx80" class="seats" value="G8"></td>
-    <td><input type="checkbox" id="chkbx81" class="seats" value="G9"></td>
-    <td><input type="checkbox" id="chkbx82" class="seats" value="G10"></td>
-    <td><input type="checkbox" id="chkbx83" class="seats" value="G11"></td>
-    <td><input type="checkbox" id="chkbx84" class="seats" value="G12"></td>
-</tr>
-  
+    <c:forEach var="row" begin="1" end="12">
+	    <td>	
+	    	<c:set var="seat" value="G${row }"></c:set>
+	    	<input type="checkbox" id="chkbx1" class="seats" value="${seat }" 
+	    		<c:forEach var="vo" items="${list}">
+                     <c:if test="${vo.gvo.seat eq seat }">
+                         disabled
+                     </c:if>
+                 </c:forEach>
+	    	
+	    	/>
+	    </td>
+    </c:forEach>
+  </tr>
 <tr>
     <td>H</td>
-    <td><input type="checkbox" id="chkbx85" class="seats" value="H1"></td>
-    <td><input type="checkbox" id="chkbx86" class="seats" value="H2"></td>
-    <td><input type="checkbox" id="chkbx87" class="seats" value="H3"></td>
-    <td><input type="checkbox" id="chkbx88" class="seats" value="H4"></td>
-    <td><input type="checkbox" id="chkbx89" class="seats" value="H5"></td>
-    <td><input type="checkbox" id="chkbx90" class="seats" value="H6"></td>
-    <td><input type="checkbox" id="chkbx91" class="seats" value="H7"></td>
-    <td><input type="checkbox" id="chkbx92" class="seats" value="H8"></td>
-    <td><input type="checkbox" id="chkbx93" class="seats" value="H9"></td>
-    <td><input type="checkbox" id="chkbx94" class="seats" value="H10"></td>
-    <td><input type="checkbox" id="chkbx95" class="seats" value="H11"></td>
-    <td><input type="checkbox" id="chkbx96" class="seats" value="H12"></td>
-</tr>
+    <c:forEach var="row" begin="1" end="12">
+	    <td>	
+	    	<c:set var="seat" value="H${row }"></c:set>
+	    	<input type="checkbox" id="chkbx1" class="seats" value="${seat }" 
+	    		<c:forEach var="vo" items="${list}">
+                     <c:if test="${vo.gvo.seat eq seat }">
+                         disabled
+                     </c:if>
+                 </c:forEach>
+	    	
+	    	/>
+	    </td>
+    </c:forEach>
+  </tr>
   
 <tr>
     <td>I</td>
-    <td><input type="checkbox" id="chkbx97" class="seats" value="I1"></td>
-    <td><input type="checkbox" id="chkbx98" class="seats" value="I2"></td>
-    <td><input type="checkbox" id="chkbx99" class="seats" value="I3"></td>
-    <td><input type="checkbox" id="chkbx100" class="seats" value="I4"></td>
-    <td><input type="checkbox" id="chkbx101" class="seats" value="I5"></td>
-    <td><input type="checkbox" id="chkbx102" class="seats" value="I6"></td>
-    <td><input type="checkbox" id="chkbx103" class="seats" value="I7"></td>
-    <td><input type="checkbox" id="chkbx104" class="seats" value="I8"></td>
-    <td><input type="checkbox" id="chkbx105" class="seats" value="I9"></td>
-    <td><input type="checkbox" id="chkbx106" class="seats" value="I10"></td>
-    <td><input type="checkbox" id="chkbx107" class="seats" value="I11"></td>
-    <td><input type="checkbox" id="chkbx108" class="seats" value="I12"></td>
-</tr>
+    <c:forEach var="row" begin="1" end="12">
+	    <td>	
+	    	<c:set var="seat" value="I${row }"></c:set>
+	    	<input type="checkbox" id="chkbx1" class="seats" value="${seat }" 
+	    		<c:forEach var="vo" items="${list}">
+                     <c:if test="${vo.gvo.seat eq seat }">
+                         disabled
+                     </c:if>
+                 </c:forEach>
+	    	
+	    	/>
+	    </td>
+    </c:forEach>
+  </tr>
   
 <tr>
     <td>J</td>
-    <td><input type="checkbox" id="chkbx109" class="seats" value="J1"></td>
-    <td><input type="checkbox" id="chkbx110" class="seats" value="J2"></td>
-    <td><input type="checkbox" id="chkbx111" class="seats" value="J3"></td>
-    <td><input type="checkbox" id="chkbx112" class="seats" value="J4"></td>
-    <td><input type="checkbox" id="chkbx113" class="seats" value="J5"></td>
-    <td><input type="checkbox" id="chkbx114" class="seats" value="J6"></td>
-    <td><input type="checkbox" id="chkbx115" class="seats" value="J7"></td>
-    <td><input type="checkbox" id="chkbx116" class="seats" value="J8"></td>
-    <td><input type="checkbox" id="chkbx117" class="seats" value="J9"></td>
-    <td><input type="checkbox" id="chkbx118" class="seats" value="J10"></td>
-    <td><input type="checkbox" id="chkbx119" class="seats" value="J11"></td>
-    <td><input type="checkbox" id="chkbx120" class="seats" value="J12"></td>
-</tr>
-<c:forEach begin="1" end="120" var="i">
-	<c:if test="('#chkbx${i }').value()=vo.gvo.seat">
-			
-	</c:if>
-</c:forEach>
-
-
-
-</c:forEach>
+    <c:forEach var="row" begin="1" end="12">
+	    <td>	
+	    	<c:set var="seat" value="J${row }"></c:set>
+	    	<input type="checkbox" id="chkbx1" class="seats" value="${seat }" 
+	    		<c:forEach var="vo" items="${list}">
+                     <c:if test="${vo.gvo.seat eq seat }">
+                         disabled
+                     </c:if>
+                 </c:forEach>
+	    	
+	    	/>
+	    </td>
+    </c:forEach>
+  </tr>
+  
   
 </table>
   
@@ -376,13 +378,17 @@ input[type=checkbox]:checked:before {
   	<td><input type=text id="price" readonly class="text-center" value=${price }></td>
   </tr>
 </table>
-  		<td colspan="2"><input class="btn-lg btn-primary" type="button" value="결제하기" style="margin-top:50px;"></td>
+  		<td colspan="2"><input class="btn-lg btn-primary" type="button" value="결제하기" style="margin-top:50px;"
+  			@click="reserve()"
+  		></td>
 </center>
 </div>
          </div>
          
       </section>
       <script>
+      var IMP = window.IMP; 
+      IMP.init("imp68206770");
       window.onload = function() {
           document.getElementById("reserveBtn").click();
       };
@@ -449,25 +455,85 @@ input[type=checkbox]:checked:before {
           }
       });
       
-      let list = ${list }
-      console.log(Arrays.toString(list.toArray()))
-		/* let reserveApp = Vue.createApp({
-			data(){
-				return:{
-					
-				}
-			},
-			mounted(){
-				
-			},
-			methods:{
-				dataRecv(){
-					
-				}
-			}
-		}).mount('#reserveApp') */
-
-
+      
+      let reserveApp=Vue.createApp({
+     		data(){
+     			
+     			return{
+     				tno:0,
+     				seats:'',
+     				rday:'',
+					rtype:'',
+     				rprice:0,
+     				rseat:''
+     			}
+     		},
+     		mounted(){
+        		
+     		},
+     		methods:{
+     			requestPay() {
+     		          IMP.request_pay({
+     		              pg: "html5_inicis",
+     		              pay_method: "card",
+     		              merchant_uid: "ORD20180131-0000011",   // 주문번호
+     		              name: '한국시리즈'+${num}+'차전',
+     		              amount: ${price},         // 숫자 타입
+     		              buyer_email: '',
+     		              buyer_name: '',
+     		              buyer_tel: '',
+     		              buyer_addr: '',
+     		              buyer_postcode: ''
+     		           }, function (rsp) { // callback
+     		        	  location.href="../mypage/mypage_main.do"
+     		          });
+     		       },
+     			
+     			reserve(){
+     				let seats = $('#seatsDisplay').val()
+     				console.log(seats)
+    				axios.get('../ticket/ticket_main_vue.do',{
+    					params:{
+    						type:'${type}',
+    	     				price:${price},
+    	     				seat:seats,
+    	     				day:'${day}'
+    					}
+    				}).then(response=>{
+    					// 이동 => mypage
+    					console.log(response.data)
+    					this.tno = response.data
+    					alert(this.tno)
+    					axios.post('../ticket/reserve_ok_vue.do',null,{
+    					params:{
+    	     				tno:this.tno,
+    	     				rday:'${day}',
+    						rtype:'${type}',
+    	     				rprice:${price},
+    	     				rseat:seats
+    					}
+	    				}).then(response=>{
+	    					// 이동 => mypage
+	    					if(response.data==='yes')
+	    					{
+	    						alert("yes!!")
+	    						this.requestPay()
+	    						
+	    					}
+	    					else
+	    					{
+	    						alert(response.data)
+	    					}
+	    					console.log(response.data)
+	    				}).catch(error=>{
+	    					console.log(error.response)
+	    				}) 
+    				}).catch(error=>{
+    					console.log(error.response)
+    				})
+    			}
+     		}
+     	}).mount('#reserveApp')
       </script>
    
 

@@ -57,10 +57,13 @@ public interface ReserveMapper {
 	  public ReserveVO reserveInfoData(int rno);
 	  /////////////////////////////////////////////////////////////////////////////////////////////
 	  ///////////////////////////////// Ticket ////////////////////////////////////////////////////
-	  @Insert("INSERT INTO game_reserve(rno,tno,id,rday,rseat,rprice) "
-				+ "  VALUES(gr_no_seq.nextval,#{tno},#{id},#{rday},#{rseat},#{rprice})")
+	  @Insert("INSERT INTO game_reserve(rno,tno,id,rday,rseat,rprice,rtype) "
+				+ "  VALUES(gr_no_seq.nextval,#{tno},#{id},#{rday},#{rseat},#{rprice},#{rtype})")
 		public void gamereserveInsert(GameReserveVO vo);
-		
+		@Select("select tno "
+				+ " from game "
+				+ " where zone=#{type} and price=#{price} and seat=#{seat} and game_date=#{day}")
+		public int getTno(Map map);
 		/*@Results({
 			@Result(property="gvo.poster",column="poster"),
 			@Result(property="gvo.name",column="name")

@@ -51,5 +51,17 @@ public class ReserveServiceImpl implements ReserveService{
 		// TODO Auto-generated method stub
 		return rDao.gameNoSeatList(map);
 	}
+
+	@Override
+	public int getTno(Map map) {
+		// TODO Auto-generated method stub
+		return rDao.getTno(map);
+	}
+
+	@Override
+	public void gamereserveInsert(GameReserveVO vo) {
+		// TODO Auto-generated method stub
+		rDao.gamereserveInsert(vo);
+	}
 	
 }
