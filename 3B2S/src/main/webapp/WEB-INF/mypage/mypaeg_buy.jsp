@@ -77,7 +77,7 @@
 			}
 		},
 		mounted(){
-			axios.get('../goods/buy_vue.do')
+			axios.get('../kbogoods/buy_vue.do')
 			.then(response=>{
 				this.cart_list=response.data
 			}).catch(error=>{
@@ -86,7 +86,7 @@
 		},
 		methods:{
 			goodsCancel(cno){
-				axios.get('../goods/cart_cancel_vue2.do',{
+				axios.get('../kbogoods/cart_cancel_vue2.do',{
 					params:{
 						cno:cno
 					}
@@ -98,7 +98,7 @@
 			},
 			goodsDetail(gno){
 				this.isShow=true
-				axios.get('../goods/goods_detail_vue.do',{
+				axios.get('../kbogoods/goods_detail_vue.do',{
 					params:{
 						gno:gno
 					}

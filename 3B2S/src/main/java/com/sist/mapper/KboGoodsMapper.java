@@ -61,15 +61,15 @@ public interface KboGoodsMapper {
 	   
 	// 장바구니 보기 
 	@Results({
-		@Result(property = "gvo.goods_name",column = "goods_name"),
-		@Result(property = "gvo.goods_poster",column = "goods_poster"),
-		@Result(property = "gvo.goods_price",column = "goods_price")
+		@Result(property = "gvo.name",column = "name"),
+		@Result(property = "gvo.poster",column = "poster"),
+		@Result(property = "gvo.price",column = "price")
 	})
-	@Select("SELECT cno,gno,account,isBuy,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,"
+	@Select("SELECT cno,sc.gno,account,isBuy,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,"
 			  +"name,poster,price "
 			  +"FROM kbo_goods_cart sc, kbo_goods ga "
-			  +"WHERE sc.gno=ga.no "
-			  +"AND id=#{id} AND isBuy=0 "
+			  +"WHERE sc.gno=ga.gno "
+			  +"AND id=#{id} AND isBuy=0 "        
 			  +"ORDER BY cno DESC")
 	public List<KboGoodsCartVO> goodsCartListData(String id);
 	   
@@ -79,7 +79,7 @@ public interface KboGoodsMapper {
 	public void goodsCartCancel(int cno);
 	   
 	// 장바구니 구매 
-	@Update("UPDATE kbo_goods_cart SET "
+	@Update("UPDATE kbo_goods_cart SET "    
 			  +"isBuy=1 "
 			  +"WHERE cno=#{cno}")
 	public void goodsBuy(int cno);
@@ -89,11 +89,11 @@ public interface KboGoodsMapper {
 		@Result(property = "gvo.poster",column = "poster"),
 		@Result(property = "gvo.price",column = "price")
 	})
-	@Select("SELECT cno,gno,account,isBuy,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,"
+	@Select("SELECT cno,sc.gno,account,isBuy,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,"
 			  +"name,poster,price "
 			  +"FROM kbo_goods_cart sc,kbo_goods ga "
-			  +"WHERE sc.gno=ga.no "
+			  +"WHERE sc.gno=ga.gno "
 			  +"AND id=#{id} AND isBuy=1 "
-			  +"ORDER BY cno DESC")
+			  +"ORDER BY cno DESC")  
 	public List<KboGoodsCartVO> goodsBuyListData(String id);
 }

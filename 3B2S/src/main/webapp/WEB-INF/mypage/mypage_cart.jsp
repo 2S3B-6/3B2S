@@ -26,15 +26,15 @@
 	    <tr v-for="cart_vo in cart_list">
 	      <td class="text-center">{{cart_vo.cno}}</td>
 	      <td class="text-center">
-	       <img :src="cart_vo.gvo.goods_poster" style="width:30px;height: 30px">
+	       <img :src="cart_vo.gvo.poster" style="width:30px;height: 30px">
 	      </td>
 	      <td class="text-center">{{cart_vo.account}}</td>
-	      <td class="text-center">{{cart_vo.gvo.goods_price}}</td>
+	      <td class="text-center">{{cart_vo.gvo.price}}</td>
 	      <td class="text-center">{{cart_vo.dbday}}</td>
 	      <td class="text-center">
-	        <button class="btn-sm btn-success" @click="goodsBuy(cart_vo.cno,cart_vo.gno)">구매</button>
-	        <button class="btn-sm btn-info" @click="goodsCancel(cart_vo.cno)">취소</button>
-	        <button class="btn-sm btn-warning" @click="goodsDetail(cart_vo.gno)">상품상세</button>
+	        <button class="btn btn-sm" @click="goodsBuy(cart_vo.cno,cart_vo.gno)">구매</button>
+	        <button class="btn btn-sm" @click="goodsCancel(cart_vo.cno)">취소</button>
+	        <button class="btn btn-sm" @click="goodsDetail(cart_vo.gno)">상품상세</button>
 	      </td>
 	    </tr>
 	   </table>
@@ -43,28 +43,32 @@
 	     <table class="table">
                            <tr>
                              <td width=30% class="text-center" rowspan="8">
-                               <img :src="detail_data.goods_poster" style="width: 100%">
+                               <img :src="detail_data.poster" style="width: 100%">
                              </td>
                              <td colspan="2">
-                               <h4>{{detail_data.goods_name}}</h4>
+                               <h4>{{detail_data.name}}</h4>
                              </td>
                             </tr>
                             <tr>
                               <td colspan="2">
-                               {{detail_data.goods_sub}}
+                               {{detail_data.sub}}
                              </td>
                             </tr>
                             <tr>
-                              <td style="color:pink">{{detail_data.goods_discount}}%</td>
-                              <td>{{detail_data.goods_price}}</td>
+                              <td style="color:pink">가격</td>
+                              <td>{{detail_data.price}}</td>
                             </tr>
                             <tr>
-                              <td style="color:green">첫번째 구매</td>
-                              <td>{{detail_data.goods_first_price}}</td>
+                              <td style="color:green">수량</td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td style="color:green">총 금액</td>
+                              <td>{{total_price}}</td>
                             </tr>
                             <tr>
                               <td style="color:gray">배송</td>
-                              <td>{{detail_data.goods_delivery}}</td>
+                              <td>{{detail_data.delivery}}</td>
                             </tr>
                       </table>
 	   </div>
@@ -98,7 +102,7 @@
     		        pg: "html5_inicis",
     		        pay_method: "card",
     		        merchant_uid: "ORD20180131-0000011",   // 주문번호
-    		        name: this.goods_vo.goods_name,
+    		        name: this.goods_vo.name,
     		        amount: this.goods_vo.price,         // 숫자 타입
     		        buyer_email: this.member_vo.email,
     		        buyer_name: this.member_vo.userName,
@@ -111,7 +115,7 @@
     	    },
 			goodsBuy(cno,gno){
     	    	
-				axios.get('../goods/goods_buy_vue.do',{
+				axios.get('../kbogoods/buy_vue.do',{
 					params:{
 						cno:cno,
 						gno:gno
@@ -127,7 +131,7 @@
 				})
 			},
 			goodsCancel(cno){
-				axios.get('../goods/cart_cancel_vue.do',{
+				axios.get('../kbogoods/cart_cancel_vue2.do',{
 					params:{
 						cno:cno
 					}
@@ -139,7 +143,7 @@
 			},
 			goodsDetail(gno){
 				this.isShow=true
-				axios.get('../goods/goods_detail_vue.do',{
+				axios.get('../kbogoods/goods_detail_vue.do',{
 					params:{
 						gno:gno
 					}
