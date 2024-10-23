@@ -16,7 +16,7 @@ ISRESERVE	NUMBER
 @Data
 public class GameReserveVO {
 	private int rno,tno,rprice,isreserve;
-	private String id,rday,rseat,dbday;
+	private String id,rday,rseat,dbday,rtype;
 	private Date regdate;
 	private GameVO gvo = new GameVO();
 	private MemberVO mvo = new MemberVO();

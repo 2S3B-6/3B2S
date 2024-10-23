@@ -14,4 +14,6 @@ public interface ReserveService {
 	public void reserveOk(int rno);
 	public ReserveVO reserveInfoData(int rno);
 	public List<GameReserveVO> gameNoSeatList(Map map);
+	public int getTno(Map map);
+	public void gamereserveInsert(GameReserveVO vo);
 }

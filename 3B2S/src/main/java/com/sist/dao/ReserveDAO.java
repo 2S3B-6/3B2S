@@ -43,4 +43,10 @@ public class ReserveDAO {
 	public List<GameReserveVO> gameNoSeatList(Map map) {
 		return mapper.gameNoSeatList(map);
 	}
+	public int getTno(Map map) {
+		return mapper.getTno(map);
+	}
+	public void gamereserveInsert(GameReserveVO vo) {
+		mapper.gamereserveInsert(vo);
+	}
 }
