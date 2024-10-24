@@ -85,7 +85,7 @@
      </div>
   </section>
   <section id="contant" class="contant main-heading team">
-  <div class="dark-section" style="background:url(../images/cs-banner.jpg);margin-top: -50px">
+  <div class="dark-section" style="background:url(../images/cs2.jpg);margin-top: -50px">
             <div class="container">
                <div class="row">
                   <div class="col-md-12 col-sm-12">
@@ -101,8 +101,8 @@
                                  <blockquote>
                                     <div class="row">
                                        <div class="col-sm-10 col-sm-offset-1">
-                                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. !</p>
                                           <small>Someone famous</small>
+                                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. !</p>
                                        </div>
                                     </div>
                                  </blockquote>
@@ -159,19 +159,19 @@
             </div>
             <div class="icon-box">
                 <div class="icon">📖</div>
-                <p style="text-align: center;">추가</p>
+                <p style="text-align: center;">게시판</p>
             </div>
             <div class="icon-box">
                 <div class="icon">❓</div>
-                <p style="text-align: center;">추가</p>
+                <p style="text-align: center;">QnA</p>
             </div>
             <div class="icon-box">
                 <div class="icon">💬</div>
-                <p style="text-align: center;">추가</p>
+                <p style="text-align: center;">1:1 문의</p>
             </div>
             <div class="icon-box">
                 <div class="icon">⚾️</div>
-                <p style="text-align: center;">추가</p>
+                <p style="text-align: center;">가이드</p>
             </div>
         </div>
         <div class="support-section">
