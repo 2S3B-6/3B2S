@@ -5,6 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.bbtn {
+ background: #003366;
+ color: #fff;
+ border-radius: 50px;
+ font-weight: 500;
+ transition: ease all 1s;
+ margin-right: 3px;
+}
+</style>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 </head>
 <body>
@@ -19,6 +29,7 @@
 	      <th class="text-center">번호</th>
 	      <th class="text-center"></th>
 	      <th class="text-center">수량</th>
+	      <th class="text-center">사이즈</th>
 	      <th class="text-center">가격</th>
 	      <th class="text-center">등록일</th>
 	      <th class="text-center">비고</th>
@@ -29,12 +40,13 @@
 	       <img :src="cart_vo.gvo.poster" style="width:30px;height: 30px">
 	      </td>
 	      <td class="text-center">{{cart_vo.account}}</td>
+	      <td class="text-center">{{cart_vo.gsize}}</td>
 	      <td class="text-center">{{cart_vo.gvo.price}}</td>
 	      <td class="text-center">{{cart_vo.dbday}}</td>
 	      <td class="text-center">
-	        <button class="btn btn-sm" @click="goodsBuy(cart_vo.cno,cart_vo.gno)">구매</button>
-	        <button class="btn btn-sm" @click="goodsCancel(cart_vo.cno)">취소</button>
-	        <button class="btn btn-sm" @click="goodsDetail(cart_vo.gno)">상품상세</button>
+	        <button class="bbtn btn-sm" @click="goodsBuy(cart_vo.cno,cart_vo.gno)">구매</button>
+	        <button class="bbtn btn-sm" @click="goodsCancel(cart_vo.cno)">취소</button>
+	        <button class="bbtn btn-sm" @click="goodsDetail(cart_vo.gno)">상품상세</button>
 	      </td>
 	    </tr>
 	   </table>
@@ -57,14 +69,6 @@
                             <tr>
                               <td style="color:pink">가격</td>
                               <td>{{detail_data.price}}</td>
-                            </tr>
-                            <tr>
-                              <td style="color:green">수량</td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <td style="color:green">총 금액</td>
-                              <td>{{total_price}}</td>
                             </tr>
                             <tr>
                               <td style="color:gray">배송</td>

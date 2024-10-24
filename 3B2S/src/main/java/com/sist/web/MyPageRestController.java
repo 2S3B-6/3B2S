@@ -54,5 +54,17 @@ public class MyPageRestController {
 		  
 		  return json;
 	  }
+	  
+	  @GetMapping(value="mypage/mypage_buy_vue.do",produces = "text/plain;charset=UTF-8")
+	  public String mypage_buy(HttpSession session) throws Exception
+	  {
+		  String id=(String) session.getAttribute("userId");
+		  List<KboGoodsCartVO> list=kgService.goodsCartListData(id);
+		  
+		  ObjectMapper mapper=new ObjectMapper();
+		  String json=mapper.writeValueAsString(list);
+		  
+		  return json;
+	  }
 	
 }

@@ -55,6 +55,7 @@ body {
     box-sizing: border-box;
 }
 
+
 /* 마이페이지를 감싸는 큰 네모 박스 */
 .mypage-container {
     width: 100%;
@@ -121,6 +122,13 @@ body {
 .container {
     margin-bottom: 50px;
 }
+
+.breadcrumb {
+    list-style: none;
+    border-radius: 4px;
+    margin-top: 20px;
+    float : right;
+}
 </style>
 
    </head>
@@ -132,10 +140,10 @@ body {
     
     <section id="top">
          
-         <div class="inner-information-text">
+         <div class="inner-information-text" style="background-color: #fff;">
             <div class="container">
                <h3>마이페이지</h3>
-               <ul class="breadcrumb">
+               <ul class="breadcrumb" style="border-radius: 4px; padding: 8px 15px;" >
                   <li><a href="../main/main.do">Home</a></li>
                   <li class="active">MyPage</li>
                </ul>

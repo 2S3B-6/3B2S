@@ -67,8 +67,8 @@
 	   <div class="section-box">
 	      <h3>관리정보</h3>
 	    <ul class="list-group">
-	      <li class="list-group-item"><a href="#">게시판관리</a></li>
-	      <li class="list-group-item"><a href="#">댓글관리</a></li>
+	      <li class="list-group-item"><a href="../mypage/mypage_board.do">게시판관리</a></li>
+	      <li class="list-group-item"><a href="../mypage/mypage_reply.do">댓글관리</a></li>
 	      <li class="list-group-item"><a href="../mypage/mypage_jjim.do">찜관리</a></li>
 	      <li class="list-group-item"><a href="#">좋아요관리</a></li>
 	      <li class="list-group-item"><a href="../mypage/mypage_buy.do">구매관리</a></li>
