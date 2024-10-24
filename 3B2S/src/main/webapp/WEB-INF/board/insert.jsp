@@ -7,11 +7,7 @@
 <title>게시판 글쓰기</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <style type="text/css">
-/* 전체 컨테이너 */
-.container {
-   margin-top: 50px;
-   margin-bottom: 50px;
-}
+
 
 /* 게시글 입력 큰 네모 박스 */
 .board-container {
@@ -23,6 +19,9 @@
     border-radius: 10px; /* 모서리 둥글게 */
     background-color: #fff; /* 배경색 */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    margin-top :50px;
+    margin-bottom :50px;
+    
 }
 
 /* 테이블 스타일 */
@@ -49,6 +48,18 @@
 .text-center .btn {
    margin-left: 5px;
 }
+
+.breadcrumb {
+     padding: 8px 15px;
+    list-style: none;
+    background-color: #003366;
+    border-radius: 4px;
+}
+
+.inner-page-banner {
+ background-color: #fff;
+ margin-top : 20px;
+}
 </style>
 <script src="https://unpkg.com/vue@3"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -57,7 +68,7 @@
 <section id="top">
    <div class="inner-page-banner">
       <div class="container">
-         <h3>자유게시판</h3>
+         <h3 class="text-center">자유게시판</h3>
          <ul class="breadcrumb">
             <li><a href="../main/main.do">Home</a></li>
             <li>게시판</li>

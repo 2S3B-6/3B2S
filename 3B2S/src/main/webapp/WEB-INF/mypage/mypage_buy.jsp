@@ -18,6 +18,7 @@
 	      <th class="text-center">번호</th>
 	      <th class="text-center"></th>
 	      <th class="text-center">수량</th>
+	      <th class="text-center">사이즈</th>
 	      <th class="text-center">가격</th>
 	      <th class="text-center">등록일</th>
 	      <th class="text-center">비고</th>
@@ -25,13 +26,14 @@
 	    <tr v-for="cart_vo in cart_list">
 	      <td class="text-center">{{cart_vo.cno}}</td>
 	      <td class="text-center">
-	       <img :src="cart_vo.gvo.goods_poster" style="width:30px;height: 30px">
+	       <img :src="cart_vo.gvo.poster" style="width:30px;height: 30px">
 	      </td>
 	      <td class="text-center">{{cart_vo.account}}</td>
-	      <td class="text-center">{{cart_vo.gvo.goods_price}}</td>
+	      <td class="text-center">{{cart_vo.gsize}}</td>
+	      <td class="text-center">{{cart_vo.gvo.price}}</td>
 	      <td class="text-center">{{cart_vo.dbday}}</td>
 	      <td class="text-center">
-	        <button class="btn-sm btn-info" @click="goodsCancel(cart_vo.cno)">취소</button>
+	        <button class="btn-sm btn-info" style="margin-right:3px;" @click="goodsCancel(cart_vo.cno)">취소</button>
 	        <button class="btn-sm btn-warning" @click="goodsDetail(cart_vo.gno)">상품상세</button>
 	      </td>
 	    </tr>
@@ -41,28 +43,28 @@
 	     <table class="table">
                            <tr>
                              <td width=30% class="text-center" rowspan="8">
-                               <img :src="detail_data.goods_poster" style="width: 100%">
+                               <img :src="detail_data.poster" style="width: 100%">
                              </td>
                              <td colspan="2">
-                               <h4>{{detail_data.goods_name}}</h4>
+                               <h4>{{detail_data.name}}</h4>
                              </td>
                             </tr>
                             <tr>
                               <td colspan="2">
-                               {{detail_data.goods_sub}}
+                               {{detail_data.sub}}
                              </td>
                             </tr>
                             <tr>
-                              <td style="color:pink">{{detail_data.goods_discount}}%</td>
-                              <td>{{detail_data.goods_price}}</td>
+                              <td style="color:pink">가격</td>
+                              <td>{{detail_data.price}}</td>
                             </tr>
                             <tr>
-                              <td style="color:green">첫번째 구매</td>
-                              <td>{{detail_data.goods_first_price}}</td>
+                              <td style="color:green">사이즈</td>
+                              <td>{{detail_data.gsize}}</td>
                             </tr>
                             <tr>
                               <td style="color:gray">배송</td>
-                              <td>{{detail_data.goods_delivery}}</td>
+                              <td>{{detail_data.delivery}}</td>
                             </tr>
                       </table>
 	   </div>
@@ -96,21 +98,26 @@
 					console.log(error.response)
 				})
 			},
-			goodsDetail(gno){
-				this.isShow=true
-				axios.get('../kbogoods/goods_detail_vue.do',{
-					params:{
-						gno:gno
-					}
-				}).then(response=>{
-					console.log(response.data)
-					this.detail_data=response.data
-				}).catch(error=>{
-					console.log(error.response)
-				})
-			}
-		}
-	}).mount("#mypageApp")
+		    goodsDetail(gno) {
+			      // 현재 보고 있는 상품을 다시 클릭하면 상세보기 접기
+			      if (this.currentGno === gno) {
+			        this.isShow = !this.isShow;  // 같은 상품이면 토글
+			      } else {
+			        this.isShow = true;          // 다른 상품이면 상세보기 열기
+			        this.currentGno = gno;       // 현재 상품 번호 저장
+			        axios.get('../kbogoods/goods_detail_vue.do', {
+			          params: {
+			            gno: gno
+			          }
+			        }).then(response => {
+			          this.detail_data = response.data;
+			        }).catch(error => {
+			          console.log(error.response);
+			        });
+			      }
+			    }
+			  }
+			}).mount("#mypageApp");
 	</script>
 </body>
 </html>

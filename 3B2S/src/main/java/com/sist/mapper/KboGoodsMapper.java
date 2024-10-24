@@ -65,7 +65,7 @@ public interface KboGoodsMapper {
 		@Result(property = "gvo.poster",column = "poster"),
 		@Result(property = "gvo.price",column = "price")
 	})
-	@Select("SELECT cno,sc.gno,account,isBuy,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,"
+	@Select("SELECT cno,sc.gno,account,sc.gsize, isBuy,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,"
 			  +"name,poster,price "
 			  +"FROM kbo_goods_cart sc, kbo_goods ga "
 			  +"WHERE sc.gno=ga.gno "
@@ -75,11 +75,11 @@ public interface KboGoodsMapper {
 	   
 	// 장바구니 삭제 
 	@Delete("DELETE FROM kbo_goods_cart "
-			  +"WHERE cno=#{cno}")
+			  +"WHERE cno=#{cno}")   
 	public void goodsCartCancel(int cno);
 	   
 	// 장바구니 구매 
-	@Update("UPDATE kbo_goods_cart SET "    
+	@Update("UPDATE kbo_goods_cart SET "       
 			  +"isBuy=1 "
 			  +"WHERE cno=#{cno}")
 	public void goodsBuy(int cno);
@@ -89,7 +89,7 @@ public interface KboGoodsMapper {
 		@Result(property = "gvo.poster",column = "poster"),
 		@Result(property = "gvo.price",column = "price")
 	})
-	@Select("SELECT cno,sc.gno,account,isBuy,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,"
+	@Select("SELECT cno,sc.gno,account,sc.gsize, isBuy,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,"
 			  +"name,poster,price "
 			  +"FROM kbo_goods_cart sc,kbo_goods ga "
 			  +"WHERE sc.gno=ga.gno "

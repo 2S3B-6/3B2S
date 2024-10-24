@@ -26,4 +26,8 @@ public class MyPageController {
 		return "mypage/mypage_buy"; 
 	}
 	 
+	@GetMapping("mypage/mypage_board.do") 
+	public String mypage_board() { 
+		return "mypage/mypage_board"; 
+	}
 }
