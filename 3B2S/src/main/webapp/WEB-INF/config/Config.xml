@@ -5,5 +5,5 @@
 <configuration>
   <mappers>
     <mapper resource="com/sist/mapper/gnd-mapper.xml"/>
-  </mappers>
+  </mappers> 
 </configuration>
