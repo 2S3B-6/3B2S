@@ -23,7 +23,7 @@ public interface BoardMapper {
 	  
 	  @Insert("INSERT INTO kboard VALUES("
 				 +"kb_no_seq.nextval,#{id},#{name},#{subject}, #{content},  "
-				 +"SYSDATE,0)")
+				 +"SYSDATE,0,0)")
 	  public void boardInsert(BoardVO vo);
 
 	  
