@@ -49,7 +49,7 @@
 }
 .post-info {
     display: flex;  
-    align-items: center;
+    align-items: start;
 }
 
 .post-info img {
@@ -60,6 +60,12 @@
 }
 .children{
 	margin-left: 100px;
+}
+p {
+    font-size: 15px;
+    text-align: left;
+    color: #333;
+    line-height: 28px;
 }
 </style>
 </head>
@@ -79,7 +85,7 @@
          </div>
       </div>
      </section>
-     <section id="detailApp" style="margin-top: 50px;">
+     <section id="detailApp" style="margin-top: 40px;">
         <div class="row">
            <div class="container">
               <div class="col-md-9">
@@ -90,7 +96,7 @@
                     <div class="news-cont">
                        <div class="post-people">
                           <div class="left-profile">
-                             <div class="post-info">
+                             <div class="post-info" style="margin-top: 10px;margin-bottom: -10px;">
                                 <img src="../images/news-profile.png" alt="#" />
                                 <span>
                                    <h2>{{vo.author}}</h2>
@@ -115,7 +121,7 @@
                         <div class="post-people" v-for="vo in reply_list">
                            <div class="left-profile" v-if="vo.group_tab===0">
 							  <div class="post-info">
-							    <img src="../images/news-profile.png" alt="" style="width: 70px; height: auto;margin-top: -60px;">
+							    <img src="../images/news-profile.png" alt="" style="width: 70px; height: auto;margin-top: 10px;">
 							    <div class="comment-content">
 							      <h4>{{vo.name}}</h4>
 							      <h5>{{vo.dbday}}</h5>
@@ -143,7 +149,7 @@
 							        <tr>
 							          <td>
 							            <textarea rows="3" cols="60" style="float: left" :id="'umsg'+vo.cno">{{vo.msg}}</textarea>
-							            <input type="button" value="수정" style="float: left; background-color: #003366; color: white; width: 80px; height:65px" @click="replyUpdate(vo.cno)">
+							            <input type="button" value="수정" style="float: left; background-color: #003366; color: white; width: 75px; height:66px" @click="replyUpdate(vo.cno)">
 							          </td>
 							        </tr>
 							      </table>
@@ -155,7 +161,7 @@
                            <div class="post-people">
                             <div class="left-profile">
                               <div class="post-info">
-                                 <img src="../images/news-profile.png" alt="" style="width: 70px; height: auto;margin-top: -60px;">
+                                 <img src="../images/news-profile.png" alt="" style="width: 70px; height: auto;margin-top: 10px;">
                                 <div class="comment-content">
                                     <h4>{{vo.name}}</h4>
                                     <h5>{{vo.dbday}}</h5>
@@ -169,8 +175,7 @@
                                      <tr>
                                       <td>
                                        <textarea rows="3" cols="60" style="float: left" :id="'umsg'+vo.cno" >{{vo.msg}}</textarea>
-                                       <input type=button value="수정" style="float: left;background-color: #003366;color: white;width: 80px;height:85px"
-                                         @click="replyUpdate(vo.cno)">
+                                       <input type=button value="수정" style="float: left;background-color: #003366;color: white;width: 75px;height:66px" @click="replyUpdate(vo.cno)">
                                        </td>
                                     </tr>
                                    </table>
