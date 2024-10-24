@@ -14,5 +14,5 @@ MONTH              NUMBER
 public class ScheduleVO {
 
 	private int sno,month;
-	private String day,home,away,homescore,awayscore;
+	private String day,home,away,homescore,awayscore,homeimage,awayimage;
 }

@@ -9,6 +9,9 @@ import java.text.*;
 import com.sist.vo.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sist.service.*;
+import com.sist.task.ApiExplorer;
+import com.sist.task.SafeDrivingExplorer;
+
 import java.sql.*;
 
 
@@ -36,4 +39,20 @@ public class StadiumRestController {
 		   String json=mapper.writeValueAsString(map);
 		   return json;
 	   }
+	
+	@GetMapping(value="stadium/cctv_vue.do",produces = "text/plain;charset=UTF-8")
+	  public String stadium_cctv(int no) throws Exception
+	  {
+		  List<CctvVO> state_list=ApiExplorer.cctvData(no);
+		  List<SafeDrivingVO> safe_list=SafeDrivingExplorer.safeDrivingData(no);
+		  
+		  Map map=new HashMap();
+		  map.put("state_list", state_list);
+		  map.put("safe_list", safe_list);
+		  
+		  
+		  ObjectMapper mapper=new ObjectMapper();
+		  String json=mapper.writeValueAsString(map);
+		  return json;
+	  }
 }

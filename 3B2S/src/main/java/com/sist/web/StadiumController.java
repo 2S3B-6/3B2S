@@ -51,4 +51,11 @@ public class StadiumController {
 		
 		return "stadium/food_detail";
 	}
+    
+    @GetMapping("stadium/cctv.do")
+    public String stadium_cctv()
+    {
+  	  
+  	  return "stadium/cctv";
+    }
 }

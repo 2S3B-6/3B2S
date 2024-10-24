@@ -1,5 +1,8 @@
 package com.sist.web;
 import java.util.*;
+
+import javax.servlet.http.HttpSession;
+
 import com.sist.vo.*;
 import com.sist.service.*;
 
@@ -27,23 +30,27 @@ public class PlayerController {
 	}
 	
 	@GetMapping("player/batter_detail.do")
-	public String player_batter_detail(int bno,Model model)
+	public String player_batter_detail(int bno,Model model,HttpSession session)
 	{
-		BatterVO vo=pService.batterDetailData(bno);
+		String id=(String)session.getAttribute("userId");
+		BatterVO bvo=pService.batterDetailData(bno);
 		
+		model.addAttribute("sessionId", id);
 		model.addAttribute("bno", bno);
-		model.addAttribute("vo", vo);
+		model.addAttribute("bvo", bvo);
 		
 		return "player/batter_detail";
 	}
 	
 	@GetMapping("player/pitcher_detail.do")
-	public String player_pitcher_detail(int pno,Model model)
+	public String player_pitcher_detail(int pno,Model model,HttpSession session)
 	{
-		PitcherVO vo=pService.pitcherDetailData(pno);
+		String id=(String)session.getAttribute("userId");
+		PitcherVO pvo=pService.pitcherDetailData(pno);
 		
+		model.addAttribute("sessionId", id);
 		model.addAttribute("pno", pno);
-		model.addAttribute("vo", vo);
+		model.addAttribute("pvo", pvo);
 		
 		return "player/pitcher_detail";
 	}
