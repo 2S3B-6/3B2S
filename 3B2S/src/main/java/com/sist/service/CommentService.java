@@ -10,4 +10,5 @@ public interface CommentService {
 	public void commentDelete(Map map);
 	public void boardReplyDecrement(int no);
 	public void commentUpdate(CommentVO vo);
+	public List<CommentVO> mypageCommentListData(String id);
 }

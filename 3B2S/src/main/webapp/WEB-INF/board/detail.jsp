@@ -7,10 +7,6 @@
 <title>자유게시판 상세보기</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <style type="text/css">
-/* 전체 컨테이너 */
-.container {
-   margin-top: 50px;
-}
 
 /* 게시판 상세보기 큰 네모 박스 */
 .board-container {
@@ -60,7 +56,6 @@ pre {
 /* 상단 헤더 스타일 */
 .inner-page-banner {
    width: 100%;
-   background-color: #f5f5f5;
    padding: 20px 0;
    box-sizing: border-box;
    text-align: center;
@@ -68,11 +63,25 @@ pre {
 }
 
 .breadcrumb {
-   margin-top: 10px;
+     padding: 8px 15px;
+    list-style: none;
+    background-color: #003366;
+    border-radius: 4px;
 }
 
 .container {
     margin-bottom: 50px; 
+}
+
+.comment-content {
+width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #003366;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 </style>
 <script src="https://unpkg.com/vue@3"></script>
@@ -131,6 +140,7 @@ pre {
       </div>
    </div>
 </section>
+<section>
  <div id="replyApp">
                             <div>
                                 <h4 class="mb-30">댓글</h4>
@@ -148,15 +158,16 @@ pre {
                                                 <span class="comment-date text-muted">{{vo.dbday}}</span>
                                                 <h5>{{vo.userName}}</h5>
                                                 <p>{{vo.msg}}</p>
-                                                <button v-if="sessionId===vo.id" class="btn-xs btn-danger update" style="margin-left: 2px" @click="replyUpdateForm(vo.cno)" :id="'u'+vo.cno">Update</button>
-                                                <button v-if="sessionId===vo.id" class="btn-xs btn-info" style="margin-left: 2px" @click="replyDelete(vo.cno)">Delete</button>
-                                                <button class="active insert" v-if="sessionId!=''" style="margin-left: 2px"  @click="replyForm(vo.cno)" :id="'i'+vo.cno">Reply</button>
+                                                <button v-if="sessionId===vo.id" class="btn btn-xs" style="margin-left: 2px" @click="replyUpdateForm(vo.cno)" :id="'u'+vo.cno">Update</button>
+                                                <button v-if="sessionId===vo.id" class="btn btn-xs" style="margin-left: 2px" @click="replyDelete(vo.cno)">Delete</button>
+                                                <button class="active insert"  v-if="sessionId!=''" style="margin-left: 2px"  @click="replyForm(vo.cno)" :id="'i'+vo.cno">Reply</button>
                                                 <button v-if="sessionId!==vo.id && sessionId!==''" style="margin-left: 2px">Like</button>
                                                 <table class="table ins" style="display: none" :id="'in'+vo.cno">
+                                                <!-- 대댓부분 -->
 			                                     <tr>
 			                                      <td>
 			                                       <textarea rows="4" cols="60" style="float: left" :id="'msg'+vo.cno" ></textarea>
-			                                       <input type=button value="댓글" style="float: left;background-color: blue;color: white;width: 80px;height:94px"
+			                                       <input type=button value="댓글" style="float: left;background-color: #003366;color: white;width: 80px;height:85px"
 			                                         @click="replyReplyInsert(vo.cno)"
 			                                       >
 			                                       </td>
@@ -166,7 +177,7 @@ pre {
 			                                     <tr>
 			                                      <td>
 			                                       <textarea rows="4" cols="60" style="float: left" :id="'umsg'+vo.cno" >{{vo.msg}}</textarea>
-			                                       <input type=button value="수정" style="float: left;background-color: blue;color: white;width: 80px;height:94px"
+			                                       <input type=button value="수정" style="float: left;background-color: #003366;color: white;width: 80px;height:90px"
 			                                         @click="replyUpdate(vo.cno)"
 			                                       >
 			                                       </td>
@@ -185,18 +196,19 @@ pre {
                                                         <img :src="vo.sex==='남자'?'../img/icon/man.png':'../img/icon/woman.png'" alt="">
                                                     </div>
                                                     <!-- Comment Content -->
+                                                    <!-- 대댓? -->
                                                     <div class="comment-content">
                                                         <span class="comment-date text-muted">{{vo.dbday}}</span>
                                                         <h5>{{vo.userName}}</h5>
                                                         <p>{{vo.msg}}</p>
-                                                        <button v-if="sessionId===vo.id" class="btn-xs btn-danger" style="margin-left: 2px" @click="replyUpdateForm(vo.cno)" :id="'u'+vo.cno">Update</button>
-                                                        <button v-if="sessionId===vo.id" class="btn-xs btn-info" style="margin-left: 2px" @click="replyDelete(vo.cno)">Delete</button>
+                                                        <button v-if="sessionId===vo.id" class="btn btn-xs" style="margin-left: 2px" @click="replyUpdateForm(vo.cno)" :id="'u'+vo.cno">Update</button>
+                                                        <button v-if="sessionId===vo.id" class="btn btn-xs" style="margin-left: 2px" @click="replyDelete(vo.cno)">Delete</button>
                                                         <button v-if="sessionId!==vo.id && sessionId!==''" style="margin-left: 2px">Like</button>
 		                                               <table class="table ups" style="display:none " :id="'up'+vo.cno">
 					                                     <tr>
 					                                      <td>
 					                                       <textarea rows="4" cols="45" style="float: left" :id="'umsg'+vo.cno" >{{vo.msg}}</textarea>
-					                                       <input type=button value="수정" style="float: left;background-color: blue;color: white;width: 80px;height:94px"
+					                                       <input type=button value="수정" style="float: left;background-color: #003366;color: white;width: 80px; height:90px"
 					                                         @click="replyUpdate(vo.cno)"
 					                                       >
 					                                       </td>
@@ -216,10 +228,10 @@ pre {
 	                            <div class="leave-comment-area section_padding_50 clearfix">
 	                                <div class="comment-form">
 	                                   <table class="table">
-	                                    <tr>
+	                                    <tr class="text-center">
 	                                      <td>
 	                                       <textarea rows="4" cols="70" style="float: left" ref="msg" v-model="msg"></textarea>
-	                                       <input type=button value="댓글" style="float: left;background-color: blue;color: white;width: 80px;height:94px"
+	                                       <input type=button value="댓글" style="float: left;background-color: #003366;color: white;width: 80px;height:90px"
 	                                         @click="replyInsert()"
 	                                       >
 	                                       
@@ -230,6 +242,7 @@ pre {
 	                            </div>
                             </c:if>
                           </div>
+</section>
     <script>
    let detailApp = Vue.createApp({
       data() {

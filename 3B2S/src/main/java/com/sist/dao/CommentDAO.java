@@ -136,4 +136,8 @@ public class CommentDAO {
   {
 	  mapper.commentUpdate(vo);
   }
+  
+  public List<CommentVO> mypageCommentListData(String id){
+	  return mapper.mypageCommentListData(id);
+  }
 }

@@ -76,7 +76,7 @@ public interface CommentMapper {
 		 )
   public void commentDelete(Map map);
   
-  @Update("UPDATE kboard SET "
+  @Update("UPDATE kboard SET "    
 		 +"replycount=replycount+1 "
 		 +"WHERE no=#{no}")
   public void boardReplyIncrement(int no);
@@ -91,4 +91,11 @@ public interface CommentMapper {
 		 +"msg=#{msg} "
 		 +"WHERE cno=#{cno}")
   public void commentUpdate(CommentVO vo);
+  
+  
+  @Select("SELECT cno,no,type,id,name,msg,sex,group_tab,likecount,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS') as dbday,num "
+			 +"FROM (SELECT cno,no,type,id,name,msg,sex,group_tab,likecount,regdate,rownum as num "
+			 +"FROM (SELECT cno,no,type,id,name,msg,sex,group_tab,likecount,regdate "
+			 +"FROM board_comment WHERE id=#{id}))")
+	  public List<CommentVO> mypageCommentListData(String id);
 }

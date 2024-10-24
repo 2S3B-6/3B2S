@@ -57,6 +57,12 @@ public class CommentServiceImpl implements CommentService{
 		// TODO Auto-generated method stub
 		cDao.commentUpdate(vo);
 	}
+
+	@Override
+	public List<CommentVO> mypageCommentListData(String id) {
+		// TODO Auto-generated method stub
+		return cDao.mypageCommentListData(id);
+	}
 	  
   
 }

@@ -1,6 +1,7 @@
 package com.sist.service;
 import java.util.*;
 
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Service;
 
 import com.sist.vo.*;
@@ -14,4 +15,5 @@ public interface BoardService {
 	public void boardDelete(int no);
 	public BoardVO boardUpdateData(int no);
 	public void boardUpdate(BoardVO vo);
+	public List<BoardVO> mypageBoardListData(String id);
 }

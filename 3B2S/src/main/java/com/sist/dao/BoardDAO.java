@@ -49,4 +49,9 @@ public class BoardDAO {
    }
    
    
+   public List<BoardVO> mypageBoardListData(String id){
+	   return mapper.mypageBoardListData(id);
+   }
+   
+   
 }

@@ -30,4 +30,9 @@ public class MyPageController {
 	public String mypage_board() { 
 		return "mypage/mypage_board"; 
 	}
+	
+	@GetMapping("mypage/mypage_comment.do") 
+	public String mypage_comment() { 
+		return "mypage/mypage_comment"; 
+	}
 }

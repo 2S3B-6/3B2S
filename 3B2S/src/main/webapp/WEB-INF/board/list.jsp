@@ -10,8 +10,6 @@
 /* 헤더를 전체 페이지 너비로 확장 */
 .inner-page-banner {
     width: 100%; /* 전체 너비 */
-    background-color: #f5f5f5; /* 헤더 배경색 */
-    padding: 20px 0; /* 상하 패딩 */
     box-sizing: border-box;
 }
 
@@ -59,24 +57,28 @@
 }
 
 
-.container {
-    margin-bottom: 50px;
+
+.inner-information-text { 
+    width: 100%;
+    background: #003366;
+    color: #fff;
 }
+
 
 </style>
 </head>
 <body>
-<section id="top">
+<section>
     <div class="inner-page-banner">
         <div class="container">
         </div>
     </div>
     <div class="inner-information-text">
         <div class="container">
-            <h3>Blog</h3>
+            <h3>자유게시판</h3>
             <ul class="breadcrumb">
                 <li><a href="../main/main.do">Home</a></li>
-                <li class="active">Hotel</li>
+                <li class="active">board</li>
             </ul>
         </div>
     </div>

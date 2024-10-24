@@ -1,18 +1,23 @@
 package com.sist.web;
 
-import java.util.List;
+import java.util.*;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sist.service.BoardService;
+import com.sist.service.CommentService;
 import com.sist.service.HotelService;
 import com.sist.service.KboGoodsService;
 import com.sist.service.ReserveService;
+import com.sist.vo.BoardVO;
 import com.sist.vo.CartVO;
+import com.sist.vo.CommentVO;
 import com.sist.vo.KboGoodsCartVO;
 import com.sist.vo.ReserveVO;
 
@@ -24,6 +29,10 @@ public class MyPageRestController {
 	private HotelService hService;
 	@Autowired
 	private KboGoodsService kgService;
+	@Autowired
+	private BoardService bService;
+	@Autowired
+	private CommentService cService;
 	
 	@GetMapping(value="mypage/reserve_info_vue.do",produces="text/plain;charset=UTF-8")
 	public String reserve_info(int hno , int rno) throws Exception{
@@ -66,5 +75,29 @@ public class MyPageRestController {
 		  
 		  return json;
 	  }
+	  
+	  @GetMapping(value="mypage/mypage_board_vue.do",produces = "text/plain;charset=UTF-8")
+	  public String mypage_board(HttpSession session) throws Exception
+	  {
+		  String id=(String) session.getAttribute("userId");
+		  List<BoardVO> list=bService.mypageBoardListData(id);
+		  
+		  ObjectMapper mapper=new ObjectMapper();
+		  String json=mapper.writeValueAsString(list);
+		  
+		  return json;
+	  }
 	
+
+	  @GetMapping(value="mypage/mypage_comment_vue.do",produces = "text/plain;charset=UTF-8")
+	  public String mypage_comment(HttpSession session) throws Exception
+	  {
+		  String id=(String) session.getAttribute("userId");
+		  List<CommentVO> list=cService.mypageCommentListData(id);
+		  
+		  ObjectMapper mapper=new ObjectMapper();
+		  String json=mapper.writeValueAsString(list);
+		  
+		  return json;
+	  }
 }

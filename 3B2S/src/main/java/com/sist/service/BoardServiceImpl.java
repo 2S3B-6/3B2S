@@ -55,5 +55,11 @@ public class BoardServiceImpl implements BoardService{
 		bDao.boardUpdate(vo);
 	}
 
+	@Override
+	public List<BoardVO> mypageBoardListData(String id) {
+		// TODO Auto-generated method stub
+		return bDao.mypageBoardListData(id);
+	}
+
 	
 }

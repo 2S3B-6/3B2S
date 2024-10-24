@@ -57,5 +57,14 @@ public interface BoardMapper {
 			 +"content=#{content} "
 			 +"WHERE no=#{no}")
 	  public void boardUpdate(BoardVO vo);
+	  
+	  
+	  @Select("SELECT no, id, subject, name, TO_CHAR(regdate,'yyyy-mm-dd') as dbday,hit,num "
+				 +"FROM (SELECT no, id, subject, name, regdate,hit,rownum as num "
+				 +"FROM (SELECT no, id, subject, name, regdate, hit "
+				 +"FROM kboard ORDER BY no DESC)) "
+				 +"WHERE id=#{id}")
+		  public List<BoardVO> mypageBoardListData(String id);
+		  
 	    
 }
