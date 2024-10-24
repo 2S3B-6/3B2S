@@ -64,4 +64,6 @@ public class HotelController {
 		request.setAttribute("hno", hno);
 		return "hotel/reserve";
 	}
+	
+
 }

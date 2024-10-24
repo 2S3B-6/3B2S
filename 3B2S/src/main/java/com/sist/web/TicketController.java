@@ -49,8 +49,11 @@ public class TicketController {
 	   return "ticket/ticket_main";
    }
    @GetMapping("ticket/ticketchoice.do")
-   public String ticketchoice()
+   public String ticketchoice(HttpSession session,Model model)
    {
+	   String id=(String)session.getAttribute("userId");
+	   model.addAttribute("id", id);
+	   System.out.println(id);
 	   return "ticket/ticketchoice";
    }
    

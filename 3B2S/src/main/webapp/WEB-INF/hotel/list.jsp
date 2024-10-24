@@ -17,10 +17,6 @@
 </head>
 <body>
 <section id="top">
-         <div class="inner-page-banner">
-            <div class="container">
-            </div>
-         </div>
          <div class="inner-information-text">
             <div class="container">
                <h3>Blog</h3>
@@ -91,7 +87,8 @@
                      <div class="search-bar-blog">
                         <form>
                            <input type="text" placeholder="검색" />
-                           <button><i class="fa fa-search" aria-hidden="true"></i></button>
+                           <button><i class="fa fa-search" aria-hidden="true"><a href="../hotel/find.do"></a></i></button>
+                           
                         </form>
                      </div>
                   </div>
@@ -99,7 +96,7 @@
                      <h4 class="heading">야구장목록</h4>
                      <div class="category-menu">
                         <ul>
-                           <li><a href="#">잠실야구장</a></li>
+                           <li><a href="../hotel/find.do">잠실야구장</a></li>
                            <li><a href="#">고척스카이돔</a></li>
                            <li><a href="#">수원 케이티 위즈파크</a></li>
                            <li><a href="#">랜더스필드</a></li>

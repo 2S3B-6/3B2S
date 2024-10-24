@@ -13,7 +13,6 @@
 </head>
 <body>
 <section id="top">
-         
          <div class="inner-information-text">
             <div class="container">
                <h3>Blog</h3>
@@ -101,11 +100,10 @@
                     					</tr>
                     					<tr v-show="isReserveBtn">
                     						<td colspan="2" class="text-center">
-                    							<button class="btn-lg btn-danger" @click="reserve()">좌석선택</button>
+		                    					<button class="btn-lg btn-danger" @click="reserve()">좌석선택</button>
                     						</td>
                     					</tr>
                     				</table>
-                    				
                     			</td>
                     		</tr>
                     		<tr>
@@ -117,8 +115,15 @@
         </div>
     </section>
      <script>
-     alert("티켓은 한게임당 1좌석 구매원칙입니다!!")
+     let id ="${id}"
+     if(id !=null && id !== ""){
+	     		alert("티켓은 한게임당 1좌석 구매원칙입니다!!")
+     		} else {
+     			alert("로그인후 이용이 가능한 서비스입니다")
+     			location.href="../member/login.do"
+     		}
      	let ticketApp = Vue.createApp({
+     		
      		data(){
      			return {
      				image:'../images/koreanseries.jpg',
@@ -137,8 +142,11 @@
      			this.dataRecv()
      		},
      		methods:{
+     			login(){
+     				location.href="../member/login.do";
+     			},
      			reserve() {
-     			    
+     			    	
      			        location.href = "../ticket/ticket_main.do?price="+this.price+"&type="+this.type+"&day="+this.day+"&num="+this.num; // 여기에서 이동
      			  
      			},
@@ -146,7 +154,7 @@
     				this.name='한국시리즈'+num+'차전'
     				this.num=num
     				this.day=game_date
-    				this.isReserveBtn=true
+	    			this.isReserveBtn=true
     			},
      			typeChange(type){
      				this.type=type

@@ -2,6 +2,11 @@ package com.sist.web;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.*;
 
 import javax.servlet.http.HttpSession;
@@ -103,4 +108,24 @@ public class HotelRestController {
 		  System.out.println("인원:"+vo.getRinwon());*/
 		  return result;
 	  }
+	
+	@GetMapping(value="hotel/find_vue.do",produces = "text/plain;charset=UTF-8")
+	public String hotel_find(String name) throws Exception{
+		System.out.println("s");
+		String strUrl="http://localhost:9200/hotel/_search?q=name="+URLEncoder.encode(name,"UTF-8");
+		URL url = new URL(strUrl);
+		// url 연결
+		HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+		StringBuffer sb = new StringBuffer(); // 데이터를 모아둔다
+		if(conn!=null) { // 사이트에 연결이 된 경우
+			BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
+			while(true) {
+				String data = in.readLine();
+				if(data==null) break;
+				sb.append(data);
+			}
+			in.close();
+		}
+		return sb.toString();
+	}
 }

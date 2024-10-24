@@ -993,7 +993,7 @@
      padding: 11px 0;
      margin-bottom: 0;
      list-style: none;
-     background-color: #003366;
+     background-color: transparent;
      border-radius: 0;
      border: none;
      color: #fff;
@@ -1011,7 +1011,7 @@
  .inner-information-text {
      float: left;
      width: 100%;
-     background: #003366;
+     background: #001A29;
      color: #fff;
 }
  .inner-information-text h3 {
