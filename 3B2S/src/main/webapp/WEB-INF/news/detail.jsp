@@ -159,7 +159,7 @@ p {
 							</div>
                           <div class="children" v-if="vo.group_tab===1">
                            <div class="post-people">
-                            <div class="left-profile">
+                            <div class="left-profile" style="margin-bottom: -23px">
                               <div class="post-info">
                                  <img src="../images/news-profile.png" alt="" style="width: 70px; height: auto;margin-top: 10px;">
                                 <div class="comment-content">
