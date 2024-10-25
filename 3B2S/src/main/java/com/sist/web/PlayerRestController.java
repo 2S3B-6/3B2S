@@ -23,9 +23,9 @@ public class PlayerRestController {
 		int end=rowSize*page;
 		
 		Map map=new HashMap();
-		map.put("start", start);
-		map.put("end", end);
-		map.put("fd", fd);
+		map.put("pStart", start);
+		map.put("pEnd", end);
+		map.put("pFd", fd);
 		
 		List<BatterVO> list=pService.batterListData(map);
 		int totalpage=pService.batterTotalPage(fd);
