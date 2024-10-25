@@ -19,6 +19,9 @@
 .row{
 	margin: 0px auto;
 }
+.pagination-area {
+	text-align: center;
+}
 </style>
 
 </head>
@@ -76,6 +79,7 @@
                         </table>
 
                         <div class="col-12">
+                        
 		                    <div class="pagination-area d-sm-flex mt-15">
 		                        <nav aria-label="#">
 		                            <ul class="pagination">
@@ -93,8 +97,7 @@
 		                        <div class="page-status">
 		                            <p>{{curpage}} / {{totalpage}}</p>
 		                        </div>
-		                    </div>
-		                </div>
+		                    </div></div>
                     </div>
                 </aside>
             </div>
