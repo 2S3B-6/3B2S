@@ -17,15 +17,17 @@
    <put-attribute name="mypage_home" value="/WEB-INF/mypage/{1}.jsp"/>
  </definition>
  
- <definition name="admin" template="/WEB-INF/admin/admin_main.jsp">
+<!-- 관리자페이지 -->
+ <definition name="adminpage" template="/WEB-INF/adminpage/admin_main.jsp">
    <put-attribute name="header" value="/WEB-INF/main/header.jsp"/>
-   <put-attribute name="admin_menu" value="/WEB-INF/admin/admin_menu.jsp"></put-attribute>
-   <put-attribute name="admin_home" value="/WEB-INF/admin/admin_home.jsp"/>
+   <put-attribute name="admin_menu" value="/WEB-INF/adminpage/admin_menu.jsp"></put-attribute>
+   <put-attribute name="admin_home" value="/WEB-INF/adminpage/admin_home.jsp"/>
    <put-attribute name="footer" value="/WEB-INF/main/footer.jsp"/>
  </definition>
- <definition name="admin/*" extends="admin">
+ <definition name="adminpage/*" extends="adminpage">
    <put-attribute name="admin_home" value="/WEB-INF/admin/{1}.jsp"/>
- </definition>
+ </definition> 
+ 
  <definition name="team/detail" template="/WEB-INF/team/detail.jsp">
    <put-attribute name="home" value="/WEB-INF/team/detail.jsp"/>
  </definition>

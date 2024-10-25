@@ -20,7 +20,6 @@
 </style>
 </head>
 <body>
-<div class="top_space"  style="height: 220px;"></div>
 
 <div id="listApp">
 <!-- 제목 -->
@@ -67,8 +66,8 @@
 <div class="container">
     <div class="row">
         <!-- Single Post -->
-        <div class="col-16 col-md-6 col-lg-4" v-for="vo in kboGoods_list"  style="margin-bottom: 50px;">
-            <div class="single-post wow fadeInUp" data-wow-delay="0.1s" >
+        <div class="col-16 col-md-6 col-lg-4" v-for="vo in kboGoods_list" style="margin-bottom: 50px;">
+            <div class="single-post wow fadeInUp" data-wow-delay="0.1s"style="height: 300px;">
                 <!-- Post Thumb -->
                 <div class="text-center">
                    <a :href="'../kboGoods/detail_before.do?gno='+vo.gno">
@@ -128,7 +127,8 @@
 			 totalpage:0,
 			 startPage:0,
 			 endPage:0,
-			 fd:''
+			 fd:'',
+			 fd2:''
 		 }
 	 },
 	 mounted(){
@@ -138,6 +138,7 @@
 	 methods:{
 		 kboGoodsFindReset(){
 			this.fd=''
+			this.fd2=''
 			this.curpage=1
 			this.dataRecv()
 		 },
@@ -146,52 +147,52 @@
 			this.dataRecv()
 		 },
 		 kboGoodsFind1(){
-			this.fd='두산베어스'
+			this.fd2='두산베어스'
 			this.curpage=1
 			this.dataRecv()
 		 },
 		 kboGoodsFind2(){
-			this.fd='LG'
+			this.fd2='LG'
 			this.curpage=1
 			this.dataRecv()
 		 },
 		 kboGoodsFind3(){
-			this.fd='KT위즈'
+			this.fd2='KT위즈'
 			this.curpage=1
 			this.dataRecv()
 		},
 		kboGoodsFind4(){
-			this.fd='KIA타이거즈'
+			this.fd2='KIA타이거즈'
 			this.curpage=1
 			this.dataRecv()
 		 },
 		 kboGoodsFind5(){
-			this.fd='SSG랜더스'
+			this.fd2='SSG랜더스'
 			this.curpage=1
 			this.dataRecv()
 		 },
 		 kboGoodsFind6(){
-			this.fd='삼성라이온즈'
+			this.fd2='삼성라이온즈'
 			this.curpage=1
 			this.dataRecv()
 		 },
 		 kboGoodsFind7(){
-			this.fd='한화이글스'
+			this.fd2='한화이글스'
 			this.curpage=1
 			this.dataRecv()
 		 },
 		 kboGoodsFind8(){
-			this.fd='롯데자이언츠'
+			this.fd2='롯데자이언츠'
 			this.curpage=1
 			this.dataRecv()
 		 },
 		 kboGoodsFind9(){
-			this.fd='NC다이노스'
+			this.fd2='NC다이노스'
 			this.curpage=1
 			this.dataRecv()
 		 },
 		 kboGoodsFind10(){
-			this.fd='키움히어로즈'
+			this.fd2='키움히어로즈'
 			this.curpage=1
 			this.dataRecv()
 		 },
@@ -223,7 +224,8 @@
 			 axios.get('../kboGoods/find_vue.do',{
 				 params:{
 					 page:this.curpage,
-					 fd:this.fd
+					 fd:this.fd,
+					 fd2:this.fd2
 				 }
 			 }).then(response=>{
 				 // 정상 수행시 => 데이터를 읽어온다 
