@@ -15,7 +15,6 @@
 </head>
 <body>
 <section id="top">
-<section id="top">
          
          <div class="inner-information-text">
             <div class="container">
