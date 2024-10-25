@@ -184,7 +184,7 @@ p {
                               <span class="share"></span>
                            </div>
                            </div>
-                          </div> 
+                          </div>  
                         </div>
                        </div>
                        
