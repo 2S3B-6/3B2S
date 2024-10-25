@@ -17,7 +17,8 @@
 </style>
 </head>
 <body>
-<section id="top">         
+<section id="top">
+         
          <div class="inner-information-text">
             <div class="container">
                <h3>Ranking</h3>
@@ -35,8 +36,8 @@
 			    <table class="table">
 			     
 			     <tr>
-			      <th class="text-center" class="text-right" width="20%">연도</th>
-			      <td width="80%">
+			      
+			      <td>
 			       <select class="input-sm" @change="teamRanking(year)" name="year" ref="year" v-model="year">
 			       <option v-for="year in years" :key="year" :value="year">{{year}}년</option>
 			       </select>
