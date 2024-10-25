@@ -25,10 +25,10 @@ public interface MemberMapper {
 	//ID여부 확인(idcheck)
 	
 	//비밀번호 검사
-	@Select("SELECT userId,userName,userPwd,enabled, authority "   
+	@Select("SELECT sm.userId,userName,userPwd,enabled, authority "   
 			+ "FROM member_2s3b sm, authority au "
 			+ "WHERE sm.userId=au.userId "
-			+ "AND pm.userId=#{userId}")
+			+ "AND sm.userId=#{userId}")
 	public MemberVO memberInfoData(String userId);
 	
 	@Select("SELECT userId,userName,userPwd, sex, email "
@@ -57,4 +57,36 @@ public interface MemberMapper {
 	  @Delete("DELETE FROM member_2S3B "  
 				 +"WHERE userId=#{userId}")    
 		  public void mypageDelete(String userId);
+	  
+	  
+	  @Select("SELECT COUNT(*) FROM KBO_GOODS_CART WHERE isbuy='1' AND id=#{id}")
+	  	public int mypageBuyCount(String id);
+	  
+	  @Select("SELECT COUNT(*) FROM KBO_GOODS_CART WHERE isbuy='0' AND id=#{id}")
+	  	public int mypageCartCount(String id);
+	  
+	  @Select("SELECT COUNT(*) FROM GAME_RESERVE WHERE isreserve='1' AND id=#{id}")
+	  	public int mypageTicketCount(String id);
+	  
+	  @Select("SELECT COUNT(*) FROM RESERVE_HOTEL WHERE isreserve='1' AND id=#{id}")
+	  	public int mypageHotelCount(String id);
+	  
+	  @Select("SELECT COUNT(*) FROM KBOARD WHERE id=#{id}")
+	  	public int mypageBoardCount(String id);
+	  
+	  @Select("SELECT COUNT(*) FROM BOARD_COMMENT WHERE id=#{id}")
+	  	public int mypageReplyCount(String id);
+	  
 }
+
+
+
+
+
+
+
+
+
+
+
+

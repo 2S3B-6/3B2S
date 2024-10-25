@@ -35,4 +35,11 @@ public class MyPageController {
 	public String mypage_comment() { 
 		return "mypage/mypage_comment"; 
 	}
+	
+	@GetMapping("mypage/mypage_home.do")
+	public String mypage_home()	{
+		return "mypage/mypage_home";
+	}
+	
+	
 }

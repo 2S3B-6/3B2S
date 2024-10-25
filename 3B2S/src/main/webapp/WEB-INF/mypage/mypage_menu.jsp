@@ -59,7 +59,7 @@
 	    <ul class="list-group">
 	      <li class="list-group-item"><a href="../mypage/mypage_update.do">회원수정</a></li>
 	      <li class="list-group-item"><a href="../mypage/mypage_delete.do">회원탈퇴</a></li>
-	      <li class="list-group-item"><a href="../member/pwd_change.do">비밀번호 변경</a></li>
+	      <li class="list-group-item"><a href="../member/mypage_pwd.do">비밀번호 변경</a></li>
 	    </ul>
 	   </div>
 	   
@@ -70,7 +70,6 @@
 	      <li class="list-group-item"><a href="../mypage/mypage_board.do">게시판관리</a></li>
 	      <li class="list-group-item"><a href="../mypage/mypage_comment.do">댓글관리</a></li>
 	      <li class="list-group-item"><a href="../mypage/mypage_jjim.do">찜관리</a></li>
-	      <li class="list-group-item"><a href="#">좋아요관리</a></li>
 	      <li class="list-group-item"><a href="../mypage/mypage_buy.do">구매관리</a></li>
 	      <li class="list-group-item"><a href="../mypage/mypage_cart.do">장바구니관리</a></li>
 	      <li class="list-group-item"><a href="../mypage/mypage_reserve.do">예약관리</a></li>

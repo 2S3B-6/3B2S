@@ -59,6 +59,42 @@ public class MemberServiceImpl implements MemberService {
 	public void mypageUpdate(MemberVO vo) {
 		// TODO Auto-generated method stub
 		mDao.mypageUpdate(vo);
+	}
+
+	@Override
+	public int mypageBuyCount(String id) {
+		// TODO Auto-generated method stub
+		return mDao.mypageBuyCount(id);
+	}
+
+	@Override
+	public int mypageCartCount(String id) {
+		// TODO Auto-generated method stub
+		return mDao.mypageCartCount(id);
+	}
+
+	@Override
+	public int mypageTicketCount(String id) {
+		// TODO Auto-generated method stub
+		return mDao.mypageTicketCount(id);
+	}
+
+	@Override
+	public int mypageHotelCount(String id) {
+		// TODO Auto-generated method stub
+		return mDao.mypageHotelCount(id);
+	}
+
+	@Override
+	public int mypageBoardCount(String id) {
+		// TODO Auto-generated method stub
+		return mDao.mypageBoardCount(id);
+	}
+
+	@Override
+	public int mypageReplyCount(String id) {
+		// TODO Auto-generated method stub
+		return 0;
 	} 
 
 }

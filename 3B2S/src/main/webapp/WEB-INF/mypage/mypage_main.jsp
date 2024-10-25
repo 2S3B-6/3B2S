@@ -129,6 +129,8 @@ body {
     margin-top: 20px;
     float : right;
 }
+
+
 </style>
 
    </head>
@@ -161,12 +163,13 @@ body {
 			    </div>
 			    <div class="col-sm-10">
 			    	<tiles:insertAttribute name="mypage_home"/>
-			    </div>
+
+			   </div>
 			</div>
 		</div>
 	</section>
     <!-- ****** Home End ****** -->
-    
+
 
     <!-- ****** Footer Start ****** -->
     <tiles:insertAttribute name="footer"/>

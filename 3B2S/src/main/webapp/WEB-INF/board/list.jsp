@@ -7,11 +7,6 @@
 <meta charset="UTF-8">
 <title>게시판</title>
 <style type="text/css">
-/* 헤더를 전체 페이지 너비로 확장 */
-.inner-page-banner {
-    width: 100%; /* 전체 너비 */
-    box-sizing: border-box;
-}
 
 /* 게시판을 감싸는 큰 네모 박스 */
 .board-container {
@@ -56,14 +51,9 @@
     margin-top: 20px;
 }
 
-
-
-.inner-information-text { 
-    width: 100%;
-    background: #003366;
-    color: #fff;
+.inner-page-banner {
+ min-height: 0px;
 }
-
 
 </style>
 </head>

@@ -127,10 +127,26 @@ p {
 			      </td>
 			     </tr>
 			     <tr>
+			      <th class="text-right" width="30%" style="border:none;">응원하는 팀</th>
+			      <td width="70%" style="border:none;">
+			       <select class="input-sm" name="team" v-model="team">
+			        <option>두산</option>
+			        <option>LG</option>
+			        <option>KT</option>
+			        <option>KIA</option>
+			        <option>SSG</option>
+			        <option>삼성</option>
+			        <option>한화</option>
+			        <option>롯데</option>
+			        <option>NC</option>
+			        <option>키움</option>
+			       </select>
+			     </tr>
+			     <tr>
 			       <td colspan="2" class="text-center">
-			        <input type="submit" value="회원가입" class="btn-sm ">
+			        <input type="submit" value="회원가입" class="btn btn-sm ">
 			        &nbsp;&nbsp;
-			        <input type=button value="취소" class="btn-sm " onclick="javascript:history.back()">
+			        <input type=button value="취소" class="btn btn-sm " onclick="javascript:history.back()">
 			       </td>
 			     </tr>
 			    </table>
@@ -158,7 +174,8 @@ let joinApp=Vue.createApp({
 		 userPwd2:'',
 		 email:'',
 		 sex:'',
-		 pwdOk:''
+		 pwdOk:'',
+		 team:''
 	 }
  },
  methods:{
@@ -208,7 +225,7 @@ let joinApp=Vue.createApp({
 		 alert("회원가입이 완료되었습니다")
 		 if(this.userId && this.userName && this.userPwd && this.sex 
 			 && this.userPwd2 && this.birthday && this.post 
-			 && this.addr1 && this.addr2 && this.email && this.idOk!='' && this.pwdOk!=''
+			 && this.addr1 && this.addr2 && this.email && this.idOk!='' && this.pwdOk!='' && this.team
 		   )
 		 {
 			 alert("정상 수행")
@@ -247,6 +264,10 @@ let joinApp=Vue.createApp({
 		 else if(this.email==='')
 		 {
 			 this.$refs.email.focus()
+		 }
+		 else if(this.team==='')
+		 {
+			 this.$refs.team.focus()
 		 }
 		 e.preventDefault()
 	 },

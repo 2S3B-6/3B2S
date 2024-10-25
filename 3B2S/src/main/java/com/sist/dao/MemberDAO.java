@@ -43,9 +43,31 @@ public class MemberDAO {
 		mapper.mypageUpdate(vo);
 	}
 	
-	   public void mypageDelete(String userId)
-	   {
-		   mapper.mypageDelete(userId);
-	   }
+	public void mypageDelete(String userId){
+	    mapper.mypageDelete(userId);
+	}
 	   
+	public int mypageBuyCount(String id) {
+		return mapper.mypageBuyCount(id);
+	}
+	  
+	public int mypageCartCount(String id){
+		return mapper.mypageCartCount(id);
+	}
+	
+	public int mypageTicketCount(String id){
+		return mapper.mypageTicketCount(id);
+	}
+	
+	public int mypageHotelCount(String id){
+		return mapper.mypageHotelCount(id);
+	}
+	
+	public int mypageBoardCount(String id){
+		return mapper.mypageBoardCount(id);
+	}
+	
+	public int mypageReplyCount(String id){
+		return mapper.mypageReplyCount(id);
+	}
 }

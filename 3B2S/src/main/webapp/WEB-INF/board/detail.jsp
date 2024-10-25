@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,8 +19,13 @@
    border-radius: 10px;
    background-color: #fff;
    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+   margin-top: 50px;
 }
 
+
+.breadcrumb {
+	background-color: transparent;
+}
 /* 테이블 스타일 */
 .table {
    width: 100%;
@@ -53,25 +59,16 @@ pre {
    border: none;
 }
 
-/* 상단 헤더 스타일 */
+
 .inner-page-banner {
-   width: 100%;
-   padding: 20px 0;
-   box-sizing: border-box;
-   text-align: center;
-   font-size: 24px;
+min-height:0px;
+float:none;
 }
 
-.breadcrumb {
-     padding: 8px 15px;
-    list-style: none;
-    background-color: #003366;
-    border-radius: 4px;
-}
+.inner-information-text {
+    float: none;
+}    
 
-.container {
-    margin-bottom: 50px; 
-}
 
 .comment-content {
 width: 100%;
@@ -83,21 +80,29 @@ width: 100%;
     background-color: #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+li { 
+display:block;
+}
 </style>
 <script src="https://unpkg.com/vue@3"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-<section id="top">
-   <div class="inner-page-banner">
-      <div class="container">
-         <h3>자유게시판</h3>
-         <ul class="breadcrumb">
-            <li><a href="../main/main.do">Home</a></li>
-            <li>게시판</li>
-         </ul>
-      </div>
-   </div>
+<section style="float: none;">
+    <div class="inner-page-banner">
+        <div class="container">
+        </div>
+    </div>
+    <div class="inner-information-text">
+        <div class="container">
+            <h3>자유게시판</h3>
+            <ul class="breadcrumb">
+                <li><a href="../main/main.do">Home</a></li>
+                <li class="active">board</li>
+            </ul>
+        </div>
+    </div>
 </section>
 
 <section id="detailApp">
@@ -193,6 +198,7 @@ width: 100%;
                                                 <div class="comment-wrapper d-flex">
                                                     <!-- Comment Meta -->
                                                     <div class="comment-author">
+                                                        <img :src="vo.sex==='남자'?'../img/icon/man.png':'../img/icon/woman.png'" alt="">
                                                         <img :src="vo.sex==='남자'?'../img/icon/man.png':'../img/icon/woman.png'" alt="">
                                                     </div>
                                                     <!-- Comment Content -->
