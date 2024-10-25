@@ -14,6 +14,9 @@
 .table tr td {
     vertical-align: middle;
 }
+.table{
+	color: black;
+}
 </style>
 </head>
 <body>
