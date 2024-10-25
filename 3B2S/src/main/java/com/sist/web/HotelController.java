@@ -41,12 +41,27 @@ public class HotelController {
 	@GetMapping("hotel/detail.do")
 	public String hotel_detail(int hno,Model model,HttpSession session)
 	{
-		
 		String id=(String)session.getAttribute("userId");
+		Map map = new HashMap();
+		map.put("hno", hno);
+		map.put("id", id);
+		boolean bcheck=false;
+		if(id!=null) {
+			int check = hService.jjimcheck(map);
+			if(check==1) bcheck=true;
+			else if(check==0) bcheck=false;
+			System.out.println(check);
+		}
+		model.addAttribute("check", bcheck);
+		System.out.println(id);
+		System.out.println(hno);
+		
+		
 		HotelVO vo = hService.hotelDetailData(hno);
 		int rprice=vo.getPrice();
 		DecimalFormat formatter = new DecimalFormat("#,###");
 		String price = formatter.format(rprice);
+		
 		model.addAttribute("price", price);
 		model.addAttribute("vo", vo);
 		model.addAttribute("session", session);

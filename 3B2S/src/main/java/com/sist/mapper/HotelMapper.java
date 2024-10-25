@@ -1,7 +1,10 @@
 package com.sist.mapper;
 
 import java.util.List;
+import java.util.Map;
 
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -33,5 +36,29 @@ public interface HotelMapper {
 			+ "  FROM hotel "
 			+ "  WHERE hno=#{hno}")
 	public HotelVO hotelReserveData(int hno);
+	
+	/////////////////// 찜 ////////////////////////
+	@Update("update hotel set "
+	+" jjimcount = jjimcount+1"
+	+" where hno=#{hno}")
+	public void hotelJjimincrement(int hno);
+	@Insert("INSERT INTO jjim (jno, hno, id) VALUES (jj_jno_seq.nextval, #{hno}, #{id})")
+	public void hotelJjimInsert(Map map);
+	
+	@Delete("delete from jjim where hno=#{hno} and id=#{id}")
+	public void hotelJjimDelete(Map map);
+	
+	@Update("update hotel set "
+			+ "	jjimcount = jjimcount-1 "
+			+ "	where hno=#{hno}")
+	public void hotelJjimDecrement(int hno);
+	
+	
+	@Select("select count(*) "
+			+ "	from jjim j "
+			+ "	where  j.id=#{id} and j.hno=#{hno}")
+	public int jjimcheck(Map map);
+	
+	
 	
 }
