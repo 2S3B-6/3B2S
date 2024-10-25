@@ -22,6 +22,7 @@
             </div>
          </div>
       </section>
+      <div style="height:40px"></div>
 <div class="container">
   <div id="myApp">
    <table class="table">
@@ -85,7 +86,7 @@
    </table>
    <div style="overflow-y:auto;height:500px">
   </div>
-  </div>
+  </div></div></div>
   <script>
   let myApp=Vue.createApp({
 	  data(){

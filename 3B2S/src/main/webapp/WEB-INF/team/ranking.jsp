@@ -41,6 +41,7 @@
 			     <tr>
 			      
 			      <td>
+			      <div style="height:20px"></div>
 			       <select class="input-sm" @change="teamRanking(year)" name="year" ref="year" v-model="year">
 			       <option v-for="year in years" :key="year" :value="year">{{year}}년</option>
 			       </select>
