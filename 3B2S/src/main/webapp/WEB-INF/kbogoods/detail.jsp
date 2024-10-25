@@ -18,7 +18,6 @@
 
 </head>
 <body>
-<div class="top_space"  style="height: 220px;"></div>
 
  <div id="detailApp">
 <!-- Á¦¸ñ -->

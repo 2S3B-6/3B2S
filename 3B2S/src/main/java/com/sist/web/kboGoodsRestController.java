@@ -18,72 +18,73 @@ import java.util.*;
 import javax.servlet.http.HttpSession;
 
 @RestController
-public class KboGoodsRestController {
+public class kboGoodsRestController {
 	@Autowired
 	private KboGoodsService kgService;
 	
 	@GetMapping(value="kboGoods/list_vue.do",produces = "text/plain;charset=UTF-8")
 	public String kboGoods_list(int page) throws Exception{
-	int rowSize=15;
-	int start=(rowSize*page)-(rowSize-1);
-	int end=rowSize*page;
-	
-	List<KboGoodsVO> list=kgService.kboGoodsListData(start, end);
-	int totalpage=kgService.kboGoodsTotalPage();
-	
-	final int BLOCK=5;
-	int startPage=((page-1)/BLOCK*BLOCK)+1;
-	int endPage=((page-1)/BLOCK*BLOCK)+BLOCK;
-	
-	if(endPage>totalpage) {
-		endPage=totalpage;
-	}
-		   
-	Map map=new HashMap();
-	map.put("list", list);
-	map.put("curpage", page);
-	map.put("totalpage", totalpage);
-	map.put("startPage", startPage);
-	map.put("endPage", endPage);
-	
-	// JSON으로 변환후 전송 
-	ObjectMapper mapper=new ObjectMapper();
-	String json=mapper.writeValueAsString(map);
-	return json;
+		int rowSize=15;
+		int start=(rowSize*page)-(rowSize-1);
+		int end=rowSize*page;
+		
+		List<KboGoodsVO> list=kgService.kboGoodsListData(start, end);
+		int totalpage=kgService.kboGoodsTotalPage();
+		
+		final int BLOCK=5;
+		int startPage=((page-1)/BLOCK*BLOCK)+1;
+		int endPage=((page-1)/BLOCK*BLOCK)+BLOCK;
+		
+		if(endPage>totalpage) {
+			endPage=totalpage;
+		}
+			   
+		Map map=new HashMap();
+		map.put("list", list);
+		map.put("curpage", page);
+		map.put("totalpage", totalpage);
+		map.put("startPage", startPage);
+		map.put("endPage", endPage);
+		
+		// JSON으로 변환후 전송 
+		ObjectMapper mapper=new ObjectMapper();
+		String json=mapper.writeValueAsString(map);
+		return json;
 	}
 	
 	@GetMapping(value="kboGoods/find_vue.do",produces = "text/plain;charset=UTF-8")
-	public String kboGoods_find(int page, String fd) throws Exception{
-	int rowSize=15;
-	int start=(rowSize*page)-(rowSize-1);
-	int end=rowSize*page;
-	Map map=new HashMap();
-	map.put("start",start);
-	map.put("end", end);
-	map.put("fd", fd);
-	
-	List<KboGoodsVO> list=kgService.kboGoodsFindListData(map);
-	int totalpage=kgService.kboGoodsFindTotalPage(map);
-	
-	final int BLOCK=5;
-	int startPage=((page-1)/BLOCK*BLOCK)+1;
-	int endPage=((page-1)/BLOCK*BLOCK)+BLOCK;
-	
-	if(endPage>totalpage) {
-		endPage=totalpage;
-	}
-		   
-	map=new HashMap();
-	map.put("list", list);
-	map.put("curpage", page);
-	map.put("totalpage", totalpage);
-	map.put("startPage", startPage);
-	map.put("endPage", endPage);
-	
-	// JSON으로 변환후 전송 
-	ObjectMapper mapper=new ObjectMapper();
-	String json=mapper.writeValueAsString(map);
-	return json;
+	public String kboGoods_find(int page, String fd, String fd2) throws Exception{
+		int rowSize=15;
+		int start=(rowSize*page)-(rowSize-1);
+		int end=rowSize*page;
+		Map map=new HashMap();
+		map.put("start",start);
+		map.put("end", end);
+		map.put("fd", fd);
+		map.put("fd2", fd2);
+		
+		List<KboGoodsVO> list=kgService.kboGoodsFindListData(map);
+		
+		int totalpage=kgService.kboGoodsFindTotalPage(map);
+		final int BLOCK=5;
+		int startPage=((page-1)/BLOCK*BLOCK)+1;
+		int endPage=((page-1)/BLOCK*BLOCK)+BLOCK;
+		
+		if(endPage>totalpage) {
+			endPage=totalpage;
+		}
+			   
+		map=new HashMap();
+		map.put("list", list);
+		map.put("curpage", page);
+		map.put("totalpage", totalpage);
+		map.put("startPage", startPage);
+		map.put("endPage", endPage);
+		
+		// JSON으로 변환후 전송 
+		ObjectMapper mapper=new ObjectMapper();
+		String json=mapper.writeValueAsString(map);
+		return json;
 	}
 
 	@GetMapping(value="kboGoods/detail_vue.do",produces = "text/plain;charset=UTF-8")
