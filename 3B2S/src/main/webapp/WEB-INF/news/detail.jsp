@@ -233,7 +233,7 @@ p {
 	                       <a href="../news/detail.do?nno=+${vo.nno }">
 	                         <c:choose>
 	                           <c:when test="${fn:length(vo.title)>16 }">
-	                            ${fn:substring(vo.title,0,16)}...
+	                            ${fn:substring(vo.title,0,14)}...
 	                           </c:when>
 	                         </c:choose>
 	                       </a>

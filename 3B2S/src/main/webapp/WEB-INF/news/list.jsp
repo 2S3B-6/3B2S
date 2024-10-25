@@ -134,7 +134,7 @@
 			                <div class="news-post-detail">
 			                    <span class="time">{{vo.ftime}}</span>
 			                    <h2 class="clamp-text-one-line">
-								  <a :href="'../news/detail.do?nno='+vo.nno">{{ truncateText(vo.title, 45) }}</a>
+								  <a :href="'../news/detail.do?nno='+vo.nno">{{ truncateText(vo.title, 40) }}</a>
 								</h2>
 			                    <p class="clamp-text">{{vo.content}}</p>
 			                </div>
@@ -169,7 +169,7 @@
                        <a href="../news/detail.do?nno=+${vo.nno }">
                          <c:choose>
                            <c:when test="${fn:length(vo.title)>17 }">
-                            ${fn:substring(vo.title,0,17)}...
+                            ${fn:substring(vo.title,0,15)}...
                            </c:when>
                          </c:choose>
                        </a>
