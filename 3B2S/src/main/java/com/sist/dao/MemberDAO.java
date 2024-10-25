@@ -59,6 +59,9 @@ public class MemberDAO {
 		return mapper.mypageTicketCount(id);
 	}
 	
+	public int mypageHotelCount1(String id) {
+		return mapper.mypageHotelCount1(id);
+	}
 	public int mypageHotelCount(String id){
 		return mapper.mypageHotelCount(id);
 	}

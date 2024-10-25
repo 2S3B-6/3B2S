@@ -26,46 +26,44 @@
 	      </td>
 	    </tr>
 	   <table class="table">
-                    <thead>
-	    <tr>
-         <th width="10%">번호</th>
-         <th width="45%">제목</th>
-         <th width="15%">이름</th>
-         <th width="20%">작성일</th>
-         <th width="10%">조회수</th>
-	    </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="vo in board_list">
-                            <td>{{ vo.no }}</td>
-                            <td>
-                                <a :href="'../board/detail.do?no=' + vo.no">{{ vo.subject }}</a>
-                                <sup v-if="today === vo.dbday"><img src="../img/icon/new.gif"></sup>
-                            </td>
-                            <td>{{ vo.name }}</td>
-                            <td>{{ vo.dbday }}</td>
-                            <td>{{ vo.hit }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-	   
+        <thead>
+	     <tr>
+          <th width="10%">번호</th>
+          <th width="45%">제목</th>
+          <th width="15%">이름</th>
+          <th width="20%">작성일</th>
+          <th width="10%">조회수</th>
+	     </tr>
+        </thead>
+        <tbody>
+         <tr v-for="vo in board_list">
+          <td>{{ vo.no }}</td>
+           <td>
+            <a :href="'../board/detail.do?no=' + vo.no">{{ vo.subject }}</a>
+             <sup v-if="today === vo.dbday"><img src="../img/icon/new.gif"></sup>
+           </td>
+           <td>{{ vo.name }}</td>
+           <td>{{ vo.dbday }}</td>
+           <td>{{ vo.hit }}</td>
+          </tr>
+         </tbody>
+        </table>
 	   </table>
 	   <div v-if="isShow">
-	     <h4>내용 상세보기</h4>
+	    <h4>내용 상세보기</h4>
 	     <table class="table">
-                           <tr>
-                             <td colspan="2">
-                               <h4>{{detail_data.subject}}</h4>
-                             </td>
-                            </tr>
-                            <tr>
-                              <td colspan="2">
-                               {{detail_data.content}}
-                             </td>
-                            </tr>
-                      </table>
-	   </div>
-	   
+          <tr>
+           <td colspan="2">
+            <h4>{{detail_data.subject}}</h4>
+           </td>
+          </tr>
+         <tr>
+        <td colspan="2">
+        {{detail_data.content}}
+        </td>
+       </tr>
+      </table>
+	 </div>
 	</div>
 	<script>
 	let mypageApp=Vue.createApp({

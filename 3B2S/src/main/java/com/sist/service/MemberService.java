@@ -30,6 +30,7 @@ public int idCheck(String userId);
 	  
 	  public int mypageTicketCount(String id);
 	  
+	  public int mypageHotelCount1(String id);
 	  public int mypageHotelCount(String id);
 	  
 	  public int mypageBoardCount(String id);

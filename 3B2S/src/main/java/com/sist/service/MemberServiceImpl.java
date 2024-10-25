@@ -94,7 +94,13 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int mypageReplyCount(String id) {
 		// TODO Auto-generated method stub
-		return 0;
+		return mDao.mypageReplyCount(id);
+	}
+
+	@Override
+	public int mypageHotelCount1(String id) {
+		// TODO Auto-generated method stub
+		return mDao.mypageHotelCount1(id);
 	} 
 
 }

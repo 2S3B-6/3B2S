@@ -117,7 +117,10 @@ public class MyPageRestController {
 	       // 티켓 예약수 가져오기
 	       int TicketCount = mService.mypageTicketCount(id);
 	       
-	       // 호텔 예약수 가져오기
+	       // 호텔 예약 대기
+	       int HotelCount1 = mService.mypageHotelCount1(id);
+	       
+	       // 호텔 예약 완료
 	       int HotelCount = mService.mypageHotelCount(id);
 	       
 	       int BoardCount = mService.mypageBoardCount(id);
@@ -144,6 +147,7 @@ public class MyPageRestController {
 	       map.put("memberInfo", vo);
 	       map.put("BuyCount", BuyCount);
 	       map.put("CartCount", CartCount);
+	       map.put("HotelCount1", HotelCount1);
 	       map.put("HotelCount", HotelCount);
 	       map.put("TicketCount", TicketCount);
 	       map.put("BoardCount", BoardCount);
