@@ -59,7 +59,6 @@
     	<div id="chart_div" style="width: 1200px; height: 800px;"></div>
     	<div id="chart2_div" style="width: 1200px; height: 800px;"></div>
     </section>
-    </div>
     <script>
     	let vsApp=Vue.createApp({
     		data(){
