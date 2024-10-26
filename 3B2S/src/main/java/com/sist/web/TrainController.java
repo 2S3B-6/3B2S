@@ -11,9 +11,17 @@ import com.sist.vo.*;
 import com.sist.service.*;
 @Controller
 public class TrainController {
+	@Autowired
+	private TrainService tService;
+	
 	@GetMapping("train/list.do")
     public String train_list()
     {
  	   return "train/list";
+    }
+	@GetMapping("train/reserve.do")
+    public String train_reserve()
+    {
+ 	   return "train/reserve";
     }
 }
