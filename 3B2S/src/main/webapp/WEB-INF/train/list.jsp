@@ -149,14 +149,14 @@ button.small-btn:hover {
 			      <p>기차를 조회해주세요.</p>
 			   </div>
                   <tr v-for="vo in train_list" :key="vo.tno">
-                     <td><span>{{vo.tno}}</span></td>
+                     <td><span id="tno">{{vo.tno}}</span></td>
                      <td><span>{{vo.ttype}}</span></td>
                      <td><span>{{vo.sstart}}</span></td>
                      <td><span>{{vo.send}}</span></td>
-                     <td><span>{{vo.tstart}}</span></td>
-                     <td><span>{{vo.tend}}</span></td>
-                     <td><span>{{vo.price.toLocaleString()}}원</span></td>
-                     <td><button type="submit" class="small-btn" @click="openReserveWindow(vo)">예매</button></td>
+                     <td><span id="tstart">{{vo.tstart}}</span></td>
+                     <td><span id="tend">{{vo.tend}}</span></td>
+                     <td><span id="price">{{vo.price.toLocaleString()}}원</span></td>
+                     <td><button type="submit" class="small-btn" @click="openReserveWindow(vo.tno,vo.tstart,vo.tend,vo.price)">예매</button></td>
                   </tr>
                </tbody>
             </table>
@@ -252,14 +252,20 @@ button.small-btn:hover {
       			    const baseUrl = window.location.origin + "/web/train/reserve.do";
       			    window.open(baseUrl, 'reserveWindow', 'width=900,height=700,scrollbars=yes,resizable=no');
       			}, */
-      			openReserveWindow(vo) {
+      			openReserveWindow(tno,tstart,tend,price) {
       			    console.log("Departure Date:", this.departureDate);
       			    console.log("Train Type:", this.ttype2);
       			    console.log("Start Station:", this.sstart2);
       			    console.log("End Station:", this.send2);
       			    console.log("Start Time:", this.tstart2);
       			    
-      			    const plainVo = JSON.parse(JSON.stringify(vo)); // 프록시 객체를 일반 객체로 변환
+      			   
+      			    
+      			    let params='ttype='+this.ttype2+'&sstart='+this.sstart2+'&send='+this.send2+'&tstart='
+      			    +tstart+'&tend='+tend+'&price='+price+'&tno='+tno+'&departureDate='+this.departureDate;
+      			    console.log(params)
+      			    const fullUrl = `${window.location.origin}/web/train/reserve.do?`+params;
+      			   /*  const plainVo = JSON.parse(JSON.stringify(vo)); // 프록시 객체를 일반 객체로 변환
 
       			    const params = new URLSearchParams({
       			        ttype: plainVo.ttype || this.ttype2 || '',         
@@ -270,9 +276,9 @@ button.small-btn:hover {
       			        price: plainVo.price || '',          
       			        tno: plainVo.tno || '',              
       			        departureDate: this.departureDate || '' 
-      			    }).toString();
+      			    }).toString(); */
 
-      			    const fullUrl = `${window.location.origin}/web/train/reserve.do?${params}`;
+      			    /* const fullUrl = `${window.location.origin}/web/train/reserve.do?${params}`; */
       			    console.log("Generated URL:", fullUrl); // URL 확인
 
       			    window.open(fullUrl, '_blank', 'width=900,height=620,scrollbars=yes,resizable=no');

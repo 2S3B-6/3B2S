@@ -361,87 +361,58 @@ label:hover {
   </div>
 </section>
   <script>
-  
   $(document).ready(function() {
-	    const urlParams = new URLSearchParams(window.location.search);
-	    console.log("All URL Params:", Object.fromEntries(urlParams.entries()));
-	});
-  
-  $(document).ready(function() {
-      // URL 파라미터를 읽어오는 함수
-      function getUrlParameter(name) {
-          const params = new URLSearchParams(window.location.search);
-          return params.get(name);
-      }
-
-      // 페이지 로드 후 URL 파라미터로 받은 값을 HTML 요소에 설정
-      const ttype = getUrlParameter("ttype");
-      const sstart = getUrlParameter("sstart");
-      const send = getUrlParameter("send");
-      const tstart = getUrlParameter("tstart");
-      const tend = getUrlParameter("tend");
-      const price = getUrlParameter("price");
-      const departureDate = getUrlParameter("departureDate");
-
-      // URL 파라미터를 콘솔에 출력하여 확인
-      console.log("Received ttype:", ttype);
-      console.log("Received sstart:", sstart);
-      console.log("Received send:", send);
-      console.log("Received tstart:", tstart);
-      console.log("Received tend:", tend);
-      console.log("Received price:", price);
-      console.log("Received departureDate:", departureDate);
+      // 전역에서 사용할 변수 선언
+      let price = 0; // 기본값 설정
+      const urlParams = new URLSearchParams(window.location.search);
       
+      // URL 파라미터로 받은 값을 HTML 요소에 설정
+      const ttype = urlParams.get("ttype");
+      const sstart = urlParams.get("sstart");
+      const send = urlParams.get("send");
+      const tstart = urlParams.get("tstart");
+      const tend = urlParams.get("tend");
+      const departureDate = urlParams.get("departureDate");
+      price = parseInt(urlParams.get("price"), 10); // 숫자로 변환하여 price에 할당
+
+      console.log("Received price:", price); // price 확인
+
       // 요소에 값을 설정
       $("#trainType").text(ttype);
       $("#departureStation").text(sstart);
       $("#arrivalStation").text(send);
       $("#departureTime").text(tstart);
       $("#arrivalTime").text(tend);
-      $("#price").text(price);
       $("#departureDate").text(departureDate);
 
       // 선택된 좌석 관리
-      let selectedSeats = []; // 선택된 좌석 목록을 저장할 배열
-      let count = 0;
+      let selectedSeats = [];
+      let selectedSeatsCount = 0;
 
       // 체크박스를 클릭할 때마다 실행
       $('input[type="checkbox"]').click(function() {
-          const seatId = $(this).attr('id'); // 체크박스의 id를 가져옴 (예: "1A")
-          
+          const seatId = $(this).attr('id');
+
           if ($(this).is(':checked')) {
-              // 체크된 값 추가
               selectedSeats.push(seatId);
-              count = count + 1;
-              console.log(count);
+              selectedSeatsCount++;
           } else {
-              // 체크 해제된 경우 배열에서 제거
               selectedSeats = selectedSeats.filter(seat => seat !== seatId);
+              selectedSeatsCount--;
           }
-          
-          // 선택된 좌석을 passengerCount 위치에 표시
+
+          // 좌석 정보 및 인원수 표시
           $("#passengerSeat").text(selectedSeats.join(', '));
+          $("#passengerCount").text(selectedSeatsCount + "명");
+
+          // 요금 계산 및 표시
+          const totalprice = price * selectedSeatsCount;
+          $("#price").text(totalprice + "원");
+          console.log("Total price:", totalprice); // totalprice 확인
       });
   });
-  
-  $(document).ready(function() {
-	    // 선택된 좌석 수를 저장하는 변수
-	    let selectedSeatsCount = 0;
-
-	    // 체크박스를 클릭할 때마다 실행
-	    $('input[type="checkbox"]').click(function() {
-	        // 체크된 좌석의 개수를 계산
-	        if ($(this).is(':checked')) {
-	            selectedSeatsCount += 1; // 좌석 추가 시 개수 증가
-	        } else {
-	            selectedSeatsCount -= 1; // 좌석 제거 시 개수 감소
-	        }
-
-	        // 선택된 좌석 수를 passengerCount 위치에 표시
-	        $("#passengerCount").text(selectedSeatsCount + "명");
-	    });
-	});
 </script>
+
 
 </body>
 </html>
