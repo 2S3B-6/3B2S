@@ -3,6 +3,7 @@ import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sist.vo.*;
@@ -83,4 +84,14 @@ public class TrainRestController {
 		
 		return json;
 	}
+    
+    @PostMapping(value="train/reserve_ok_vue.do",produces = "text/plain;charset=UTF-8")
+    public String reserve_ok()
+    {
+    	String result="";
+
+    	result="yes";
+    	
+    	return result;
+    }
 }

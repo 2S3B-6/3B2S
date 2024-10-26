@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
 <script type="text/javascript">
 $(function(){
 	$('header').css({display:'none'});	
@@ -305,7 +306,7 @@ label:hover {
         </div>
      </div>
   </section>
- <section class="train-info-seats-container" style="margin-left: 60px;margin-top: 20px">
+ <section id="reserveApp" class="train-info-seats-container" style="margin-left: 60px;margin-top: 20px">
   <div class="train-info-section train-info" style="margin-top: 30px">
     <table>
         <tr><td>열차 종류</td><td id="trainType"></td></tr>
@@ -318,7 +319,7 @@ label:hover {
         <tr><td>인원</td><td id="passengerCount"></td></tr>
         <tr><td>요금</td><td id="price"></td></tr>
     </table>
-    <button class="reserve-btn" onclick="reserveTicket()">예매하기</button>
+    <button class="reserve-btn" @click="reserve()">예매하기</button>
   </div>
 
   <div class="seat-arrangement-section train" style="margin-bottom: -250px">
@@ -407,10 +408,92 @@ label:hover {
 
           // 요금 계산 및 표시
           const totalprice = price * selectedSeatsCount;
-          $("#price").text(totalprice + "원");
+          $("#price").text(totalprice.toLocaleString() + "원");
           console.log("Total price:", totalprice); // totalprice 확인
       });
   });
+  
+	  var IMP = window.IMP 
+	  IMP.init("imp68206770")
+	  
+	  let reserveApp = Vue.createApp({
+      data() {
+          return {
+              ttype: '',           
+              sstart: '',     
+              send: '',          
+              departureDate: '',   
+              tstart: '',  
+              tend: '',    
+              price: 0,           
+              total_price: 0,    
+              selectedSeats: [],  
+              passengerCount: 0   
+          }
+      },
+      mounted() {
+          
+      },
+      methods: {
+          updateSeatSelection(seatId) {
+              const index = this.selectedSeats.indexOf(seatId)
+              if (index === -1) {
+                  this.selectedSeats.push(seatId)
+              } else {
+                  this.selectedSeats.splice(index, 1)
+              }
+
+              this.passengerCount = this.selectedSeats.length
+              this.total_price = this.price * this.passengerCount
+          },
+          requestPay() {
+              IMP.request_pay({
+                  pg: "html5_inicis",
+                  pay_method: "card",
+                  merchant_uid: "ORD20180131-0000011",
+                  name: "기차",
+                  amount: this.total_price,
+                  buyer_email: '',
+                  buyer_name: '',
+                  buyer_tel: '',
+                  buyer_addr: '',
+                  buyer_postcode: ''
+              }, function (rsp) {
+                  location.href = "../mypage/mypage_main.do" 
+                  
+              });
+          },
+          reserve() {
+        	  axios.post('../train/reserve_ok_vue.do',null,{
+                  params:{
+                	  ttype:this.ttype,           
+                      sstart:this.sstart,     
+                      send:this.send,          
+                      departureDate:this.departureDate,   
+                      tstart:this.tstart,  
+                      tend:this.tend,    
+                      price:this.price,           
+                      total_price:this.total_price,    
+                      selectedSeats:this.selectedSeats,  
+                      passengerCount:this.passengerCount
+                  }
+                  }).then(response=>{
+                     if(response.data==='yes')
+                     {
+                        alert("yes!!")
+                        this.requestPay()
+                     }
+                     else
+                     {
+                        alert(response.data)
+                     }
+                     console.log(response.data)
+                  }).catch(error=>{
+                     console.log(error.response)
+                  }) 
+            }
+      }
+  }).mount("#reserveApp")
 </script>
 
 
