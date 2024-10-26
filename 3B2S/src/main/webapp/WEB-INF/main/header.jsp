@@ -162,7 +162,7 @@ li.col-sm-4 {
                   <div class="row">
                      <div class="col-md-12">
                         <div class="full">
-                           <div class="main-menu-section">
+                           <div class="main-menu-section" style="margin-left:100px;">
                               <div class="menu">
                                     <div class="navbar-header">
                                        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
@@ -186,7 +186,6 @@ li.col-sm-4 {
                            
                                     <div class="collapse navbar-collapse js-navbar-collapse">
                                        <ul class="nav navbar-nav">
-                                          <li class="active"><a href="../main/main.do">Home</a></li>
                                           <li class="dropdown mega-dropdown">
                                              <a href="match" class="dropdown-toggle" data-toggle="dropdown">일정/기록<span class="caret"></span></a>				
                                              <ul class="dropdown-menu mega-dropdown-menu"  style="width:170px;height:180px;">
@@ -261,10 +260,10 @@ li.col-sm-4 {
 					                            	
 					                            	
 						                            	<sec:authorize access="hasRole('ROLE_ADMIN')">
-						                            		<li class="active"><a href="../adminpage/adminpage_main.do">관리자페이지</a></li>
+						                            		<li class="active"><a href="../adminpage/adminpage_main.do" style="color:white;">관리자페이지</a></li>
 						                            	</sec:authorize>
 						                            	<sec:authorize access="hasRole('ROLE_USER')">
-						                            		<li class="active"><a href="../mypage/mypage_main.do">마이페이지</a></li>
+						                            		<li class="active"><a href="../mypage/mypage_main.do" style="color:white;">마이페이지</a></li>
 						                            	</sec:authorize>
 					                            </li>
                             				</c:if>
@@ -286,7 +285,7 @@ li.col-sm-4 {
             
                            
                            <!-- button section -->
-                           <ul class="login">
+                           <ul class="login" style="margin-top:5px;">
                            <c:if test="${sessionScope.userId==null }">
                               <li class="login-modal">
                                  <a href="../member/login.do" class="login"><i class="fa fa-lock"></i>로그인</a>
@@ -304,13 +303,13 @@ li.col-sm-4 {
                               </li>
                            </ul>
                            <c:if test="${sessionScope.userId!=null }">
-	                            <div class="login">
+	                            <div class="login" style="margin-left:5px; color:white;">
 	                            	${sessionScope.userName }(
 		                            	<sec:authorize access="hasRole('ROLE_ADMIN')">관리자</sec:authorize>
 		                            	<sec:authorize access="hasRole('ROLE_USER')">일반 사용자</sec:authorize>
 	                            	)
 	                            	님께서 로그인되었습니다&nbsp;&nbsp;
-	                                <a href="../member/logout.do">로그아웃</a>
+	                                <a href="../member/logout.do" style="color:gray;">로그아웃</a>
 	                            </div>
                             </c:if>
                             <!-- start translation -->

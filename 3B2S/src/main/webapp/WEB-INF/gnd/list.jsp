@@ -26,24 +26,18 @@
                   <!-- 반복 -->
                   
                   <div class="feature-post small-blog" v-for="vo in gnd_list" :key="vo.hno">
-                     <div class="col-md-4">
+                     <div class="col-md-2">
                         <div class="feature-img">
                            <img :src="vo.image" class="img-responsive" style="width:150px;height:90px;" />
                         </div>
                      </div>
-                     <div class="col-md-8">
+                     <div class="col-md-10"  >
                         <div class="feature-cont">
                            <div class="post-info">
                               <span>
                                  <h4>{{vo.content}}&nbsp;<a href="#" style="color:orange">{{vo.team}}</a></h4>
                               </span>
                            </div>
-                           </div>
-                            
-                           <div class="post-heading">
-                              <div class="full">
-                                 <a class="btn" href="#">더보기</a>
-                              </div>
                            </div>
                      </div>
                   </div>
