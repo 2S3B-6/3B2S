@@ -66,6 +66,19 @@
 .button:hover {
     background-color: #444;
 }
+.carousel-inner {
+    min-height: 200px; 
+}
+.item blockquote small {
+    font-size: 1.2em; 
+    font-weight: bold;
+    margin-bottom: 10px; 
+    display: block;
+}
+.item blockquote p {
+    font-size: 1.1em; 
+    line-height: 1.6;
+}
 </style>
 </head>
 <body>
@@ -85,7 +98,7 @@
      </div>
   </section>
   <section id="contant" class="contant main-heading team">
-  <div class="dark-section" style="background:url(../images/cs2.jpg);margin-top: -50px">
+  <div class="dark-section" style="background:url(../images/cs4.jpg); margin-top: -50px; background-size: cover; background-position: center; background-repeat: no-repeat;">
             <div class="container">
                <div class="row">
                   <div class="col-md-12 col-sm-12">
@@ -101,8 +114,8 @@
                                  <blockquote>
                                     <div class="row">
                                        <div class="col-sm-10 col-sm-offset-1">
-                                          <small>Someone famous</small>
-                                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. !</p>
+                                          <small>Q: 경기 일정과 팀별 경기 정보는 어디서 확인할 수 있나요?</small>
+                                          <p>A:메인 페이지 상단의 ‘경기 일정’ 메뉴에서 팀별, 날짜별로 필터링하여 경기 일정을 확인할 수 있습니다. 이 페이지에서 예정된 경기와 지난 경기 결과도 볼 수 있으며, 경기 시작 시간과 경기장 위치도 함께 제공됩니다. 추가로, 알림 기능을 설정하면 응원하는 팀의 경기 시작 알림을 받을 수 있습니다.</p>
                                        </div>
                                     </div>
                                  </blockquote>
@@ -112,8 +125,8 @@
                                  <blockquote>
                                     <div class="row">
                                        <div class="col-sm-10 col-sm-offset-1">
-                                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-                                          <small>Someone famous</small>
+                                          <small>Q: 회원 가입 시 오류가 발생하거나 로그인이 되지 않아요.</small>
+                                          <p>A:먼저 아이디와 비밀번호가 정확히 입력되었는지 확인해 주세요. 비밀번호를 잊으셨다면 비밀번호 찾기 기능을 이용하여 재설정하실 수 있습니다. 문제가 지속될 경우, 브라우저의 캐시와 쿠키를 삭제한 뒤 다시 시도해 보세요. 그래도 해결되지 않으면 고객센터에 문의해 주시면 신속히 도움을 드리겠습니다.</p>
                                        </div>
                                     </div>
                                  </blockquote>
@@ -123,22 +136,22 @@
                                  <blockquote>
                                     <div class="row">
                                        <div class="col-sm-10 col-sm-offset-1">
-                                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. .</p>
-                                          <small>Someone famous</small>
+                                          <small>Q: 실시간 경기 중계는 어떻게 이용하나요?</small>
+                                          <p>A:‘실시간 경기’ 메뉴에서 프리미엄 회원 가입 후 모든 경기의 실시간 중계와 기록, 분석 자료를 시청하실 수 있습니다. 라이브 시청 중 끊김이 발생하면 인터넷 연결 상태를 확인해 주세요. 최적의 시청을 위해 최신 브라우저 사용을 권장드립니다. 가입과 관련된 문의 사항은 고객센터에서 안내해 드립니다.</p>
                                        </div>
                                     </div>
                                  </blockquote>
                               </div>
                            </div>
-                           <!-- Bottom Carousel Indicators 
+                           <!-- Bottom Carousel Indicators -->
                            <ol class="carousel-indicators">
-                              <li data-target="#quote-carousel" data-slide-to="0" class="active"><img class="img-responsive " src="https://s3.amazonaws.com/uifaces/faces/twitter/mantia/128.jpg" alt="">
+                              <li data-target="#quote-carousel" data-slide-to="0" class="active"><img class="img-responsive " src="../images/ballicon.png" alt="">
                               </li>
-                              <li data-target="#quote-carousel" data-slide-to="1"><img class="img-responsive" src="https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg" alt="">
+                              <li data-target="#quote-carousel" data-slide-to="1"><img class="img-responsive" src="../images/ballicon.png" alt="">
                               </li>
-                              <li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive" src="https://s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg" alt="">
+                              <li data-target="#quote-carousel" data-slide-to="2"><img class="img-responsive" src="../images/ballicon.png" alt="">
                               </li>
-                           </ol>-->
+                           </ol>
                            <!-- Carousel Buttons Next/Prev -->
                            <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
                            <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
@@ -153,13 +166,12 @@
         <h1 style="margin-bottom: -10px;color: white;">-</h1>
         <div class="icon-section">
             <div class="icon-box">
-                <a href="../board/list.do"><div class="icon">🔔</div>
-                <p style="text-align: center;">공지사항</p>
-                </a>
+                <a href="../notice/list.do"><div class="icon">🔔</div>
+                <p style="text-align: center;">공지사항</p></a>
             </div>
             <div class="icon-box">
-                <div class="icon">📖</div>
-                <p style="text-align: center;">게시판</p>
+                <a href="../board/list.do"><div class="icon">📖</div>
+                <p style="text-align: center;">게시판</p></a>
             </div>
             <div class="icon-box">
                 <div class="icon">❓</div>
