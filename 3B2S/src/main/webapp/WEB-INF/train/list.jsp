@@ -113,20 +113,20 @@ button.small-btn:hover {
      </div>
      <div class="inner-information-text">
         <div class="container">
-           <h3>기차 예약</h3>
+           <h3>TRAIN</h3>
            <ul class="breadcrumb">
               <li>Home</li>
-              <li class="active"><a href="../train/reserve.do">기차 예약</a></li>
+              <li class="active"><a href="../train/reserve.do">Train</a></li>
            </ul>
         </div>
      </div>
   </section>
-<section id="trainApp" class="contant main-heading team" style="margin-top: 30px">
+<section id="trainApp" class="contant main-heading team" style="margin-top: 0px">
 
    <div class="container-list">
    
       <div class="left-column" style="margin-top: 50px;">
-      <h2 style="margin-top: 50px;">기차 예매</h2>
+      <h2 style="margin-top: 10px;">기차 예매</h2>
      
       
          <div class="tlist" style="margin-top: 120px;">
@@ -211,7 +211,7 @@ button.small-btn:hover {
                         <option>15:00</option>
                         <option>18:00</option>
                         <option>21:00</option>
-                        <option>24:00</option>
+                        <option>23:00</option>
                      </select>
                   </div>
                   <button class="custom-btn" @click="search">조회</button>
