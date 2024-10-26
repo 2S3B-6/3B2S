@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,6 +66,13 @@
 .titles{
 	font-family: '휴먼모음T';
 	font-size: 20px;	
+}
+.content-text {
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* 두 줄로 제한 */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
 }
 </style>
 </head>
@@ -274,76 +283,62 @@
                         </table>
                      </div>
                   </aside>
-                  <div class="content-widget top-story" style="background: url(images/top-story-bg.jpg);">
-                     <div class="top-stroy-header">
-                        <h2>Top Soccer Headlines Story <a href="#" class="fa fa-fa fa-angle-right"></a></h2>
-                        <span class="date">July 05, 2017</span>
-                        <h2>Other Headlines</h2>
-                     </div>
-                     <ul class="other-stroies">
-                        <li><a href="#">Wenger Vardy won't start</a></li>
-                        <li><a href="#">Evans: Vardy just</a></li>
-                        <li><a href="#">Pires and Murray </a></li>
-                        <li><a href="#">Okazaki backing</a></li>
-                        <li><a href="#">Wolfsburg's Rodriguez</a></li>
-                        <li><a href="#">Jamie Vardy compared</a></li>
-                        <li><a href="#">Arsenal target Mkhitaryan</a></li>
-                        <li><a href="#">Messi wins libel case.</a></li>
-                     </ul>
-                  </div>
+                  <div class="content-widget top-story">
+	                 <div class="top-stroy-header">
+	                    <h2>실시간 인기 뉴스 <a href="#" class="fa fa-fa fa-angle-right"></a></h2>
+	                    <span class="date">
+					        <%
+					            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+					            String today = sdf.format(new Date());
+					            out.print(today);
+					        %>
+					    </span>
+	                 </div>
+	                 
+	                 <ul class="other-stroies">
+	                   <c:forEach var="vo" items="${nsList2 }">
+	                     <li>
+	                       <a href="../news/detail.do?nno=+${vo.nno }">
+	                         <c:choose>
+	                           <c:when test="${fn:length(vo.title)>27 }">
+	                            ${fn:substring(vo.title,0,27)}...
+	                           </c:when>
+	                         </c:choose>
+	                       </a>
+	                     </li>
+	                   </c:forEach>
+	                 </ul>
+	              </div>
                </div>
                <div class="col-lg-8 col-sm-8 col-xs-12">
                   <div class="news-post-holder">
+                    <c:forEach var="nsvo" items="${nsList }" varStatus="ns">
+                     <c:if test="${ns.index<3}">
                      <div class="news-post-widget">
-                        <img class="img-responsive" src="../images/img-01_002.jpg" alt="">
+                        <a href="../news/detail.do?nno=+${nsvo.nno }"><img class="img-responsive" src="${nsvo.poster}" alt=""></a>
                         <div class="news-post-detail">
-                           <span class="date">20 march 2016</span>
-                           <h2><a href="blog-detail.html">At vero eos et accusamus et iusto odio dignissimos ducimus</a></h2>
-                           <p>Just hours after that his grandma had died, Angel Di Maria imagined how she might react if he didn't play</p>
+                           <span class="date">${nsvo.author }</span>
+                           <h2><a href="../news/detail.do?nno=+${nsvo.nno }">${nsvo.title }</a></h2>
+                           <p class="content-text">${nsvo.content}</p>
                         </div>
                      </div>
-                     <div class="news-post-widget">
-                        <img class="img-responsive" src="../images/img-02_003.jpg" alt="">
-                        <div class="news-post-detail">
-                           <span class="date">20 march 2016</span>
-                           <h2><a href="blog-detail.html">At vero eos et accusamus et iusto odio dignissimos ducimus</a></h2>
-                           <p>Just hours after that his grandma had died, Angel Di Maria imagined how she might react if he didn't play</p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="news-post-holder">
-                     <div class="news-post-widget">
-                        <img class="img-responsive" src="../images/img-03_003.jpg" alt="">
-                        <div class="news-post-detail">
-                           <span class="date">20 march 2016</span>
-                           <h2><a href="blog-detail.html">At vero eos et accusamus et iusto odio dignissimos ducimus</a></h2>
-                           <p>Just hours after that his grandma had died, Angel Di Maria imagined how she might react if he didn't play</p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
+                     </c:if>
+                    </c:forEach>
+                 </div>
+              </div>
+           </div>
+        </div>
       </section>
-      <section>
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="full">
-                     <div class="main-heading sytle-2">
-                        <h2>Video</h2>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium<br>doloremque laudantium, totam rem aperiam</p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
+         
       <section class="video_section_main theme-padding middle-bg vedio">
          <div class="container">
             <div class="row">
                <div class="col-md-12">
                   <div class="full">
+                  <div class="main-heading sytle-2">
+	                    <h2>하이라이트</h2>
+	                    <p>[KBO 하이라이트] 10.25 KIA vs 삼성 | KS 3차전 | 2024 KBO 포스트시즌 | 야구</p>
+                     </div>
                      <div class="match_vedio text-center">
                         <iframe id="ytplayer" type="text/html" width="640" height="360"
 						  src="https://www.youtube.com/embed?listType=playlist&list=PLuY-NTS_5IpzwH3FfskfFOrnui5O5NlkC"

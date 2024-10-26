@@ -31,4 +31,13 @@ public class NewsDAO {
 	  {
 		  return mapper.newsHitTop8();
 	  }
+	  public List<NewsVO> newsHitTop10()
+	  {
+		  return mapper.newsHitTop10();
+	  }
+	  
+	  public List<NewsVO> newsListMain()
+	  {
+		  return mapper.newsListMain();
+	  }
 }

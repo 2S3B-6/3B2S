@@ -33,4 +33,15 @@ public class NewsServiceImpl implements NewsService{
 		// TODO Auto-generated method stub
 		return nDao.newsHitTop8();
 	}
+	@Override
+	public List<NewsVO> newsHitTop10() {
+		// TODO Auto-generated method stub
+		return nDao.newsHitTop10();
+	}
+
+	@Override
+	public List<NewsVO> newsListMain() {
+		// TODO Auto-generated method stub
+		return nDao.newsListMain();
+	}
 }

@@ -24,6 +24,8 @@ public class MainController {
 	private NoticeService nService;
 	@Autowired
 	private PlayerService pService;
+	@Autowired
+	private NewsService nsService;
 	
 	// 필요한 클래스 => 스프링에서 가지고 온다 (객체 주소)
 	// 사용자의 요청에 따라 처리
@@ -34,11 +36,15 @@ public class MainController {
 		List<TeamVO> rList=tService.teamRankingMainData();
 		List<NoticeVO> nList=nService.noticeListMainData();
 		List<BatterVO> pList=pService.batterListMainData();
+		List<NewsVO> nsList=nsService.newsListMain();
+		List<NewsVO> nsList2=nsService.newsHitTop10();
 		
 		model.addAttribute("sList", sList);
 		model.addAttribute("rList", rList);
 		model.addAttribute("nList", nList);
 		model.addAttribute("pList", pList);
+		model.addAttribute("nsList", nsList);
+		model.addAttribute("nsList2", nsList2);
 		
 		return "main";   
 	}

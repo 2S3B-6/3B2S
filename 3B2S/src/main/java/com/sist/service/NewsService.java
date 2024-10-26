@@ -6,4 +6,6 @@ public interface NewsService {
 	 public int newsTotalPage(Map map);
 	 public NewsVO newsDetailData(int nno);
 	 public List<NewsVO> newsHitTop8();
+	 public List<NewsVO> newsHitTop10();
+	 public List<NewsVO> newsListMain();
 }
