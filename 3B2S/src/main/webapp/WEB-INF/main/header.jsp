@@ -199,7 +199,7 @@ li.col-sm-4 {
                                                    </ul>
                                                 </li>
                                              </ul>
-                                          </li>
+                                          </li> 
                                           <li class="dropdown mega-dropdown">
                                              <a href="match" class="dropdown-toggle" data-toggle="dropdown">구장/팀/선수<span class="caret"></span></a>				
                                              <ul class="dropdown-menu mega-dropdown-menu"  style="width:110px;height:270px; width:60px;">
