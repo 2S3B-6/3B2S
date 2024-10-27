@@ -14,14 +14,6 @@ public class TrainDAO {
     @Autowired
     private TrainMapper mapper;
 
-//    public List<TrainVO> trainListData(int start,int end)
-//    {
-//    	return mapper.trainListData(start, end);
-//    }
-//    public int trainTotalPage()
-//    {
-//    	return mapper.trainTotalPage();
-//    }
     public List<TrainVO> trainFindData(Map map)
     {
     	return mapper.trainFindData(map);

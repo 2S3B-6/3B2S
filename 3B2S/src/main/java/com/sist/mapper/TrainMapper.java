@@ -15,16 +15,7 @@ import org.apache.ibatis.annotations.Select;
  */
 import com.sist.vo.*;
 public interface TrainMapper {
-//	@Select("SELECT tno,ttype,sstart,send,tstart,tend,price,num "
-//			+"FROM (SELECT tno,ttype,sstart,send,tstart,tend,price,rownum as num "
-//			+"FROM (SELECT tno,ttype,sstart,send,tstart,tend,price "
-//			+"FROM train ORDER BY tno ASC)) "
-//			+"WHERE num BETWEEN #{start} AND #{end}")
-//	public List<TrainVO> trainListData(@Param("start") int start,@Param("end") int end);
-//	
-//	@Select("SELECT CEIL(COUNT(*)/10.0) FROM train")
-//	public int trainTotalPage();
-//	
+	
 	@Select("SELECT tno,ttype,sstart,send,tstart,tend,price,num "
 		       +"FROM (SELECT tno,ttype,sstart,send,tstart,tend,price,rownum as num "
 		       +"FROM (SELECT tno,ttype,sstart,send,tstart,tend,price "

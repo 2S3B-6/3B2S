@@ -473,7 +473,7 @@ label:hover {
         	        window.opener.location.href = "../mypage/mypage_train.do";  // 부모 창의 주소 변경
         	        window.close();  // 현재 창 닫기
         	    } else {
-        	        alert("부모 창이 없습니다.");  // 부모 창이 없는 경우 처리
+        	        alert("창이 없습니다.");  // 부모 창이 없는 경우 처리
         	    }
         	},
           reserve() {
