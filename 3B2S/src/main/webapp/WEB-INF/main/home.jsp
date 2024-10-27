@@ -74,6 +74,9 @@
         overflow: hidden;
         text-overflow: ellipsis;
 }
+.matchs-info:hover{
+	cursor: pointer;
+}
 </style>
 </head>
 <body>
@@ -81,11 +84,6 @@
          <div class="full-slider">
             <div id="carousel-example-generic" class="carousel slide">
                <!-- Indicators -->
-               <ol class="carousel-indicators">
-                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-               </ol>
                <!-- Wrapper for slides -->
  <div class="carousel-inner" role="listbox">
     <!-- First slide -->
@@ -138,14 +136,6 @@
                </div>
                <!-- /.carousel-inner -->
                <!-- Controls -->
-               <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-               <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-               <span class="sr-only">Previous</span>
-               </a>
-               <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-               <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-               <span class="sr-only">Next</span>
-               </a>
             </div>
             <!-- /.carousel -->
             <div class="news">
@@ -154,7 +144,7 @@
                      <p class="headline"><i class="fa fa-star" aria-hidden="true"></i> Top Headlines :</p>
                      <!--made by vipul mirajkar thevipulm.appspot.com-->
                      <h1>
-                     <a href="" class="typewrite" data-period="2000" data-type='[ "Contrary to popular belief, Lorem Ipsum is not simply random text.", "Lorem Ipsum is simply dummy text of the printing and typesetting industry.", "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."]'>
+                     <a href="" class="typewrite" data-period="2000" data-type='[ "100%에 빠르게 접근중 오타니 50-50 확률...47홈런-48도루 개인최다, 亞 타이, LAD 역대 최다 -3"]'>
                      <span class="wrap"></span>
                      </a>
                      </h1>	   
@@ -165,7 +155,7 @@
             </div>
          </div>
       </section>
-      <div class="matchs-info">
+      <div class="matchs-info" onclick="javascript:location.href='../ticket/ticketchoice.do'">
          <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="row">
                <div class="full">
@@ -195,12 +185,12 @@
                   <div class="right-match-time">
                      <h2>한국시리즈 1 차전</h2>
                      <ul id="countdown-1" class="countdown">
-                        <li><span class="days">10 </span>Day </li>
-                        <li><span class="hours">5 </span>Hours </li>
-                        <li><span class="minutes">25 </span>Minutes </li>
-                        <li><span class="seconds">10 </span>Seconds </li>
+                        <li><span class="days">2024 </span>/ </li>
+                        <li><span class="hours">10 </span>/ </li>
+                        <li><span class="minutes">21 </span>/ </li>
+                        <li><span class="seconds">18:00pm </span> </li>
                      </ul>
-                     <span>2024/10/21/18:00pm</span>
+                     <span>예매하기</span>
                   </div>
                </div>
             </div>
