@@ -222,15 +222,7 @@ p {
                     </div>
                  </div>
               </div>
-              <div class="col-md-3">
-                 <!-- <div class="news-sidebar">
-                  <div class="search-bar-news">
-                      <form @submit.prevent="newsFind"> 
-						  <input type="text" ref="nd" v-model="nd" placeholder="search">
-						  <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-					  </form>
-                   </div>
-                 </div> -->
+              <div class="col-md-3"> 
                   <div class="content-widget top-story">
 	                 <div class="top-stroy-header">
 	                    <h2>실시간 인기 뉴스 <a href="#" class="fa fa-fa fa-angle-right"></a></h2>
@@ -248,7 +240,7 @@ p {
 	                     <li>
 	                       <a href="../news/detail.do?nno=+${vo.nno }">
 	                         <c:choose>
-	                           <c:when test="${fn:length(vo.title)>16 }">
+	                           <c:when test="${fn:length(vo.title)>14 }">
 	                            ${fn:substring(vo.title,0,14)}...
 	                           </c:when>
 	                         </c:choose>
@@ -257,39 +249,10 @@ p {
 	                   </c:forEach>
 	                 </ul>
 	             </div>
-                 <!-- <div class="blog-sidebar">
-                     <h4 class="heading">Top Categories</h4>
-                     <div class="category-menu">
-                        <ul>
-                           <li><a href="#">Cricket</a></li>
-                           <li><a href="#">Football</a></li>
-                           <li><a href="#">Hockey</a></li>
-                           <li><a href="#">Tennis</a></li>
-                           <li><a href="#">Basketball</a></li>
-                           <li><a href="#">Golf</a></li>
-                           <li><a href="#">Cycling</a></li>
-                           <li><a href="#">Motorsports</a></li>
-                        </ul>
-                     </div>
-                  </div> 
-                 <div class="blog-sidebar">
-                     <h4 class="heading">Popular News</h4>
-                     <div class="category-menu">
-                        <ul>
-                           <li>
-                              <span><img src="../images/profile-img2.png" alt="#"></span>
-                              <span>
-                                 <p>Two touch penalties, imaginary cards</p>
-                                 <p class="date">22 Feb, 2016</p>
-                              </span>
-                           </li>
-                        </ul>
-                     </div>
-                  </div>-->
                   <aside id="sidebar" class="left-bar">
                      <div class="banner-sidebar">
                         <img class="img-responsive" src="../images/match-banner2.png" alt="#">
-                        <h3> | 삼성 라이온즈 vs 기아 타이거즈 | </h3>
+                        <h3> 삼성 라이온즈 vs 기아 타이거즈 </h3>
                      </div>
                   </aside>
                   <aside id="sidebar" class="left-bar">

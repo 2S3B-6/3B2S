@@ -290,8 +290,8 @@
 	                     <li>
 	                       <a href="../news/detail.do?nno=+${vo.nno }">
 	                         <c:choose>
-	                           <c:when test="${fn:length(vo.title)>27 }">
-	                            ${fn:substring(vo.title,0,27)}...
+	                           <c:when test="${fn:length(vo.title)>23 }">
+	                            ${fn:substring(vo.title,0,23)}...
 	                           </c:when>
 	                         </c:choose>
 	                       </a>

@@ -180,7 +180,7 @@
               <aside id="sidebar" class="left-bar">
                      <div class="banner-sidebar">
                         <img class="img-responsive" src="../images/match-banner2.png" alt="#">
-                        <h3> | 삼성 라이온즈 vs 기아 타이거즈 | </h3>
+                        <h3> 삼성 라이온즈 vs 기아 타이거즈 </h3>
                      </div>
                   </aside>
                   <aside id="sidebar" class="left-bar">
