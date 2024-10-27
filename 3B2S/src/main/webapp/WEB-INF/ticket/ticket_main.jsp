@@ -516,9 +516,7 @@ input[type=checkbox]:disabled:before {
 	    					// 이동 => mypage
 	    					if(response.data==='yes')
 	    					{
-	    						alert("yes!!")
 	    						this.requestPay()
-	    						
 	    					}
 	    					else
 	    					{
