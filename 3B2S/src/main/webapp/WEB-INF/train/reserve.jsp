@@ -428,7 +428,11 @@ label:hover {
               price: 0,           
               total_price: 0,    
               selectedSeats: [],  
-              passengerCount: 0   
+              passengerCount: 0   ,
+              tno:0,
+              totalprice:'',
+              tseat:'',
+              tinwon:''
           }
       },
       mounted() {
@@ -447,12 +451,14 @@ label:hover {
               this.total_price = this.price * this.passengerCount
           },
           requestPay() {
+        	  let totalpriceText = $('#price').text().slice(0, -1);
+        	  let realprice = parseInt(totalpriceText.replace(/,/g, ''));
               IMP.request_pay({
                   pg: "html5_inicis",
                   pay_method: "card",
                   merchant_uid: "ORD20180131-0000011",
                   name: "기차",
-                  amount: this.total_price,
+                  amount: realprice,
                   buyer_email: '',
                   buyer_name: '',
                   buyer_tel: '',
@@ -464,18 +470,23 @@ label:hover {
               });
           },
           reserve() {
+        	  let totalpriceText = $('#price').text().slice(0, -1);
+        	  let realprice = parseInt(totalpriceText.replace(/,/g, ''));
         	  axios.post('../train/reserve_ok_vue.do',null,{
-                  params:{
-                	  ttype:this.ttype,           
-                      sstart:this.sstart,     
-                      send:this.send,          
-                      departureDate:this.departureDate,   
-                      tstart:this.tstart,  
-                      tend:this.tend,    
-                      price:this.price,           
-                      total_price:this.total_price,    
-                      selectedSeats:this.selectedSeats,  
-                      passengerCount:this.passengerCount
+        		  params:{
+                     
+                	  
+                	  
+                      tno:${tno},
+                	  ttype:'${ttype}',           
+                      sstart:'${sstart}',     
+                      send:'${send}',          
+                      tday:'${tday}',   
+                      tstart:'${tstart}',  
+                      tend:'${tend}',    
+                      totalprice:realprice,    
+                      tseat:$('#passengerSeat').text(),  
+                      tinwon:$('#passengerCount').text()
                   }
                   }).then(response=>{
                      if(response.data==='yes')

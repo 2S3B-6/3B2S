@@ -86,10 +86,10 @@ public class TrainRestController {
 	}
     
     @PostMapping(value="train/reserve_ok_vue.do",produces = "text/plain;charset=UTF-8")
-    public String reserve_ok()
+    public String reserve_ok(TrainReserveVO vo)
     {
     	String result="";
-
+    	System.out.println("vo:"+vo);
     	result="yes";
     	
     	return result;
