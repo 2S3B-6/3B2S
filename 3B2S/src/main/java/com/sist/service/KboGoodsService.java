@@ -34,4 +34,8 @@ public interface KboGoodsService {
 	public void goodsBuy(int cno);
 	   
 	public List<KboGoodsCartVO> goodsBuyListData(String id);
+	
+	public List<KboGoodsCartVO> goodsAdminBuyListData(Map map);
+	
+	 public MemberVO memberAdminInfodData();
 }

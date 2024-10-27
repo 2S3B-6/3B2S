@@ -11,29 +11,35 @@
 		cursor: pointer;
 }
 	.logoimgs{
-		width: 45px;
-		height: 45px;
-		margin-right:45px;
-		margin-left: 45px;
+		width: 65px;
+		height: 65px;
+		margin-right:65px;
+		margin-left: 65px;
 		margin: 15px;
 	}
 </style>
 </head>
 <body>
+<!-- 力格官 -->
+<section>
+  <div class="news-page-banner">
+      <div class="container">
+      </div>
+   </div>
+   <div class="inner-information-text">
+      <div class="container">
+         <h3>Goods</h3>
+         <ul class="breadcrumb">
+            <li><a href="../main/main.do">Home</a></li>
+            <li class="active"><a href="../kbogoods/list.do">Goods</a></li>
+         </ul>
+      </div>
+   </div>
+</section>
 
-<div id="listApp">
-<!-- 力格 -->
-<div class="breadcumb-area">
-    <div class="container h-100">
-        <div class="row h-100 align-items-center">
-            <div class="col-16">
-                <div class="bradcumb-title text-center">
-                    <h2 style="font-size: 50px;">甭 令</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<div style="height: 80px;"></div>
+<div id="listApp" >
+
  <div class="breadcumb-nav" style="margin-bottom: 50px;">
     <div class="container">
         <div class="row">

@@ -29,9 +29,9 @@ public class ReserveServiceImpl implements ReserveService{
 	}
 
 	@Override
-	public List<ReserveVO> reserveAdminListData(String id) {
+	public List<ReserveVO> reserveAdminListData() {
 		// TODO Auto-generated method stub
-		return rDao.reserveAdminListData(id);
+		return rDao.reserveAdminListData();
 	}
 
 	@Override

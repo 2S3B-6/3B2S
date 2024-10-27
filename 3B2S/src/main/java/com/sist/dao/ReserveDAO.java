@@ -28,8 +28,8 @@ public class ReserveDAO {
 		return mapper.reserveMyPageListData(id);
 	}
 
-	public List<ReserveVO> reserveAdminListData(String id){
-		return mapper.reserveAdminListData(id);
+	public List<ReserveVO> reserveAdminListData(){
+		return mapper.reserveAdminListData();
 	}
 
 	public void reserveOk(int rno) {

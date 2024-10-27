@@ -73,5 +73,15 @@ public class KboGoodsServiceImpl implements KboGoodsService{
 		// TODO Auto-generated method stub
 		return kgDao.goodsBuyListData(id);
 	}
+	@Override
+	public List<KboGoodsCartVO> goodsAdminBuyListData(Map map) {
+		// TODO Auto-generated method stub
+		return kgDao.goodsAdminBuyListData(map);
+	}
+	@Override
+	public MemberVO memberAdminInfodData() {
+		// TODO Auto-generated method stub
+		return kgDao.memberAdminInfodData();
+	}
 		
 }

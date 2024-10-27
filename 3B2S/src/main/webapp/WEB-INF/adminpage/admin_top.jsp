@@ -133,41 +133,22 @@ body {
 
 </style>
 </head>
-
 <body>
-  <!-- ****** Header Start ****** -->
-    <tiles:insertAttribute name="header"/>
-    <!-- ****** Header End ****** -->
-
-    <!-- ****** TOP Start ****** -->
-    
-    <!-- ****** TOP End ****** -->
-    
-<!-- ****** Home Start ****** -->
-<section class="archive-area section_padding_80">
-	<div class="container">
-		<div class="padding" style="height:50px;"></div>
-			<div class="row layout">
-			<div class="col-sm-2">
-				<tiles:insertAttribute name="admin_menu"/>
-			</div>
-			<div class="col-sm-10">
-				<tiles:insertAttribute name="admin_home"/>
-
-			</div>
-		</div>
-	</div>
+<!-- 제목바 -->
+<section>
+  <div class="news-page-banner">
+      <div class="container">
+      </div>
+   </div>
+   <div class="inner-information-text">
+      <div class="container">
+         <h3>관리자페이지</h3>
+         <ul class="breadcrumb" style="border-radius: 4px; padding: 8px 15px; background-color: #00417a; " >
+            <li><a href="../adminpage/adminpage.do">Home</a></li>
+            <li class="active">AdminPage</li>
+         </ul>
+      </div>
+   </div>
 </section>
-   <!-- ****** Home End ****** -->
-
-    <!-- ****** Footer Start ****** -->
-    <tiles:insertAttribute name="footer"/>
-    <!-- ****** Footer End ****** -->
-
-      <a href="#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
-      <!-- ALL JS FILES -->
-      <script src="../js/all.js"></script>
-      <!-- ALL PLUGINS -->
-      <script src="../js/custom.js"></script>
-   </body>
+</body>
 </html>

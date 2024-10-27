@@ -57,7 +57,7 @@ public class KboGoodsDAO {
 	public List<KboGoodsCartVO> goodsCartListData(String id){
 		return mapper.goodsCartListData(id);
 	}
-	   
+	
 	// 장바구니 삭제 
 	public void goodsCartCancel(int cno) {
 		mapper.goodsCartCancel(cno);
@@ -71,4 +71,12 @@ public class KboGoodsDAO {
 	public List<KboGoodsCartVO> goodsBuyListData(String id){
 		return mapper.goodsBuyListData(id);
 	}
+	
+	public List<KboGoodsCartVO> goodsAdminBuyListData(Map map){
+		return mapper.goodsAdminBuyListData(map);
+	}
+	
+	 public MemberVO memberAdminInfodData() {
+		 return mapper.memberAdminInfodData();
+	 }
 }

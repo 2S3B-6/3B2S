@@ -65,14 +65,21 @@ public interface KboGoodsMapper {
 		@Result(property = "gvo.goods_poster",column = "goods_poster"),
 		@Result(property = "gvo.goods_price",column = "goods_price")
 	})
-	@Select("SELECT cno,gno,account,isBuy,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,"
+	@Select("SELECT cno,sc.gno,account,isBuy,TO_CHAR(regdate,'YYYY-MM-DD') as dbday, "
 			  +"name,poster,price "
 			  +"FROM kbo_goods_cart sc, kbo_goods ga "
-			  +"WHERE sc.gno=ga.no "
-			  +"AND id=#{id} AND isBuy=0 "
+			  +"WHERE (sc.gno=ga.gno "
+			  +"AND id=#{id} AND isBuy=0) "
 			  +"ORDER BY cno DESC")
 	public List<KboGoodsCartVO> goodsCartListData(String id);
-	   
+	
+	@Results({
+		@Result(property = "gvo.goods_name",column = "goods_name"),
+		@Result(property = "gvo.goods_poster",column = "goods_poster"),
+		@Result(property = "gvo.goods_price",column = "goods_price")
+	})
+
+		   
 	// 장바구니 삭제 
 	@Delete("DELETE FROM kbo_goods_cart "
 			  +"WHERE cno=#{cno}")
@@ -96,4 +103,21 @@ public interface KboGoodsMapper {
 			  +"AND id=#{id} AND isBuy=1 "
 			  +"ORDER BY cno DESC")
 	public List<KboGoodsCartVO> goodsBuyListData(String id);
+	
+	
+	//관리자 관련
+	@Select("SELECT cno,sc.gno,account,isBuy,TO_CHAR(regdate,'YYYY-MM-DD') as dbday, "
+			  +"name,poster,price "
+			  +"FROM kbo_goods_cart sc, kbo_goods ga "
+			  +"WHERE (sc.gno=ga.gno "
+			  +"AND isBuy=1 "
+			  +"AND cno=#{fd}) "
+			  +"ORDER BY dbday DESC")
+	public List<KboGoodsCartVO> goodsAdminBuyListData(Map map);
+	
+	@Select("SELECT userId,userName,sex,post,addr1,addr2,phone,email "
+			  +"FROM member_2s3b ")
+	public MemberVO memberAdminInfodData();
+	
+	
 }

@@ -21,8 +21,22 @@
 </style>
 </head>
 <body>
-<!-- 제목 -->
-<div style="height: 200px;"> </div>
+<!-- 제목바 -->
+<section>
+  <div class="news-page-banner">
+      <div class="container">
+      </div>
+   </div>
+   <div class="inner-information-text">
+      <div class="container">
+         <h3>하이라이트 영상</h3>
+         <ul class="breadcrumb">
+            <li><a href="../main/main.do">Home</a></li>
+            <li class="active"><a href="../Highlight/list.do">Highlight</a></li>
+         </ul>
+      </div>
+   </div>
+</section>
 
 <div class="breadcumb-area">
     <div class="container h-100">
@@ -96,21 +110,16 @@
                 <form action="../highlight/list.do">
                 <input style="display: none;" type="text" name="pageToken" id="prevPageToken" value="${htvo.prevPageToken }">
                     <button type="submit" class="page-link"><i class="fa fa-angle-double-left" aria-hidden="true"></i>이전</button>
+                    <input style="display: none;" type="text" name="pageToken" id="nextPageToken" value="${htvo.nextPageToken }">
+                    <button type="submit" class="page-link" >다음<i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
                 </form>
                 </li>
-
                 
 <!--                 
 				<li :class="i===curpage?'page-item active':'page-item'" v-for="i in range(startPage,endPage)">
                     <a class="page-link" @click="pageChange(i)">{{i}}</a>
                 </li> 
 -->
-                <li class="page-item" v-if="prePageToken!=null">
-                <form action="../highlight/list.do">
-                <input style="display: none;" type="text" name="pageToken" id="nextPageToken" value="${htvo.nextPageToken }">
-                    <button type="submit" class="page-link" >다음<i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
-                </form>
-                </li>
                 
             </ul>
         </nav>
@@ -118,13 +127,6 @@
     </div>
 </div>
 
-<div v-for="vo in highlight_list">
-	<c:forEach var="htvo" items="${htList }" varStatus="s">
-		<div>
-			<a>${htvo.nextPageToken}</a>
-		</div>
-	</c:forEach>
-</div>
 
 <script>
 let listApp=Vue.createApp({

@@ -186,6 +186,7 @@ li.col-sm-4 {
                            
                                     <div class="collapse navbar-collapse js-navbar-collapse">
                                        <ul class="nav navbar-nav">
+
                                           <li class="dropdown mega-dropdown">
                                              <a href="match" class="dropdown-toggle" data-toggle="dropdown">일정/기록<span class="caret"></span></a>				
                                              <ul class="dropdown-menu mega-dropdown-menu"  style="width:170px;height:180px;">
@@ -221,7 +222,7 @@ li.col-sm-4 {
                                                
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
-                                                      <li><a href="#">경기별 하이라이트</a></li>
+                                                      <li><a href="../highlight/list.do">경기별 하이라이트</a></li>
                                                       <li><a href="../news/list.do">뉴스</a></li>
                                                    </ul>
                                                 </li>
@@ -255,17 +256,24 @@ li.col-sm-4 {
                                              </ul>
                                           </li>
                                           
-                                               <c:if test="${sessionScope.userId!=null }">
-					                            <li class="myadpage">
-					                            	
-					                            	
-						                            	<sec:authorize access="hasRole('ROLE_ADMIN')">
-						                            		<li class="active"><a href="../adminpage/adminpage_main.do" style="color:white;">관리자페이지</a></li>
-						                            	</sec:authorize>
-						                            	<sec:authorize access="hasRole('ROLE_USER')">
-						                            		<li class="active"><a href="../mypage/mypage_main.do" style="color:white;">마이페이지</a></li>
-						                            	</sec:authorize>
-					                            </li>
+                                        <c:if test="${sessionScope.userId!=null }">
+			                            	<li class="dropdown mega-dropdown">
+				                            	<sec:authorize access="hasRole('ROLE_ADMIN')">
+				                            	<a href="match" class="dropdown-toggle" data-toggle="dropdown">마이페이지<span class="caret"></span></a>
+				                            		<ul class="dropdown-menu mega-dropdown-menu"  style="width:200px;height:105px;">
+					                            		<li class="col-sm-4">
+	                            							<ul class="menu-inner">
+                            									<li><a href="../mypage/mypage_main.do"  style="color:white;">마이페이지</a></li>
+				                            					<li><a href="../adminpage/adminpage_main.do"  style="color:white;">관리자페이지</a></li>
+				                            				</ul>
+				                            			</li>
+				                            		</ul>
+				                            	</sec:authorize>
+				                            	<li class="myadpage">
+					                            	<sec:authorize access="hasRole('ROLE_USER')">
+					                            		<li class="active"><a href="../mypage/mypage_main.do"  style="color:white;">마이페이지</a></li>
+					                            	</sec:authorize>
+				                            	</li>
                             				</c:if>
                                        </ul>
                                        
@@ -309,7 +317,7 @@ li.col-sm-4 {
 		                            	<sec:authorize access="hasRole('ROLE_USER')">일반 사용자</sec:authorize>
 	                            	)
 	                            	님께서 로그인되었습니다&nbsp;&nbsp;
-	                                <a href="../member/logout.do" style="color:gray;">로그아웃</a>
+	                                <a href="../member/logout.do"  style="color:gray;">로그아웃</a>
 	                            </div>
                             </c:if>
                             <!-- start translation -->

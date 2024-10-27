@@ -28,11 +28,19 @@ public interface ReserveMapper {
 			+ "  FROM reserve_hotel rh,hotel ht "
 			+ "  WHERE rh.hno=ht.hno AND id=#{id} ORDER BY hno DESC")
 	public List<ReserveVO> reserveMyPageListData(String id);
-	@Select("SELECT rno,rh.hno,poster,name,rday,rroom,rprice,"
-			+ "		TO_CHAR(regdate,'YYYY-MM-DD') as dbday , isReserve "
-			+ "  FROM reserve_hotel rh,hotel ht "
-			+ "  WHERE rh.hno=ht.hno ORDER BY hno DESC")
-	public List<ReserveVO> reserveAdminListData(String id);
+	
+	
+	@Results({
+		@Result(property="hvo.poster",column="poster"),
+		@Result(property="hvo.name",column="name")
+	})
+	@Select("SELECT rno,rh.hno,poster,name,rday,rroom,"
+			+ "TO_CHAR(rprice, '999,999,999,999') as RPRICE, "
+			+ "TO_CHAR(regdate,'YYYY-MM-DD') as dbday, "
+			+ "isReserve "
+			+ "FROM reserve_hotel rh, hotel ht "
+			+ "WHERE rh.hno=ht.hno ORDER BY rno DESC" )
+	public List<ReserveVO> reserveAdminListData();
 	
 	@Update("UPDATE reserve_hotel SET "
 			 +"isReserve=1 "

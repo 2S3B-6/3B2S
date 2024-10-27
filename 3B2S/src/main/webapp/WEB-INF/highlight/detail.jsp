@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Insert title here</title>
@@ -75,25 +75,22 @@ $(function(){
 </style>
 </head>
 <body>
-<div style="height: 800px;"></div>
-<div class="breadcumb-area">
-    <div class="container h-100">
-        <div class="row h-100 align-items-center">
-            <div class="col-16">
-                <div class="bradcumb-title text-center">
-                    <h2 style="font-size:40px;">±¬¡Ó ªÛºº∆‰¿Ã¡ˆ</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="breadcumb-nav titlemargin">
-     <div class="container">
-         <div class="row text-center">
-
-         </div>
-     </div>
-</div>
+<!-- Ï†úÎ™©Î∞î -->
+<section>
+  <div class="news-page-banner">
+      <div class="container">
+      </div>
+   </div>
+   <div class="inner-information-text">
+      <div class="container">
+         <h3>Goods</h3>
+         <ul class="breadcrumb">
+            <li><a href="../main/main.do">Home</a></li>
+            <li class="active"><a href="../news/list.do">Goods</a></li>
+         </ul>
+      </div>
+   </div>
+</section>
 
 <section class="single_blog_area section_padding_80" >
 	<div class="container ">
@@ -114,8 +111,8 @@ frameborder="0" allowfullscreen></iframe>
   
 	           </div>
 	           <div class="">
-	           		<!-- <button class="" onclick="javascript:history.back()">∏Ò∑œ</button> -->		<!-- historybackªÁøÎ«— ∏Ò∑œ∞°±‚ -->
-	           		<button class="" onclick="">∏Ò∑œ</button>
+	           		<!-- <button class="" onclick="javascript:history.back()">Î™©Î°ù</button> -->		<!-- historybackÏÇ¨Ïö©Ìïú Î™©Î°ùÍ∞ÄÍ∏∞ -->
+	           		<button class="" onclick="">Î™©Î°ù</button>
 	           </div>
         </div>
     </div>

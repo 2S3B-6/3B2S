@@ -19,6 +19,23 @@
 </head>
 <body>
 
+<!-- 제목바 -->
+<section>
+  <div class="news-page-banner">
+      <div class="container">
+      </div>
+   </div>
+   <div class="inner-information-text">
+      <div class="container">
+         <h3>Goods</h3>
+         <ul class="breadcrumb">
+            <li><a href="../main/main.do">Home</a></li>
+            <li class="active"><a href="../kbogoods/list.do">Goods</a></li>
+         </ul>
+      </div>
+   </div>
+</section>
+
  <div id="detailApp">
 <!-- 제목 -->
 <div class="breadcumb-area">
@@ -62,6 +79,7 @@
 	                      <td>{{detail_data.simple_delivery}}</td>
 	                    </tr>
 	                    <tr>
+	                      <td style="color:gray">수량</td>
 	                      <td colspan="2">
 	                        <select class="input-sm" style="width:350px" @change="accountChange()" ref="account" v-model="account" >
 	                         <option value="1" selected>1개</option>
@@ -125,7 +143,7 @@ IMP.init("imp68206770");
 			  detail_data:{},
 			  gno:${gno},	
 			  total_price:0,
-			  account:1
+			  account:0
 		  }
 	  },
 	  mounted(){
@@ -185,8 +203,13 @@ IMP.init("imp68206770");
 		},
 		// 2. 구매  ===> spring_cart : 1
 		kbogoodsBuy(){
-			// 출력정보 읽기 => 회원 정보 / 상품 정보 (이미 전송 받음) => 서버요청 
-			this.requestPay()
+			if(this.account===0){
+				alert("수량을 선택하여 주십시오")
+			}
+			else{
+				// 출력정보 읽기 => 회원 정보 / 상품 정보 (이미 전송 받음) => 서버요청 
+				this.requestPay()
+			}
 		},
 		// ===> mypage로 이동 
 		// 3. 구매 / 장바구니 : 취소 
