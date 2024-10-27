@@ -13,6 +13,10 @@
   padding: 20px;
 }
 
+.mypage-container {
+ margin-bottom : 20px;
+}
+
 .summary-box {
   background-color: #f5f5f5;
   border: 1px solid #ddd;
@@ -30,10 +34,10 @@
 </head>
 <body>
 <section>
-<h3>${userName }의 마이페이지</h3>
-<sapn>${userName }'s team</span>
+<h1>${userName }의 마이페이지</h1>
 </section>
 <section id="homeApp">
+<h2>구매 관련 메뉴</h2>
 <div class="mypage-container">
 <div class="mypage-summary">
   <a href="../mypage/mypage_buy.do">
@@ -52,12 +56,18 @@
    </div>
   </a>
   
+  </div>
+  </div>
   
+  
+<h2>예약 관련 메뉴</h2>
+  <div class="mypage-container">
+  <div class="mypage-summary">
   <a href="../mypage/mypage_reserve.do">
    <div class="summary-box">
     <h3>티켓 예약</h3>
     <p>{{TicketCount}} 건</p>
-   </div>
+   </div> 
   </a>
 
   <a href="../mypage/mypage_reserve.do">
@@ -73,7 +83,12 @@
     <p>{{HotelCount}} 건</p>
    </div>
   </a>
-  
+  </div>
+  </div>
+
+<h2>게시판 관련 메뉴</h2>
+  <div class="mypage-container">
+  <div class="mypage-summary">
   <a href="../mypage/mypage_board.do">
    <div class="summary-box">
     <h3>내가 쓴 글</h3>
@@ -87,7 +102,6 @@
     <p>{{ReplyCount}} 건</p>
    </div>
   </a>
-
 </div>
 </div>
 </section>

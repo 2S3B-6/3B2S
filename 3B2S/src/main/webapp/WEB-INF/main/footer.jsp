@@ -77,7 +77,7 @@
                      <div class="footer-widget">
                         <h3>Guide</h3>
                         <ul class="footer-menu">
-                           <li><a href="../guide/record.do">우승 기록</a></li>
+                           <!-- <li><a href="../guide/record.do">우승 기록</a></li> -->
                            <li><a href="../guide/rule.do">야구 용어 가이드</a></li>
                            <li><a href="../guide/reserve.do">예매 가이드</a></li>
                            <li><a href="../guide/manner.do">야구장 에티켓</a></li>

@@ -189,12 +189,13 @@ li.col-sm-4 {
 
                                           <li class="dropdown mega-dropdown">
                                              <a href="match" class="dropdown-toggle" data-toggle="dropdown">일정/순위<span class="caret"></span></a>				
-                                             <ul class="dropdown-menu mega-dropdown-menu"  style="width:170px;height:135px;">
+                                             <ul class="dropdown-menu mega-dropdown-menu"  style="width:170px;height:180px;">
                                                
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
                                                       <li><a href="../schedule/schedule.do">경기일정&결과</a></li>
                                                       <li><a href="../team/ranking.do">순위</a></li>
+                                                      <li><a href="../guide/record.do">우승 기록</a></li>
                                                       <li><a href="../seoul/weather.do">오늘의 날씨</a></li>
                                                    </ul>
                                                 </li>

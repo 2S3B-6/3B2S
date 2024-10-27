@@ -52,13 +52,13 @@
 .breadcrumb {
      padding: 8px 15px;
     list-style: none;
-    background-color: #003366;
+    background-color: transparent;
     border-radius: 4px;
 }
 
 .inner-page-banner {
  background-color: #fff;
- margin-top : 20px;
+
 }
 </style>
 <script src="https://unpkg.com/vue@3"></script>
@@ -67,13 +67,15 @@
 <body>
 <section id="top">
    <div class="inner-page-banner">
-      <div class="container">
-         <h3 class="text-center">자유게시판</h3>
-         <ul class="breadcrumb">
-            <li><a href="../main/main.do">Home</a></li>
-            <li>게시판</li>
-         </ul>
-      </div>
+<div class="inner-information-text">
+        <div class="container">
+            <h3>자유게시판</h3>
+            <ul class="breadcrumb">
+                <li><a href="../main/main.do">Home</a></li>
+                <li class="active">board</li>
+            </ul>
+        </div>
+    </div>
    </div>
 </section>
 

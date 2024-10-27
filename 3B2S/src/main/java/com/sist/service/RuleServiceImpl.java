@@ -37,6 +37,12 @@ public class RuleServiceImpl implements RuleService{
 		return rDao.ruleFind(map);
 	}
 
+	@Override
+	public String record(Map map) {
+		// TODO Auto-generated method stub
+		return rDao.record(map);
+	}
+
 	
 	
 }

@@ -472,7 +472,5 @@ display:block;
     	 }
      }).mount('#replyApp')
     </script>          
-
-
 </body>
 </html>

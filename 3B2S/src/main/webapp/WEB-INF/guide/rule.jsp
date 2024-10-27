@@ -109,7 +109,7 @@
       cursor: pointer;
       border-radius: 5px;
       margin-top: 186px;
-      background-color: gold;
+      background-color: #0d5631;
       width : 100px;
     }
 
@@ -122,18 +122,35 @@
       border-radius: 5px;
     }
     
-
+.inner-page-banner {
+	min-height: 0px;
+}
 </style>
 <script src="https://unpkg.com/vue@3"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
+<section style="float: none;">
+    <div class="inner-page-banner">
+        <div class="container">
+        </div>
+    </div>
+    <div class="inner-information-text">
+        <div class="container">
+            <h3>야구 용어 가이드</h3>
+            <ul class="breadcrumb">
+                <li><a href="../main/main.do">Home</a></li>
+                <li class="active">guide</li>
+            </ul>
+        </div>
+    </div>
+</section>
 <div class="container" id="ruleApp" v-cloak>
   <div class="header">
-    <h1 class="text-center" style="display: inline-block;">야구 용어 가이드</h1>
-    <div class="search-container" style="display: inline-block; float: right;">
-      <input type="text" v-model="searchQuery" placeholder="검색어를 입력하세요" class="search-input">
-      <button class="btn btn-primary search-button" @click="searchTerms">검색</button>
+    <h1 class="text-center" style="display: inline-block; margin-left: 476px; margin-top: 20px;">야구 용어 사전</h1>
+    <div class="search-container" style="float: right; margin-top: 20px;">
+      <input type="text" v-model="searchQuery" placeholder="검색어를 입력하세요" class="search-input" style="margin-top: 9px;">
+      <button class="btn btn-primary search-button" @click="searchTerms" style="margin-left:7px;float: inline-end;">검색</button>
     </div>
   </div>
   <div class="card-container">
@@ -156,7 +173,7 @@
   </div>
 
   <!-- 페이지네이션 -->
-  <div class="text-center" style="margin-bottom:20px;">
+  <div class="text-center" style="margin-bottom:40px;">
     <button class="btn-sm btn-danger" v-on:click="prev">이전</button>
     {{ curpage }} page / {{ totalpage }} pages
     <button class="btn-sm btn-danger" @click="next">다음</button>

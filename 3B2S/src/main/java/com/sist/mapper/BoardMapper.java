@@ -9,9 +9,9 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 public interface BoardMapper {
-	  @Select("SELECT no, id, subject, name, TO_CHAR(regdate,'yyyy-mm-dd') as dbday,hit,num "
-			 +"FROM (SELECT no, id, subject, name, regdate,hit,rownum as num "
-			 +"FROM (SELECT no, id, subject, name, regdate, hit "
+	  @Select("SELECT no, id, subject, name, replycount, TO_CHAR(regdate,'yyyy-mm-dd') as dbday,hit,num "
+			 +"FROM (SELECT no, id, subject, name, replycount, regdate,hit,rownum as num "
+			 +"FROM (SELECT no, id, subject, name, replycount, regdate, hit "
 			 +"FROM kboard ORDER BY no DESC)) "
 			 +"WHERE num BETWEEN #{start} AND #{end}")
 	  public List<BoardVO> boardListData(@Param("start") int start,@Param("end") int end);

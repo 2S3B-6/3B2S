@@ -95,8 +95,8 @@
                         <tr v-for="vo in board_list">
                             <td>{{ vo.no }}</td>
                             <td>
-                                <a :href="'../board/detail.do?no=' + vo.no">{{ vo.subject }}</a>
-                                <sup v-if="today === vo.dbday"><img src="../img/icon/new.gif"></sup>
+                                <a :href="'../board/detail.do?no=' + vo.no">{{ vo.subject }}({{vo.replycount}})</a>
+                                <!-- <sup v-if="today === vo.dbday"><img src="../img/icon/new.gif"></sup> -->
                             </td>
                             <td>{{ vo.name }}</td>
                             <td>{{ vo.dbday }}</td>

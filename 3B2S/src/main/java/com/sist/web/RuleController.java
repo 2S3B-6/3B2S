@@ -28,6 +28,32 @@ public class RuleController {
    {
 	   return "guide/rule";
    }
+
+   @GetMapping("guide/record.do")
+   public String guide_record()
+   {
+	   return "guide/record";
+   }
+   
+   @GetMapping("guide/goods.do")
+   public String guide_goods()
+   {
+	   return "guide/goods";
+   }
+   
+   @GetMapping("guide/manner.do")
+   public String guide_manner()
+   {
+	   return "guide/manner";
+   }
+   
+   @GetMapping("guide/reserve.do")
+   public String guide_reserve()
+   {
+	   return "guide/reserve";
+   }
+   
+   
    
  
 }
