@@ -465,7 +465,7 @@ label:hover {
                   buyer_addr: '',
                   buyer_postcode: ''
               }, function (rsp) {
-                  location.href = "../mypage/mypage_main.do" 
+                  location.href = "../mypage/mypage_train.do" 
                   
               });
           },
