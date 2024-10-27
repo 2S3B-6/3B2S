@@ -188,22 +188,21 @@ li.col-sm-4 {
                                        <ul class="nav navbar-nav">
 
                                           <li class="dropdown mega-dropdown">
-                                             <a href="match" class="dropdown-toggle" data-toggle="dropdown">일정/기록<span class="caret"></span></a>				
-                                             <ul class="dropdown-menu mega-dropdown-menu"  style="width:170px;height:180px;">
+                                             <a href="match" class="dropdown-toggle" data-toggle="dropdown">일정/순위<span class="caret"></span></a>				
+                                             <ul class="dropdown-menu mega-dropdown-menu"  style="width:170px;height:135px;">
                                                
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
                                                       <li><a href="../schedule/schedule.do">경기일정&결과</a></li>
                                                       <li><a href="../team/ranking.do">순위</a></li>
                                                       <li><a href="../seoul/weather.do">오늘의 날씨</a></li>
-                                                      <li><a href="../stadium/cctv.do">경기장 주변 교통</a></li>
                                                    </ul>
                                                 </li>
                                              </ul>
                                           </li>
                                           <li class="dropdown mega-dropdown">
-                                             <a href="match" class="dropdown-toggle" data-toggle="dropdown">구장/선수/팀<span class="caret"></span></a>				
-                                             <ul class="dropdown-menu mega-dropdown-menu"  style="width:110px;height:225px; width:60px;">
+                                             <a href="match" class="dropdown-toggle" data-toggle="dropdown">구장/팀/선수<span class="caret"></span></a>				
+                                             <ul class="dropdown-menu mega-dropdown-menu"  style="width:110px;height:270px; width:60px;">
                                                
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
@@ -212,6 +211,7 @@ li.col-sm-4 {
                                                       <li><a href="../player/batter_list.do">타자 정보</a></li>
                                                       <li><a href="../player/pitcher_list.do">투수 정보</a></li>
                                                       <li><a href="../player/vs.do">선수 비교</a></li>
+                                                      <li><a href="../stadium/cctv.do">경기장 주변 교통</a></li>
                                                    </ul>
                                                 </li>
                                              </ul>
