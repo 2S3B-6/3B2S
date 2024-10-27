@@ -72,7 +72,8 @@
 	      <li class="list-group-item"><a href="../mypage/mypage_jjim.do">찜관리</a></li>
 	      <li class="list-group-item"><a href="../mypage/mypage_buy.do">구매관리</a></li>
 	      <li class="list-group-item"><a href="../mypage/mypage_cart.do">장바구니관리</a></li>
-	      <li class="list-group-item"><a href="../mypage/mypage_reserve.do">예약관리</a></li>
+	      <li class="list-group-item"><a href="../mypage/mypage_reserve.do">호텔 예약</a></li>
+	      <li class="list-group-item"><a href="../mypage/mypage_train.do">기차 예약</a></li>
 	    </ul>
 	   </div>
 </body>

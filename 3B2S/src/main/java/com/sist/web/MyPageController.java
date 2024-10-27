@@ -40,6 +40,9 @@ public class MyPageController {
 	public String mypage_home()	{
 		return "mypage/mypage_home";
 	}
-	
+	@GetMapping("mypage/mypage_train.do")
+	public String mypage_train()	{
+		return "mypage/mypage_train";
+	}
 	
 }

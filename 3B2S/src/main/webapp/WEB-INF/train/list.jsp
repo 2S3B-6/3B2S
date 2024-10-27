@@ -226,6 +226,13 @@ button.small-btn:hover {
    </div>
 </section>
       <script>
+       let id ="${id}"
+    	    if(id !=null && id !== ""){} 
+    	    else
+    	    {
+    	  		  alert("로그인 후 이용 가능합니다.")
+    	  		  location.href="../member/login.do"
+    	  	}
       	let trainApp=Vue.createApp({
       		data(){
       			return {

@@ -11,6 +11,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.sist.vo.*;
 import com.sist.service.*;
@@ -20,8 +21,10 @@ public class TrainController {
 	private TrainService tService;
 	
 	@GetMapping("train/list.do")
-    public String train_list()
+    public String train_list(HttpSession session,Model model)
     {
+	   String id=(String)session.getAttribute("userId");
+	   model.addAttribute("id", id);
  	   return "train/list";
     }
 	@GetMapping("train/reserve.do")
