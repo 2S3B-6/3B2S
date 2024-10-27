@@ -490,7 +490,8 @@ label:hover {
                       tend:'${tend}',    
                       totalprice:realprice,    
                       tseat:$('#passengerSeat').text(),  
-                      tinwon:$('#passengerCount').text()
+                      tinwon:$('#passengerCount').text(),
+                      id:'${sessionScope.userId}'
                   }
                   }).then(response=>{
                      if(response.data==='yes')
