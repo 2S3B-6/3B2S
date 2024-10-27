@@ -350,7 +350,7 @@ li{
   					 this.endPage=response.data.endPage
   					$('#umsg'+cno).val("")
   					$('#up'+cno).hide()
-     				$('#u'+cno).text("Update")
+     				$('#u'+cno).text("수정")
   					
   			   }).catch(error=>{
   				     console.log(error.response)
@@ -400,7 +400,7 @@ li{
  					 this.endPage=response.data.endPage
  					 $('#msg'+cno).val('')
  					 $('#in'+cno).hide()
- 					 $('#i'+cno).text("Reply")
+ 					 $('#i'+cno).text("답글")
  			   }).catch(error=>{
  				     console.log(error.response)
  			   })
@@ -414,33 +414,33 @@ li{
      			{
      				this.upReply=true
      				$('#up'+cno).show()
-     			    $('#u'+cno).text("Cancel")	
+     			    $('#u'+cno).text("취소")	
      			}
      			else
      			{
      				this.upReply=false
      				$('#up'+cno).hide()
-     				$('#u'+cno).text("Update")	
+     				$('#u'+cno).text("수정")	
      			}
     		 },
     		 
     		 replyForm(cno){
     			$('.ins').hide()
     			$('.ups').hide()
-    			$('.update').text('Update')
-    			$('.insert').text('Reply')
+    			$('.update').text('수정')
+    			$('.insert').text('답글')
     			if(this.isReply===false)
     			{
     				this.isReply=true
     			    $('#in'+cno).show()
-    			    $('#i'+cno).text("Cancel")
+    			    $('#i'+cno).text("취소")
     			    
     			} 
     			else
     			{
     				this.isReply=false
     				$('#in'+cno).hide()
-    			    $('#i'+cno).text("Reply")
+    			    $('#i'+cno).text("답글")
     			}
     		 },
     		 replyInsert(){
