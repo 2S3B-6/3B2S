@@ -1,6 +1,7 @@
 package com.sist.mapper;
 import java.util.*;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 /*
@@ -43,4 +44,14 @@ public interface TrainMapper {
 		       +"AND send=#{send} "
 		       +"AND TO_DATE(CASE WHEN tstart = '24:00' THEN '00:00' ELSE tstart END, 'HH24:MI') >= TO_DATE(#{tstart}, 'HH24:MI')")
 		public int trainFindTotalPage(Map map);
+	
+	@Insert("insert into train_reserve (rno,tno,id,ttype,tday,sstart,send,tstart,tend,tinwon,tseat,totalprice) "
+			+"values(tr_rno_seq.nextval,#{tno},#{id},#{ttype},#{tday},#{sstart},#{send},#{tstart},#{tend},#{tinwon}"
+			+ "		, #{tseat},#{totalprice})")
+	public void train_reserve(TrainReserveVO vo);
+			
+	@Select("SELECT rno,tno,ttype,tday,sstart,send,tstart,tend,tinwon,tseat,totalprice "
+			+ " FROM train_reserve "
+			+ " WHERE id=#{id}")
+	public List<TrainReserveVO> reserveMyPageListData(String id);
 }

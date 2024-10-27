@@ -30,4 +30,10 @@ public class TrainDAO {
     {
     	return mapper.trainFindTotalPage(map);
     }
+    public void train_reserve(TrainReserveVO vo) {
+    	mapper.train_reserve(vo);
+    }
+	public List<TrainReserveVO> reserveMyPageListData(String id){
+		return mapper.reserveMyPageListData(id);
+	}
 }

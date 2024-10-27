@@ -32,6 +32,18 @@ public class TrainServiceImpl implements TrainService{
 		// TODO Auto-generated method stub
 		return tDao.trainFindTotalPage(map);
 	}
+
+	@Override
+	public void train_reserve(TrainReserveVO vo) {
+		// TODO Auto-generated method stub
+		tDao.train_reserve(vo);
+	}
+
+	@Override
+	public List<TrainReserveVO> reserveMyPageListData(String id) {
+		// TODO Auto-generated method stub
+		return tDao.reserveMyPageListData(id);
+	}
      
      
 }
