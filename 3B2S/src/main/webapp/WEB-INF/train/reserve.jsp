@@ -464,19 +464,23 @@ label:hover {
                   buyer_tel: '',
                   buyer_addr: '',
                   buyer_postcode: ''
-              }, function (rsp) {
-                  location.href = "../mypage/mypage_train.do" 
-                  
+              },  (rsp) => {  // 화살표 함수로 변경
+                  this.open();
               });
           },
+          open() {
+        	    if (window.opener) {
+        	        window.opener.location.href = "../mypage/mypage_train.do";  // 부모 창의 주소 변경
+        	        window.close();  // 현재 창 닫기
+        	    } else {
+        	        alert("부모 창이 없습니다.");  // 부모 창이 없는 경우 처리
+        	    }
+        	},
           reserve() {
         	  let totalpriceText = $('#price').text().slice(0, -1);
         	  let realprice = parseInt(totalpriceText.replace(/,/g, ''));
         	  axios.post('../train/reserve_ok_vue.do',null,{
         		  params:{
-                     
-                	  
-                	  
                       tno:${tno},
                 	  ttype:'${ttype}',           
                       sstart:'${sstart}',     
@@ -491,7 +495,6 @@ label:hover {
                   }).then(response=>{
                      if(response.data==='yes')
                      {
-                        alert("yes!!")
                         this.requestPay()
                      }
                      else
