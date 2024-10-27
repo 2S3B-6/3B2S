@@ -1,5 +1,7 @@
 package com.sist.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
@@ -82,6 +84,11 @@ public interface MemberMapper {
 	  
 	  @Select("SELECT COUNT(*) FROM BOARD_COMMENT WHERE id=#{id}")
 	  	public int mypageReplyCount(String id);
+
+	  @Select("SELECT userId, userName, userPwd, enabled, sex, birthday, email, post, addr1, addr2, phone "
+		  		+ "FROM member_2s3b")
+		  public List<MemberVO> adminMemberInfo();
+
 	  
 }
 

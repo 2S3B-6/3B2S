@@ -72,8 +72,8 @@ public class KboGoodsDAO {
 		return mapper.goodsBuyListData(id);
 	}
 	
-	public List<KboGoodsCartVO> goodsAdminBuyListData(Map map){
-		return mapper.goodsAdminBuyListData(map);
+	public List<KboGoodsCartVO> goodsAdminBuyListData(){
+		return mapper.goodsAdminBuyListData();
 	}
 	
 	 public MemberVO memberAdminInfodData() {

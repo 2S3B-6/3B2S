@@ -7,8 +7,25 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <style type="text/css">
+.pagination {
+    justify-content: center;
+}
+.pagination .page-link {
+    background-color: white;
+    color: #333;
+    border-color: #ccc; 
+    border: none !important;
+}
+.pagination .page-item.active .page-link {
+    background-color: #003366; 
+    border-color: #003366; 
+    color: white; 
+    border: none !important;
+}
+
 	.page-link:hover{
 		cursor: pointer;
+		background-color: #aaa; 
 }
 	.logoimgs{
 		width: 65px;
@@ -17,6 +34,7 @@
 		margin-left: 65px;
 		margin: 15px;
 	}
+	
 </style>
 </head>
 <body>
@@ -113,9 +131,6 @@
                        </li>
                    </ul>
                </nav>
-               <div class="page-status">
-                   <p>{{curpage}} page / {{totalpage}} pages</p>
-               </div>
            </div>
        </div>
 

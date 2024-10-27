@@ -59,10 +59,10 @@
 	   <div class="section-box">
 	      <h3>관리자 메뉴</h3>
 	    <ul class="list-group">
-	      <li class="list-group-item"><a href="../adminpage/member_list.do">회원관리</a></li>
-	      <li class="list-group-item"><a href="../adminpage/notice_list.do">공지사항관리</a></li>
+	      <li class="list-group-item"><a href="../adminpage/admin_member.do">회원관리</a></li>
 	      <li class="list-group-item"><a href="../adminpage/admin_buy.do">구매관리</a></li>
-	      <li class="list-group-item"><a href="../adminpage/admin_reserve.do">예약관리</a></li>
+	      <li class="list-group-item"><a href="../adminpage/admin_reserve.do">호텔 예약관리</a></li>
+	      <li class="list-group-item"><a href="../adminpage/admin_reserve.do">기차 예약관리</a></li>
 	      <li class="list-group-item"><a href="../adminpage/chat.do">1대1채팅</a></li>
 	    </ul>
 	   </div>

@@ -31,7 +31,7 @@ public class AdminpageRestController {
 	   
 	//예약관리
 	@GetMapping(value="adminpage/reserve_info_vue.do",produces="text/plain;charset=UTF-8")
-	public String reserve_info(int hno , int rno) throws Exception{
+	public String reserve_info(int rno) throws Exception{
 		   System.out.println("rno:"+rno);
 		   rService.reserveOk(rno);
 		   List<ReserveVO> list=rService.reserveAdminListData();
@@ -40,7 +40,7 @@ public class AdminpageRestController {
 		   return json;
 	}
 	@GetMapping(value="adminpage/admin_reserve_vue.do",produces = "text/plain;charset=UTF-8")
-	  public String admin_reserve(HttpSession session) throws Exception{
+	  public String admin_reserve() throws Exception{
 		   List<ReserveVO> list=rService.reserveAdminListData();
 		   ObjectMapper mapper=new ObjectMapper();
 		   String json=mapper.writeValueAsString(list);
@@ -50,12 +50,10 @@ public class AdminpageRestController {
 	
 	//구매관리
 	@GetMapping(value="adminpage/buy_vue.do",produces = "text/plain;charset=UTF-8")
-	public String goods_buy_vue(int fd, HttpSession session)throws Exception{
+	public String goods_buy_vue( HttpSession session)throws Exception{
 		
-		Map map=new HashMap();
-		map.put("fd", fd);
-		
-		List<KboGoodsCartVO> list=kgService.goodsAdminBuyListData(map);
+
+		List<KboGoodsCartVO> list=kgService.goodsAdminBuyListData();
 		System.out.println(list);
 		
 		ObjectMapper mapper=new ObjectMapper();
@@ -65,20 +63,26 @@ public class AdminpageRestController {
 	}
 	
 	  @GetMapping(value="adminpage/cart_cancel_vue2.do",produces = "text/plain;charset=UTF-8")
-	  public String cart_cancel2(int fd,int cno,HttpSession session) throws Exception{
-		  Map map=new HashMap();
-			map.put("fd", fd);
-		  
+	  public String cart_cancel2(int cno,HttpSession session) throws Exception{
+
 		  kgService.goodsCartCancel(cno);
 
-		  List<KboGoodsCartVO> list=kgService.goodsAdminBuyListData(map);
+		  List<KboGoodsCartVO> list=kgService.goodsAdminBuyListData();
 		  ObjectMapper mapper=new ObjectMapper();
 		  String json=mapper.writeValueAsString(list);
 		  return json;
 	  }
 	  
 	  
-	
+	  @GetMapping(value="adminpage/idcheck_vue.do", produces="text/plain;charset=UTF-8")
+		public String adminMember_idcheck() throws Exception{
+		  
+			List<MemberVO> list=mService.adminMemberInfo();
+			System.out.println(list);
+			ObjectMapper mapper=new ObjectMapper();
+			String json=mapper.writeValueAsString(list);
+			return json;
+		}
 	
 	
 	

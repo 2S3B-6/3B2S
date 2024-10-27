@@ -20,6 +20,10 @@ public class AdminpageController {
 		   return "adminpage/admin_buy";
 	   }
 	   
+	   @GetMapping("adminpage/admin_member.do")
+	   public String admin_member(){
+		   return "adminpage/admin_member";
+	   }
 
 }
 

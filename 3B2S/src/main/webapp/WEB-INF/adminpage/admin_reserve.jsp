@@ -115,8 +115,8 @@ body {
       <td class="text-center">{{vo.rprice}}원</td>
       <td class="text-center">{{vo.dbday}}</td>
       <td class="text-center">
-        <button class="btn-xs btn-success" v-if="vo.isreserve===1" @click="hotelInfo(vo.hno,vo.rno)">예약완료</button>
-        <button class="btn-xs btn-danger" v-else >예약대기</button>
+        <button class="btn-xs btn-success" v-if="vo.isreserve===1">예약완료</button>
+        <button class="btn-xs btn-danger" v-else @click="reserveOk(vo.rno)" onClick="window.location.reload()">예약대기</button>
       </td>
     </tr>
    </table>
@@ -143,16 +143,16 @@ body {
 		  })
 	  },
 	  methods:{
-		  hotelInfo(hno,rno){
+		  reserveOk(rno){
 			  this.isShow=true
 			  axios.get('../adminpage/reserve_info_vue.do',{
 				  params:{
-					  hno:hno,
 					  rno:rno
 				  }
 			  }).then(response=>{
 				  console.log(response.data)
 				  this.reserve_info=response.data
+				  
 			  }).catch(error=>{
 				  console.log(error.response)
 			  })

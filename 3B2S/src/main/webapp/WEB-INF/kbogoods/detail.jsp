@@ -37,18 +37,7 @@
 </section>
 
  <div id="detailApp">
-<!-- 제목 -->
-<div class="breadcumb-area">
-    <div class="container h-100">
-        <div class="row h-100 align-items-center">
-            <div class="col-16">
-                <div class="bradcumb-title text-center">
-                    <h2 style="font-size:40px;">굿즈 상세페이지</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 <div class="breadcumb-nav titlemargin">
      <div class="container">
          <div class="row text-center">

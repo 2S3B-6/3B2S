@@ -61,12 +61,12 @@
 					<table class="table" >
 						<tr>
 							 <td width="30%" class="text-center" rowspan="10" @click="">
-							 	<a>
+							 	<a href="https://www.youtube.com/watch?v=${hvo.videoId }" target="_blank">
 									<img src="${hvo.thumbnail}" width="200px;">
 								</a>
 							</td>
 							<td width="70%">
-								<a href="../highlight/detail.do">
+								<a href="https://www.youtube.com/watch?v=${hvo.videoId }" target="_blank">
 					 				<h3 style="" class="text-left pop_open">${hvo.title}&nbsp;
 					 					<span style="color:orange;"></span>
 					 				</h3>
@@ -109,9 +109,9 @@
                 <li class="page-item" v-if="prePageToken!=null">
                 <form action="../highlight/list.do">
                 <input style="display: none;" type="text" name="pageToken" id="prevPageToken" value="${htvo.prevPageToken }">
-                    <button type="submit" class="page-link"><i class="fa fa-angle-double-left" aria-hidden="true"></i>이전</button>
+                    <button type="submit" class="btn-sm btn-danger"><i class="fa fa-angle-double-left" aria-hidden="true"></i>이전</button>
                     <input style="display: none;" type="text" name="pageToken" id="nextPageToken" value="${htvo.nextPageToken }">
-                    <button type="submit" class="page-link" >다음<i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+                    <button type="submit" class="btn-sm btn-danger" >다음<i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
                 </form>
                 </li>
                 

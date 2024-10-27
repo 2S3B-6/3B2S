@@ -1,5 +1,7 @@
 package com.sist.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -107,6 +109,12 @@ public class MemberServiceImpl implements MemberService {
 	public int mypageTrainCount(String id) {
 		// TODO Auto-generated method stub
 		return mDao.mypageTrainCount(id);
+	} 
+	
+	@Override
+	public List<MemberVO> adminMemberInfo() {
+		// TODO Auto-generated method stub
+		return mDao.adminMemberInfo();
 	} 
 
 }

@@ -110,10 +110,9 @@ public interface KboGoodsMapper {
 			  +"name,poster,price "
 			  +"FROM kbo_goods_cart sc, kbo_goods ga "
 			  +"WHERE (sc.gno=ga.gno "
-			  +"AND isBuy=1 "
-			  +"AND cno=#{fd}) "
+			  +"AND isBuy=1) "
 			  +"ORDER BY dbday DESC")
-	public List<KboGoodsCartVO> goodsAdminBuyListData(Map map);
+	public List<KboGoodsCartVO> goodsAdminBuyListData();
 	
 	@Select("SELECT userId,userName,sex,post,addr1,addr2,phone,email "
 			  +"FROM member_2s3b ")

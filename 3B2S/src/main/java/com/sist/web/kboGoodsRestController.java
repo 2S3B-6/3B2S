@@ -201,24 +201,23 @@ public class kboGoodsRestController {
 	  }
 	
 	  @GetMapping(value="kbogoods/buy_vue.do",produces = "text/plain;charset=UTF-8")
-	  public String kbogoods_buy_vue(int fd,int cno,int gno, HttpSession session)throws Exception{
-		  Map map=new HashMap();
+	  public String kbogoods_buy_vue(int cno,int gno, HttpSession session)throws Exception{
+		  
 			
 		  
-		  List<KboGoodsCartVO> list=kgService.goodsAdminBuyListData(map);
+		  List<KboGoodsCartVO> list=kgService.goodsAdminBuyListData();
 		  ObjectMapper mapper=new ObjectMapper();
 		  String json=mapper.writeValueAsString(list);
 		  return json;
 	  }
 	  
 	  @GetMapping(value="kbogoods/cart_cancel_vue2.do",produces = "text/plain;charset=UTF-8")
-	  public String cart_cancel2(int fd,int cno,HttpSession session) throws Exception
+	  public String cart_cancel2(int cno,HttpSession session) throws Exception
 	  {
-		  Map map=new HashMap();
-			map.put("fd", fd);
+		 
 		  
 		  kgService.goodsCartCancel(cno);
-		  List<KboGoodsCartVO> list=kgService.goodsAdminBuyListData(map);
+		  List<KboGoodsCartVO> list=kgService.goodsAdminBuyListData();
 		  ObjectMapper mapper=new ObjectMapper();
 		  String json=mapper.writeValueAsString(list);
 		  return json;

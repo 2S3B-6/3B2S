@@ -74,9 +74,9 @@ public class KboGoodsServiceImpl implements KboGoodsService{
 		return kgDao.goodsBuyListData(id);
 	}
 	@Override
-	public List<KboGoodsCartVO> goodsAdminBuyListData(Map map) {
+	public List<KboGoodsCartVO> goodsAdminBuyListData() {
 		// TODO Auto-generated method stub
-		return kgDao.goodsAdminBuyListData(map);
+		return kgDao.goodsAdminBuyListData();
 	}
 	@Override
 	public MemberVO memberAdminInfodData() {

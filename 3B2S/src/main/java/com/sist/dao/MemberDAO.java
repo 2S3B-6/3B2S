@@ -81,5 +81,7 @@ public class MemberDAO {
 		return mapper.mypageReplyCount(id);
 	}
 	
-
+	public List<MemberVO> adminMemberInfo(){
+		return mapper.adminMemberInfo();
+	}
 }

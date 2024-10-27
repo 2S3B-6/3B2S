@@ -4,6 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -132,6 +133,14 @@ p {
 									    <button v-if="sessionId === vo.id" class="btn-xs styled-btn" style="margin-left: 2px" @click="replyDelete(vo.cno)">Delete</button>
 									    <button v-if="sessionId !== ''" class="btn-xs active insert styled-btn" style="margin-left: 2px" @click="replyForm(vo.cno)" :id="'i' + vo.cno">Reply</button>
 									    <button v-if="sessionId !== vo.id && sessionId !== ''" class="btn-xs styled-btn" style="margin-left: 2px">Like</button>
+									    
+									    <sec:authorize access="hasRole('ROLE_ADMIN')">
+									    <button class="btn-xs update styled-btn" style="margin-left: 2px" @click="replyUpdateForm(vo.cno)" :id="'u' + vo.cno">Update</button>
+									    <button class="btn-xs styled-btn" style="margin-left: 2px" @click="replyDelete(vo.cno)">Delete</button>
+									    <button class="btn-xs active insert styled-btn" style="margin-left: 2px" @click="replyForm(vo.cno)" :id="'i' + vo.cno">Reply</button>
+									    <button class="btn-xs styled-btn" style="margin-left: 2px">Like</button>
+									    </sec:authorize>
+									    
 									</div>
 							      
 							      <!-- 댓글 입력 -->
@@ -170,6 +179,13 @@ p {
 									    <button v-if="sessionId === vo.id" class="btn-xs update styled-btn" @click="replyUpdateForm(vo.cno)" :id="'u' + vo.cno">Update</button>
 									    <button v-if="sessionId === vo.id" class="btn-xs styled-btn" @click="replyDelete(vo.cno)">Delete</button>
 									    <button v-if="sessionId !== vo.id && sessionId !== ''" class="btn-xs styled-btn">Like</button>
+									    
+									    <sec:authorize access="hasRole('ROLE_ADMIN')">
+									    <button class="btn-xs update styled-btn" @click="replyUpdateForm(vo.cno)" :id="'u' + vo.cno">Update</button>
+									    <button class="btn-xs styled-btn" @click="replyDelete(vo.cno)">Delete</button>
+									    <button class="btn-xs styled-btn">Like</button>
+									    </sec:authorize>
+									    
 									</div>
                                    <table class="table ups" style="display: none" :id="'up'+vo.cno">
                                      <tr>

@@ -29,7 +29,7 @@
 	    </tr>
 	    <tr >
 	    	<th colspan="6" class="text-right">
-	    		주문번호 입력 : <input class="" type="text" style="text-transform: uppercase;" size="20" ref="fd" v-model="fd" @keydown.enter=adminCnoList() >
+	    		주문 검색 : <input class="" type="text" style="text-transform: uppercase;" size="20" placeholder="주문번호를 입력하세요" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ref="" v-model="" @keydown.enter=adminCnoList() >
 	    	</th>
 	    </tr>
 	    <tr>
@@ -87,13 +87,10 @@ let adminApp=Vue.createApp({
 			cart_list:[],
 			detail_data:{},
 			isShow:false,
-			fd:''
 		}
 	},
 	mounted(){
-		axios.get('../adminpage/buy_vue.do',{
-			fd:this.fd
-		})
+		axios.get('../adminpage/buy_vue.do')
 		.then(response=>{
 			this.cart_list=response.data
 		}).catch(error=>{
@@ -138,6 +135,7 @@ let adminApp=Vue.createApp({
 		    adminCnoList(){
 		    	axios.get('../adminpage/buy_vue.do')
 				.then(response=>{
+					this.fd=fd
 					this.cart_list=response.data
 					console.log(response.data)
 				}).catch(error=>{
