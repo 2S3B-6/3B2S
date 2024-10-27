@@ -96,6 +96,9 @@ google.charts.load('current', {packages: ['corechart', 'bar']});
     line-height: 28px;
     font-family: '나눔스퀘어';
 }
+#back {
+	float: right;
+}
 </style>
 </head>
 <body>
@@ -304,11 +307,15 @@ google.charts.load('current', {packages: ['corechart', 'bar']});
                                     <input type=button value="댓글" style="float: left;background-color: #003366;color: white;width: 75px;height:87px"
                                       @click="replyInsert()">
                                    </td>
+                                   
                                  </tr>
                                 </table>
                              </div>
                            </div>
                         </c:if>
+                        <div>
+	                    	<button id="back" class="btn-lg btn-primary" onclick="javascript:history.back()">목록</button>
+	                    </div>
                     </div>
                                     
                                 </div>
