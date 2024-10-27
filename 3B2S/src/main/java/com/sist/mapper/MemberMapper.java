@@ -67,6 +67,9 @@ public interface MemberMapper {
 	  
 	  @Select("SELECT COUNT(*) FROM GAME_RESERVE WHERE isreserve='1' AND id=#{id}")
 	  	public int mypageTicketCount(String id);
+
+	  @Select("SELECT COUNT(*) FROM TRAIN_RESERVE WHERE isreserve='1' AND id=#{id}")
+	  public int mypageTrainCount(String id);
 	  
 	  @Select("SELECT COUNT(*) FROM RESERVE_HOTEL WHERE isreserve='0' AND id=#{id}")
 	  	public int mypageHotelCount1(String id);

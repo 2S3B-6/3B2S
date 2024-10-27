@@ -10,6 +10,11 @@ public class MyPageController {
 		return "mypage";
 	}
 
+	@GetMapping("mypage/mypage_pwd.do")
+	public String mypage_pwd() {
+		return "mypage/mypage_pwd";
+	}
+	
 	@GetMapping("mypage/mypage_reserve.do")
 	public String mypage_reserve() {
 		return "mypage/mypage_reserve";
@@ -40,9 +45,19 @@ public class MyPageController {
 	public String mypage_home()	{
 		return "mypage/mypage_home";
 	}
+	
 	@GetMapping("mypage/mypage_train.do")
 	public String mypage_train()	{
 		return "mypage/mypage_train";
 	}
 	
+	@GetMapping("mypage/mypage_ticket.do")
+	public String mypage_ticket()	{
+		return "mypage/mypage_ticket";
+	}
+	
+	@GetMapping("mypage/mypage_jjim.do")
+	public String mypage_jjim()	{
+		return "mypage/mypage_jjim";
+	}
 }

@@ -23,26 +23,20 @@
 	   <table class="table">
 	    <tr>
 	      <td class="text-center" colspan="7">
-	        <h4>기차 예약 내역</h4>
+	        <h4>티켓 예약 내역</h4>
 	      </td>
 	    </tr>
 	    <tr>
-	      <th class="text-center">기차 종류</th>
-	      <th class="text-center">출발일</th>
-	      <th class="text-center">출발역/도착역</th>
-	      <th class="text-center">출발시간/도착시간</th>
-	      <th class="text-center">좌석</th>
-	      <th class="text-center">인원</th>
+	      <th class="text-center">좌석 종류</th>
+	      <th class="text-center">좌석 번호</th>
+	      <th class="text-center">경기 날짜</th>
 	      <th class="text-center">금액</th>
 	    </tr>
-	    <tr v-for="vo in train_list">
-	      <td class="text-center">{{vo.ttype}}</td>
-	      <td class="text-center">{{vo.tday}}</td>
-	      <td class="text-center">{{vo.sstart}}/{{vo.send}}</td>
-	      <td class="text-center">{{vo.tstart}}/{{vo.tend}}</td>
-	      <td class="text-center">{{vo.tseat}}</td>
-	      <td class="text-center">{{vo.tinwon}}</td>
-	      <td class="text-center">{{formatPrice(vo.totalprice)}}원</td>
+	    <tr v-for="vo in ticket_list">
+	      <td class="text-center">{{vo.rtype}}</td>
+	      <td class="text-center">{{vo.rseat}}</td>
+	      <td class="text-center">{{vo.rday}}</td>
+	      <td class="text-center">{{vo.rprice}}</td>
 	    </tr>
 	   </table>
 	 </div>
@@ -50,22 +44,18 @@
 	 let mypageApp=Vue.createApp({
 			data(){
 				return {
-					train_list:[]
+					ticket_list:[]
 				}
 			},
 			mounted(){
-				axios.get('../mypage/mypage_train_vue.do')
+				axios.get('../mypage/mypage_ticket_vue.do')
 				.then(response=>{
-					this.train_list=response.data
+					this.ticket_list=response.data
 				}).catch(error=>{
 					console.log(error.response)
 				})
-			},
-		    methods: {
-		        formatPrice(value) {
-		            return value.toLocaleString(); // 쉼표 형식으로 변환
-		        }
-		    }
+			}
+
 	 }).mount("#mypageApp");
 	 </script>
 </body>

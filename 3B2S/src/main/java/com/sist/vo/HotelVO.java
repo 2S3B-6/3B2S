@@ -17,4 +17,5 @@ public class HotelVO {
         }
         return new ArrayList<>(); // images가 없을 경우 빈 리스트 반환
     }
+    
 }

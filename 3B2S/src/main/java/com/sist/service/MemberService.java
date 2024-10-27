@@ -29,6 +29,7 @@ public int idCheck(String userId);
 	  public int mypageCartCount(String id);
 	  
 	  public int mypageTicketCount(String id);
+	  public int mypageTrainCount(String id);
 	  
 	  public int mypageHotelCount1(String id);
 	  public int mypageHotelCount(String id);

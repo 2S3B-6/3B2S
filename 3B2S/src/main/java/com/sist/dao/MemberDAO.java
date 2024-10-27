@@ -1,5 +1,7 @@
 package com.sist.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.sist.mapper.MemberMapper;
 import com.sist.vo.BoardVO;
+import com.sist.vo.HotelVO;
 import com.sist.vo.MemberVO;
 
 @Repository
@@ -59,6 +62,10 @@ public class MemberDAO {
 		return mapper.mypageTicketCount(id);
 	}
 	
+	public int mypageTrainCount(String id){
+		return mapper.mypageTrainCount(id);
+	}
+	
 	public int mypageHotelCount1(String id) {
 		return mapper.mypageHotelCount1(id);
 	}
@@ -73,4 +80,6 @@ public class MemberDAO {
 	public int mypageReplyCount(String id){
 		return mapper.mypageReplyCount(id);
 	}
+	
+
 }

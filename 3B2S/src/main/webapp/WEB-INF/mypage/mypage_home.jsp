@@ -56,6 +56,13 @@
    </div>
   </a>
   
+    <a href="../mypage/mypage_ticket.do">
+   <div class="summary-box">
+    <h3>티켓 구매</h3>
+    <p>{{TicketCount}} 건</p>
+   </div>
+  </a>
+  
   </div>
   </div>
   
@@ -63,10 +70,10 @@
 <h2>예약 관련 메뉴</h2>
   <div class="mypage-container">
   <div class="mypage-summary">
-  <a href="../mypage/mypage_reserve.do">
+  <a href="../mypage/mypage_train.do">
    <div class="summary-box">
-    <h3>티켓 예약</h3>
-    <p>{{TicketCount}} 건</p>
+    <h3>기차 예약</h3>
+    <p>{{TrainCount}} 건</p>
    </div> 
   </a>
 
@@ -112,6 +119,7 @@ let homeApp = Vue.createApp({
 			BuyCount:0,
 			CartCount:0,
 			TicketCount:0,
+			TrainCount:0,
 			HotelCount1:0,
 			HotelCount:0,
 			BoardCount:0,
@@ -129,6 +137,7 @@ let homeApp = Vue.createApp({
     			this.BuyCount = response.data.BuyCount
     			this.CartCount = response.data.CartCount
     			this.TicketCount = response.data.TicketCount
+    			this.TrainCount = response.data.TrainCount
     			this.HotelCount1 = response.data.HotelCount1
     			this.HotelCount = response.data.HotelCount
     			this.BoardCount = response.data.BoardCount

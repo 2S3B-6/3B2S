@@ -20,6 +20,7 @@ import com.sist.vo.GameReserveVO;
 import com.sist.vo.GameVO;
 import com.sist.vo.HotelVO;
 import com.sist.vo.ReserveVO;
+import com.sist.vo.TrainReserveVO;
 
 
 @RestController
@@ -76,5 +77,7 @@ public class TicketRestController {
 		  System.out.println("인원:"+vo.getRinwon());*/
 		  return result;
 	  }
+	
+
    
 }

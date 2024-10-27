@@ -33,6 +33,8 @@ public class MyPageRestController {
 	private MemberService mService;
 	@Autowired
 	private NewsService nService;
+	@Autowired
+	private TicketService tService;
 	
 	@GetMapping(value="mypage/reserve_info_vue.do",produces="text/plain;charset=UTF-8")
 	public String reserve_info(int hno , int rno) throws Exception{
@@ -116,6 +118,7 @@ public class MyPageRestController {
 	       
 	       // 티켓 예약수 가져오기
 	       int TicketCount = mService.mypageTicketCount(id);
+	       int TrainCount = mService.mypageTrainCount(id);
 	       
 	       // 호텔 예약 대기
 	       int HotelCount1 = mService.mypageHotelCount1(id);
@@ -150,6 +153,7 @@ public class MyPageRestController {
 	       map.put("HotelCount1", HotelCount1);
 	       map.put("HotelCount", HotelCount);
 	       map.put("TicketCount", TicketCount);
+	       map.put("TrainCount", TrainCount);
 	       map.put("BoardCount", BoardCount);
 	       map.put("ReplyCount", ReplyCount);
 			/* map.put("latest_list", cookie_list); */
@@ -160,6 +164,30 @@ public class MyPageRestController {
 	       return json;
 	   }
 
+	  
+	    @GetMapping(value="mypage/mypage_ticket_vue.do",produces = "text/plain;charset=UTF-8")
+	    public String mypage_ticket(HttpSession session) throws Exception
+	    {
+	    	String id=(String) session.getAttribute("userId");
+	    	List<GameReserveVO> list=rService.MyPageGameListData(id);
+	    	
+	    	ObjectMapper mapper=new ObjectMapper();
+	    	String json=mapper.writeValueAsString(list);
+	    	
+	    	return json;
+	    }
+	    
+	    @GetMapping(value="mypage/mypage_jjim_vue.do",produces = "text/plain;charset=UTF-8")
+	    public String mypage_jjim(HttpSession session) throws Exception
+	    {
+	    	String id=(String) session.getAttribute("userId");
+	    	List<JjimVO> list=rService.MyPageJjimListData(id);
+	    	
+	    	ObjectMapper mapper=new ObjectMapper();
+	    	String json=mapper.writeValueAsString(list);
+	    	
+	    	return json;
+	    }
 }
 
 

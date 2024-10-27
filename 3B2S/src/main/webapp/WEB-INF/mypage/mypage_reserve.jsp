@@ -81,9 +81,7 @@ body {
     margin-top: 20px;
 }
 
-.container {
-    margin-bottom: 50px;
-}
+
 </style>
 </head>
 <body>
@@ -91,7 +89,7 @@ body {
    <table class="table">
    <tr>
    	<td class="text-center" colspan="8">
-   		<h4>예약 관리</h4>
+   		<h4>호텔 예약</h4>
    	</td>
    </tr>
     <tr>

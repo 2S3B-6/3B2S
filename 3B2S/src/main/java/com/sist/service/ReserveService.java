@@ -5,6 +5,8 @@ import java.util.Map;
 
 import com.sist.vo.GameReserveVO;
 import com.sist.vo.GameVO;
+import com.sist.vo.HotelVO;
+import com.sist.vo.JjimVO;
 import com.sist.vo.ReserveVO;
 
 public interface ReserveService {
@@ -16,4 +18,6 @@ public interface ReserveService {
 	public List<GameReserveVO> gameNoSeatList(Map map);
 	public int getTno(Map map);
 	public void gamereserveInsert(GameReserveVO vo);
+	public List<GameReserveVO> MyPageGameListData(String id);
+	public List<JjimVO> MyPageJjimListData(String id);
 }

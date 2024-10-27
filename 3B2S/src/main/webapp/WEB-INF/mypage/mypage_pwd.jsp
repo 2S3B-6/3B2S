@@ -5,14 +5,26 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.mypage-container {
+    width: 100%;
+    max-width: 1200px; /* 적당한 최대 너비 */
+    margin: 0 auto; /* 가운데 정렬 */
+    padding: 20px; /* 내부 여백 */
+    border: 2px solid #003366; /* 테두리 추가 */
+    border-radius: 10px; /* 모서리 둥글게 */
+    background-color: #fff; /* 배경색 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+</style>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 </head>
 <body>
-	<div id="JoinUpdateApp">
+	<div id="JoinUpdateApp" class="mypage-container">
 	   <table class="table">
 	    <tr>
 	      <td class="text-center" colspan="6">
-	        <h4>회원수정</h4>
+	        <h4>비밀번호 변경</h4>
 	      </td>
 	    </tr>
    <section class="single_blog_area section_padding_20" id="JoinUpdateApp">
@@ -24,9 +36,6 @@
 			      <th class="text-right" width="30%">ID</th>
 			      <td width="70%" >
 			       <input type="text" size=15 class="input-sm" v-bind:readonly="isReadOnly" name="userId" ref="userId" v-model="userId">
-			       &nbsp;
-			       <input type="button" value="중복체크" class="btn-sm btn-danger" @click="idCheck()">
-			       <p>{{idOk}}</p>
 			      </td>
 			     </tr>
 			     <tr>
@@ -45,59 +54,12 @@
 
 			      </td>
 			     </tr>
-			     <tr>
-			      <th class="text-right" width="30%" style="border: none;">이름</th>
-			      <td width="70%" style="border: none;">
-			       <input type="text" size=15 class="input-sm" name="userName" ref="userName" v-model="userName">
-			      </td>
-			     </tr>
-			     <tr>
-			      <th class="text-right" width="30%" style="border: none;">성별</th>
-			      <td width="70%" style="border: none;">
-			       <input type="radio" name="sex" value="남자" checked v-model="sex">남자
-			       <input type="radio" name="sex" value="여자" v-model="sex">여자
-			      </td>
-			     </tr>
-			     <tr>
-			      <th class="text-right" width="30%" style="border: none;">이메일</th>
-			      <td width="70%" style="border: none;">
-			       <input type="text" size=50 class="input-sm" name="email" ref="email" v-model="email">
-			      </td>
-			     </tr>
-			     <tr>
-			      <th class="text-right" width="30%" style="border: none;">우편번호</th>
-			      <td width="70%" style="border: none;">
-			       <input type="text" size=10 class="input-sm" name="post" readonly ref="post" v-model="post">
-			       &nbsp;
-			       <input type=button class="btn-sm" value="우편번호검색" @click="postFind()" >
-			      </td>
-			     </tr>
-			     <tr>
-			      <th class="text-right" width="30%" style="border: none;">주소</th>
-			      <td width="70%" style="border: none;">
-			       <input type="text" size=50 class="input-sm" name="addr1" readonly ref="addr1" v-model="addr1">
-			      </td>
-			     </tr>
-			     <tr>
-			      <th class="text-right" width="30%" style="border: none;">상세주소</th>
-			      <td width="70%" style="border: none;">
-			       <input type="text" size=50 class="input-sm" name="addr2" ref="addr2" v-model="addr2">
-			      </td>
-			     </tr>
-<tr>
-  <th class="text-right" width="30%" style="border: none;">전화번호</th>
-  <td width="70%" style="border: none;">
-    <select class="input-sm" name="phone1" v-model="phone1">
-      <option>010</option>
-      <option>017</option>
-      <option>011</option>
-    </select>
-    &nbsp;
-    <input type="text" size=10 class="input-sm" name="phone2" v-model="phone2" maxlength="4">
-    &nbsp;
-    <input type="text" size=10 class="input-sm" name="phone3" v-model="phone3" maxlength="4">
-  </td>
-</tr>
+
+
+
+
+
+
 			     <tr>
 			       <td colspan="2" class="text-center">
 			        <input type="submit" value="수정" class="btn-sm ">
@@ -116,36 +78,17 @@ let JoinUpdateApp=Vue.createApp({
  data(){
 	 return {
 		 userId: "${userId}",
-		 post:'',
-		 addr1:'',
-		 addr2:'',
-		 userName:'',
-		 phone1:'',
-		 phone2:'',
-		 phone3:'',
-		 birthday:'',
-		 email:'',
-		 sex:'',
 		 pwdOk:''
 	 }
  },
  mounted() {
-	    axios.get('../mypage/mypage_update_vue.do', {
+	    axios.get('../mypage/mypage_pwd_vue.do', {
 	        params: {
 	            userId: this.userId // 로그인된 사용자 ID
 	        }
 	    }).then(response => {
 	        // 서버에서 받은 데이터를 Vue 데이터 속성에 저장
 	        let member = response.data;
-	        this.post = member.post;
-	        this.addr1 = member.addr1;
-	        this.addr2 = member.addr2;
-	        this.userName = member.userName;
-	        this.phone1 = member.phone1;
-	        this.phone2 = member.phone2;
-	        this.phone3 = member.phone3;
-	        this.email = member.email;
-	        this.sex = member.sex;
 	        // 비밀번호는 빈 칸으로 두고, 새로운 입력만 받도록 설정
 	        this.userPwd = '';
 	        this.userPwd2 = '';
@@ -198,24 +141,13 @@ let JoinUpdateApp=Vue.createApp({
 	 },
 	 submitForm(e) {
 		    // 필수 입력값을 모두 확인 후 수정 요청 처리
-		    if (this.userId && this.userName && this.userPwd && this.userPwd2 && this.sex &&
-		        this.email && this.phone1 && this.phone2 && this.phone3 && this.post &&
-		        this.addr1 && this.addr2 && this.pwdOk === '') {
+		    if (this.userId && this.userName && this.userPwd && this.userPwd2 && this.pwdOk === '') {
 
 		        // 서버로 수정 요청을 보내는 axios 호출
-		        axios.post('../mypage/update_ok.do', {
+		        axios.post('../mypage/pwd_ok.do', {
 		            userId: this.userId,
 		            userPwd: this.userPwd,
-		            userPwd2: this.userPwd2,
-		            userName: this.userName,
-		            sex: this.sex,
-		            email: this.email,
-		            post: this.post,
-		            addr1: this.addr1,
-		            addr2: this.addr2,
-		            phone1: this.phone1,
-		            phone2: this.phone2,
-		            phone3: this.phone3
+		            userPwd2: this.userPwd2
 		        }).then(response => {
 		            if (response.data === 'success') {
 		                alert('수정이 완료되었습니다.');
@@ -242,29 +174,13 @@ let JoinUpdateApp=Vue.createApp({
 		            this.userPwd = '';
 		            this.userPwd2 = '';
 		            this.$refs.userPwd.focus();
-		        } else if (!this.phone2) {
-		            this.$refs.phone2.focus();
-		        } else if (!this.phone3) {
-		            this.$refs.phone3.focus();
-		        } else if (!this.email) {
-		            this.$refs.email.focus();
 		        } else {
 		            alert('입력값을 확인해주세요.');
 		        }
 		    }
 
 		    e.preventDefault(); // 조건 충족 시 폼 제출을 중단합니다.
-		},
-	 postFind(){
-		 let _this=this
-		 new daum.Postcode({
-			 oncomplete:function(data)
-			 {
-				 _this.post=data.zonecode
-				 _this.addr1=data.address
-			 }
-		 }).open()
-	 }
+		}
  }
 }).mount('#JoinUpdateApp')
 </script>

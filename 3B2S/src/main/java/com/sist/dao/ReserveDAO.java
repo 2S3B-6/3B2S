@@ -13,6 +13,8 @@ import org.springframework.stereotype.Repository;
 import com.sist.mapper.ReserveMapper;
 import com.sist.vo.GameReserveVO;
 import com.sist.vo.GameVO;
+import com.sist.vo.HotelVO;
+import com.sist.vo.JjimVO;
 import com.sist.vo.ReserveVO;
 
 @Repository
@@ -49,4 +51,13 @@ public class ReserveDAO {
 	public void gamereserveInsert(GameReserveVO vo) {
 		mapper.gamereserveInsert(vo);
 	}
+	
+	public List<GameReserveVO> MyPageGameListData(String id){
+		return mapper.MyPageGameListData(id);
+	}
+	
+	public List<JjimVO> MyPageJjimListData(String id) {
+		return mapper.MyPageJjimListData(id);
+	}
+	
 }

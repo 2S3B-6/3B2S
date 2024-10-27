@@ -10,7 +10,10 @@ import org.apache.ibatis.annotations.Update;
 
 import com.sist.vo.GameReserveVO;
 import com.sist.vo.GameVO;
+import com.sist.vo.HotelVO;
+import com.sist.vo.JjimVO;
 import com.sist.vo.ReserveVO;
+import com.sist.vo.TrainReserveVO;
 
 public interface ReserveMapper {
 	
@@ -119,4 +122,15 @@ public interface ReserveMapper {
 				 +"AND rno=#{rno}")
 		  public ReserveVO gamereserveInfoData(int rno);
 	  /////////////////////////////////////////////////////////////////////////////////////////////
+		  
+		  
+			@Select("SELECT rno, tno, id, rday, rseat, rprice, regdate, isreserve, rtype "
+					+ " FROM game_reserve"
+					+ " WHERE id=#{id}")
+			public List<GameReserveVO> MyPageGameListData(String id);
+			
+			@Select("SELECT jj.hno, id, name, price, address, location  "
+					+ " FROM jjim jj, hotel ho"
+					+ " WHERE jj.hno=ho.hno AND id=#{id}")
+			public List<JjimVO> MyPageJjimListData(String id);	
 }
