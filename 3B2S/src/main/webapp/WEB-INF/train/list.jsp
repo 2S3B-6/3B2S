@@ -288,7 +288,7 @@ button.small-btn:hover {
       			    /* const fullUrl = `${window.location.origin}/web/train/reserve.do?${params}`; */
       			    console.log("Generated URL:", fullUrl); // URL 확인
 
-      			    window.open(fullUrl, '_blank', 'width=900,height=620,scrollbars=yes,resizable=no');
+      			    window.open(fullUrl, '_blank', 'width=900,height=650,scrollbars=yes,resizable=no');
       			},
       			search(){
       				if (!this.ttype2 || !this.sstart2 || !this.send2 || !this.departureDate || !this.tstart2) {
