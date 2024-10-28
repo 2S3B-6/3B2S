@@ -106,12 +106,11 @@
     <c:forEach var="htvo" items="${htList }" varStatus="s">
         <nav aria-label="#">
             <ul class="pagination">
-                <li class="page-item" v-if="prePageToken!=''">
+                <li class="page-item" v-if="prePageToken!='null'">
                 <form action="../highlight/list.do">
                 <input style="display: none;" type="text" name="pageToken" id="prevPageToken" value="${htvo.prevPageToken }">
                     <button type="submit" class="btn-sm btn-danger"><i class="fa fa-angle-double-left" aria-hidden="true"></i>이전</button>
-                    <input style="display: none;" type="text" name="pageToken" id="nextPageToken" value="${htvo.nextPageToken }">
-                    <button type="submit" class="btn-sm btn-danger" >다음<i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+                    
                 </form>
                 </li>
                 
@@ -120,6 +119,12 @@
                     <a class="page-link" @click="pageChange(i)">{{i}}</a>
                 </li> 
 -->
+ 				<li class="page-item" v-if="prePageToken!=null">
+                <form action="../highlight/list.do">
+                <input style="display: none;" type="text" name="pageToken" id="nextPageToken" value="${htvo.nextPageToken }">
+                    <button type="submit" class="btn-sm btn-danger" >다음<i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+                </form>
+                </li>
                 
             </ul>
         </nav>
