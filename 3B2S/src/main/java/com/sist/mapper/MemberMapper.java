@@ -67,10 +67,10 @@ public interface MemberMapper {
 	  @Select("SELECT COUNT(*) FROM KBO_GOODS_CART WHERE isbuy='0' AND id=#{id}")
 	  	public int mypageCartCount(String id);
 	  
-	  @Select("SELECT COUNT(*) FROM GAME_RESERVE WHERE isreserve='1' AND id=#{id}")
+	  @Select("SELECT COUNT(*) FROM GAME_RESERVE WHERE isreserve='0' AND id=#{id}")
 	  	public int mypageTicketCount(String id);
 
-	  @Select("SELECT COUNT(*) FROM TRAIN_RESERVE WHERE isreserve='1' AND id=#{id}")
+	  @Select("SELECT COUNT(*) FROM TRAIN_RESERVE WHERE isreserve='0' AND id=#{id}")
 	  public int mypageTrainCount(String id);
 	  
 	  @Select("SELECT COUNT(*) FROM RESERVE_HOTEL WHERE isreserve='0' AND id=#{id}")
