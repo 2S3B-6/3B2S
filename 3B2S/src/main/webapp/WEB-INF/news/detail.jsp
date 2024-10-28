@@ -135,10 +135,8 @@ p {
 									    <button v-if="sessionId !== vo.id && sessionId !== ''" class="btn-xs styled-btn" style="margin-left: 2px">Like</button>
 									    
 									    <sec:authorize access="hasRole('ROLE_ADMIN')">
-									    <button class="btn-xs update styled-btn" style="margin-left: 2px" @click="replyUpdateForm(vo.cno)" :id="'u' + vo.cno">Update</button>
-									    <button class="btn-xs styled-btn" style="margin-left: 2px" @click="replyDelete(vo.cno)">Delete</button>
-									    <button class="btn-xs active insert styled-btn" style="margin-left: 2px" @click="replyForm(vo.cno)" :id="'i' + vo.cno">Reply</button>
-									    <button class="btn-xs styled-btn" style="margin-left: 2px">Like</button>
+									    <button class="btn-xs update styled-btn" style="margin-left: 2px; background-color: red;" @click="replyUpdateForm(vo.cno)" :id="'u' + vo.cno">Update</button>
+									    <button class="btn-xs styled-btn" style="margin-left: 2px; background-color: red;" @click="replyDelete(vo.cno)">Delete</button>
 									    </sec:authorize>
 									    
 									</div>

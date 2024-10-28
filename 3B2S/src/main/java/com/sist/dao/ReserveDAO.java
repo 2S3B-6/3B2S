@@ -60,4 +60,8 @@ public class ReserveDAO {
 		return mapper.MyPageJjimListData(id);
 	}
 	
+	public List<GameReserveVO> adminGameListData(){
+		return mapper.adminGameListData();
+	}
+	
 }

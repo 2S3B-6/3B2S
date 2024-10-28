@@ -78,5 +78,12 @@ public class ReserveServiceImpl implements ReserveService{
 		// TODO Auto-generated method stub
 		return rDao.MyPageJjimListData(id);
 	}
+
+	@Override
+	public List<GameReserveVO> adminGameListData() {
+		// TODO Auto-generated method stub
+		return rDao.adminGameListData();
+	}
+	
 	
 }

@@ -28,6 +28,8 @@ public class AdminpageRestController {
 	private MemberService mService;
 	@Autowired
 	private NewsService nService;
+	@Autowired
+	private TrainService tService;
 	   
 	//예약관리
 	@GetMapping(value="adminpage/reserve_info_vue.do",produces="text/plain;charset=UTF-8")
@@ -84,7 +86,28 @@ public class AdminpageRestController {
 			return json;
 		}
 	
-	
-	
+	  
+	  @GetMapping(value="adminpage/admin_train_vue.do",produces = "text/plain;charset=UTF-8")
+	    public String admin_train(HttpSession session) throws Exception
+	    {
+	    
+	    	List<TrainReserveVO> list=tService.trainReserveAdminListData();
+	    	
+	    	ObjectMapper mapper=new ObjectMapper();
+	    	String json=mapper.writeValueAsString(list);
+	    	
+	    	return json;
+	    }
 
+	  @GetMapping(value="adminpage/admin_ticket_vue.do", produces = "text/plain;charset=UTF-8")
+	  public String admin_ticket(HttpSession session) throws Exception{
+
+	    	List<GameReserveVO> list=rService.adminGameListData();
+	    	
+	    	ObjectMapper mapper=new ObjectMapper();
+	    	String json=mapper.writeValueAsString(list);
+	    	
+	    	return json;
+	  }
+	  
 }

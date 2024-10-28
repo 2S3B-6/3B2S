@@ -25,5 +25,14 @@ public class AdminpageController {
 		   return "adminpage/admin_member";
 	   }
 
+	   @GetMapping("adminpage/admin_train.do")
+	   public String admin_train() {
+		   return "adminpage/admin_train";
+	   }
+	   
+	   @GetMapping("adminpage/admin_ticket.do")
+	   public String admin_ticket() {
+		   return "adminpage/admin_ticket";
+	   }
 }
 

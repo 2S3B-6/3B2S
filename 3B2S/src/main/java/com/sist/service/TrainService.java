@@ -10,4 +10,6 @@ public interface TrainService {
     public int trainFindTotalPage(Map map);
     public void train_reserve(TrainReserveVO vo);
 	public List<TrainReserveVO> reserveMyPageListData(String id);
+	
+	public List<TrainReserveVO> trainReserveAdminListData();
 }

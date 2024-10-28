@@ -20,4 +20,6 @@ public interface ReserveService {
 	public void gamereserveInsert(GameReserveVO vo);
 	public List<GameReserveVO> MyPageGameListData(String id);
 	public List<JjimVO> MyPageJjimListData(String id);
+	
+	public List<GameReserveVO> adminGameListData();
 }

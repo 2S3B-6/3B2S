@@ -32,6 +32,12 @@ public class TrainServiceImpl implements TrainService{
 		// TODO Auto-generated method stub
 		return tDao.reserveMyPageListData(id);
 	}
+
+	@Override
+	public List<TrainReserveVO> trainReserveAdminListData() {
+		// TODO Auto-generated method stub
+		return tDao.trainReserveAdminListData();
+	}
      
      
 }

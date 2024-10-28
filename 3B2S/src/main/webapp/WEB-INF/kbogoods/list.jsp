@@ -28,8 +28,8 @@
 		background-color: #aaa; 
 }
 	.logoimgs{
-		width: 65px;
-		height: 65px;
+		width: 7%;
+		height: 7%;
 		margin-right:65px;
 		margin-left: 65px;
 		margin: 15px;

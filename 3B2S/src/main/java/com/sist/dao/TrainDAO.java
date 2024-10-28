@@ -28,4 +28,8 @@ public class TrainDAO {
 	public List<TrainReserveVO> reserveMyPageListData(String id){
 		return mapper.reserveMyPageListData(id);
 	}
+	
+	public List<TrainReserveVO> trainReserveAdminListData(){
+		return mapper.trainReserveAdminListData();
+	}
 }

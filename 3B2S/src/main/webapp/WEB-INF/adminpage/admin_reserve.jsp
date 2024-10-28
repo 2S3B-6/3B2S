@@ -152,7 +152,6 @@ body {
 			  }).then(response=>{
 				  console.log(response.data)
 				  this.reserve_info=response.data
-				  
 			  }).catch(error=>{
 				  console.log(error.response)
 			  })

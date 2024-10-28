@@ -106,7 +106,7 @@
     <c:forEach var="htvo" items="${htList }" varStatus="s">
         <nav aria-label="#">
             <ul class="pagination">
-                <li class="page-item" v-if="prePageToken!=null">
+                <li class="page-item" v-if="prePageToken!=''">
                 <form action="../highlight/list.do">
                 <input style="display: none;" type="text" name="pageToken" id="prevPageToken" value="${htvo.prevPageToken }">
                     <button type="submit" class="btn-sm btn-danger"><i class="fa fa-angle-double-left" aria-hidden="true"></i>이전</button>

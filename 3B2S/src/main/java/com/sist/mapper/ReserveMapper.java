@@ -133,4 +133,8 @@ public interface ReserveMapper {
 					+ " FROM jjim jj, hotel ho"
 					+ " WHERE jj.hno=ho.hno AND id=#{id}")
 			public List<JjimVO> MyPageJjimListData(String id);	
+			
+			@Select("SELECT rno, tno, id, rday, rseat, rprice, regdate, isreserve, rtype "
+					+ " FROM game_reserve")
+			public List<GameReserveVO> adminGameListData();
 }

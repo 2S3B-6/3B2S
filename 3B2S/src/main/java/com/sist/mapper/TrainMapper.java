@@ -45,4 +45,8 @@ public interface TrainMapper {
 			+ " FROM train_reserve "
 			+ " WHERE id=#{id}")
 	public List<TrainReserveVO> reserveMyPageListData(String id);
+	
+	@Select("SELECT rno,tno,ttype,tday,sstart,send,tstart,tend,tinwon,tseat,totalprice "
+			+ " FROM train_reserve ")
+	public List<TrainReserveVO> trainReserveAdminListData();
 }

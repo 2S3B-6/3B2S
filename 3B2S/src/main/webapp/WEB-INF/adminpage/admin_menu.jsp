@@ -62,7 +62,8 @@
 	      <li class="list-group-item"><a href="../adminpage/admin_member.do">회원관리</a></li>
 	      <li class="list-group-item"><a href="../adminpage/admin_buy.do">구매관리</a></li>
 	      <li class="list-group-item"><a href="../adminpage/admin_reserve.do">호텔 예약관리</a></li>
-	      <li class="list-group-item"><a href="../adminpage/admin_reserve.do">기차 예약관리</a></li>
+	      <li class="list-group-item"><a href="../adminpage/admin_train.do">기차 예약관리</a></li>
+	      <li class="list-group-item"><a href="../adminpage/admin_ticket.do">티켓 구매관리</a></li>
 	      <li class="list-group-item"><a href="../adminpage/chat.do">1대1채팅</a></li>
 	    </ul>
 	   </div>
