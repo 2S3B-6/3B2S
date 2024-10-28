@@ -127,7 +127,7 @@ body {
         </div>
     </div>
     <div class="col-md-12">
-      <div id="map" style="width:590px;height:300px;margin-top: -20px;margin-bottom: 20px"></div>
+      <div id="map" style="width:65px;height:300px;margin-top: -20px;margin-bottom: 20px"></div>
       <script>
              var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     		    mapOption = {
