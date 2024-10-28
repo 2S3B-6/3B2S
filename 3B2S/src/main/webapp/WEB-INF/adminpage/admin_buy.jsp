@@ -60,9 +60,9 @@
                                <h4>{{detail_data.name}}</h4>
                              </td>
                             </tr>
-                            <tr v-for="cart_vo in cart_list">
+                            <tr>
                               <td style="color:pink">가격 x 수량</td>
-                              <td>{{detail_data.price}} x {{cart_vo.account}}</td>
+                              <td>{{detail_data.price}}</td>
                             </tr>
                             <tr>
                               <td style="color:gray">배송</td>

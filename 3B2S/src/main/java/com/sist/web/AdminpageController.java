@@ -34,5 +34,10 @@ public class AdminpageController {
 	   public String admin_ticket() {
 		   return "adminpage/admin_ticket";
 	   }
+	   
+	   @GetMapping("adminpage/admin_chat.do")
+	   public String admin_chat() {
+		   return "adminpage/admin_chat";
+	   }
 }
 

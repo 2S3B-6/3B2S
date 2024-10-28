@@ -95,12 +95,19 @@ body {
    	<td class="text-center" colspan="5">
    		<h4>회원 관리</h4>
    	</td>
-   	<tr >
-	    	<th colspan="5" class="text-right">
-	    		검색 : <input class="" type="text" style="text-transform: uppercase;" size="20" placeholder="" ref="" v-model="" @keydown.enter="" >
-	    	</th>
-	    </tr>
+   	 
+   	<tr>
+   	<th colspan="5" class="text-right">
+	   	<select>
+		  	<option>이름</option>
+		  	<option>아이디</option>
+		  	<option>생년월일</option>
+		  	<option>전화번호</option>
+	   	</select>
+   		<input class="" type="text" style="text-transform: uppercase;" size="20" placeholder="" ref="" v-model="" @keydown.enter="" >
+   	</th>
    </tr>
+   <!--
     <tr>
       <th class="text-center">회원 아이디</th>
       <th class="text-center">회원명</th>
@@ -108,63 +115,63 @@ body {
       <th class="text-center">전화번호</th>
 	  <th class="text-center"></th>
     </tr>
-    <tr v-for="">	<!-- mvo in member_list -->
-      <td class="text-center">hong</td>
-      <td class="text-center">홍길동</td>
-      <td class="text-center">2020-10-14</td>
-      <td class="text-center">010-11111111</td>
+    <tr v-for="mvo in member_list">	
+      <td class="text-center">{{mvo.userId}}</td>
+      <td class="text-center">{{mvo.userName}}</td>
+      <td class="text-center">{{mvo.birthday}}</td>
+      <td class="text-center">{{mvo.phone}}</td>
       <td class="text-center">
         <button class="btn-xs btn-success" @click="showDetaill()">상세보기</button>
       </td>
     </tr>
    </table>
-
-   <div v-if="isShow">
+-->
+   <div >
 	     <h4>상세보기</h4>
-	     <table class="table" v-for=""> <!-- mvo in member_list -->
+	     <table class="table" v-for="mvo in member_list"> <!-- mvo in member_list -->
              <tr>
                 <td style="color:gray">회원 아이디</td>
-                <td>hong</td>
+                <td>{{mvo.userId}}</td>
               </tr>
               <tr>
                 <td style="color:gray">회원 이름</td>
-                <td>홍길동</td>
+                <td>{{mvo.userName}}</td>
               </tr>
               <tr>
                 <td style="color:gray">회원 비밀번호</td>
-                <td>hong1234</td>
+                <td>{{mvo.userPwd}}</td>
               </tr>
               <tr>
                 <td style="color:gray">성별</td>
-                <td>남자</td>
+                <td>{{mvo.sex}}</td>
               </tr>
               <tr>
                 <td style="color:gray">생년월일</td>
-                <td>2024-10-14</td>
+                <td>{{mvo.birthday}}</td>
               </tr>
               <tr>
                 <td style="color:gray">우편번호</td>
-                <td>13543</td>
+                <td>{{mvo.post}}</td>
               </tr>
               <tr>
                 <td style="color:gray">주소</td>
-                <td>경기 성남시 분당구 대왕판교로 364 1234-1231</td>
+                <td>{{mvo.addr1}}, {{mvo.addr2}}</td>
               </tr>
               <tr>
                 <td style="color:gray">전화번호</td>
-                <td>010-11111111</td>
+                <td>{{mvo.phone}}</td>
               </tr>
               <tr>
                 <td style="color:gray">회원가입일</td>
-                <td>24/10/14</td>
+                <td>{{mvo.dbday}}</td>
               </tr>
               <tr>
                 <td style="color:gray">선호하는 팀</td>
-                <td>두산</td>
+                <td>{{mvo.team}}</td>
               </tr>
               <tr>
-              	<td><button class="bbtn btn-sm" @click="">회원정보 수정</button></td>
-              	<td><button class="bbtn btn-sm" @click="">회원 탈퇴</button></td>
+              	<td><button class="btn-sm btn-danger" @click="">회원정보 수정</button></td>
+              	<td><input type="submit" value="삭제" class="btn-sm btn-danger" @click.prevent="deleteUser"></td>
               </tr>
         </table>
 	   </div>
@@ -177,11 +184,17 @@ let adminApp=Vue.createApp({
 	 data(){
 		 return {
 			 member_list:[],
-			 isShow:false,
+			 isShow:false
 		 }
 	 },
 	 mounted(){
-		 this.dataRecv()
+		 axios.get('../adminpage/idcheck_vue.do')
+			.then(response=>{
+				console.log(response.data)
+				this.member_list=response.data
+			}).catch(error=>{
+				console.log(error.response)
+			})
 	 },
 	 // 사용자 정의 함수 => 이벤트 처리 , 공통으로 적용 
 	 methods:{	 
@@ -198,9 +211,25 @@ let adminApp=Vue.createApp({
 				 console.log(error.response)
 			 })
 		 },
-		 showDetaill(){
-			
-			        this.isShow = !this.isShow; 
+		 showDetaill(userId){
+	        this.isShow = !this.isShow; 
+		 },
+		 deleteUser() {
+             // 사용자 탈퇴 요청
+             axios.get('../mypage/mypage_delete_vue.do', {
+                 userId: this.userId,
+                 userPwd: this.userPwd
+             }).then(response => {
+                 if (response.data === 'yes') {
+                     alert('회원 탈퇴가 완료되었습니다.');
+                     location.href = "../main/main.do"; // 탈퇴 후 이동할 페이지
+                 } else {
+                     alert('탈퇴 실패: 비밀번호가 올바르지 않습니다.');
+                 }
+             }).catch(error => {
+                 console.log(error.response);
+                 alert('탈퇴 중 오류가 발생했습니다.');
+             });
 		 }
 	 }
 	}).mount('#adminApp')

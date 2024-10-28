@@ -85,7 +85,9 @@ public interface MemberMapper {
 	  @Select("SELECT COUNT(*) FROM BOARD_COMMENT WHERE id=#{id}")
 	  	public int mypageReplyCount(String id);
 
-	  @Select("SELECT userId, userName, userPwd, enabled, sex, birthday, email, post, addr1, addr2, phone "
+	  @Select("SELECT userId, userName, userPwd, enabled, sex, birthday,"
+	  		+ "TO_CHAR(regdate,'YYYY-MM-DD') as dbday, "
+	  		+ "team, email, post, addr1, addr2, phone "
 		  		+ "FROM member_2s3b")
 		  public List<MemberVO> adminMemberInfo();
 

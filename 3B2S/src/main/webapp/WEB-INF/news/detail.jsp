@@ -179,8 +179,8 @@ p {
 									    <button v-if="sessionId !== vo.id && sessionId !== ''" class="btn-xs styled-btn">Like</button>
 									    
 									    <sec:authorize access="hasRole('ROLE_ADMIN')">
-									    <button class="btn-xs update styled-btn" @click="replyUpdateForm(vo.cno)" :id="'u' + vo.cno">Update</button>
-									    <button class="btn-xs styled-btn" @click="replyDelete(vo.cno)">Delete</button>
+									    <button class="btn-xs update styled-btn" style="background-color: red;" @click="replyUpdateForm(vo.cno)" :id="'u' + vo.cno">Update</button>
+									    <button class="btn-xs styled-btn" style="background-color: red;" @click="replyDelete(vo.cno)">Delete</button>
 									    <button class="btn-xs styled-btn">Like</button>
 									    </sec:authorize>
 									    
