@@ -11,10 +11,6 @@
 </head>
 <body>
 	<section id="top">
-   <div class="inner-page-banner">
-            <div class="container">
-            </div>
-         </div>
          <div class="inner-information-text">
             <div class="container">
                <h3>reserve</h3>
@@ -197,8 +193,7 @@
     					// 이동 => mypage
     					if(response.data==='yes')
     					{
-    						alert("yes!!")
-    						/* location.href="../mypage/mypage_reserve.do" */
+    						 location.href="../mypage/mypage_reserve.do" 
     					}
     					else
     					{

@@ -38,10 +38,14 @@
        <!-- VueJS -->
     <script src="https://unpkg.com/vue@3"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
    </head>
 
+  	<!-- ****** Translation Start ****** -->
+  	
+    <!-- ****** Translation End ****** -->
 
-  <!-- ****** Header Start ****** -->
+  	<!-- ****** Header Start ****** -->
     <tiles:insertAttribute name="header"/>
     <!-- ****** Header End ****** -->
 

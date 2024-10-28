@@ -10,7 +10,10 @@ import org.apache.ibatis.annotations.Update;
 
 import com.sist.vo.GameReserveVO;
 import com.sist.vo.GameVO;
+import com.sist.vo.HotelVO;
+import com.sist.vo.JjimVO;
 import com.sist.vo.ReserveVO;
+import com.sist.vo.TrainReserveVO;
 
 public interface ReserveMapper {
 	
@@ -28,11 +31,19 @@ public interface ReserveMapper {
 			+ "  FROM reserve_hotel rh,hotel ht "
 			+ "  WHERE rh.hno=ht.hno AND id=#{id} ORDER BY hno DESC")
 	public List<ReserveVO> reserveMyPageListData(String id);
-	@Select("SELECT rno,rh.hno,poster,name,rday,rroom,rprice,"
-			+ "		TO_CHAR(regdate,'YYYY-MM-DD') as dbday , isReserve "
-			+ "  FROM reserve_hotel rh,hotel ht "
-			+ "  WHERE rh.hno=ht.hno ORDER BY hno DESC")
-	public List<ReserveVO> reserveAdminListData(String id);
+	
+	
+	@Results({
+		@Result(property="hvo.poster",column="poster"),
+		@Result(property="hvo.name",column="name")
+	})
+	@Select("SELECT rno,rh.hno,poster,name,rday,rroom,"
+			+ "TO_CHAR(rprice, '999,999,999,999') as RPRICE, "
+			+ "TO_CHAR(regdate,'YYYY-MM-DD') as dbday, "
+			+ "isReserve "
+			+ "FROM reserve_hotel rh, hotel ht "
+			+ "WHERE rh.hno=ht.hno ORDER BY rno DESC" )
+	public List<ReserveVO> reserveAdminListData();
 	
 	@Update("UPDATE reserve_hotel SET "
 			 +"isReserve=1 "
@@ -111,4 +122,15 @@ public interface ReserveMapper {
 				 +"AND rno=#{rno}")
 		  public ReserveVO gamereserveInfoData(int rno);
 	  /////////////////////////////////////////////////////////////////////////////////////////////
+		  
+		  
+			@Select("SELECT rno, tno, id, rday, rseat, rprice, regdate, isreserve, rtype "
+					+ " FROM game_reserve"
+					+ " WHERE id=#{id}")
+			public List<GameReserveVO> MyPageGameListData(String id);
+			
+			@Select("SELECT jj.hno, id, name, price, address, location  "
+					+ " FROM jjim jj, hotel ho"
+					+ " WHERE jj.hno=ho.hno AND id=#{id}")
+			public List<JjimVO> MyPageJjimListData(String id);	
 }

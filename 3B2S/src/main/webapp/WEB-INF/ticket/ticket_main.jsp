@@ -503,7 +503,6 @@ input[type=checkbox]:disabled:before {
     					// 이동 => mypage
     					console.log(response.data)
     					this.tno = response.data
-    					alert(this.tno)
     					axios.post('../ticket/reserve_ok_vue.do',null,{
     					params:{
     	     				tno:this.tno,
@@ -516,9 +515,7 @@ input[type=checkbox]:disabled:before {
 	    					// 이동 => mypage
 	    					if(response.data==='yes')
 	    					{
-	    						alert("yes!!")
 	    						this.requestPay()
-	    						
 	    					}
 	    					else
 	    					{

@@ -7,33 +7,57 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <style type="text/css">
+.pagination {
+    justify-content: center;
+}
+.pagination .page-link {
+    background-color: white;
+    color: #333;
+    border-color: #ccc; 
+    border: none !important;
+}
+.pagination .page-item.active .page-link {
+    background-color: #003366; 
+    border-color: #003366; 
+    color: white; 
+    border: none !important;
+}
+
 	.page-link:hover{
 		cursor: pointer;
+		background-color: #aaa; 
 }
 	.logoimgs{
-		width: 45px;
-		height: 45px;
-		margin-right:45px;
-		margin-left: 45px;
+		width: 65px;
+		height: 65px;
+		margin-right:65px;
+		margin-left: 65px;
 		margin: 15px;
 	}
+	
 </style>
 </head>
 <body>
+<!-- 제목바 -->
+<section>
+  <div class="news-page-banner">
+      <div class="container">
+      </div>
+   </div>
+   <div class="inner-information-text">
+      <div class="container">
+         <h3>Goods</h3>
+         <ul class="breadcrumb">
+            <li><a href="../main/main.do">Home</a></li>
+            <li class="active"><a href="../kbogoods/list.do">Goods</a></li>
+         </ul>
+      </div>
+   </div>
+</section>
 
-<div id="listApp">
-<!-- 제목 -->
-<div class="breadcumb-area">
-    <div class="container h-100">
-        <div class="row h-100 align-items-center">
-            <div class="col-16">
-                <div class="bradcumb-title text-center">
-                    <h2 style="font-size: 50px;">굿 즈</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<div style="height: 80px;"></div>
+<div id="listApp" >
+
  <div class="breadcumb-nav" style="margin-bottom: 50px;">
     <div class="container">
         <div class="row">
@@ -107,9 +131,6 @@
                        </li>
                    </ul>
                </nav>
-               <div class="page-status">
-                   <p>{{curpage}} page / {{totalpage}} pages</p>
-               </div>
            </div>
        </div>
 

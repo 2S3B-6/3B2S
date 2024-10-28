@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 import lombok.Data;
 @Data
 public class BoardVO {
-  private int no,hit,filecount;
+  private int no,hit,filecount,replycount;
   private String id,name,subject,content,pwd,filename,filesize,dbday;
   private Date regdate;
 

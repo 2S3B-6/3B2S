@@ -96,6 +96,9 @@ google.charts.load('current', {packages: ['corechart', 'bar']});
     line-height: 28px;
     font-family: '나눔스퀘어';
 }
+#back {
+	float: right;
+}
 </style>
 </head>
 <body>
@@ -313,6 +316,9 @@ google.charts.load('current', {packages: ['corechart', 'bar']});
                              </div>
                            </div>
                         </c:if>
+                        <div>
+	                    	<button id="back" class="btn-lg btn-primary" onclick="javascript:history.back()">목록</button>
+	                    </div>
                     </div>
                                     
                                 </div>

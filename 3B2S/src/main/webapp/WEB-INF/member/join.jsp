@@ -17,28 +17,24 @@ p {
 </style>
 </head>
 <body>
-<div class="top_space"  style="height: 220px;"></div>
 
-<div class="breadcumb-area">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12">
-                    <div class="bradcumb-title text-center">
-                        <h2>회원가입</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="breadcumb-nav">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- 제목바 -->
+<section>
+  <div class="news-page-banner">
+      <div class="container">
+      </div>
+   </div>
+   <div class="inner-information-text">
+      <div class="container">
+         <h3>회원가입</h3>
+         <ul class="breadcrumb">
+            <li><a href="../main/main.do">Home</a></li>
+            <li class="active"><a href="../member/join.do">Sing Up</a></li>
+         </ul>
+      </div>
+   </div>
+</section>
+
     <section class="single_blog_area section_padding_20" id="joinApp">
         <div class="container">
             <div class="row justify-content-center">
@@ -143,8 +139,8 @@ p {
 			       </select>
 			     </tr>
 			     <tr>
-			       <td colspan="2" class="text-center">
-			        <input type="submit" value="회원가입" class="btn btn-sm ">
+			       <td colspan="2" class="text-center" >
+			        <input type="submit" value="회원가입" class="btn btn-sm" style="margin-left: 43%">
 			        &nbsp;&nbsp;
 			        <input type=button value="취소" class="btn btn-sm " onclick="javascript:history.back()">
 			       </td>

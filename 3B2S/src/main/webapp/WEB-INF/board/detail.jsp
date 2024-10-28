@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -137,6 +138,12 @@ display:block;
                   <td colspan="4" class="text-right">
                      <a :href="'../board/update.do?no=' + vo.no" class="btn btn-xs" v-show="sessionId === vo.id">수정</a>
                      <button class="btn btn-xs" @click="boardDelete()" v-show="sessionId === vo.id">삭제</button>
+                     
+                     <sec:authorize access="hasRole('ROLE_ADMIN')">
+                     <a :href="'../board/update.do?no=' + vo.no" class="btn btn-xs" style="background-color: red">수정</a>
+                     <button class="btn btn-xs" @click="boardDelete()" style="background-color: red">삭제</button>
+                     </sec:authorize>
+                     
                      <a href="../board/list.do" class="btn btn-xs">목록</a>
                   </td>
                </tr>
@@ -165,6 +172,12 @@ display:block;
                                                 <p>{{vo.msg}}</p>
                                                 <button v-if="sessionId===vo.id" class="btn btn-xs" style="margin-left: 2px" @click="replyUpdateForm(vo.cno)" :id="'u'+vo.cno">Update</button>
                                                 <button v-if="sessionId===vo.id" class="btn btn-xs" style="margin-left: 2px" @click="replyDelete(vo.cno)">Delete</button>
+                                                
+                                                <sec:authorize access="hasRole('ROLE_ADMIN')">
+                                                <button class="btn btn-xs" style="margin-left: 2px; background-color: red; " @click="replyUpdateForm(vo.cno)" :id="'u'+vo.cno">Update</button>
+                                                <button class="btn btn-xs" style="margin-left: 2px; background-color: red;" @click="replyDelete(vo.cno)">Delete</button>
+                                                </sec:authorize>
+                                                
                                                 <button class="active insert"  v-if="sessionId!=''" style="margin-left: 2px"  @click="replyForm(vo.cno)" :id="'i'+vo.cno">Reply</button>
                                                 <button v-if="sessionId!==vo.id && sessionId!==''" style="margin-left: 2px">Like</button>
                                                 <table class="table ins" style="display: none" :id="'in'+vo.cno">
@@ -209,6 +222,12 @@ display:block;
                                                         <p>{{vo.msg}}</p>
                                                         <button v-if="sessionId===vo.id" class="btn btn-xs" style="margin-left: 2px" @click="replyUpdateForm(vo.cno)" :id="'u'+vo.cno">Update</button>
                                                         <button v-if="sessionId===vo.id" class="btn btn-xs" style="margin-left: 2px" @click="replyDelete(vo.cno)">Delete</button>
+                                                        
+                                                        <sec:authorize access="hasRole('ROLE_ADMIN')">
+			                                              <button class="btn btn-xs" style="margin-left: 2px; background-color: red;" @click="replyUpdateForm(vo.cno)" :id="'u'+vo.cno">Update</button>
+			                                              <button class="btn btn-xs" style="margin-left: 2px; background-color: red;" @click="replyDelete(vo.cno)">Delete</button>
+			                                            </sec:authorize>
+                                                        
                                                         <button v-if="sessionId!==vo.id && sessionId!==''" style="margin-left: 2px">Like</button>
 		                                               <table class="table ups" style="display:none " :id="'up'+vo.cno">
 					                                     <tr>
@@ -472,7 +491,5 @@ display:block;
     	 }
      }).mount('#replyApp')
     </script>          
-
-
 </body>
 </html>

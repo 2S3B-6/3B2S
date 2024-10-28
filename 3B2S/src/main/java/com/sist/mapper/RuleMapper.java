@@ -42,4 +42,6 @@ public interface RuleMapper {
 	  public RuleVO ruleDetailData(int no);
 	  
 
+	  @Select("SELECT name, winyear FROM teamdetail")
+	  public String record(Map map);
 }

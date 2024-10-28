@@ -55,35 +55,15 @@
 </style>
 </head>
 <body>
-    <div class="section-box">
-	      <h3>개인정보</h3>
-	    <ul class="list-group">
-	      <li class="list-group-item"><a href="../mypage/mypage_update.do">회원수정</a></li>
-	      <li class="list-group-item"><a href="../mypage/mypage_delete.do">회원탈퇴</a></li>
-	      <li class="list-group-item"><a href="../member/pwd_change.do">비밀번호 변경</a></li>
-	    </ul>
-	   </div>
-	   
-	   <div class="section-box">
-	      <h3>관리정보</h3>
-	    <ul class="list-group">
-	      <li class="list-group-item"><a href="#">게시판관리</a></li>
-	      <li class="list-group-item"><a href="#">댓글관리</a></li>
-	      <li class="list-group-item"><a href="../mypage/mypage_jjim.do">찜관리</a></li>
-	      <li class="list-group-item"><a href="#">좋아요관리</a></li>
-	      <li class="list-group-item"><a href="../mypage/mypage_buy.do">구매관리</a></li>
-	      <li class="list-group-item"><a href="../mypage/mypage_cart.do">장바구니관리</a></li>
-	      <li class="list-group-item"><a href="../mypage/mypage_reserve.do">예약관리</a></li>
-	    </ul>
-	   </div>
+
 	   <div class="section-box">
 	      <h3>관리자 메뉴</h3>
 	    <ul class="list-group">
-	      <li class="list-group-item"><a href="../admin/member_list.do">회원관리</a></li>
-	      <li class="list-group-item"><a href="../admin/notice_list.do">공지사항관리</a></li>
-	      <li class="list-group-item"><a href="#">구매관리</a></li>
-	      <li class="list-group-item"><a href="../admin/admin_reserve.do">예약관리</a></li>
-	      <li class="list-group-item"><a href="../admin/reply_list.do">묻고답하기관리</a></li>
+	      <li class="list-group-item"><a href="../adminpage/admin_member.do">회원관리</a></li>
+	      <li class="list-group-item"><a href="../adminpage/admin_buy.do">구매관리</a></li>
+	      <li class="list-group-item"><a href="../adminpage/admin_reserve.do">호텔 예약관리</a></li>
+	      <li class="list-group-item"><a href="../adminpage/admin_reserve.do">기차 예약관리</a></li>
+	      <li class="list-group-item"><a href="../adminpage/chat.do">1대1채팅</a></li>
 	    </ul>
 	   </div>
 </body>

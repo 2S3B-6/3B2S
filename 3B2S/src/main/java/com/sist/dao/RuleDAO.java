@@ -33,6 +33,8 @@ public class RuleDAO {
 	   return mapper.ruleDetailData(no);
    }
   
-   
+   public String record(Map map) {
+	   return mapper.record(map);
+   }
    
 }

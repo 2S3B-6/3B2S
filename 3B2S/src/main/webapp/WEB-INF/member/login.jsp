@@ -8,7 +8,22 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 </head>
 <body>
-<div class="top_space"  style="height: 240px;"></div>
+<section id="top">
+        
+         <div class="inner-information-text">
+            <div class="container">
+               <h3>Login</h3>
+               <ul class="breadcrumb">
+                  <li><a href="../main/main.do">Home</a></li>
+                  <li class="active">로그인</li>
+               </ul>
+            </div>
+         </div>
+         
+      </section>
+
+
+<div class="top_space"  style="height: 180px;"></div>
 <div class="breadcumb-area">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
@@ -16,15 +31,6 @@
                     <div class="bradcumb-title text-center">
                         <h2>로그인</h2>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="breadcumb-nav">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    
                 </div>
             </div>
         </div>
@@ -64,8 +70,8 @@
              </form>
             </div>
         </div>
+    <div class="top_space"  style="height: 180px;"></div>
     </section>
-    
 <script>
 let logApp=Vue.createApp({
  data(){
@@ -86,7 +92,6 @@ let logApp=Vue.createApp({
 			 this.$refs.userPwd.focus()
 			 return 
 		 }
-		 alert(this.userPwd)
 		 $('#frm').submit()
 	 }
  }

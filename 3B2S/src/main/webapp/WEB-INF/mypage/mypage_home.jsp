@@ -13,6 +13,10 @@
   padding: 20px;
 }
 
+.mypage-container {
+ margin-bottom : 20px;
+}
+
 .summary-box {
   background-color: #f5f5f5;
   border: 1px solid #ddd;
@@ -30,39 +34,81 @@
 </head>
 <body>
 <section>
-<tr>
-<h3>${userName }의 마이페이지</h3>
-<th>${userName }'s team</th>
-<td></td>
-</tr>
+<h1>${userName }의 마이페이지</h1>
 </section>
 <section id="homeApp">
+<h2>구매 관련 메뉴</h2>
 <div class="mypage-container">
 <div class="mypage-summary">
-  <div class="summary-box">
+  <a href="../mypage/mypage_buy.do">
+   <div class="summary-box">
     <h3>구매</h3>
     <p>{{BuyCount}} 건</p>
-  </div>
-  <div class="summary-box">
+   </div>
+  </a>
+  
+  
+  
+  <a href="../mypage/mypage_cart.do">
+   <div class="summary-box">
     <h3>장바구니</h3>
     <p>{{CartCount}} 건</p>
-  </div>
-  <div class="summary-box">
-    <h3>티켓 예약</h3>
+   </div>
+  </a>
+  
+    <a href="../mypage/mypage_ticket.do">
+   <div class="summary-box">
+    <h3>티켓 구매</h3>
     <p>{{TicketCount}} 건</p>
+   </div>
+  </a>
+  
   </div>
-  <div class="summary-box">
-    <h3>호텔 예약</h3>
+  </div>
+  
+  
+<h2>예약 관련 메뉴</h2>
+  <div class="mypage-container">
+  <div class="mypage-summary">
+  <a href="../mypage/mypage_train.do">
+   <div class="summary-box">
+    <h3>기차 예약</h3>
+    <p>{{TrainCount}} 건</p>
+   </div> 
+  </a>
+
+  <a href="../mypage/mypage_reserve.do">
+   <div class="summary-box">
+    <h3>호텔 예약 대기</h3>
+    <p>{{HotelCount1}} 건</p>
+   </div>
+  </a>
+
+  <a href="../mypage/mypage_reserve.do">
+   <div class="summary-box">
+    <h3>호텔 예약 완료</h3>
     <p>{{HotelCount}} 건</p>
+   </div>
+  </a>
   </div>
-  <div class="summary-box">
+  </div>
+
+<h2>게시판 관련 메뉴</h2>
+  <div class="mypage-container">
+  <div class="mypage-summary">
+  <a href="../mypage/mypage_board.do">
+   <div class="summary-box">
     <h3>내가 쓴 글</h3>
     <p>{{BoardCount}} 건</p>
-  </div>
-  <div class="summary-box">
+   </div>
+  </a>
+  
+  <a href="../mypage/mypage_comment.do">
+   <div class="summary-box">
     <h3>내가 쓴 댓글</h3>
     <p>{{ReplyCount}} 건</p>
-  </div>
+   </div>
+  </a>
 </div>
 </div>
 </section>
@@ -73,6 +119,8 @@ let homeApp = Vue.createApp({
 			BuyCount:0,
 			CartCount:0,
 			TicketCount:0,
+			TrainCount:0,
+			HotelCount1:0,
 			HotelCount:0,
 			BoardCount:0,
 			ReplyCount:0
@@ -89,6 +137,8 @@ let homeApp = Vue.createApp({
     			this.BuyCount = response.data.BuyCount
     			this.CartCount = response.data.CartCount
     			this.TicketCount = response.data.TicketCount
+    			this.TrainCount = response.data.TrainCount
+    			this.HotelCount1 = response.data.HotelCount1
     			this.HotelCount = response.data.HotelCount
     			this.BoardCount = response.data.BoardCount
     			this.ReplyCount = response.data.ReplyCount
@@ -98,7 +148,6 @@ let homeApp = Vue.createApp({
     			
     		}
     	}
-    }
 }).mount('#homeApp')
 </script>
 </body>

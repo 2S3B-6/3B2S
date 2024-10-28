@@ -11,5 +11,5 @@ public interface RuleService {
 	public int ruleCount();
 	public RuleVO ruleDetailData(int no);
 	public List<RuleVO> ruleFind(Map map);
-
+	public String record(Map map);
 }

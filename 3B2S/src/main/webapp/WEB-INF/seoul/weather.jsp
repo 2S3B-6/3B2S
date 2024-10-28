@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,33 +8,29 @@
 <title>Insert title here</title>
 <style type="text/css">
 
-.inner-information-text {
-    background-color: #003366;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-}
+
 
 .board-container {
     width: 100%;
-    max-width: 1200px; /* 적당한 최대 너비 */
-    margin: 0 auto; /* 가운데 정렬 */
-    padding: 20px; /* 내부 여백 */
-    border: 2px solid #003366; /* 칠판처럼 테두리 추가 */
-    border-radius: 50px; /* 모서리 둥글게 */
-    background-color: #fff; /* 배경색 */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 20px; 
+    border: 2px solid #003366;  
+    border-radius: 50px;
+    background-color: #fff; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
     margin-bottom: 20px;
 	display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
-</* 헤더를 전체 페이지 너비로 확장 */
 body {
     font-family: "KBO";
 }
 
-/*공통규격*/
 .centers {
     justify-content: center;
     align-items: center;
@@ -43,12 +40,10 @@ body {
 }
 
 
-/*내용CSS*/
 section{
-    margin-top: 50px;
     height:100%;
     display: flex;
-    flex-direction: column;  /* 세로 방향으로 정렬 */
+    flex-direction: column;  
     align-items: center;
 }
 
@@ -76,18 +71,18 @@ section{
     background-color: #0056b3;
 }
 
-/* 드롭다운 목록 */
 .dropdown-content {
-    display: none; /* 기본적으로 숨김 */
+    display: none; 
     position: absolute;
     background-color: #fff;
     min-width: 160px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
     border-radius: 5px;
+    min-width: 190px;
+    text-align: center;
 }
 
-/* 드롭다운 항목 */
 .dropdown-item {
     padding: 10px 20px;
     background-color: #fff;
@@ -102,7 +97,6 @@ section{
     background-color: #f1f1f1;
 }
 
-/* 드롭다운 버튼 클릭 시 목록이 펼쳐지도록 */
 .dropdown:hover .dropdown-content {
     display: block;
 }
@@ -135,7 +129,7 @@ section{
     height: auto;
     max-height:600px;
     display: grid;
-    grid-template-columns: 1fr;  /* 1열로 설정 */
+    grid-template-columns: 1fr;  
     margin-bottom: 50px;
 }
 
@@ -162,9 +156,7 @@ section{
     font-size: 1.5rem;
     color: #333;
 }
-/* .weather_item:hover {
-    transform: translateY(-10px);
-} */
+
 .closeBtn{
     position: absolute;
     cursor: pointer;
@@ -195,23 +187,23 @@ section{
 
 .main_info {
      width: 100%;
-    height: 80%; /* 기존 70%에서 80%로 높이 증가 */
+    height: 80%; 
     color: #fff;
     display: flex;
     align-items: center;
-    padding: 20px; /* 내부 여백 추가 */
+    padding: 20px; 
 }
 
 .main_info .weather_icon {
-    flex: 3; /* 왼쪽 요소에 3의 비율 */
+    flex: 3; 
     font-size: 5rem;
 }
 
 .main_info .weather_info {
-    flex: 7; /* 오른쪽 요소에 7의 비율 */
+    flex: 7; 
     display: flex;
     flex-direction: column;
-    gap: 2px; /* 오른쪽 내부의 요소 간 간격 */
+    gap: 2px;
 }
 
 
@@ -231,7 +223,7 @@ section{
     background-color: rgba(255, 255, 255, 0.05); 
     width: 100%;
     height: 30%;
-    color: #000; /* 이거 온도계 색임*/
+    color: #000;
 }
 
 .sub_info li {
@@ -274,7 +266,6 @@ section{
     margin-top: 30px;
 }
 
-/*font-action*/
 
 .font-action{
     background-image: -webkit-linear-gradient(92deg, #f35626 , rgb(21 128 61));
@@ -293,7 +284,6 @@ section{
   }
 
 
-  /*error*/
 
   .alert{
       width:100%;
@@ -308,7 +298,6 @@ section{
       font-size: 2rem;
   }
 
-  /*copy*/
   .copy{
       font-size: 15px;
       margin-top: 20px;
@@ -327,19 +316,35 @@ section{
     }
     
   }
+.container {
+    display: flex;
+    flex-direction: row; 
+    width : auto;
+}
+
+.hcontainer { 
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
 
 </style>
  <link rel="stylesheet" href="https://erikflowers.github.io/weather-icons/ ">
  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-<section id="top">
-    <div class="inner-information-text">
+<section style="float: none;">
+    <div class="inner-page-banner" style="min-height: 0px;">
         <div class="container">
-            <h3>Blog</h3>
+        </div>
+    </div>
+    <div class="inner-information-text">
+        <div class="hcontainer" >
+            <h3>지역별 날씨</h3>
             <ul class="breadcrumb">
                 <li><a href="../main/main.do">Home</a></li>
-                <li class="active">Hotel</li>
+                <li class="active">weather</li>
             </ul>
         </div>
     </div>
@@ -347,6 +352,7 @@ section{
   <!-- ****** Breadcumb Area Start ****** -->
 
     <section>
+    <div class="container">
     <div class="board-container">
     <div class="breadcumb-area" >
         <div class="container h-100">
@@ -377,7 +383,8 @@ section{
             </div>
         </div>
         <div class="weather_text shadow-indigo-500/50 rounded mt-10 p-5">오늘의 온도는 ? </div>
-
+</div>
+    <div class="board-container">
         <div class="weather mx-auto mb-10 container mx-auto mt-10 drop-shadow-xl rounded
             grid grid-flow-row-dense  gap-5">
       
@@ -405,6 +412,7 @@ section{
                 <li class="btn shadow-lg py-1 px-4  p-2 py-2 rounded hover:bg-white hover:text-indigo-500"><a href="#">3</a></li>
             </ul>
         </nav>
+        </div>
         </div>
     </section>
     <!--weather-->

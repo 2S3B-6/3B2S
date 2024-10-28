@@ -34,4 +34,14 @@ public interface NewsMapper {
 			 +"FROM news ORDER BY hit DESC) "
 			 +"WHERE rownum<=8")
 	  public List<NewsVO> newsHitTop8();
+	  
+	  @Select("SELECT nno,title,rownum "
+				 +"FROM (SELECT nno,title "
+				 +"FROM news ORDER BY hit DESC) "
+				 +"WHERE rownum<=10")
+		  public List<NewsVO> newsHitTop10();
+		  
+		  @Select("SELECT nno,title,poster,content,author "
+				  +"FROM news ORDER BY hit DESC")
+		  public List<NewsVO> newsListMain();
 }

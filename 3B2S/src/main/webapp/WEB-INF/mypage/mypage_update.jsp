@@ -5,10 +5,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+
+.mypage-container {
+    width: 100%;
+    max-width: 1200px; /* 적당한 최대 너비 */
+    margin: 0 auto; /* 가운데 정렬 */
+    padding: 20px; /* 내부 여백 */
+    border: 2px solid #003366; /* 테두리 추가 */
+    border-radius: 10px; /* 모서리 둥글게 */
+    background-color: #fff; /* 배경색 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+</style>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 </head>
 <body>
-	<div id="JoinUpdateApp">
+	<div id="JoinUpdateApp" class="mypage-container">
 	   <table class="table">
 	    <tr>
 	      <td class="text-center" colspan="6">
@@ -84,20 +97,7 @@
 			       <input type="text" size=50 class="input-sm" name="addr2" ref="addr2" v-model="addr2">
 			      </td>
 			     </tr>
-<tr>
-  <th class="text-right" width="30%" style="border: none;">전화번호</th>
-  <td width="70%" style="border: none;">
-    <select class="input-sm" name="phone1" v-model="phone1">
-      <option>010</option>
-      <option>017</option>
-      <option>011</option>
-    </select>
-    &nbsp;
-    <input type="text" size=10 class="input-sm" name="phone2" v-model="phone2" maxlength="4">
-    &nbsp;
-    <input type="text" size=10 class="input-sm" name="phone3" v-model="phone3" maxlength="4">
-  </td>
-</tr>
+
 			     <tr>
 			       <td colspan="2" class="text-center">
 			        <input type="submit" value="수정" class="btn-sm ">
@@ -120,9 +120,6 @@ let JoinUpdateApp=Vue.createApp({
 		 addr1:'',
 		 addr2:'',
 		 userName:'',
-		 phone1:'',
-		 phone2:'',
-		 phone3:'',
 		 birthday:'',
 		 email:'',
 		 sex:'',
@@ -141,9 +138,6 @@ let JoinUpdateApp=Vue.createApp({
 	        this.addr1 = member.addr1;
 	        this.addr2 = member.addr2;
 	        this.userName = member.userName;
-	        this.phone1 = member.phone1;
-	        this.phone2 = member.phone2;
-	        this.phone3 = member.phone3;
 	        this.email = member.email;
 	        this.sex = member.sex;
 	        // 비밀번호는 빈 칸으로 두고, 새로운 입력만 받도록 설정
@@ -199,7 +193,7 @@ let JoinUpdateApp=Vue.createApp({
 	 submitForm(e) {
 		    // 필수 입력값을 모두 확인 후 수정 요청 처리
 		    if (this.userId && this.userName && this.userPwd && this.userPwd2 && this.sex &&
-		        this.email && this.phone1 && this.phone2 && this.phone3 && this.post &&
+		        this.email && this.post &&
 		        this.addr1 && this.addr2 && this.pwdOk === '') {
 
 		        // 서버로 수정 요청을 보내는 axios 호출
@@ -212,10 +206,7 @@ let JoinUpdateApp=Vue.createApp({
 		            email: this.email,
 		            post: this.post,
 		            addr1: this.addr1,
-		            addr2: this.addr2,
-		            phone1: this.phone1,
-		            phone2: this.phone2,
-		            phone3: this.phone3
+		            addr2: this.addr2
 		        }).then(response => {
 		            if (response.data === 'success') {
 		                alert('수정이 완료되었습니다.');
@@ -242,10 +233,6 @@ let JoinUpdateApp=Vue.createApp({
 		            this.userPwd = '';
 		            this.userPwd2 = '';
 		            this.$refs.userPwd.focus();
-		        } else if (!this.phone2) {
-		            this.$refs.phone2.focus();
-		        } else if (!this.phone3) {
-		            this.$refs.phone3.focus();
 		        } else if (!this.email) {
 		            this.$refs.email.focus();
 		        } else {

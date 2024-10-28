@@ -162,7 +162,7 @@ li.col-sm-4 {
                   <div class="row">
                      <div class="col-md-12">
                         <div class="full">
-                           <div class="main-menu-section">
+                           <div class="main-menu-section" style="margin-left:100px;">
                               <div class="menu">
                                     <div class="navbar-header">
                                        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
@@ -186,24 +186,24 @@ li.col-sm-4 {
                            
                                     <div class="collapse navbar-collapse js-navbar-collapse">
                                        <ul class="nav navbar-nav">
-                                          <li class="active"><a href="../main/main.do">Home</a></li>
+
                                           <li class="dropdown mega-dropdown">
-                                             <a href="match" class="dropdown-toggle" data-toggle="dropdown">일정/기록<span class="caret"></span></a>				
+                                             <a href="match" class="dropdown-toggle" data-toggle="dropdown">일정/순위<span class="caret"></span></a>				
                                              <ul class="dropdown-menu mega-dropdown-menu"  style="width:170px;height:180px;">
                                                
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
                                                       <li><a href="../schedule/schedule.do">경기일정&결과</a></li>
                                                       <li><a href="../team/ranking.do">순위</a></li>
+                                                      <li><a href="../guide/record.do">우승 기록</a></li>
                                                       <li><a href="../seoul/weather.do">오늘의 날씨</a></li>
-                                                      <li><a href="../stadium/cctv.do">경기장 주변 교통</a></li>
                                                    </ul>
                                                 </li>
                                              </ul>
                                           </li>
                                           <li class="dropdown mega-dropdown">
-                                             <a href="match" class="dropdown-toggle" data-toggle="dropdown">구장/선수/팀<span class="caret"></span></a>				
-                                             <ul class="dropdown-menu mega-dropdown-menu"  style="width:110px;height:225px; width:60px;">
+                                             <a href="match" class="dropdown-toggle" data-toggle="dropdown">구장/팀/선수<span class="caret"></span></a>				
+                                             <ul class="dropdown-menu mega-dropdown-menu"  style="width:110px;height:270px; width:60px;">
                                                
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
@@ -212,6 +212,7 @@ li.col-sm-4 {
                                                       <li><a href="../player/batter_list.do">타자 정보</a></li>
                                                       <li><a href="../player/pitcher_list.do">투수 정보</a></li>
                                                       <li><a href="../player/vs.do">선수 비교</a></li>
+                                                      <li><a href="../stadium/cctv.do">경기장 주변 교통</a></li>
                                                    </ul>
                                                 </li>
                                              </ul>
@@ -222,7 +223,7 @@ li.col-sm-4 {
                                                
                                                 <li class="col-sm-4">
                                                    <ul class="menu-inner">
-                                                      <li><a href="#">경기별 하이라이트</a></li>
+                                                      <li><a href="../highlight/list.do">경기별 하이라이트</a></li>
                                                       <li><a href="../news/list.do">뉴스</a></li>
                                                    </ul>
                                                 </li>
@@ -256,17 +257,24 @@ li.col-sm-4 {
                                              </ul>
                                           </li>
                                           
-                                               <c:if test="${sessionScope.userId!=null }">
-					                            <li class="myadpage">
-					                            	
-					                            	
-						                            	<sec:authorize access="hasRole('ROLE_ADMIN')">
-						                            		<li class="active"><a href="../adminpage/adminpage_main.do">관리자페이지</a></li>
-						                            	</sec:authorize>
-						                            	<sec:authorize access="hasRole('ROLE_USER')">
-						                            		<li class="active"><a href="../mypage/mypage_main.do">마이페이지</a></li>
-						                            	</sec:authorize>
-					                            </li>
+                                        <c:if test="${sessionScope.userId!=null }">
+			                            	<li class="dropdown mega-dropdown">
+				                            	<sec:authorize access="hasRole('ROLE_ADMIN')">
+				                            	<a href="match" class="dropdown-toggle" data-toggle="dropdown">마이페이지<span class="caret"></span></a>
+				                            		<ul class="dropdown-menu mega-dropdown-menu"  style="width:200px;height:105px;">
+					                            		<li class="col-sm-4">
+	                            							<ul class="menu-inner">
+                            									<li><a href="../mypage/mypage_main.do"  style="color:white;">마이페이지</a></li>
+				                            					<li><a href="../adminpage/adminpage_main.do"  style="color:white;">관리자페이지</a></li>
+				                            				</ul>
+				                            			</li>
+				                            		</ul>
+				                            	</sec:authorize>
+				                            	<li class="myadpage">
+					                            	<sec:authorize access="hasRole('ROLE_USER')">
+					                            		<li class="active"><a href="../mypage/mypage_main.do"  style="color:white;">마이페이지</a></li>
+					                            	</sec:authorize>
+				                            	</li>
                             				</c:if>
                                        </ul>
                                        
@@ -286,7 +294,7 @@ li.col-sm-4 {
             
                            
                            <!-- button section -->
-                           <ul class="login">
+                           <ul class="login" style="margin-top:5px;">
                            <c:if test="${sessionScope.userId==null }">
                               <li class="login-modal">
                                  <a href="../member/login.do" class="login"><i class="fa fa-lock"></i>로그인</a>
@@ -304,13 +312,13 @@ li.col-sm-4 {
                               </li>
                            </ul>
                            <c:if test="${sessionScope.userId!=null }">
-	                            <div class="login">
+	                            <div class="login" style="margin-left:5px; color:white;">
 	                            	${sessionScope.userName }(
 		                            	<sec:authorize access="hasRole('ROLE_ADMIN')">관리자</sec:authorize>
 		                            	<sec:authorize access="hasRole('ROLE_USER')">일반 사용자</sec:authorize>
 	                            	)
 	                            	님께서 로그인되었습니다&nbsp;&nbsp;
-	                                <a href="../member/logout.do">로그아웃</a>
+	                                <a href="../member/logout.do"  style="color:gray;">로그아웃</a>
 	                            </div>
                             </c:if>
                             <!-- start translation -->
