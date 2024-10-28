@@ -130,7 +130,7 @@
 		                break
 		            case 9:
 		                cctvUrl='http://cctvsec.ktict.co.kr/2326/y8Oy0cujl4sjYZIQeqMNI+WvJtET3lmSjVmKib2Yc7jVEhk0eDZW7S5yN8XojtCUIqr0gR8rH2rtjTsDvOlaTQ=='
-		                break
+		                break 
 		            default:
 		                console.log('Invalid stadium number')
 		                return
